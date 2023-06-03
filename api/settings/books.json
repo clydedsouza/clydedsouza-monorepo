@@ -1,0 +1,9 @@
+{
+    "name": "books",
+    "cwd": "./",
+    "src": "portfolio/books/",
+    "filePattern": "**/*.md",
+    "dist": "public/books.json",
+    "metadata": false,
+    "deterministicOrder": true
+  }

@@ -1,0 +1,18 @@
+{
+  "name": "clydedsouza-projects",
+  "version": "0.0.1",
+  "author": "Clyde D'Souza",
+  "scripts": {
+    "generate:portfolio": "markdown-json -c ./settings/portfolio.json",
+    "generate:projects": "markdown-json -c ./settings/projects.json",
+    "generate:books": "markdown-json -c ./settings/books.json",    
+    "generate:speaking": "markdown-json -c ./settings/speaking.json",
+    "generate:teaching": "markdown-json -c ./settings/teaching.json",
+    "generate:highlights": "markdown-json -c ./settings/highlights.json",
+    "generate:pinned": "markdown-json -c ./settings/pinned.json",
+    "generate:api": "npm run generate:projects & npm run generate:teaching & npm run generate:books & npm run generate:speaking & npm run generate:highlights & npm run generate:pinned & npm run generate:portfolio"
+  },
+  "dependencies": {
+    "markdown-json": "^1.6.1"
+  }
+}

@@ -1,0 +1,46 @@
+name: Build api
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'web/**'
+      - 'web2/**'
+      - 'docs/**'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'web/**'
+      - 'web2/**'
+      - 'docs/**'
+
+jobs:
+  build:
+    name: Build api
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: api
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+    
+    - name: Install NPM packages
+      run: npm ci
+    
+    - name: Generate API files
+      run: npm run generate:api
+
+    - name: Upload API files
+      uses: actions/upload-artifact@v3
+      with:
+        path: ./api/public

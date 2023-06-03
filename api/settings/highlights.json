@@ -1,0 +1,9 @@
+{
+    "name": "highlights",
+    "cwd": "./",
+    "src": "portfolio/highlights/",
+    "filePattern": "**/*.md",
+    "dist": "public/highlights.json",
+    "metadata": false,
+    "deterministicOrder": true
+  }
