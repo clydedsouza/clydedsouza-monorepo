@@ -1,0 +1,149 @@
+﻿@import "../abstract/variables";
+
+#sidebar {
+    width: 30%;
+    padding: 0 3vw 4vh 3vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+
+    background: $background-image {
+        size: cover !important;
+        repeat: no-repeat;
+    }
+
+    position: fixed;
+    color: #fff;
+    margin-left: 0;
+
+    @include for-tablets-down {
+        width: 100vw;
+        padding: 0 5vw;
+        height: 400px;
+        text-align: center;
+        position: relative;
+    }
+
+    .sidebar-background {
+        width: 180px;
+        height: 180px;
+        min-height:180px;
+        border-radius: 120px;
+        background-size: cover !important;
+        border: 6px solid $contrast-accent;
+        cursor: pointer;
+
+        @include for-tablets-down {
+            width: 120px;
+            height: 120px;
+            min-height:120px;
+            margin: 0px auto !important;
+            border: 4px solid $contrast-accent;
+        }
+
+        @include for-large-desktop-up {
+            width: 210px;
+            height: 210px;
+            min-height: 210px;
+        }
+    }
+
+    h1 {
+        color: white;
+        -webkit-text-fill-color: #fff;
+        margin: 4px 0;
+        font-weight: bold;
+        font-family: $heading-font;
+
+        @include for-tablets-down {
+            margin: 21px 0 9px 0;
+        }
+
+        @include for-large-desktop-up {
+            font-size: 46px;
+        }
+    }
+
+    div {
+        margin: 2vh 0px;
+
+        @include for-tablets-down {
+            margin: 4px 0;
+        }
+
+        &.sidebar-tagline {
+            p {
+                font-size: 19px;
+                font-family: $heading-font;
+                width: 100%;
+                margin: 9px 0;
+
+                @include for-large-desktop-up {
+                    font-size: 24px;
+                }
+
+                small {
+                    padding: 9px 0;
+                }
+            }
+        }
+    }
+}
+
+#sidebar {
+    .sidebar-icons {
+        font-size: 18px;
+        font-weight: 100;
+        margin: 0.5vh 0 3vh 0;
+
+        span {
+            margin: 1vh 0px;
+
+            a {
+                &:hover, &:focus {
+                    border-bottom: none;
+                }
+            }
+
+            i {
+                font-size: 24px;
+                margin: 0 0.5vw;
+                color: white;
+
+                @include for-tablets-down {
+                    margin: 0 3vw;
+                }
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+#sidebar {
+    .sidebar-highlights {
+        background-color: rgba($contrast-accent, 0.1);
+        border-radius: 6px;
+        padding: 9px 6px 3px 13px;
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s linear 0.2s;
+            border-bottom: 0;
+
+            &:hover, &:focus {
+                opacity: 0.8;
+                border-bottom: 1px dashed white;
+            }
+        }
+
+        @include for-tablets-down {
+            display:none;
+        }
+    }
+}

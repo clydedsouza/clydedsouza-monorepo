@@ -1,0 +1,57 @@
+﻿@import "../abstract/variables";
+
+::selection {
+    color: $bg-color;
+    background: $text-color;
+}
+
+body {
+    margin: 0%;
+    padding: 0%;
+    width: 100vw;
+    background: $bg-color;
+    color: $text-color;
+    max-width: 100vw;
+    overflow-x: hidden;
+    align-items: center;
+    font-family: $body-font;
+    letter-spacing: 0.5px;
+}
+
+h1, h2, h3 {
+    background: $background-gradient;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    color: $primary-accent;
+    font-family: $body-font;
+}
+
+a {
+    color: $primary-accent;
+
+    &:hover, &:focus {
+        color: darken($primary-accent, 5%);
+        text-decoration: none;
+        border-bottom: 1px solid $contrast-accent;
+    }
+}
+
+main {
+    width: 100vw;
+    padding: 16px 35px;
+    display: inline-block;
+    padding-left: 35%;
+
+    @include for-tablets-down {
+        & {
+            padding: 16px;
+            height: auto;
+            display: inline-block;
+        }
+    }
+
+    @include for-tablets-down {
+        padding-left: 21px;
+    }
+}
+

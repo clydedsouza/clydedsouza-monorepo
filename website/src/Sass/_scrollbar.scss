@@ -1,0 +1,14 @@
+﻿@import "../abstract/variables";
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+
+::-webkit-scrollbar-track {
+	background: $bg-color;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $text-color;
+}

@@ -1,0 +1,31 @@
+﻿@import "../abstract/variables";
+
+nav {
+    text-align: center;
+    padding: 9px 2px;
+    padding-left: 30.5vw;
+
+    @include for-tablets-down {
+        padding-left: 2px;
+    }
+
+    a {
+        color: $primary-accent;
+        margin-left: 6px;
+        padding: 9px 29px;
+        border-radius: 30px;
+        cursor: pointer;
+        background-color: #f9f9f9;
+        display: inline-block;
+        width: auto;
+        margin-top: 10px;
+        transition: all 0.2s linear 0.2s;
+
+        &:hover, &.active {
+            background-color: $contrast-accent;
+            text-decoration: none;
+            color: $primary-accent;
+            border-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,65 @@
+﻿
+$primary-accent: #009688;
+$contrast-accent: #ffff00;
+$gradient-start: #009688;
+$gradient-end: #10984b;
+
+$bg-color: #fff;
+$text-color: rgba(10, 10, 10, 0.6);
+$blog-gray-color: rgba(10, 10, 10, 0.6);
+$background-image: linear-gradient(155deg, rgba(0, 150, 136, 0.8784313725490196), rgba(16, 152, 75, 0.9411764705882353)), url("../images/clydedsouza-blur.jpg");
+$background-gradient: linear-gradient(155deg, rgba(0, 150, 136, 0.8784313725490196), rgba(16, 152, 75, 0.9411764705882353));
+$background-background: linear-gradient(0deg, rgba(10, 10, 10, 1), rgba(10, 10, 10, 0.6)), url("../images/clydedsouza-blur.jpg") center center fixed;
+$height: 50vh;
+$primary-accent-transparent: rgba(0, 150, 136, 0.5);
+
+$body-font: 'Roboto', sans-serif;
+$heading-font: 'Dosis','Roboto',sans-serif;
+
+@media (max-width: 800px) {
+    :root {
+        $background-image: linear-gradient(90deg, rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 1)), url("../images/clydedsouza-blur.jpg");
+    }
+}
+
+
+$screen-tablets-up: 631px;
+$screen-desktop-up: 800px;
+$screen-large-desktop-up: 1200px;
+
+/*@mixin for-legacy-mobiles-down {
+    @media (max-width: (($screen-tablets-up)/2)-1) {
+        @content;
+    }
+}*/
+
+@mixin for-mobiles-down {
+    @media  (max-width: (($screen-tablets-up)-1)) {
+        @content;
+    }
+}
+
+@mixin for-tablets-up {
+    @media (min-width: $screen-tablets-up) and (max-width: (($screen-desktop-up)-1)) {
+        @content;
+    }
+}
+
+@mixin for-tablets-down {
+    @media (max-width: (($screen-desktop-up)-1)) {
+        @content;
+    }
+}
+
+@mixin for-desktop-up {
+    @media (min-width: $screen-desktop-up) and (max-width: (($screen-large-desktop-up)-1)) {
+        @content;
+    }
+}
+
+@mixin for-large-desktop-up {
+    @media (min-width: $screen-large-desktop-up) {
+        @content;
+    }
+} 
+
