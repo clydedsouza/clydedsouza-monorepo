@@ -5,10 +5,9 @@ export interface IProjectTileProps {
 }
 
 function ProjectTile(props: IProjectTileProps) {
-  const { name, image, description } = props
   return (
     <div>
-      <p>Project</p>
+      <p>Project {props.name}</p>
       <p>ifbwebfwebfi</p>
     </div>
   )

@@ -7,6 +7,7 @@
     "build": "react-scripts build",
     "pretty": "prettier --write .",
     "pretty:check": "prettier --check .",
+    "lint": "eslint . -c .eslintrc.js",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
   },
@@ -18,6 +19,7 @@
     "@types/node": "^16.18.25",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.1",
+    "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
@@ -25,20 +27,19 @@
     "sass": "^1.62.1",
     "typescript": "^4.9.5"
   },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.21.8",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2"
+  },
   "husky": {
-          "hooks": {
-            "pre-commit": "lint-staged"
-          }
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
     ]
   },
   "browserslist": {
@@ -52,10 +53,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "prettier": "^2.8.8",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.2"
   }
 }
