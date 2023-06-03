@@ -1,0 +1,6 @@
+# Ignore folders:
+build
+coverage
+
+# Ignore files:
+*.svg

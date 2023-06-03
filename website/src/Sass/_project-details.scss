@@ -1,24 +1,25 @@
-﻿@import "../abstract/variables";
+﻿@import '../abstract/variables';
 
 .project-details-view {
-	padding-bottom: 18px;
+  padding-bottom: 18px;
 
-	i {
-		-webkit-text-fill-color: $primary-accent;
-		color: $primary-accent;
-		margin-right: 9px;
-		font-size: smaller;
-		transition: all 0.2s linear 0.2s;
+  i {
+    -webkit-text-fill-color: $primary-accent;
+    color: $primary-accent;
+    margin-right: 9px;
+    font-size: smaller;
+    transition: all 0.2s linear 0.2s;
 
-		&:hover, &:focus {
-			opacity: 0.8;
-		}
-	}
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+    }
+  }
 
-	#projectDetailsContainer h2 {
-		font-size: 26px;
-		color: $text-color;
-		background: transparent;
-		-webkit-text-fill-color: $text-color;
-	}
+  #projectDetailsContainer h2 {
+    font-size: 26px;
+    color: $text-color;
+    background: transparent;
+    -webkit-text-fill-color: $text-color;
+  }
 }

@@ -1,9 +1,9 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link } from 'react-router-dom'
 
 function Navigation() {
-    return (
-      <div>
-       <nav>
+  return (
+    <div>
+      <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -18,8 +18,8 @@ function Navigation() {
       </nav>
 
       <Outlet />
-      </div>
-    );
-  }
-  
-  export default Navigation;
+    </div>
+  )
+}
+
+export default Navigation
