@@ -1,9 +1,9 @@
-﻿@import '../abstract/variables';
+﻿@import 'variables';
 
 nav {
   text-align: center;
   padding: 9px 2px;
-  padding-left: 30.5vw;
+  padding-left: 0;
 
   @include for-tablets-down {
     padding-left: 2px;

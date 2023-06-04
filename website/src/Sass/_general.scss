@@ -1,4 +1,4 @@
-﻿@import '../abstract/variables';
+﻿@import 'variables';
 
 ::selection {
   color: $bg-color;
@@ -40,10 +40,10 @@ a {
 }
 
 main {
-  width: 100vw;
+  width: 64%;
   padding: 16px 35px;
   display: inline-block;
-  padding-left: 35%;
+  padding-left: 34%;
 
   @include for-tablets-down {
     & {

@@ -1,8 +1,21 @@
-import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom'
 import AboutMe from '../AboutMe/AboutMe'
-import Headline from '../Headline/Headline'
-import ProjectTile from '../ProjectTile/ProjectTile'
-import Navigation from './Navigation'
+import Projects from '../Projects/Projects'
+
+function Navigation() {
+  return (
+    <>
+      <nav>
+        <Link to="/">About</Link>
+        <Link to="/projects">Projects</Link>
+        <Link to="/speaking">Speaking</Link>
+        <Link to="/teaching">Teaching</Link>
+        <Link to="/books">Books</Link>
+      </nav>
+      <Outlet />
+    </>
+  )
+}
 
 function AppRoutes() {
   return (
@@ -10,11 +23,10 @@ function AppRoutes() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<AboutMe />} />
-          <Route path="headline" element={<Headline />} />
-          <Route
-            path="projects"
-            element={<ProjectTile name={''} image={''} description={''} />}
-          />
+          <Route path="projects" element={<Projects name="Projects" />} />
+          <Route path="speaking" element={<Projects name={'Speaking'} />} />
+          <Route path="teaching" element={<Projects name={'Teaching'} />} />
+          <Route path="books" element={<Projects name="Books" />} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
       </Routes>
