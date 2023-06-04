@@ -1,4 +1,4 @@
-import { IProject } from '../Types/ProjectData'
+import { IProject } from '../../Types/ProjectData'
 
 function ProjectTile(props: IProject) {
   return (

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getCachedProjectData } from '../Api/Cache'
-import ProjectTile from '../ProjectTile/ProjectTile'
-import { PageTypes } from '../Types/PageTypes'
-import { IProject } from '../Types/ProjectData'
+import { getCachedProjectData } from '../../Api/Cache'
+import { PageTypes } from '../../Types/PageTypes'
+import { IProject } from '../../Types/ProjectData'
+import ProjectTile from './ProjectTile'
 
 export interface IProjectProps {
   name: PageTypes
