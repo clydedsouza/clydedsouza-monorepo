@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../Api/Cache'
-import Seo from '../../Components/Navigation/Seo/Seo'
+import Seo from '../../Components/Seo/Seo'
 import { PageTypes } from '../../Types/PageTypes'
 import { IProject } from '../../Types/ProjectData'
 import ProjectTile from './ProjectTile'

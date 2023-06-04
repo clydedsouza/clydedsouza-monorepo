@@ -1,4 +1,4 @@
-import Seo from '../../Components/Navigation/Seo/Seo'
+import Seo from '../../Components/Seo/Seo'
 
 function AboutMe() {
   return (
