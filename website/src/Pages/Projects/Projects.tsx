@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../Api/Cache'
+import Seo from '../../Components/Navigation/Seo/Seo'
 import { PageTypes } from '../../Types/PageTypes'
 import { IProject } from '../../Types/ProjectData'
 import ProjectTile from './ProjectTile'
@@ -22,15 +23,20 @@ function Projects(props: IProjectProps) {
   }, [props.name])
 
   return (
-    <div id="pinnedProjects">
-      <div id="pinnedProjectsList">
-        {projectData.length > 0 ? (
-          projectData.map((item) => <ProjectTile {...item} key={item.title} />)
-        ) : (
-          <p>Couldn&lsquo;t load the data at this stage</p>
-        )}
+    <>
+      <Seo title={props.name} />
+      <div id="pinnedProjects">
+        <div id="pinnedProjectsList">
+          {projectData.length > 0 ? (
+            projectData.map((item) => (
+              <ProjectTile {...item} key={item.title} />
+            ))
+          ) : (
+            <p>Couldn&lsquo;t load the data at this stage</p>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

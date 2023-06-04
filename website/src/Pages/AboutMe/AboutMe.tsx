@@ -1,6 +1,9 @@
+import Seo from '../../Components/Navigation/Seo/Seo'
+
 function AboutMe() {
   return (
     <div>
+      <Seo />
       <h2>About me</h2>
       <p>
         Hi! I&apos;m Clyde D&apos;Souza. I&apos;m a creative and self-driven
