@@ -1,12 +1,35 @@
+import { useEffect, useState } from 'react'
+import { getCachedProjectData } from '../Api/Cache'
+import ProjectTile from '../ProjectTile/ProjectTile'
+import { PageTypes } from '../Types/PageTypes'
+import { IProject } from '../Types/ProjectData'
+
 export interface IProjectProps {
-  name: string
+  name: PageTypes
 }
 
 function Projects(props: IProjectProps) {
+  const [projectData, setProjectData] = useState<IProject[]>([])
+
+  useEffect(() => {
+    getCachedProjectData(props.name)
+      .then((apiResponse) => {
+        setProjectData(apiResponse.data)
+      })
+      .catch(() => {
+        setProjectData([])
+      })
+  }, [props.name])
+
   return (
-    <div>
-      <p>Project {props.name}</p>
-      <p>ifbwebfwebfi</p>
+    <div id="pinnedProjects">
+      <div id="pinnedProjectsList">
+        {projectData.length > 0 ? (
+          projectData.map((item) => <ProjectTile {...item} key={item.title} />)
+        ) : (
+          <p>Couldn&lsquo;t load the data at this stage</p>
+        )}
+      </div>
     </div>
   )
 }

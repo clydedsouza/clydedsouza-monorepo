@@ -87,7 +87,7 @@
         top: 7px;
       }
 
-      label {
+      span {
         background-color: $contrast-accent;
         padding: 3px 7px;
         color: $primary-accent;
@@ -130,7 +130,7 @@
         font-size: small;
       }
 
-      p > label {
+      p > span {
         background-color: #ffffff30;
         color: white;
         padding: 1px 9px;
