@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "vscode:setup": "ext install esbenp.prettier-vscode",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "pretty": "prettier --write .",
