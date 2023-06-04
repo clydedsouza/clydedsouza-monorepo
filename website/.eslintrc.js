@@ -14,6 +14,7 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:testing-library/react',
     'plugin:react/jsx-runtime',
+    'plugin:@typescript-eslint/recommended',
   ],
   parser: '@babel/eslint-parser',
   parserOptions: {

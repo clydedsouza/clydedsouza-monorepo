@@ -15,5 +15,8 @@ export const getCachedProjectData = (
     projectDataCacheMap.set(pageType, getProjectDataPromise)
   }
 
-  return projectDataCacheMap.get(pageType)!
+  return (
+    projectDataCacheMap.get(pageType) ||
+    Promise.reject('Undefined value obtained')
+  )
 }

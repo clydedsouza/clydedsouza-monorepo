@@ -29,7 +29,7 @@ export interface IProject {
   website: string
   onGithub: boolean
   github: string
-  madeUsing: any[]
+  madeUsing: string[]
   category: string
   icon: string
   image: string
