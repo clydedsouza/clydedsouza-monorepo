@@ -11,13 +11,14 @@ export interface IProjectProps {
 
 function Projects(props: IProjectProps) {
   const [projectData, setProjectData] = useState<IProject[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
+    setIsLoading(true)
     getCachedProjectData(props.name)
       .then((apiResponse) => {
-        console.log('state', projectData)
-        console.log('api', apiResponse.data)
         setProjectData(apiResponse.data)
+        setIsLoading(false)
       })
       .catch(() => {
         setProjectData([])
@@ -27,21 +28,25 @@ function Projects(props: IProjectProps) {
   return (
     <>
       <Seo title={props.name} />
-      <div id="pinnedProjects">
-        <div id="pinnedProjectsList">
-          {projectData.length > 0 ? (
-            projectData
-              .sort((dateA, dateB) => {
-                return (
-                  Number(new Date(dateB.date)) - Number(new Date(dateA.date))
-                )
-              })
-              .map((item) => <ProjectTile {...item} key={item.id} />)
-          ) : (
-            <p>Couldn&lsquo;t load the data at this stage</p>
-          )}
+      {isLoading ? (
+        <p>Contents are loading...</p>
+      ) : (
+        <div id="pinnedProjects">
+          <div id="pinnedProjectsList">
+            {projectData.length > 0 ? (
+              projectData
+                .sort((dateA, dateB) => {
+                  return (
+                    Number(new Date(dateB.date)) - Number(new Date(dateA.date))
+                  )
+                })
+                .map((item) => <ProjectTile {...item} key={item.id} />)
+            ) : (
+              <p>Couldn&lsquo;t load the data at this stage</p>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </>
   )
 }
