@@ -1,4 +1,5 @@
 import './App.css'
+import Cta from './Components/Cta/Cta'
 import AppRoutes from './Components/Navigation/AppRoutes'
 import Sidebar from './Components/Sidebar/Sidebar'
 
@@ -13,6 +14,7 @@ function App() {
           </div>
         </div>
         <footer>
+          <Cta />
           <p>Website crafted by Clyde DSouza</p>
         </footer>
       </main>

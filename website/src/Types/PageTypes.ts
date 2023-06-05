@@ -4,4 +4,6 @@ export enum PageTypes {
   Speaking = 'Speaking',
   Teaching = 'Teaching',
   Books = 'Books',
+  Highlights = 'Highlights',
+  Pinned = 'Pinned',
 }

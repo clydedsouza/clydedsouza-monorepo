@@ -1,42 +1,31 @@
 import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../Api/Cache'
-import Seo from '../../Components/Seo/Seo'
 import { PageTypes } from '../../Types/PageTypes'
 import { IProject } from '../../Types/ProjectData'
-import ProjectTile from './ProjectTile'
+import ProjectTile from '../Projects/ProjectTile'
 
-export interface IProjectProps {
-  name: PageTypes
-}
-
-function Projects(props: IProjectProps) {
+function Pinned() {
   const [projectData, setProjectData] = useState<IProject[]>([])
 
   useEffect(() => {
-    getCachedProjectData(props.name)
+    getCachedProjectData(PageTypes.Pinned)
       .then((apiResponse) => {
-        console.log('state', projectData)
-        console.log('api', apiResponse.data)
         setProjectData(apiResponse.data)
       })
       .catch(() => {
         setProjectData([])
       })
-  }, [props.name])
+  }, [])
 
   return (
     <>
-      <Seo title={props.name} />
+      <h2>Highlights</h2>
       <div id="pinnedProjects">
         <div id="pinnedProjectsList">
           {projectData.length > 0 ? (
-            projectData
-              .sort((dateA, dateB) => {
-                return (
-                  Number(new Date(dateB.date)) - Number(new Date(dateA.date))
-                )
-              })
-              .map((item) => <ProjectTile {...item} key={item.id} />)
+            projectData.map((item) => (
+              <ProjectTile {...item} key={item.title} />
+            ))
           ) : (
             <p>Couldn&lsquo;t load the data at this stage</p>
           )}
@@ -46,4 +35,4 @@ function Projects(props: IProjectProps) {
   )
 }
 
-export default Projects
+export default Pinned

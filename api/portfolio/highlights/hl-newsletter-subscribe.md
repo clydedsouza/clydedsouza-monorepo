@@ -1,6 +1,5 @@
 ---
-text: Subscribe to my newsletter.
+title: Subscribe to my newsletter.
 hasWebsite: true
 website: http://clydedsouza.substack.com/
-
 ---

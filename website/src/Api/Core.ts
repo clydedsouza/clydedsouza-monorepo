@@ -12,9 +12,13 @@ const getProjectApiUrl = (pageType: PageTypes) => {
       return `${BASE_URL}speaking.json`
     case PageTypes.Teaching:
       return `${BASE_URL}teaching.json`
+    case PageTypes.Highlights:
+      return `${BASE_URL}highlights.json`
+    case PageTypes.Pinned:
+      return `${BASE_URL}pinned.json`
     case PageTypes.Projects:
     default:
-      return `${BASE_URL}pinned.json`
+      return `${BASE_URL}projects.json`
   }
 }
 

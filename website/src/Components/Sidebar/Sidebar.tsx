@@ -1,3 +1,5 @@
+import Cta from '../Cta/Cta'
+
 function Sidebar() {
   return (
     <>
@@ -70,7 +72,7 @@ function Sidebar() {
           </span>
         </div>
         <div className="sidebar-highlights">
-          <p>Purchase my book Mama, Tell Me a Story from these platforms.</p>
+          <Cta />
         </div>
       </div>
     </>
