@@ -6,8 +6,7 @@ hasWebsite: true
 website: https://opensea.io/clydedz
 onGithub: false
 github: ""
-madeUsing:
-  - Figma
+madeUsing: []
 category: NFT
 image: https://files.clydedsouza.net/images/projects/opensea-teaser.png
 imageDescription: Clyde's NFT's on OpenSea
