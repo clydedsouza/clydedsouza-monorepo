@@ -31,7 +31,7 @@ function ProjectTile(props: IProject) {
             )}
             {props.onGithub && (
               <a href={props.github} target="_blank" rel="noreferrer">
-                <i className="fas fa-globe"></i>
+                <i className="fab fa-github"></i>
               </a>
             )}
           </div>
