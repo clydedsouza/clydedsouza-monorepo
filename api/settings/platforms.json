@@ -1,0 +1,9 @@
+{
+  "name": "platforms",
+  "cwd": "./",
+  "src": "portfolio/platforms/",
+  "filePattern": "**/*.md",
+  "dist": "public/platforms.json",
+  "metadata": false,
+  "deterministicOrder": true
+}

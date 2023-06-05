@@ -7,7 +7,8 @@
     "generate:cta": "markdown-json -c ./settings/cta.json",
     "generate:highlights": "markdown-json -c ./settings/highlights.json",
     "generate:pinned": "markdown-json -c ./settings/pinned.json",
-    "generate:api": "npm run generate:cta & npm run generate:highlights & npm run generate:pinned & npm run generate:portfolio"
+    "generate:platforms": "markdown-json -c ./settings/platforms.json",
+    "generate:api": "npm run generate:cta & npm run generate:highlights & npm run generate:pinned & npm run generate:platforms & npm run generate:portfolio"
   },
   "dependencies": {
     "markdown-json": "^1.6.1"
