@@ -10,7 +10,6 @@ function ProjectTile(props: IProject) {
         <div className="project-header-contents">
           <div>
             <span>{props.category}</span>
-            {!props.isActive && <span>Inactive</span>}
           </div>
         </div>
       </div>
@@ -24,7 +23,7 @@ function ProjectTile(props: IProject) {
         <div>
           <div className="col-xs-8 text-left">&nbsp;</div>
           <div className="col-xs-4 text-right">
-            {props.isActive && props.hasWebsite && (
+            {props.hasWebsite && (
               <a href={props.website} target="_blank" rel="noreferrer">
                 <i className="fas fa-globe"></i>
               </a>

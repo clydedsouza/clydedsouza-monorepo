@@ -65,9 +65,6 @@ function Projects(props: IProjectProps) {
                       Number(new Date(dateA.date))
                     )
                   })
-                  .filter((condition) =>
-                    showInactive ? true : condition.isActive
-                  )
                   .map((item) => <ProjectTile {...item} key={item.id} />)
               ) : (
                 <p>Couldn&lsquo;t load the data at this stage</p>

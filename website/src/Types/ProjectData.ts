@@ -4,18 +4,8 @@ export interface IProjectData {
 }
 
 export interface IMetadata {
-  config: string
-  cwd: string
-  deterministicOrder: boolean
-  display: boolean
   dist: string
-  filePattern: string
-  ignore: string
-  port: number
-  server: boolean
-  src: string
   name: string
-  metadata: boolean
   version: string
 }
 
@@ -31,10 +21,7 @@ export interface IProject {
   github: string
   madeUsing: string[]
   category: string
-  icon: string
   image: string
   imageDescription: string
-  relativeURL: string
-  isActive: boolean
   excerpt: string
 }
