@@ -5,7 +5,9 @@ function ProjectTile(props: IProject) {
     <section>
       <div
         className="project-header"
-        style={{ backgroundImage: `url(${props.image})` }}
+        style={{
+          backgroundImage: `url(${props.image}), url("https://files.clydedsouza.net/images/projects/omg-team.jpg")`,
+        }}
       >
         <div className="project-header-contents">
           <div>
