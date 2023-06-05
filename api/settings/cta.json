@@ -1,0 +1,9 @@
+{
+  "name": "cta",
+  "cwd": "./",
+  "src": "portfolio/cta/",
+  "filePattern": "**/*.md",
+  "dist": "public/cta.json",
+  "metadata": false,
+  "deterministicOrder": true
+}

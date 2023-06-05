@@ -1,9 +1,0 @@
-{
-    "name": "projects",
-    "cwd": "./",
-    "src": "portfolio/projects/",
-    "filePattern": "**/*.md",
-    "dist": "public/projects.json",
-    "metadata": false,
-    "deterministicOrder": true
-  }
