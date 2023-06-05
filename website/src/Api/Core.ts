@@ -6,19 +6,15 @@ const BASE_URL = 'https://api.clydedsouza.net/'
 
 const getProjectApiUrl = (pageType: PageTypes) => {
   switch (pageType) {
-    case PageTypes.Books:
-      return `${BASE_URL}books.json`
-    case PageTypes.Speaking:
-      return `${BASE_URL}speaking.json`
-    case PageTypes.Teaching:
-      return `${BASE_URL}teaching.json`
-    case PageTypes.Highlights:
-      return `${BASE_URL}highlights.json`
+    case PageTypes.Cta:
+      return `${BASE_URL}cta.json`
     case PageTypes.Pinned:
       return `${BASE_URL}pinned.json`
-    case PageTypes.Projects:
+    case PageTypes.Platforms:
+      return `${BASE_URL}platforms.json`
+    case PageTypes.Highlights:
     default:
-      return `${BASE_URL}projects.json`
+      return `${BASE_URL}highlights.json`
   }
 }
 

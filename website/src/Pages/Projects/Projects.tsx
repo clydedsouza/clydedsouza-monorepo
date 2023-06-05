@@ -12,7 +12,6 @@ export interface IProjectProps {
 function Projects(props: IProjectProps) {
   const [projectData, setProjectData] = useState<IProject[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [showInactive, toggleShowInactive] = useState<boolean>(false)
 
   useEffect(() => {
     setIsLoading(true)
@@ -33,28 +32,6 @@ function Projects(props: IProjectProps) {
         <p>Contents are loading...</p>
       ) : (
         <>
-          <form className="form-inline">
-            <div className="noinactive hidden" />
-            <input
-              type="search"
-              id="searchTxt"
-              className="form-control"
-              placeholder="Search..."
-            />
-            <div id="includeInactiveContainer">
-              <label className="switch-label" htmlFor="includeInactive">
-                Show inactive
-              </label>
-              <label className="switch">
-                <input
-                  type="checkbox"
-                  id="includeInactive"
-                  onClick={() => toggleShowInactive(!showInactive)}
-                />
-                <span className="slider round"></span>
-              </label>
-            </div>
-          </form>
           <div id="pinnedProjects">
             <div id="pinnedProjectsList">
               {projectData.length > 0 ? (

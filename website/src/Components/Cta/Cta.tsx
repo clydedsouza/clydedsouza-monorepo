@@ -9,7 +9,7 @@ function Cta() {
 
   useEffect(() => {
     setIsLoading(true)
-    getCachedProjectData(PageTypes.Highlights)
+    getCachedProjectData(PageTypes.Cta)
       .then((apiResponse) => {
         setProjectData(apiResponse.data)
         setIsLoading(false)

@@ -14,28 +14,16 @@ function Navigation() {
           {PageTypes.About}
         </NavLink>
         <NavLink
-          to="/projects"
+          to="/highlights"
           className={({ isActive }) => (isActive ? 'active' : '')}
         >
-          {PageTypes.Projects}
+          {PageTypes.Highlights}
         </NavLink>
         <NavLink
-          to="/speaking"
+          to="/platforms"
           className={({ isActive }) => (isActive ? 'active' : '')}
         >
-          {PageTypes.Speaking}
-        </NavLink>
-        <NavLink
-          to="/teaching"
-          className={({ isActive }) => (isActive ? 'active' : '')}
-        >
-          {PageTypes.Teaching}
-        </NavLink>
-        <NavLink
-          to="/books"
-          className={({ isActive }) => (isActive ? 'active' : '')}
-        >
-          {PageTypes.Books}
+          {PageTypes.Platforms}
         </NavLink>
       </nav>
       <Outlet />
@@ -50,20 +38,12 @@ function AppRoutes() {
         <Route path="/" element={<Navigation />}>
           <Route index element={<AboutMe />} />
           <Route
-            path={PageTypes.Projects.toLowerCase()}
-            element={<Projects name={PageTypes.Projects} />}
+            path={PageTypes.Highlights.toLowerCase()}
+            element={<Projects name={PageTypes.Highlights} />}
           />
           <Route
-            path={PageTypes.Speaking.toLowerCase()}
-            element={<Projects name={PageTypes.Speaking} />}
-          />
-          <Route
-            path={PageTypes.Teaching.toLowerCase()}
-            element={<Projects name={PageTypes.Teaching} />}
-          />
-          <Route
-            path={PageTypes.Books.toLowerCase()}
-            element={<Projects name={PageTypes.Books} />}
+            path={PageTypes.Platforms.toLowerCase()}
+            element={<Projects name={PageTypes.Platforms} />}
           />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Route>
