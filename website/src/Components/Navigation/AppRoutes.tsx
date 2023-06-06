@@ -2,6 +2,7 @@ import { BrowserRouter, NavLink, Outlet, Route, Routes } from 'react-router-dom'
 import AboutMe from '../../Pages/AboutMe/AboutMe'
 import Projects from '../../Pages/Projects/Projects'
 import { PageTypes } from '../../Types/PageTypes'
+import './AppRoutes.scss'
 
 function Navigation() {
   return (
@@ -45,7 +46,7 @@ function AppRoutes() {
             path={PageTypes.Platforms.toLowerCase()}
             element={<Projects name={PageTypes.Platforms} />}
           />
-          {/* <Route path="*" element={<NoPage />} /> */}
+          <Route path="*" element={<AboutMe />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,8 +1,9 @@
 import { IProject } from '../../Types/ProjectData'
+import './ProjectTile.scss'
 
 function ProjectTile(props: IProject) {
   return (
-    <section>
+    <section className="project-tile">
       <div
         className="project-header"
         style={{

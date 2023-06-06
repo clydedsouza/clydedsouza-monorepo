@@ -1,0 +1,14 @@
+@import '../../Sass/variables';
+
+#pinnedProjects {
+  margin: 9px 0;
+  padding: 2px 0;
+
+  @include for-mobiles-down {
+    margin: 0px;
+  }
+
+  @include for-tablets-up {
+    margin: 0px;
+  }
+}

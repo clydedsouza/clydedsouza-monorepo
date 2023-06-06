@@ -1,4 +1,4 @@
-﻿@import 'variables';
+﻿@import '../../Sass/variables';
 
 #sidebar {
   width: 24%;
@@ -8,15 +8,14 @@
   flex-direction: column;
   justify-content: center;
   text-align: left;
+  position: fixed;
+  color: #fff;
+  margin-left: 0;
 
   background: $background-image {
     size: cover !important;
     repeat: no-repeat;
   }
-
-  position: fixed;
-  color: #fff;
-  margin-left: 0;
 
   @include for-tablets-down {
     width: 100vw;
@@ -31,7 +30,9 @@
     height: 180px;
     min-height: 180px;
     border-radius: 120px;
-    background-size: cover !important;
+    background-image: url('./clyde2023.jpg');
+    background-position: center;
+    background-size: cover;
     border: 6px solid $contrast-accent;
 
     @include for-tablets-down {

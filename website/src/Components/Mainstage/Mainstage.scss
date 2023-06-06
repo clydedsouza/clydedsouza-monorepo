@@ -1,0 +1,20 @@
+@import '../../Sass/variables';
+
+main {
+  width: 64%;
+  padding: 16px 35px;
+  display: inline-block;
+  padding-left: 34%;
+
+  @include for-tablets-down {
+    & {
+      padding: 16px;
+      height: auto;
+      display: inline-block;
+    }
+  }
+
+  @include for-tablets-down {
+    padding-left: 21px;
+  }
+}
