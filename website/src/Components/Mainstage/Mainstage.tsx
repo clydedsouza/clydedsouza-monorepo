@@ -1,11 +1,11 @@
 import Footer from '../Footer/Footer'
-import AppRoutes from '../Navigation/AppRoutes'
+import Navigation from '../Navigation/Navigation'
 import './Mainstage.scss'
 
 function Mainstage() {
   return (
     <main>
-      <AppRoutes />
+      <Navigation />
       <Footer />
     </main>
   )

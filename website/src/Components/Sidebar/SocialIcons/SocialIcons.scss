@@ -1,0 +1,32 @@
+@import '../../../Sass/variables';
+
+.social-icons {
+  font-size: 18px;
+  font-weight: 100;
+  margin: 0.5vh 0 3vh 0;
+
+  span {
+    margin: 1vh 0px;
+
+    a {
+      &:hover,
+      &:focus {
+        border-bottom: none;
+      }
+    }
+
+    i {
+      font-size: 24px;
+      margin: 0 0.5vw;
+      color: white;
+
+      @include for-tablets-down {
+        margin: 0 3vw;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ function Bio() {
       <p>
         Hi! I&apos;m Clyde D&apos;Souza. I&apos;m a creative and self-driven
         person who likes to code and do other things. I&apos;m currently working
-        as a senior software engineer at
+        as a senior software engineer at{' '}
         <a
           href="https://www.xero.com/nz/?ref=clydedsouza.net"
           rel="noreferrer"
@@ -13,15 +13,15 @@ function Bio() {
         >
           Xero
         </a>
-        . Previously, I&apos;ve worked with
+        . Previously, I&apos;ve worked with{' '}
         <a
           href="https://www.datacom.co.nz/?ref=clydedsouza.net"
           rel="noreferrer"
           target="_blank"
         >
           Datacom
-        </a>
-        and
+        </a>{' '}
+        and{' '}
         <a
           href="https://www.heritagehotels.co.nz/?ref=clydedsouza.net"
           rel="noreferrer"
@@ -34,7 +34,7 @@ function Bio() {
       <p>
         I was the event director of a non-profit educational event called Light
         & Spark NPO. I conceptualized and executed this event in Mumbai along
-        with my
+        with my{' '}
         <a
           href="https://lightandsparknpo.github.io/team/"
           rel="noreferrer"
@@ -42,7 +42,7 @@ function Bio() {
         >
           amazing team
         </a>
-        . Read more about it
+        . Read more about it{' '}
         <a
           href="https://lightandsparknpo.github.io/2019-11-20-ruia-mumbai-2018/"
           rel="noreferrer"
@@ -54,7 +54,7 @@ function Bio() {
       </p>
       <p>
         I&apos;ve published a book titled Mama, Tell Me a Story which is
-        available on
+        available on{' '}
         <a
           href="http://mamatellmeastory.clydedsouza.net/"
           rel="noreferrer"
@@ -66,11 +66,11 @@ function Bio() {
         will love reading to their kids over and over again. Go buy it now!
       </p>
       <p>
-        In my spare time, I like to explore other interests like
+        In my spare time, I like to explore other interests like{' '}
         <a href="https://medium.com/@clydedz" rel="noreferrer" target="_blank">
           writing
         </a>
-        ,
+        ,{' '}
         <a
           href="https://www.behance.net/clydedz"
           rel="noreferrer"
@@ -78,7 +78,7 @@ function Bio() {
         >
           designing
         </a>
-        ,
+        ,{' '}
         <a
           href="https://www.skillshare.com/r/user/clydedsouza"
           rel="noreferrer"
@@ -86,18 +86,18 @@ function Bio() {
         >
           teaching
         </a>
-        , and I&apos;ve also created many
+        , and I&apos;ve also created many{' '}
         <a href="/#/projects">other projects</a>.
       </p>
       <p>
-        I&apos;m an alumnus of
+        I&apos;m an alumnus of{' '}
         <a
           href="https://www.aut.ac.nz/?ref=clydedsouza"
           rel="noreferrer"
           target="_blank"
         >
           Auckland University of Technology (AUT)
-        </a>
+        </a>{' '}
         with a Postgraduate Diploma in Computer and Information Sciences and
         holds a Bachelor of Science degree specializing in Information
         Technology from University of Mumbai, India.

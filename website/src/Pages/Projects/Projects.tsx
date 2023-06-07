@@ -33,21 +33,18 @@ function Projects(props: IProjectProps) {
         <p>Contents are loading...</p>
       ) : (
         <>
-          <div id="pinnedProjects">
-            <div id="pinnedProjectsList">
-              {projectData.length > 0 ? (
-                projectData
-                  .sort((dateA, dateB) => {
-                    return (
-                      Number(new Date(dateB.date)) -
-                      Number(new Date(dateA.date))
-                    )
-                  })
-                  .map((item) => <ProjectTile {...item} key={item.id} />)
-              ) : (
-                <p>Couldn&lsquo;t load the data at this stage</p>
-              )}
-            </div>
+          <div id="projects">
+            {projectData.length > 0 ? (
+              projectData
+                .sort((dateA, dateB) => {
+                  return (
+                    Number(new Date(dateB.date)) - Number(new Date(dateA.date))
+                  )
+                })
+                .map((item) => <ProjectTile {...item} key={item.id} />)
+            ) : (
+              <p>Couldn&lsquo;t load the data at this stage</p>
+            )}
           </div>
         </>
       )}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import { getCachedProjectData } from '../../Api/Cache'
-import ProjectTile from '../../Components/ProjectTile/ProjectTile'
-import { PageTypes } from '../../Types/PageTypes'
-import { IProject } from '../../Types/ProjectData'
+import { getCachedProjectData } from '../../../Api/Cache'
+import ProjectTile from '../../../Components/ProjectTile/ProjectTile'
+import { PageTypes } from '../../../Types/PageTypes'
+import { IProject } from '../../../Types/ProjectData'
 
 function Pinned() {
   const [projectData, setProjectData] = useState<IProject[]>([])

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../Api/Cache'
 import { PageTypes } from '../../Types/PageTypes'
 import { IProject } from '../../Types/ProjectData'
+import './Cta.scss'
 
 function Cta() {
   const [projectData, setProjectData] = useState<IProject[]>([])
@@ -24,13 +25,11 @@ function Cta() {
     const randomizedProject =
       items[Math.floor(Math.random() * (items.length - 1 - 0 + 1) + 0)]
     return (
-      <>
-        <p>
-          <a href={randomizedProject.website} target="_blank" rel="noreferrer">
-            {randomizedProject.title}
-          </a>
-        </p>
-      </>
+      <div className="cta">
+        <a href={randomizedProject.website} target="_blank" rel="noreferrer">
+          {randomizedProject.title}
+        </a>
+      </div>
     )
   }
 

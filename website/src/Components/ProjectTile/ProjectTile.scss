@@ -33,17 +33,8 @@
     transform: scale(1.03);
   }
 
-  img.cover {
-    width: 100%;
-    border-radius: 5px 5px 0px 0px;
-  }
-
-  .project-header-contents,
-  .project-body {
+  > div:first-child {
     position: relative;
-  }
-
-  .project-header {
     background-color: $primary-accent;
     background-size: cover;
     background-position: center;
@@ -63,12 +54,6 @@
       min-height: 140px;
     }
 
-    div:nth-of-type(1) {
-      position: relative;
-      left: -6px;
-      top: 7px;
-    }
-
     span {
       background-color: $contrast-accent;
       padding: 3px 7px;
@@ -83,22 +68,15 @@
       clear: both;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
-    }
-
-    div {
-      z-index: 99999;
-    }
-  }
-
-  .project-header-contents {
-    div {
-      font-size: 20px;
-      margin: 10px;
+      position: relative;
+      left: -1px;
+      top: 7px;
     }
   }
 
-  .project-body {
+  > div:last-child {
     padding: 0 9px;
+    font-size: small;
 
     h3 {
       color: white;
@@ -106,72 +84,6 @@
       font-size: 22px;
       font-weight: normal;
       margin: 18px 0 9px 0;
-    }
-
-    p {
-      font-size: small;
-    }
-
-    p > span {
-      background-color: #ffffff30;
-      color: white;
-      padding: 1px 9px;
-      border-radius: 10px;
-      display: inline-block;
-      margin: 9px 0 0 0;
-      font-weight: 100;
-    }
-
-    div:last-child {
-      margin: 9px 0 16px 0;
-
-      div.col-xs-8.text-left {
-        padding-left: 0;
-
-        a {
-          cursor: pointer;
-          color: white;
-          padding: 9px 16px 6px 1px;
-          border-radius: 6px;
-          display: inline-block;
-          margin: 2px 0 0 0;
-          text-decoration: none;
-          transition: all 0.2s linear 0.2s;
-
-          &:hover,
-          &:focus {
-            background-color: #ffffff30;
-            padding: 9px 16px 6px 16px;
-            border-bottom: none;
-          }
-        }
-      }
-
-      div.col-xs-4.text-right {
-        padding-right: 0;
-
-        a {
-          text-decoration: none;
-
-          &:hover,
-          &:focus {
-            border-bottom: none;
-          }
-        }
-
-        i.fas,
-        i.fab {
-          font-size: 24px;
-          margin-left: 9px;
-          color: white;
-          transition: all 0.2s linear 0.2s;
-
-          &:hover,
-          &:focus {
-            opacity: 0.8;
-          }
-        }
-      }
     }
   }
 }

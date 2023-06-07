@@ -35,7 +35,7 @@ module.exports = {
   ],
   root: true,
   rules: {
-    'no-console': 'error',
+    'no-console': 'off',
     'multiline-comment-style': ['error', 'starred-block'],
     'no-inline-comments': 'error',
   },

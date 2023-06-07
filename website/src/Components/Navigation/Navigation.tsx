@@ -2,9 +2,9 @@ import { BrowserRouter, NavLink, Outlet, Route, Routes } from 'react-router-dom'
 import AboutMe from '../../Pages/AboutMe/AboutMe'
 import Projects from '../../Pages/Projects/Projects'
 import { PageTypes } from '../../Types/PageTypes'
-import './AppRoutes.scss'
+import './Navigation.scss'
 
-function Navigation() {
+function Menu() {
   return (
     <>
       <nav>
@@ -15,13 +15,13 @@ function Navigation() {
           {PageTypes.About}
         </NavLink>
         <NavLink
-          to="/highlights"
+          to={PageTypes.Highlights.toLowerCase()}
           className={({ isActive }) => (isActive ? 'active' : '')}
         >
           {PageTypes.Highlights}
         </NavLink>
         <NavLink
-          to="/platforms"
+          to={PageTypes.Platforms.toLowerCase()}
           className={({ isActive }) => (isActive ? 'active' : '')}
         >
           {PageTypes.Platforms}
@@ -32,11 +32,11 @@ function Navigation() {
   )
 }
 
-function AppRoutes() {
+function Navigation() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigation />}>
+        <Route path="/" element={<Menu />}>
           <Route index element={<AboutMe />} />
           <Route
             path={PageTypes.Highlights.toLowerCase()}
@@ -53,4 +53,4 @@ function AppRoutes() {
   )
 }
 
-export default AppRoutes
+export default Navigation
