@@ -1,7 +1,9 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Bio from './Bio'
 
-test('renders page heading', () => {
-  render(<Bio />)
-  expect(screen.getByText('About me')).toBeInTheDocument()
+describe('Bio', () => {
+  it('should render bio', () => {
+    render(<Bio />)
+    expect(document.body).toMatchSnapshot()
+  })
 })

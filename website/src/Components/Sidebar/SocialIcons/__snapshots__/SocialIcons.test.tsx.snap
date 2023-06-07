@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Social icons should render social icons 1`] = `
+<body>
+  <div>
+    <div
+      class="social-icons"
+    >
+      <span>
+        <a
+          href="https://linkedin.com/in/clydedz/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-linkedin"
+          />
+        </a>
+      </span>
+      <span>
+        <a
+          href="mailto:clyde@clydedsouza.net?Subject=Hi%20Clyde%21&Body=Hi%20Clyde,%20%0D%0DI%20wanted%20to%20get%20in%20touch%20with%20you.%0D%0DThanks,%20%0D%0DSent%20from%20https%3A%2F%2Fclydedsouza.net"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fas fa-envelope"
+          />
+        </a>
+      </span>
+      <span>
+        <a
+          href="https://twitter.com/clydedz"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-twitter"
+          />
+        </a>
+      </span>
+      <span>
+        <a
+          href="https://github.com/ClydeDz/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-github"
+          />
+        </a>
+      </span>
+      <span>
+        <a
+          href="https://www.youtube.com/@clydedz"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-youtube"
+          />
+        </a>
+      </span>
+      <span>
+        <a
+          href="https://medium.com/@clydedz"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <i
+            class="fab fa-medium"
+          />
+        </a>
+      </span>
+    </div>
+  </div>
+</body>
+`;

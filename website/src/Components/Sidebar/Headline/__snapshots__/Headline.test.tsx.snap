@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Headline should render headline and tagline 1`] = `
+<body>
+  <div>
+    <div
+      class="headline"
+    >
+      <h1>
+        Clyde DSouza
+      </h1>
+      <div>
+        <p>
+          Software Engineer and Author
+        </p>
+        <p>
+          <small>
+            Auckland, New Zealand
+          </small>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;
