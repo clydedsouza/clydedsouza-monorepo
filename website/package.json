@@ -9,8 +9,13 @@
     "pretty": "prettier --write .",
     "pretty:check": "prettier --check .",
     "lint": "eslint . -c .eslintrc.js",
-    "test": "react-scripts test --watchAll=false",
+    "test": "react-scripts test --watchAll=false --verbose",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

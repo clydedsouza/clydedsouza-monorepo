@@ -5,7 +5,7 @@ import { IProject } from '../../Types/ProjectData'
 import './Cta.scss'
 
 function Cta() {
-  const [projectData, setProjectData] = useState<IProject[]>([])
+  const [projectData, setProjectData] = useState<Partial<IProject>[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
@@ -13,14 +13,16 @@ function Cta() {
     getCachedProjectData(PageTypes.Cta)
       .then((apiResponse) => {
         setProjectData(apiResponse.data)
-        setIsLoading(false)
       })
       .catch(() => {
         setProjectData([])
       })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }, [])
 
-  const CtaLink = (items: IProject[]) => {
+  const CtaLink = (items: Partial<IProject>[]) => {
     if (items.length < 1) return
     const randomizedProject =
       items[Math.floor(Math.random() * (items.length - 1 - 0 + 1) + 0)]

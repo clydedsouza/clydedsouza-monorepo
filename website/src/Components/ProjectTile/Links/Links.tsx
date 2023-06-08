@@ -2,6 +2,8 @@ import { IProject } from '../../../Types/ProjectData'
 import './Links.scss'
 
 function Links(props: IProject) {
+  if (!props.hasWebsite && !props.onGithub) return <></>
+
   return (
     <div className="project-links">
       {props.hasWebsite && (

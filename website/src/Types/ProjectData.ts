@@ -1,6 +1,6 @@
 export interface IProjectData {
-  app: IMetadata
-  data: IProject[]
+  app: Partial<IMetadata>
+  data: Partial<IProject>[]
 }
 
 export interface IMetadata {

@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Links should render links component when hasWebsite is false and onGithub is false 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`Links should render links component when hasWebsite is false and onGithub is true 1`] = `
+<body>
+  <div>
+    <div
+      class="project-links"
+    >
+      <a
+        href="https://github.com/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <i
+          class="fab fa-github"
+        />
+      </a>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Links should render links component when hasWebsite is true and onGithub is false 1`] = `
+<body>
+  <div>
+    <div
+      class="project-links"
+    >
+      <a
+        href="https://www.google.com/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <i
+          class="fas fa-globe"
+        />
+      </a>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Links should render links component when hasWebsite is true and onGithub is true 1`] = `
+<body>
+  <div>
+    <div
+      class="project-links"
+    >
+      <a
+        href="https://www.google.com/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <i
+          class="fas fa-globe"
+        />
+      </a>
+      <a
+        href="https://github.com/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <i
+          class="fab fa-github"
+        />
+      </a>
+    </div>
+  </div>
+</body>
+`;
