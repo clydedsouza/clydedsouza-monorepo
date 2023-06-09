@@ -1,0 +1,40 @@
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from '@testing-library/react'
+import * as apiCacheModule from '../../Api/Cache'
+import { PageTypes } from '../../Types/PageTypes'
+import Navigation from './Navigation'
+
+jest.mock('../../Api/Cache')
+
+describe('Navigation', () => {
+  beforeEach(() => {
+    jest
+      .spyOn(apiCacheModule, 'getCachedProjectData')
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          app: {},
+          data: [],
+        })
+      )
+  })
+
+  it('should render navigation', async () => {
+    render(<Navigation />)
+    await waitForElementToBeRemoved(() =>
+      screen.queryByText('Contents are loading...')
+    )
+    expect(document.body).toMatchSnapshot()
+  })
+
+  it('should call API with correct page type', async () => {
+    render(<Navigation />)
+    await waitForElementToBeRemoved(() =>
+      screen.queryByText('Contents are loading...')
+    )
+    expect(apiCacheModule.getCachedProjectData).toBeCalledTimes(1)
+    expect(apiCacheModule.getCachedProjectData).toBeCalledWith(PageTypes.Pinned)
+  })
+})

@@ -11,7 +11,7 @@ export interface IProjectProps {
 }
 
 function Projects(props: IProjectProps) {
-  const [projectData, setProjectData] = useState<IProject[]>([])
+  const [projectData, setProjectData] = useState<Partial<IProject>[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
@@ -19,10 +19,12 @@ function Projects(props: IProjectProps) {
     getCachedProjectData(props.name)
       .then((apiResponse) => {
         setProjectData(apiResponse.data)
-        setIsLoading(false)
       })
       .catch(() => {
         setProjectData([])
+      })
+      .finally(() => {
+        setIsLoading(false)
       })
   }, [props.name])
 
@@ -37,6 +39,7 @@ function Projects(props: IProjectProps) {
             {projectData.length > 0 ? (
               projectData
                 .sort((dateA, dateB) => {
+                  if (!dateA.date || !dateB.date) return 0
                   return (
                     Number(new Date(dateB.date)) - Number(new Date(dateA.date))
                   )

@@ -5,7 +5,7 @@ import { PageTypes } from '../../../Types/PageTypes'
 import { IProject } from '../../../Types/ProjectData'
 
 function Pinned() {
-  const [projectData, setProjectData] = useState<IProject[]>([])
+  const [projectData, setProjectData] = useState<Partial<IProject>[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
@@ -13,10 +13,12 @@ function Pinned() {
     getCachedProjectData(PageTypes.Pinned)
       .then((apiResponse) => {
         setProjectData(apiResponse.data)
-        setIsLoading(false)
       })
       .catch(() => {
         setProjectData([])
+      })
+      .finally(() => {
+        setIsLoading(false)
       })
   }, [])
 

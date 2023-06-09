@@ -1,0 +1,313 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Projects given api returns a single item given page type is Highlights should render projects 1`] = `
+<body>
+  <div>
+    <div
+      id="projects"
+    >
+      <div
+        class="project-tile"
+      >
+        <div>
+          <span>
+            Graphic Design
+          </span>
+        </div>
+        <div>
+          <h3>
+            Tulips cover page designs
+          </h3>
+          <p>
+            I was responsible for designing the cover page for Tulips - a church bulletin. Each cover page was designed in accordance to a theme for that particular issue and conveyed the underlying meaning of the theme.
+          </p>
+          <div
+            class="made-using"
+          >
+            <span>
+              Photoshop
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Projects given api returns a single item given page type is Platforms should render projects 1`] = `
+<body>
+  <div>
+    <div
+      id="projects"
+    >
+      <div
+        class="project-tile"
+      >
+        <div>
+          <span>
+            Graphic Design
+          </span>
+        </div>
+        <div>
+          <h3>
+            Tulips cover page designs
+          </h3>
+          <p>
+            I was responsible for designing the cover page for Tulips - a church bulletin. Each cover page was designed in accordance to a theme for that particular issue and conveyed the underlying meaning of the theme.
+          </p>
+          <div
+            class="made-using"
+          >
+            <span>
+              Photoshop
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Projects given api returns an error given page type is Highlights should render empty projects 1`] = `
+<body>
+  <div>
+    <div
+      id="projects"
+    >
+      <p>
+        Couldn‘t load the data at this stage
+      </p>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Projects given api returns an error given page type is Platforms should render empty projects 1`] = `
+<body>
+  <div>
+    <div
+      id="projects"
+    >
+      <p>
+        Couldn‘t load the data at this stage
+      </p>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Projects given api returns multiple items given page type is Highlights should render projects 1`] = `
+<body>
+  <div>
+    <div
+      id="projects"
+    >
+      <div
+        class="project-tile"
+      >
+        <div>
+          <span>
+            Website
+          </span>
+        </div>
+        <div>
+          <h3>
+            Profile Sticker
+          </h3>
+          <p>
+            Profile Sticker is a web app that allows a user to add a sticker from different themes to their profile picture. The user can choose to upload a picture from and download to a computer or Facebook.
+          </p>
+          <div
+            class="made-using"
+          >
+            <span>
+              HTML
+            </span>
+            <span>
+              CSS
+            </span>
+            <span>
+              SCSS
+            </span>
+            <span>
+              JavaScript
+            </span>
+            <span>
+              Mustache.js
+            </span>
+          </div>
+          <div
+            class="project-links"
+          >
+            <a
+              href="https://profilesticker.net"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i
+                class="fas fa-globe"
+              />
+            </a>
+            <a
+              href="https://github.com/profilesticker/profilesticker.github.io/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i
+                class="fab fa-github"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="project-tile"
+      >
+        <div>
+          <span>
+            Graphic Design
+          </span>
+        </div>
+        <div>
+          <h3>
+            Tulips cover page designs
+          </h3>
+          <p>
+            I was responsible for designing the cover page for Tulips - a church bulletin. Each cover page was designed in accordance to a theme for that particular issue and conveyed the underlying meaning of the theme.
+          </p>
+          <div
+            class="made-using"
+          >
+            <span>
+              Photoshop
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Projects given api returns multiple items given page type is Platforms should render projects 1`] = `
+<body>
+  <div>
+    <div
+      id="projects"
+    >
+      <div
+        class="project-tile"
+      >
+        <div>
+          <span>
+            Website
+          </span>
+        </div>
+        <div>
+          <h3>
+            Profile Sticker
+          </h3>
+          <p>
+            Profile Sticker is a web app that allows a user to add a sticker from different themes to their profile picture. The user can choose to upload a picture from and download to a computer or Facebook.
+          </p>
+          <div
+            class="made-using"
+          >
+            <span>
+              HTML
+            </span>
+            <span>
+              CSS
+            </span>
+            <span>
+              SCSS
+            </span>
+            <span>
+              JavaScript
+            </span>
+            <span>
+              Mustache.js
+            </span>
+          </div>
+          <div
+            class="project-links"
+          >
+            <a
+              href="https://profilesticker.net"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i
+                class="fas fa-globe"
+              />
+            </a>
+            <a
+              href="https://github.com/profilesticker/profilesticker.github.io/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i
+                class="fab fa-github"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="project-tile"
+      >
+        <div>
+          <span>
+            Graphic Design
+          </span>
+        </div>
+        <div>
+          <h3>
+            Tulips cover page designs
+          </h3>
+          <p>
+            I was responsible for designing the cover page for Tulips - a church bulletin. Each cover page was designed in accordance to a theme for that particular issue and conveyed the underlying meaning of the theme.
+          </p>
+          <div
+            class="made-using"
+          >
+            <span>
+              Photoshop
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Projects given api returns no items given page type is Highlights should render empty projects 1`] = `
+<body>
+  <div>
+    <div
+      id="projects"
+    >
+      <p>
+        Couldn‘t load the data at this stage
+      </p>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Projects given api returns no items given page type is Platforms should render empty projects 1`] = `
+<body>
+  <div>
+    <div
+      id="projects"
+    >
+      <p>
+        Couldn‘t load the data at this stage
+      </p>
+    </div>
+  </div>
+</body>
+`;

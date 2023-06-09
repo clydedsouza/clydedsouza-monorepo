@@ -1,7 +1,9 @@
 import { IProject } from '../../../Types/ProjectData'
 import './MadeUsing.scss'
 
-function MadeUsing(props: IProject) {
+function MadeUsing(props: Partial<IProject>) {
+  if (!props.madeUsing || props.madeUsing.length < 1) return <></>
+
   return (
     <div className="made-using">
       {props.madeUsing &&

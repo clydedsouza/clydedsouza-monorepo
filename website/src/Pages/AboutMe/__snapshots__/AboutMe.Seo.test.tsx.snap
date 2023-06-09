@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About me should render seo 1`] = `
+<head>
+  <title>
+    Clyde D'Souza – Software Engineer and Author
+  </title>
+  <link
+    data-react-helmet="true"
+    href="https://clydedsouza.net/"
+    rel="canonical"
+  />
+  <meta
+    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    data-react-helmet="true"
+    name="description"
+  />
+  <meta
+    content="https://clydedsouza.net/"
+    data-react-helmet="true"
+    property="og:url"
+  />
+  <meta
+    content="Clyde D'Souza – Software Engineer and Author"
+    data-react-helmet="true"
+    property="og:title"
+  />
+  <meta
+    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    data-react-helmet="true"
+    property="og:description"
+  />
+  <meta
+    content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
+    data-react-helmet="true"
+    property="og:image"
+  />
+  <meta
+    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    data-react-helmet="true"
+    property="twitter:card"
+  />
+  <meta
+    content="Clyde D'Souza – Software Engineer and Author"
+    data-react-helmet="true"
+    property="twitter:title"
+  />
+  <meta
+    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    data-react-helmet="true"
+    property="twitter:description"
+  />
+  <meta
+    content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
+    data-react-helmet="true"
+    property="twitter:image"
+  />
+</head>
+`;
