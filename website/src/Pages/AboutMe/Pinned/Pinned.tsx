@@ -4,6 +4,8 @@ import ProjectTile from '../../../Components/ProjectTile/ProjectTile'
 import { PageTypes } from '../../../Types/PageTypes'
 import { IProject } from '../../../Types/ProjectData'
 
+const MAX_PINNED_ITEMS = 4
+
 function Pinned() {
   const [projectData, setProjectData] = useState<Partial<IProject>[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -31,9 +33,15 @@ function Pinned() {
         <div id="pinnedProjects">
           <div id="pinnedProjectsList">
             {projectData.length > 0 ? (
-              projectData.map((item) => (
-                <ProjectTile {...item} key={item.title} />
-              ))
+              projectData
+                .sort((dateA, dateB) => {
+                  if (!dateA.date || !dateB.date) return 0
+                  return (
+                    Number(new Date(dateB.date)) - Number(new Date(dateA.date))
+                  )
+                })
+                .slice(0, MAX_PINNED_ITEMS)
+                .map((item) => <ProjectTile {...item} key={item.title} />)
             ) : (
               <p>Couldn&lsquo;t load the data at this stage</p>
             )}
