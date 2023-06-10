@@ -6,53 +6,53 @@ exports[`Projects given page type is Highlights should render projects seo 1`] =
     Highlights – Clyde D'Souza – Software Engineer and Author
   </title>
   <link
-    data-react-helmet="true"
+    data-rh="true"
     href="https://clydedsouza.net/highlights"
     rel="canonical"
   />
   <meta
     content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
-    data-react-helmet="true"
+    data-rh="true"
     name="description"
   />
   <meta
     content="https://clydedsouza.net/highlights"
-    data-react-helmet="true"
+    data-rh="true"
     property="og:url"
   />
   <meta
     content="Highlights – Clyde D'Souza – Software Engineer and Author"
-    data-react-helmet="true"
+    data-rh="true"
     property="og:title"
   />
   <meta
     content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
-    data-react-helmet="true"
+    data-rh="true"
     property="og:description"
   />
   <meta
     content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
-    data-react-helmet="true"
+    data-rh="true"
     property="og:image"
   />
   <meta
     content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
-    data-react-helmet="true"
+    data-rh="true"
     property="twitter:card"
   />
   <meta
     content="Highlights – Clyde D'Souza – Software Engineer and Author"
-    data-react-helmet="true"
+    data-rh="true"
     property="twitter:title"
   />
   <meta
     content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
-    data-react-helmet="true"
+    data-rh="true"
     property="twitter:description"
   />
   <meta
     content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
-    data-react-helmet="true"
+    data-rh="true"
     property="twitter:image"
   />
 </head>
@@ -64,53 +64,53 @@ exports[`Projects given page type is Platforms should render projects seo 1`] = 
     Platforms – Clyde D'Souza – Software Engineer and Author
   </title>
   <link
-    data-react-helmet="true"
+    data-rh="true"
     href="https://clydedsouza.net/platforms"
     rel="canonical"
   />
   <meta
     content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
-    data-react-helmet="true"
+    data-rh="true"
     name="description"
   />
   <meta
     content="https://clydedsouza.net/platforms"
-    data-react-helmet="true"
+    data-rh="true"
     property="og:url"
   />
   <meta
     content="Platforms – Clyde D'Souza – Software Engineer and Author"
-    data-react-helmet="true"
+    data-rh="true"
     property="og:title"
   />
   <meta
     content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
-    data-react-helmet="true"
+    data-rh="true"
     property="og:description"
   />
   <meta
     content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
-    data-react-helmet="true"
+    data-rh="true"
     property="og:image"
   />
   <meta
     content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
-    data-react-helmet="true"
+    data-rh="true"
     property="twitter:card"
   />
   <meta
     content="Platforms – Clyde D'Souza – Software Engineer and Author"
-    data-react-helmet="true"
+    data-rh="true"
     property="twitter:title"
   />
   <meta
     content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
-    data-react-helmet="true"
+    data-rh="true"
     property="twitter:description"
   />
   <meta
     content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
-    data-react-helmet="true"
+    data-rh="true"
     property="twitter:image"
   />
 </head>
