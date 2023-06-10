@@ -7,6 +7,7 @@ function AboutMe() {
     <>
       <Seo />
       <Bio />
+      <br></br>
       <Pinned />
     </>
   )

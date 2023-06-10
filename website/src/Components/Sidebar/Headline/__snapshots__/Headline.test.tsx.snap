@@ -7,7 +7,7 @@ exports[`Headline should render headline and tagline 1`] = `
       class="headline"
     >
       <h1>
-        Clyde DSouza
+        Clyde D'Souza
       </h1>
       <div>
         <p>

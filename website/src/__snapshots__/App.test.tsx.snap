@@ -13,7 +13,7 @@ exports[`App should render app 1`] = `
         class="headline"
       >
         <h1>
-          Clyde DSouza
+          Clyde D'Souza
         </h1>
         <div>
           <p>
@@ -247,6 +247,7 @@ exports[`App should render app 1`] = `
          
         with a Postgraduate Diploma in Computer and Information Sciences and holds a Bachelor of Science degree specializing in Information Technology from University of Mumbai, India.
       </p>
+      <br />
       <h2>
         Highlights
       </h2>

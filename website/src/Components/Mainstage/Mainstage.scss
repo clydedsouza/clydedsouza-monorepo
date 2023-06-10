@@ -15,6 +15,12 @@ main {
   }
 
   @include for-tablets-down {
-    padding-left: 21px;
+    padding: 15px 21px;
+    width: 90%;
+  }
+
+  @include for-legacy-mobiles-down {
+    padding: 16px 18px;
+    width: 88%;
   }
 }

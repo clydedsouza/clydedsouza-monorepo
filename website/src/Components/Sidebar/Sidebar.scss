@@ -12,14 +12,20 @@
   color: #fff;
   margin-left: 0;
 
-  background: $background-image {
-    size: cover !important;
+  background: {
+    image: linear-gradient(
+        155deg,
+        rgba(0, 150, 136, 0.88),
+        rgba(16, 152, 75, 1)
+      ),
+      url('./Avatar/clyde2023.jpg');
+    size: cover;
     repeat: no-repeat;
   }
 
   @include for-tablets-down {
     width: 100vw;
-    padding: 0 5vw;
+    padding: 0;
     height: 400px;
     text-align: center;
     position: relative;

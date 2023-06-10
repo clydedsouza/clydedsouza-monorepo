@@ -9,6 +9,7 @@
   background-position: center;
   background-size: cover;
   border: 6px solid $contrast-accent;
+  margin: 2vh 0;
 
   @include for-tablets-down {
     width: 120px;

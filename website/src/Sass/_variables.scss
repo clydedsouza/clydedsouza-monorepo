@@ -22,21 +22,16 @@ $primary-accent-transparent: rgba(0, 150, 136, 0.5);
 $body-font: 'Roboto', sans-serif;
 $heading-font: 'Dosis', 'Roboto', sans-serif;
 
-$background-image: linear-gradient(
-  155deg,
-  rgba(0, 150, 136, 0.8784313725490196),
-  rgba(16, 152, 75, 0.9411764705882353)
-);
-
+$screen-legacy-mobile: 315px;
 $screen-tablets-up: 631px;
 $screen-desktop-up: 800px;
 $screen-large-desktop-up: 1200px;
 
-/*@mixin for-legacy-mobiles-down {
-    @media (max-width: (($screen-tablets-up)/2)-1) {
-        @content;
-    }
-}*/
+@mixin for-legacy-mobiles-down {
+  @media (max-width: ($screen-legacy-mobile - 1)) {
+    @content;
+  }
+}
 
 @mixin for-mobiles-down {
   @media (max-width: (($screen-tablets-up)-1)) {
