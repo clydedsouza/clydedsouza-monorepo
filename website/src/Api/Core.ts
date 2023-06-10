@@ -18,14 +18,16 @@ const getProjectApiUrl = (pageType: PageTypes) => {
   }
 }
 
-export const getProjectData = (pageType: PageTypes): Promise<IProjectData> => {
+export const getProjectData = async (
+  pageType: PageTypes
+): Promise<IProjectData> => {
   const request = getProjectApiUrl(pageType)
   return axios
     .get(request)
     .then((response) => {
       return response.data
     })
-    .catch(() => {
-      throw new Error('API error')
+    .catch((error) => {
+      throw new Error('API error', error)
     })
 }
