@@ -6,7 +6,7 @@ import {
 import { emptyProject } from '../TestHelpers/testHelper'
 import * as apiCacheModule from './Api/Cache'
 import { App } from './App'
-import { PageTypes } from './Types/PageTypes'
+import { PageTypes } from './Components/Navigation/PageTypes'
 jest.mock('./Api/Cache')
 
 const apiDataMockResponse = [

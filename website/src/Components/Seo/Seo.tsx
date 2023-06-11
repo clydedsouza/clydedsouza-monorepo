@@ -1,5 +1,5 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-import { ISeo } from '../../Types/Seo'
+import { ISeo } from './ISeo'
 
 function Seo(props: ISeo) {
   const titlePrefix = props.title ? `${props.title} – ` : ''

@@ -1,7 +1,7 @@
-import { PageTypes } from '../Types/PageTypes'
-import { IProjectData } from '../Types/ProjectData'
+import { PageTypes } from '../Components/Navigation/PageTypes'
 import { projectDataCacheMap } from './CacheStorage'
 import { getProjectData } from './Core'
+import { IProjectData } from './IProjectData'
 
 export const getCachedProjectData = async (
   pageType: PageTypes

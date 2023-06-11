@@ -1,4 +1,4 @@
-import { IProject } from '../../../Types/ProjectData'
+import { IProject } from '../../../Api/IProjectData'
 import GitHub from '../../Icons/GitHub'
 import Globe from '../../Icons/Globe'
 import './Links.scss'

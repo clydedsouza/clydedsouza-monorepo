@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { IProject } from '../../../Types/ProjectData'
+import { IProject } from '../../../Api/IProjectData'
 import MadeUsing from './MadeUsing'
 
 describe('Made using', () => {

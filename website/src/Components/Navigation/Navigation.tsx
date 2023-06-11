@@ -1,8 +1,8 @@
 import { BrowserRouter, NavLink, Outlet, Route, Routes } from 'react-router-dom'
 import AboutMe from '../../Pages/AboutMe/AboutMe'
 import Projects from '../../Pages/Projects/Projects'
-import { PageTypes } from '../../Types/PageTypes'
 import './Navigation.scss'
+import { PageTypes } from './PageTypes'
 
 function Menu() {
   return (

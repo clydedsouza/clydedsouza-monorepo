@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../Api/Cache'
-import { PageTypes } from '../../Types/PageTypes'
-import { IProject } from '../../Types/ProjectData'
+import { IProject } from '../../Api/IProjectData'
 import Loader from '../Loader/Loader'
 import { LoaderTypes } from '../Loader/LoaderTypes'
+import { PageTypes } from '../Navigation/PageTypes'
 import './Cta.scss'
 
 interface ICtaProps {

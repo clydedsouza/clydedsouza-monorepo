@@ -1,6 +1,6 @@
 import { waitFor } from '@testing-library/react'
 import axios from 'axios'
-import { PageTypes } from '../Types/PageTypes'
+import { PageTypes } from '../Components/Navigation/PageTypes'
 import { getProjectData } from './Core'
 
 const apiDataMockResponse = [

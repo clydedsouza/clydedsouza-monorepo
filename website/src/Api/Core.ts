@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { PageTypes } from '../Types/PageTypes'
-import { IProjectData } from '../Types/ProjectData'
+import { PageTypes } from '../Components/Navigation/PageTypes'
+import { IProjectData } from './IProjectData'
 
 const BASE_URL = 'https://api.clydedsouza.net/'
 

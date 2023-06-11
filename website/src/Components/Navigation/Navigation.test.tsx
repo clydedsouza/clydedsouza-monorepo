@@ -4,8 +4,8 @@ import {
   waitForElementToBeRemoved,
 } from '@testing-library/react'
 import * as apiCacheModule from '../../Api/Cache'
-import { PageTypes } from '../../Types/PageTypes'
 import Navigation from './Navigation'
+import { PageTypes } from './PageTypes'
 
 jest.mock('../../Api/Cache')
 

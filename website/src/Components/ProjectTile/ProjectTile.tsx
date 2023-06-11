@@ -1,4 +1,4 @@
-import { IProject } from '../../Types/ProjectData'
+import { IProject } from '../../Api/IProjectData'
 import Links from './Links/Links'
 import MadeUsing from './MadeUsing/MadeUsing'
 import './ProjectTile.scss'

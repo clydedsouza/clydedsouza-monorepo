@@ -1,5 +1,5 @@
 import { emptyProject } from '../../TestHelpers/testHelper'
-import { PageTypes } from '../Types/PageTypes'
+import { PageTypes } from '../Components/Navigation/PageTypes'
 import { getCachedProjectData } from './Cache'
 import * as cacheStorageModule from './CacheStorage'
 import * as apiCoreModule from './Core'
