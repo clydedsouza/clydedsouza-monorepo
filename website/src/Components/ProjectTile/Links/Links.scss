@@ -3,6 +3,10 @@
   text-align: right;
   padding-left: 0;
 
+  .made-using ~ & {
+    margin-top: 0;
+  }
+
   a {
     text-decoration: none;
 
