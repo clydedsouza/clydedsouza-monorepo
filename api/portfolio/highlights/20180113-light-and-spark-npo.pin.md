@@ -5,9 +5,7 @@ description:
   A 2-day workshop where we taught industry-relevant technologies to students
   and helped an NGO with their online requirements. This event was conducted at Ruia
   College, Mumbai.
-hasWebsite: true
 website: https://lightandsparknpo.github.io/2019-11-20-ruia-mumbai-2018/
-onGithub: false
 github: ""
 madeUsing: []
 category: Offline workshop

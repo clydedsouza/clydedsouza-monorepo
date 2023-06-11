@@ -6,9 +6,7 @@ description:
   that parents will love reading to their kids over and over again. The stories are
   engaging and revolves around characters that your kids will absolutely love. Each
   story holds the power to unlock your child’s superpower—their imagination!
-hasWebsite: true
 website: http://mamatellmeastory.clydedsouza.net/
-onGithub: false
 github: ""
 madeUsing: []
 category: Bedtime stories

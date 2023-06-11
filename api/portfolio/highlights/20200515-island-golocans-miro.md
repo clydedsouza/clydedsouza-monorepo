@@ -2,9 +2,7 @@
 title: Retrospective in the Island of Golocans
 date: 01 May 2020
 description: You can now copy Miro templates I've designed and published to Miroverse. Check out some cool templates readily available for you to use.
-hasWebsite: true
 website: https://miro.com/miroverse/retrospective-in-the-island-of-golocans/
-onGithub: false
 github: ""
 madeUsing: []
 category: Miro

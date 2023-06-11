@@ -2,9 +2,7 @@
 title: Chrome Extensions
 date: 01 Nov 2021
 description: Have a look at the various Chrome extensions  developed by Clyde.
-hasWebsite: true
 website: https://chrome.google.com/webstore/search/Clyde%20D'Souza
-onGithub: true
 github: https://github.com/topics/clydedz-chrome-extension
 madeUsing:
   - jQuery

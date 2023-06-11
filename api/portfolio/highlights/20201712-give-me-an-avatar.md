@@ -4,9 +4,7 @@ date: 17 Dec 2020
 description:
   Gets a random avatar URL from a collection of different avatar generation
   services
-hasWebsite: true
 website: https://www.npmjs.com/package/give-me-an-avatar
-onGithub: true
 github: https://github.com/ClydeDz/give-me-an-avatar-npm
 madeUsing:
   - Node.js

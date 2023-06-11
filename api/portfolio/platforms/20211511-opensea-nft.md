@@ -2,9 +2,7 @@
 title: NFT's on OpenSea
 date: 15 Nov 2021
 description: Have a look at my NFT's on OpenSea. These designs were made using Figma!
-hasWebsite: true
 website: https://opensea.io/clydedz
-onGithub: false
 github: ""
 madeUsing: []
 category: NFT

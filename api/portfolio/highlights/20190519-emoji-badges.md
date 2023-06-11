@@ -4,9 +4,7 @@ date: 19 May 2019
 description:
   Snippets to insert emoji badges to your markdown file. These are shields.io
   badges boosted with emojis.
-hasWebsite: true
 website: http://bit.ly/emoji-badges
-onGithub: true
 github: https://github.com/ClydeDz/emoji-badges-vscode
 madeUsing:
   - JSON

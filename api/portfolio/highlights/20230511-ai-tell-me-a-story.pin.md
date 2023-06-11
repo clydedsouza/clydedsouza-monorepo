@@ -2,9 +2,7 @@
 title: AI, Tell Me a Story
 date: 11 May 2023
 description: Looking for the perfect bedtime storybook to ignite your child's imagination and instill important values? Look no further than AI, Tell Me a Story, a collection of fifty captivating short stories, each with a valuable life lesson to teach kids.
-hasWebsite: true
 website: http://aitellmeastory.clydedsouza.net/
-onGithub: false
 github: ""
 madeUsing: []
 category: Bedtime stories

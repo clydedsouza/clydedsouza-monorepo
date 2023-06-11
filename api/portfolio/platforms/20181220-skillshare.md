@@ -4,9 +4,7 @@ date: 20 Dec 2018
 description:
   Learn GitHub flavored Markdown (GFM) in this online class on Skillshare.
   Markdown is one of the simplest and cleanest forms of writing rich text content.
-hasWebsite: true
 website: https://skl.sh/2QtxWrV
-onGithub: false
 github: ""
 madeUsing: []
 category: Skillshare online class

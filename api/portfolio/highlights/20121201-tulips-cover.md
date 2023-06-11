@@ -5,9 +5,7 @@ description:
   I was responsible for designing the cover page for Tulips - a church
   bulletin. Each cover page was designed in accordance to a theme for that particular
   issue and conveyed the underlying meaning of the theme.
-hasWebsite: false
 website: ""
-onGithub: false
 github: ""
 madeUsing:
   - Photoshop
