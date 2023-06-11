@@ -1,7 +1,7 @@
 ﻿@import '../../Sass/variables';
 
 .project-tile {
-  width: 29.89vw;
+  width: 19.89vw;
   display: inline-block;
   border-radius: 5px;
   color: $bg-color;
@@ -39,11 +39,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 181px;
+    min-height: 168px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    margin-top: -11px;
-    width: 100.5%;
+    margin-top: -2px;
+    width: 100.6%;
     margin-left: -1px;
 
     @include for-mobiles-down {
