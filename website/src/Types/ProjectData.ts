@@ -1,17 +1,9 @@
 export interface IProjectData {
-  app: Partial<IMetadata>
   data: Partial<IProject>[]
-}
-
-export interface IMetadata {
-  dist: string
-  name: string
-  version: string
 }
 
 export interface IProject {
   id: string
-  contents: string
   title: string
   date: string
   description: string
@@ -23,5 +15,4 @@ export interface IProject {
   category: string
   image: string
   imageDescription: string
-  excerpt: string
 }

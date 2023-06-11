@@ -10,6 +10,7 @@ function ProjectTile(props: Partial<IProject>) {
         style={{
           backgroundImage: `url(${props.image}), url("https://files.clydedsouza.net/images/projects/omg-team.jpg")`,
         }}
+        aria-label={props.imageDescription}
       >
         <span>{props.category}</span>
       </div>
