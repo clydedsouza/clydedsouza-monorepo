@@ -6,7 +6,9 @@ exports[`Project tile should render tile 1`] = `
     <div
       class="project-tile"
     >
-      <div>
+      <div
+        aria-label="Add a sticker to your profile picture using Profile Sticker in just 4 easy steps."
+      >
         <span>
           Website
         </span>
@@ -83,7 +85,9 @@ exports[`Project tile should render tile with empty project 1`] = `
     <div
       class="project-tile"
     >
-      <div>
+      <div
+        aria-label=""
+      >
         <span />
       </div>
       <div>
@@ -135,7 +139,9 @@ exports[`Project tile should render tile without description 1`] = `
     <div
       class="project-tile"
     >
-      <div>
+      <div
+        aria-label="test"
+      >
         <span>
           Website
         </span>
@@ -201,7 +207,9 @@ exports[`Project tile should render tile without links 1`] = `
     <div
       class="project-tile"
     >
-      <div>
+      <div
+        aria-label="Church magazine cover designs by Clyde D'Souza"
+      >
         <span>
           Graphic Design
         </span>

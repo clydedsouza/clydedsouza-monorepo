@@ -12,7 +12,9 @@ exports[`Pinned given api returns a single item should render pinned 1`] = `
       <div
         class="project-tile"
       >
-        <div>
+        <div
+          aria-label="Light & Spark NPO - Ruia Jan 2018 Event"
+        >
           <span>
             Offline workshop
           </span>
@@ -79,7 +81,9 @@ exports[`Pinned given api returns multiple items should render pinned 1`] = `
       <div
         class="project-tile"
       >
-        <div>
+        <div
+          aria-label="AI, Tell Me a Story is a collection of fifty short bedtime stories"
+        >
           <span>
             Bedtime stories
           </span>
@@ -115,7 +119,9 @@ exports[`Pinned given api returns multiple items should render pinned 1`] = `
       <div
         class="project-tile"
       >
-        <div>
+        <div
+          aria-label="Clyde D'Souza speaking at the .NET Conference 2020."
+        >
           <span>
             Conference speaker
           </span>
@@ -151,7 +157,9 @@ exports[`Pinned given api returns multiple items should render pinned 1`] = `
       <div
         class="project-tile"
       >
-        <div>
+        <div
+          aria-label="Mama, Tell Me a Story is a collection of twelve short bedtime stories"
+        >
           <span>
             Bedtime stories
           </span>

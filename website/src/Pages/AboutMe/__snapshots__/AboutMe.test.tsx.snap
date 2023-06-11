@@ -130,7 +130,9 @@ exports[`About me should render about me 1`] = `
       <div
         class="project-tile"
       >
-        <div>
+        <div
+          aria-label="Add a sticker to your profile picture using Profile Sticker in just 4 easy steps."
+        >
           <span>
             Website
           </span>
@@ -200,7 +202,9 @@ exports[`About me should render about me 1`] = `
       <div
         class="project-tile"
       >
-        <div>
+        <div
+          aria-label="Church magazine cover designs by Clyde D'Souza"
+        >
           <span>
             Graphic Design
           </span>
