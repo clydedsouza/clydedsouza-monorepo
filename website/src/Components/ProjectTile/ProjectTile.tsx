@@ -3,7 +3,7 @@ import Links from './Links/Links'
 import MadeUsing from './MadeUsing/MadeUsing'
 import './ProjectTile.scss'
 
-function ProjectTile(props: Partial<IProject>) {
+function ProjectTile(props: IProject) {
   return (
     <div className="project-tile">
       <div

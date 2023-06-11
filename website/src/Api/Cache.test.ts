@@ -1,3 +1,4 @@
+import { emptyProject } from '../../tests/testHelper'
 import { PageTypes } from '../Types/PageTypes'
 import { getCachedProjectData } from './Cache'
 import * as cacheStorageModule from './CacheStorage'
@@ -8,12 +9,11 @@ jest.mock('./CacheStorage')
 
 const apiDataMockResponse = [
   {
+    ...emptyProject,
     id: 'ai-tell-me-a-story',
-    contents: '',
     title: 'Purchase my book AI, Tell Me a Story from these platforms.',
     hasWebsite: true,
     website: 'https://aitellmeastory.clydedsouza.net',
-    excerpt: '',
   },
 ]
 

@@ -1,5 +1,5 @@
 export interface IProjectData {
-  data: Partial<IProject>[]
+  data: IProject[]
 }
 
 export interface IProject {

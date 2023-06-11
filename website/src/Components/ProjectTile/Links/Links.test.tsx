@@ -2,21 +2,6 @@ import { render } from '@testing-library/react'
 import { IProject } from '../../../Types/ProjectData'
 import Links from './Links'
 
-const emptyProject: IProject = {
-  title: '',
-  description: '',
-  image: '',
-  imageDescription: '',
-  category: '',
-  date: '',
-  id: '',
-  madeUsing: [],
-  hasWebsite: true,
-  website: 'test',
-  onGithub: true,
-  github: 'test',
-}
-
 describe('Links', () => {
   it.each([
     {
@@ -46,8 +31,7 @@ describe('Links', () => {
   ])(
     'should render links component when hasWebsite is $hasWebsite and onGithub is $onGithub',
     ({ hasWebsite, website, onGithub, github }) => {
-      const project: IProject = {
-        ...emptyProject,
+      const project: Partial<IProject> = {
         hasWebsite,
         website,
         onGithub,

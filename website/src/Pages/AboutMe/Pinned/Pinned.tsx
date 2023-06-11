@@ -7,7 +7,7 @@ import { IProject } from '../../../Types/ProjectData'
 const MAX_PINNED_ITEMS = 3
 
 function Pinned() {
-  const [projectData, setProjectData] = useState<Partial<IProject>[]>([])
+  const [projectData, setProjectData] = useState<IProject[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {

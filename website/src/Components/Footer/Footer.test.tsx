@@ -3,6 +3,7 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react'
+import { emptyProject } from '../../../tests/testHelper'
 import * as apiCacheModule from '../../Api/Cache'
 import Footer from './Footer'
 
@@ -10,12 +11,11 @@ jest.mock('../../Api/Cache')
 
 const ctaDataMockResponse = [
   {
+    ...emptyProject,
     id: 'ai-tell-me-a-story',
-    contents: '',
     title: 'Purchase my book AI, Tell Me a Story from these platforms.',
     hasWebsite: true,
     website: 'https://aitellmeastory.clydedsouza.net',
-    excerpt: '',
   },
 ]
 

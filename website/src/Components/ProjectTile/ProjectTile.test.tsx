@@ -50,7 +50,6 @@ const projectWithoutDescription: IProject = {
 
 const projectWithAllInfo: IProject = {
   id: '20170701-profile-sticker',
-
   title: 'Profile Sticker',
   date: '01 Jul 2017',
   description:

@@ -11,7 +11,7 @@ export interface IProjectProps {
 }
 
 function Projects(props: IProjectProps) {
-  const [projectData, setProjectData] = useState<Partial<IProject>[]>([])
+  const [projectData, setProjectData] = useState<IProject[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
