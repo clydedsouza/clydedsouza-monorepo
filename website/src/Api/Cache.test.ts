@@ -1,4 +1,4 @@
-import { emptyProject } from '../../tests/testHelper'
+import { emptyProject } from '../../TestHelpers/testHelper'
 import { PageTypes } from '../Types/PageTypes'
 import { getCachedProjectData } from './Cache'
 import * as cacheStorageModule from './CacheStorage'

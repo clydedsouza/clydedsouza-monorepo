@@ -3,7 +3,7 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react'
-import { emptyProject } from '../../../tests/testHelper'
+import { emptyProject } from '../../../TestHelpers/testHelper'
 import * as apiCacheModule from '../../Api/Cache'
 import Mainstage from './Mainstage'
 
