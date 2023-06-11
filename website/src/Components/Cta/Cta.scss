@@ -6,6 +6,22 @@
   padding: 18px 12px;
   margin: 2vh 0;
 
+  &[data-location='sidebar'] {
+    display: block;
+
+    @include for-tablets-down {
+      display: none;
+    }
+  }
+
+  &[data-location='footer'] {
+    display: none;
+
+    @include for-tablets-down {
+      display: block;
+    }
+  }
+
   a {
     color: white;
     text-decoration: none;
@@ -14,12 +30,9 @@
 
     &:hover,
     &:focus {
+      color: white;
       opacity: 0.8;
       border-bottom: 1px dashed white;
     }
-  }
-
-  @include for-tablets-down {
-    display: none;
   }
 }

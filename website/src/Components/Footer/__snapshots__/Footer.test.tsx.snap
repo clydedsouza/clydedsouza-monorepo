@@ -6,6 +6,7 @@ exports[`Footer should render footer 1`] = `
     <footer>
       <div
         class="cta"
+        data-location="footer"
       >
         <a
           href="https://aitellmeastory.clydedsouza.net"

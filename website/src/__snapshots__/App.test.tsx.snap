@@ -134,6 +134,7 @@ exports[`App should render app 1`] = `
       </div>
       <div
         class="cta"
+        data-location="sidebar"
       >
         <a
           href="https://aitellmeastory.clydedsouza.net"
@@ -326,6 +327,7 @@ exports[`App should render app 1`] = `
       <footer>
         <div
           class="cta"
+          data-location="footer"
         >
           <a
             href="https://aitellmeastory.clydedsouza.net"

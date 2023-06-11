@@ -10,7 +10,7 @@ function Sidebar() {
       <Avatar />
       <Headline />
       <SocialIcons />
-      <Cta />
+      <Cta location="sidebar" />
     </div>
   )
 }

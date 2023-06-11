@@ -4,7 +4,11 @@ import { PageTypes } from '../../Types/PageTypes'
 import { IProject } from '../../Types/ProjectData'
 import './Cta.scss'
 
-function Cta() {
+interface ICtaProps {
+  location?: string
+}
+
+function Cta({ location }: ICtaProps) {
   const [projectData, setProjectData] = useState<Partial<IProject>[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -27,7 +31,7 @@ function Cta() {
     const randomizedProject =
       items[Math.floor(Math.random() * (items.length - 1 - 0 + 1) + 0)]
     return (
-      <div className="cta">
+      <div className="cta" data-location={location}>
         <a href={randomizedProject.website} target="_blank" rel="noreferrer">
           {randomizedProject.title}
         </a>

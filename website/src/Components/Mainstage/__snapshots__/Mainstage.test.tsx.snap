@@ -185,6 +185,7 @@ exports[`Mainstage should render mainstage 1`] = `
       <footer>
         <div
           class="cta"
+          data-location="footer"
         >
           <a
             href="https://aitellmeastory.clydedsouza.net"

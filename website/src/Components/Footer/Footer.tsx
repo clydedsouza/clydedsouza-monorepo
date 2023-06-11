@@ -5,7 +5,7 @@ function Footer() {
   return (
     <>
       <footer>
-        <Cta />
+        <Cta location="footer" />
         <p>Website crafted by Clyde DSouza</p>
       </footer>
     </>
