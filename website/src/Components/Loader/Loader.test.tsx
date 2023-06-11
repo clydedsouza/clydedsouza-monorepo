@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
-import { LoaderTypes } from '../../Types/LoaderTypes'
 import Loader from './Loader'
+import { LoaderTypes } from './LoaderTypes'
 
 describe('Loader', () => {
   it('should render default loader', () => {

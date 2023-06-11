@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../../Api/Cache'
 import Loader from '../../../Components/Loader/Loader'
+import { LoaderTypes } from '../../../Components/Loader/LoaderTypes'
 import ProjectTile from '../../../Components/ProjectTile/ProjectTile'
-import { LoaderTypes } from '../../../Types/LoaderTypes'
 import { PageTypes } from '../../../Types/PageTypes'
 import { IProject } from '../../../Types/ProjectData'
 

@@ -1,5 +1,5 @@
-import { LoaderTypes } from '../../Types/LoaderTypes'
 import './Loader.scss'
+import { LoaderTypes } from './LoaderTypes'
 
 interface ILoaderProps {
   variant?: LoaderTypes
