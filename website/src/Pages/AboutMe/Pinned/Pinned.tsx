@@ -30,22 +30,20 @@ function Pinned() {
       {isLoading ? (
         <p>Contents are loading...</p>
       ) : (
-        <div id="pinnedProjects">
-          <div id="pinnedProjectsList">
-            {projectData.length > 0 ? (
-              projectData
-                .sort((dateA, dateB) => {
-                  if (!dateA.date || !dateB.date) return 0
-                  return (
-                    Number(new Date(dateB.date)) - Number(new Date(dateA.date))
-                  )
-                })
-                .slice(0, MAX_PINNED_ITEMS)
-                .map((item) => <ProjectTile {...item} key={item.title} />)
-            ) : (
-              <p>Couldn&lsquo;t load the data at this stage</p>
-            )}
-          </div>
+        <div className="pinned-projects">
+          {projectData.length > 0 ? (
+            projectData
+              .sort((dateA, dateB) => {
+                if (!dateA.date || !dateB.date) return 0
+                return (
+                  Number(new Date(dateB.date)) - Number(new Date(dateA.date))
+                )
+              })
+              .slice(0, MAX_PINNED_ITEMS)
+              .map((item) => <ProjectTile {...item} key={item.title} />)
+          ) : (
+            <p>Couldn&lsquo;t load the data at this stage</p>
+          )}
         </div>
       )}
     </>

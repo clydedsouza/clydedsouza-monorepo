@@ -6,7 +6,7 @@ import SocialIcons from './SocialIcons/SocialIcons'
 
 function Sidebar() {
   return (
-    <div id="sidebar">
+    <div className="sidebar">
       <Avatar />
       <Headline />
       <SocialIcons />

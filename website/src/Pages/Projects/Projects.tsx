@@ -35,7 +35,7 @@ function Projects(props: IProjectProps) {
         <p>Contents are loading...</p>
       ) : (
         <>
-          <div id="projects">
+          <div className="projects">
             {projectData.length > 0 ? (
               projectData
                 .sort((dateA, dateB) => {
