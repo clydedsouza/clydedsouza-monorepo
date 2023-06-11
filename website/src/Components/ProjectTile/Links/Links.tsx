@@ -4,16 +4,16 @@ import Globe from '../../Icons/Globe'
 import './Links.scss'
 
 function Links(props: Partial<IProject>) {
-  if (!props.hasWebsite && !props.onGithub) return <></>
+  if (!props.website && !props.github) return <></>
 
   return (
     <div className="project-links">
-      {props.hasWebsite && (
+      {props.website && (
         <a href={props.website} target="_blank" rel="noreferrer">
           <Globe />
         </a>
       )}
-      {props.onGithub && (
+      {props.github && (
         <a href={props.github} target="_blank" rel="noreferrer">
           <GitHub />
         </a>

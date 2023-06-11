@@ -7,9 +7,7 @@ export interface IProject {
   title: string
   date: string
   description: string
-  hasWebsite: boolean
   website: string
-  onGithub: boolean
   github: string
   madeUsing: string[]
   category: string

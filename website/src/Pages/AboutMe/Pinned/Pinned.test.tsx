@@ -18,9 +18,7 @@ const pinnedDataMockResponse = [
     date: '13 Jan 2018',
     description:
       'A 2-day workshop where we taught industry-relevant technologies to students and helped an NGO with their online requirements. This event was conducted at Ruia College, Mumbai.',
-    hasWebsite: true,
     website: 'https://lightandsparknpo.github.io/2019-11-20-ruia-mumbai-2018/',
-    onGithub: false,
     github: '',
     madeUsing: [],
     category: 'Offline workshop',
@@ -38,9 +36,7 @@ const pinnedDataMockResponse = [
     date: '07 Mar 2019',
     description:
       'Learn how to develop your very own NuGet package and then publish it to nuget.org.',
-    hasWebsite: true,
     website: 'https://skl.sh/2W5AA5w',
-    onGithub: false,
     github: '',
     madeUsing: [],
     category: 'Skillshare online class',
@@ -58,9 +54,7 @@ const pinnedDataMockResponse = [
     date: '14 Nov 2019',
     description:
       'Mama, Tell Me a Story is a collection of twelve short bedtime stories that parents will love reading to their kids over and over again. The stories are engaging and revolves around characters that your kids will absolutely love. Each story holds the power to unlock your child’s superpower—their imagination!',
-    hasWebsite: true,
     website: 'http://mamatellmeastory.clydedsouza.net/',
-    onGithub: false,
     github: '',
     madeUsing: [],
     category: 'Bedtime stories',
@@ -78,9 +72,7 @@ const pinnedDataMockResponse = [
     date: '12 Nov 2020',
     description:
       'I had this amazing opportunity to speak at the .NET Conference 2020. I spoke on how to add health checks to a .NET Core application and also include its dependencies.',
-    hasWebsite: true,
     website: 'https://youtu.be/cFslS0b_2dg',
-    onGithub: false,
     github: '',
     madeUsing: [],
     category: 'Conference speaker',
@@ -97,9 +89,7 @@ const pinnedDataMockResponse = [
     date: '11 May 2023',
     description:
       "Looking for the perfect bedtime storybook to ignite your child's imagination and instill important values? Look no further than AI, Tell Me a Story, a collection of fifty captivating short stories, each with a valuable life lesson to teach kids.",
-    hasWebsite: true,
     website: 'http://aitellmeastory.clydedsouza.net/',
-    onGithub: false,
     github: '',
     madeUsing: [],
     category: 'Bedtime stories',

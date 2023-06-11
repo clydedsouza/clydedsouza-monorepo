@@ -14,7 +14,6 @@ const ctaDataMockResponse = [
     ...emptyProject,
     id: 'ai-tell-me-a-story',
     title: 'Purchase my book AI, Tell Me a Story from these platforms.',
-    hasWebsite: true,
     website: 'https://aitellmeastory.clydedsouza.net',
   },
 ]

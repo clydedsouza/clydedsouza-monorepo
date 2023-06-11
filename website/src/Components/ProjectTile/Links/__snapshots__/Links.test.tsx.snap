@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Links should render links component when hasWebsite is false and onGithub is false 1`] = `
+exports[`Links should render links component when website is  and github is  1`] = `
 <body>
   <div />
 </body>
 `;
 
-exports[`Links should render links component when hasWebsite is false and onGithub is true 1`] = `
+exports[`Links should render links component when website is  and github is https://github.com/ 1`] = `
 <body>
   <div>
     <div
@@ -32,7 +32,7 @@ exports[`Links should render links component when hasWebsite is false and onGith
 </body>
 `;
 
-exports[`Links should render links component when hasWebsite is true and onGithub is false 1`] = `
+exports[`Links should render links component when website is https://www.google.com/ and github is  1`] = `
 <body>
   <div>
     <div
@@ -58,7 +58,7 @@ exports[`Links should render links component when hasWebsite is true and onGithu
 </body>
 `;
 
-exports[`Links should render links component when hasWebsite is true and onGithub is true 1`] = `
+exports[`Links should render links component when website is https://www.google.com/ and github is https://github.com/ 1`] = `
 <body>
   <div>
     <div
