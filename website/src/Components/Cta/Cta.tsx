@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../Api/Cache'
+import { LoaderTypes } from '../../Types/LoaderTypes'
 import { PageTypes } from '../../Types/PageTypes'
 import { IProject } from '../../Types/ProjectData'
+import Loader from '../Loader/Loader'
 import './Cta.scss'
 
 interface ICtaProps {
@@ -44,7 +46,7 @@ function Cta({ location }: ICtaProps) {
   return (
     <>
       {isLoading ? (
-        <p>Contents are loading...</p>
+        <Loader variant={LoaderTypes.Inverse} />
       ) : projectData.length > 0 ? (
         CtaLink(projectData)
       ) : (

@@ -23,17 +23,13 @@ describe('Navigation', () => {
 
   it('should render navigation', async () => {
     render(<Navigation />)
-    await waitForElementToBeRemoved(() =>
-      screen.queryByText('Contents are loading...')
-    )
+    await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
     expect(document.body).toMatchSnapshot()
   })
 
   it('should call API with correct page type', async () => {
     render(<Navigation />)
-    await waitForElementToBeRemoved(() =>
-      screen.queryByText('Contents are loading...')
-    )
+    await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
     expect(apiCacheModule.getCachedProjectData).toBeCalledTimes(1)
     expect(apiCacheModule.getCachedProjectData).toBeCalledWith(PageTypes.Pinned)
   })

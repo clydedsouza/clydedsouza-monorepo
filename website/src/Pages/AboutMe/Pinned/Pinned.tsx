@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../../Api/Cache'
+import Loader from '../../../Components/Loader/Loader'
 import ProjectTile from '../../../Components/ProjectTile/ProjectTile'
+import { LoaderTypes } from '../../../Types/LoaderTypes'
 import { PageTypes } from '../../../Types/PageTypes'
 import { IProject } from '../../../Types/ProjectData'
 
@@ -28,7 +30,7 @@ function Pinned() {
     <>
       <h2>Highlights</h2>
       {isLoading ? (
-        <p>Contents are loading...</p>
+        <Loader variant={LoaderTypes.Primary} />
       ) : (
         <div className="pinned-projects">
           {projectData.length > 0 ? (

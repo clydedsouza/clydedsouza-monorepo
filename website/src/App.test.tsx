@@ -30,17 +30,13 @@ describe('App', () => {
 
   it('should render app', async () => {
     render(<App />)
-    await waitForElementToBeRemoved(() =>
-      screen.queryAllByText('Contents are loading...')
-    )
+    await waitForElementToBeRemoved(() => screen.queryAllByRole('progressbar'))
     expect(document.body).toMatchSnapshot()
   })
 
   it('should call the API endpoint thrice', async () => {
     render(<App />)
-    await waitForElementToBeRemoved(() =>
-      screen.queryAllByText('Contents are loading...')
-    )
+    await waitForElementToBeRemoved(() => screen.queryAllByRole('progressbar'))
     expect(apiCacheModule.getCachedProjectData).toBeCalledTimes(3)
     expect(apiCacheModule.getCachedProjectData).toBeCalledWith(PageTypes.Cta)
     expect(apiCacheModule.getCachedProjectData).toBeCalledWith(PageTypes.Cta)

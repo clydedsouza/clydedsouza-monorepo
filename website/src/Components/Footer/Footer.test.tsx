@@ -32,9 +32,7 @@ describe('Footer', () => {
 
   it('should render footer', async () => {
     render(<Footer />)
-    await waitForElementToBeRemoved(() =>
-      screen.queryByText('Contents are loading...')
-    )
+    await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
     expect(document.body).toMatchSnapshot()
   })
 })

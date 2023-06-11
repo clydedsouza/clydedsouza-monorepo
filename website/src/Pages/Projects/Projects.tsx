@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../Api/Cache'
+import Loader from '../../Components/Loader/Loader'
 import ProjectTile from '../../Components/ProjectTile/ProjectTile'
 import Seo from '../../Components/Seo/Seo'
+import { LoaderTypes } from '../../Types/LoaderTypes'
 import { PageTypes } from '../../Types/PageTypes'
 import { IProject } from '../../Types/ProjectData'
 import './Projects.scss'
@@ -32,7 +34,7 @@ function Projects(props: IProjectProps) {
     <>
       <Seo title={props.name} />
       {isLoading ? (
-        <p>Contents are loading...</p>
+        <Loader variant={LoaderTypes.Primary} />
       ) : (
         <>
           <div className="projects">

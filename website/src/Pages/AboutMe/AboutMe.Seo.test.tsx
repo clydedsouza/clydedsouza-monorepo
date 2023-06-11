@@ -23,9 +23,7 @@ describe('About me', () => {
 
   it('should render seo', async () => {
     render(<AboutMe />)
-    await waitForElementToBeRemoved(() =>
-      screen.queryByText('Contents are loading...')
-    )
+    await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
     await waitFor(() =>
       expect(document.title).toEqual(
         `Clyde D'Souza – Software Engineer and Author`

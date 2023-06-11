@@ -116,18 +116,14 @@ describe('Pinned', () => {
 
     it('should render pinned', async () => {
       render(<Pinned />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(document.body).toMatchSnapshot()
     })
 
     it('should call API with correct page type', async () => {
       render(<Pinned />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(apiCacheModule.getCachedProjectData).toBeCalledTimes(1)
       expect(apiCacheModule.getCachedProjectData).toBeCalledWith(
@@ -156,18 +152,14 @@ describe('Pinned', () => {
 
     it('should render pinned', async () => {
       render(<Pinned />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(document.body).toMatchSnapshot()
     })
 
     it('should sort items in descending order', async () => {
       render(<Pinned />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       const headings = screen.getAllByRole('heading', { name: /Project -/ })
       expect(headings[0]).toHaveTextContent(pinnedDataMockResponse[4].title)
       expect(headings[1]).toHaveTextContent(pinnedDataMockResponse[3].title)
@@ -176,9 +168,7 @@ describe('Pinned', () => {
 
     it('should show max 3 pinned items', async () => {
       render(<Pinned />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       const headings = screen.getAllByRole('heading', { name: /Project -/ })
       expect(headings).toHaveLength(3)
     })
@@ -198,9 +188,7 @@ describe('Pinned', () => {
 
     it('should render pinned', async () => {
       render(<Pinned />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(document.body).toMatchSnapshot()
     })
@@ -215,9 +203,7 @@ describe('Pinned', () => {
 
     it('should render pinned', async () => {
       render(<Pinned />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(document.body).toMatchSnapshot()
     })

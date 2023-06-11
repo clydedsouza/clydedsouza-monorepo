@@ -67,7 +67,7 @@ describe('Projects', () => {
         it('should render projects', async () => {
           render(<Projects {...{ name: pageType }} />)
           await waitForElementToBeRemoved(() =>
-            screen.queryByText('Contents are loading...')
+            screen.queryByRole('progressbar')
           )
           expect(document.body).toMatchSnapshot()
         })
@@ -75,7 +75,7 @@ describe('Projects', () => {
         it(`should call API with ${pageType} page type`, async () => {
           render(<Projects {...{ name: pageType }} />)
           await waitForElementToBeRemoved(() =>
-            screen.queryByText('Contents are loading...')
+            screen.queryByRole('progressbar')
           )
           expect(apiCacheModule.getCachedProjectData).toBeCalledTimes(1)
           expect(apiCacheModule.getCachedProjectData).toBeCalledWith(pageType)
@@ -102,7 +102,7 @@ describe('Projects', () => {
         it('should render projects', async () => {
           render(<Projects {...{ name: pageType }} />)
           await waitForElementToBeRemoved(() =>
-            screen.queryByText('Contents are loading...')
+            screen.queryByRole('progressbar')
           )
           expect(document.body).toMatchSnapshot()
         })
@@ -111,9 +111,7 @@ describe('Projects', () => {
 
     it('should sort the projects in desc order', async () => {
       render(<Projects {...{ name: PageTypes.Highlights }} />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       const headings = screen.getAllByRole('heading')
       expect(headings[0]).toHaveTextContent(projectDataMockResponse[1].title)
       expect(headings[1]).toHaveTextContent(projectDataMockResponse[0].title)
@@ -138,7 +136,7 @@ describe('Projects', () => {
         it('should render empty projects', async () => {
           render(<Projects {...{ name: pageType }} />)
           await waitForElementToBeRemoved(() =>
-            screen.queryByText('Contents are loading...')
+            screen.queryByRole('progressbar')
           )
           expect(document.body).toMatchSnapshot()
         })
@@ -159,7 +157,7 @@ describe('Projects', () => {
         it('should render empty projects', async () => {
           render(<Projects {...{ name: pageType }} />)
           await waitForElementToBeRemoved(() =>
-            screen.queryByText('Contents are loading...')
+            screen.queryByRole('progressbar')
           )
           expect(document.body).toMatchSnapshot()
         })

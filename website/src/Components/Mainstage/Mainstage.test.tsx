@@ -30,9 +30,7 @@ describe('Mainstage', () => {
 
   it('should render mainstage', async () => {
     render(<Mainstage />)
-    await waitForElementToBeRemoved(() =>
-      screen.queryAllByText('Contents are loading...')
-    )
+    await waitForElementToBeRemoved(() => screen.queryAllByRole('progressbar'))
     expect(document.body).toMatchSnapshot()
   })
 })

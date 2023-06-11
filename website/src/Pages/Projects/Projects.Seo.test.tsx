@@ -27,9 +27,7 @@ describe('Projects', () => {
     (pageType: PageTypes) => {
       it(`should render projects seo`, async () => {
         render(<Projects {...{ name: pageType }} />)
-        await waitForElementToBeRemoved(() =>
-          screen.queryByText('Contents are loading...')
-        )
+        await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
         await waitFor(() =>
           expect(document.title).toEqual(
             `${pageType} – Clyde D'Souza – Software Engineer and Author`

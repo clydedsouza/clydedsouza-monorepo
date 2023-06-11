@@ -61,9 +61,7 @@ describe('About me', () => {
 
   it('should render about me', async () => {
     render(<AboutMe />)
-    await waitForElementToBeRemoved(() =>
-      screen.queryByText('Contents are loading...')
-    )
+    await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
     expect(document.body).toMatchSnapshot()
   })

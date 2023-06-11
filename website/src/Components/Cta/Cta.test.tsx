@@ -39,9 +39,7 @@ describe('Cta', () => {
 
     it('should render cta', async () => {
       render(<Cta />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(document.body).toMatchSnapshot()
     })
   })
@@ -64,9 +62,7 @@ describe('Cta', () => {
 
     it(`should render cta when title is ${title} and website is ${website}`, async () => {
       render(<Cta />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(document.body).toMatchSnapshot()
     })
   })
@@ -85,9 +81,7 @@ describe('Cta', () => {
 
     it('should render cta', async () => {
       render(<Cta />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(screen.getByRole('link')).toHaveTextContent(/Purchase my book/)
       expect(screen.getByRole('link')).toHaveAttribute(
         'href',
@@ -110,9 +104,7 @@ describe('Cta', () => {
 
     it('should render empty cta', async () => {
       render(<Cta />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(document.body).toMatchSnapshot()
     })
   })
@@ -126,9 +118,7 @@ describe('Cta', () => {
 
     it('should render empty cta', async () => {
       render(<Cta />)
-      await waitForElementToBeRemoved(() =>
-        screen.queryByText('Contents are loading...')
-      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(document.body).toMatchSnapshot()
     })
   })
