@@ -146,15 +146,11 @@ exports[`Navigation should render navigation 1`] = `
       Highlights
     </h2>
     <div
-      id="pinnedProjects"
+      class="pinned-projects"
     >
-      <div
-        id="pinnedProjectsList"
-      >
-        <p>
-          Couldn‘t load the data at this stage
-        </p>
-      </div>
+      <p>
+        Couldn‘t load the data at this stage
+      </p>
     </div>
   </div>
 </body>

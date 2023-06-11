@@ -15,10 +15,34 @@
       }
     }
 
-    i {
-      font-size: 24px;
-      margin: 0 0.5vw;
-      color: white;
+    svg {
+      width: 24px;
+      margin: 0 0.8vw;
+      fill: white;
+      vertical-align: middle;
+      transition: all 0.2s linear 0.2s;
+
+      &:hover,
+      &:focus {
+        opacity: 0.95;
+      }
+
+      &.linkedin-svg {
+        width: 22px;
+      }
+
+      &.envelope-svg {
+        width: 26px;
+      }
+
+      &.twitter-svg,
+      &.youtube-svg {
+        width: 28px;
+      }
+
+      &.medium-svg {
+        width: 30px;
+      }
 
       @include for-tablets-down {
         margin: 0 3vw;
