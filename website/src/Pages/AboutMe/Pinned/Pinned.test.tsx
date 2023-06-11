@@ -182,16 +182,15 @@ describe('Pinned', () => {
       expect(headings[0]).toHaveTextContent(pinnedDataMockResponse[4].title)
       expect(headings[1]).toHaveTextContent(pinnedDataMockResponse[3].title)
       expect(headings[2]).toHaveTextContent(pinnedDataMockResponse[2].title)
-      expect(headings[3]).toHaveTextContent(pinnedDataMockResponse[1].title)
     })
 
-    it('should show max 4 pinned items', async () => {
+    it('should show max 3 pinned items', async () => {
       render(<Pinned />)
       await waitForElementToBeRemoved(() =>
         screen.queryByText('Contents are loading...')
       )
       const headings = screen.getAllByRole('heading', { name: /Project -/ })
-      expect(headings).toHaveLength(4)
+      expect(headings).toHaveLength(3)
     })
   })
 

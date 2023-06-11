@@ -4,7 +4,7 @@ import ProjectTile from '../../../Components/ProjectTile/ProjectTile'
 import { PageTypes } from '../../../Types/PageTypes'
 import { IProject } from '../../../Types/ProjectData'
 
-const MAX_PINNED_ITEMS = 4
+const MAX_PINNED_ITEMS = 3
 
 function Pinned() {
   const [projectData, setProjectData] = useState<Partial<IProject>[]>([])

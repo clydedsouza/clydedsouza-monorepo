@@ -7,39 +7,35 @@ exports[`Pinned given api returns a single item should render pinned 1`] = `
       Highlights
     </h2>
     <div
-      id="pinnedProjects"
+      class="pinned-projects"
     >
       <div
-        id="pinnedProjectsList"
+        class="project-tile"
       >
-        <div
-          class="project-tile"
-        >
-          <div>
-            <span>
-              Offline workshop
-            </span>
-          </div>
-          <div>
-            <h3>
-              Project - Light & Spark NPO - Ruia Jan 2018 Event
-            </h3>
-            <p>
-              A 2-day workshop where we taught industry-relevant technologies to students and helped an NGO with their online requirements. This event was conducted at Ruia College, Mumbai.
-            </p>
-            <div
-              class="project-links"
+        <div>
+          <span>
+            Offline workshop
+          </span>
+        </div>
+        <div>
+          <h3>
+            Project - Light & Spark NPO - Ruia Jan 2018 Event
+          </h3>
+          <p>
+            A 2-day workshop where we taught industry-relevant technologies to students and helped an NGO with their online requirements. This event was conducted at Ruia College, Mumbai.
+          </p>
+          <div
+            class="project-links"
+          >
+            <a
+              href="https://lightandsparknpo.github.io/2019-11-20-ruia-mumbai-2018/"
+              rel="noreferrer"
+              target="_blank"
             >
-              <a
-                href="https://lightandsparknpo.github.io/2019-11-20-ruia-mumbai-2018/"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <i
-                  class="fas fa-globe"
-                />
-              </a>
-            </div>
+              <i
+                class="fas fa-globe"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -55,15 +51,11 @@ exports[`Pinned given api returns an error should render pinned 1`] = `
       Highlights
     </h2>
     <div
-      id="pinnedProjects"
+      class="pinned-projects"
     >
-      <div
-        id="pinnedProjectsList"
-      >
-        <p>
-          Couldn‘t load the data at this stage
-        </p>
-      </div>
+      <p>
+        Couldn‘t load the data at this stage
+      </p>
     </div>
   </div>
 </body>
@@ -76,129 +68,95 @@ exports[`Pinned given api returns multiple items should render pinned 1`] = `
       Highlights
     </h2>
     <div
-      id="pinnedProjects"
+      class="pinned-projects"
     >
       <div
-        id="pinnedProjectsList"
+        class="project-tile"
       >
-        <div
-          class="project-tile"
-        >
-          <div>
-            <span>
-              Bedtime stories
-            </span>
-          </div>
-          <div>
-            <h3>
-              Project - AI, Tell Me a Story
-            </h3>
-            <p>
-              Looking for the perfect bedtime storybook to ignite your child's imagination and instill important values? Look no further than AI, Tell Me a Story, a collection of fifty captivating short stories, each with a valuable life lesson to teach kids.
-            </p>
-            <div
-              class="project-links"
+        <div>
+          <span>
+            Bedtime stories
+          </span>
+        </div>
+        <div>
+          <h3>
+            Project - AI, Tell Me a Story
+          </h3>
+          <p>
+            Looking for the perfect bedtime storybook to ignite your child's imagination and instill important values? Look no further than AI, Tell Me a Story, a collection of fifty captivating short stories, each with a valuable life lesson to teach kids.
+          </p>
+          <div
+            class="project-links"
+          >
+            <a
+              href="http://aitellmeastory.clydedsouza.net/"
+              rel="noreferrer"
+              target="_blank"
             >
-              <a
-                href="http://aitellmeastory.clydedsouza.net/"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <i
-                  class="fas fa-globe"
-                />
-              </a>
-            </div>
+              <i
+                class="fas fa-globe"
+              />
+            </a>
           </div>
         </div>
-        <div
-          class="project-tile"
-        >
-          <div>
-            <span>
-              Conference speaker
-            </span>
-          </div>
-          <div>
-            <h3>
-              Project - .NET Conf 2020
-            </h3>
-            <p>
-              I had this amazing opportunity to speak at the .NET Conference 2020. I spoke on how to add health checks to a .NET Core application and also include its dependencies.
-            </p>
-            <div
-              class="project-links"
+      </div>
+      <div
+        class="project-tile"
+      >
+        <div>
+          <span>
+            Conference speaker
+          </span>
+        </div>
+        <div>
+          <h3>
+            Project - .NET Conf 2020
+          </h3>
+          <p>
+            I had this amazing opportunity to speak at the .NET Conference 2020. I spoke on how to add health checks to a .NET Core application and also include its dependencies.
+          </p>
+          <div
+            class="project-links"
+          >
+            <a
+              href="https://youtu.be/cFslS0b_2dg"
+              rel="noreferrer"
+              target="_blank"
             >
-              <a
-                href="https://youtu.be/cFslS0b_2dg"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <i
-                  class="fas fa-globe"
-                />
-              </a>
-            </div>
+              <i
+                class="fas fa-globe"
+              />
+            </a>
           </div>
         </div>
-        <div
-          class="project-tile"
-        >
-          <div>
-            <span>
-              Bedtime stories
-            </span>
-          </div>
-          <div>
-            <h3>
-              Project - Mama, Tell Me a Story
-            </h3>
-            <p>
-              Mama, Tell Me a Story is a collection of twelve short bedtime stories that parents will love reading to their kids over and over again. The stories are engaging and revolves around characters that your kids will absolutely love. Each story holds the power to unlock your child’s superpower—their imagination!
-            </p>
-            <div
-              class="project-links"
-            >
-              <a
-                href="http://mamatellmeastory.clydedsouza.net/"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <i
-                  class="fas fa-globe"
-                />
-              </a>
-            </div>
-          </div>
+      </div>
+      <div
+        class="project-tile"
+      >
+        <div>
+          <span>
+            Bedtime stories
+          </span>
         </div>
-        <div
-          class="project-tile"
-        >
-          <div>
-            <span>
-              Skillshare online class
-            </span>
-          </div>
-          <div>
-            <h3>
-              Project - Developing and distributing NuGet packages
-            </h3>
-            <p>
-              Learn how to develop your very own NuGet package and then publish it to nuget.org.
-            </p>
-            <div
-              class="project-links"
+        <div>
+          <h3>
+            Project - Mama, Tell Me a Story
+          </h3>
+          <p>
+            Mama, Tell Me a Story is a collection of twelve short bedtime stories that parents will love reading to their kids over and over again. The stories are engaging and revolves around characters that your kids will absolutely love. Each story holds the power to unlock your child’s superpower—their imagination!
+          </p>
+          <div
+            class="project-links"
+          >
+            <a
+              href="http://mamatellmeastory.clydedsouza.net/"
+              rel="noreferrer"
+              target="_blank"
             >
-              <a
-                href="https://skl.sh/2W5AA5w"
-                rel="noreferrer"
-                target="_blank"
-              >
-                <i
-                  class="fas fa-globe"
-                />
-              </a>
-            </div>
+              <i
+                class="fas fa-globe"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -214,15 +172,11 @@ exports[`Pinned given api returns no items should render pinned 1`] = `
       Highlights
     </h2>
     <div
-      id="pinnedProjects"
+      class="pinned-projects"
     >
-      <div
-        id="pinnedProjectsList"
-      >
-        <p>
-          Couldn‘t load the data at this stage
-        </p>
-      </div>
+      <p>
+        Couldn‘t load the data at this stage
+      </p>
     </div>
   </div>
 </body>
