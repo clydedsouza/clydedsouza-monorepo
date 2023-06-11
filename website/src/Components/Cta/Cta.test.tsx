@@ -46,6 +46,31 @@ describe('Cta', () => {
     })
   })
 
+  describe.each([
+    { title: '', website: '' },
+    { title: 'test', website: '' },
+    { title: '', website: 'test' },
+  ])('given api return a single invalid item', ({ title, website }) => {
+    beforeEach(() => {
+      jest
+        .spyOn(apiCacheModule, 'getCachedProjectData')
+        .mockImplementationOnce(() =>
+          Promise.resolve({
+            app: {},
+            data: [{ ...emptyProject, title, website }],
+          })
+        )
+    })
+
+    it(`should render cta when title is ${title} and website is ${website}`, async () => {
+      render(<Cta />)
+      await waitForElementToBeRemoved(() =>
+        screen.queryByText('Contents are loading...')
+      )
+      expect(document.body).toMatchSnapshot()
+    })
+  })
+
   describe('given api returns multiple items', () => {
     beforeEach(() => {
       jest

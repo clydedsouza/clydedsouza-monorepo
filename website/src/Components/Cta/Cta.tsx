@@ -30,6 +30,8 @@ function Cta({ location }: ICtaProps) {
     if (items.length < 1) return
     const randomizedProject =
       items[Math.floor(Math.random() * (items.length - 1 - 0 + 1) + 0)]
+
+    if (!randomizedProject.title || !randomizedProject.website) return
     return (
       <div className="cta" data-location={location}>
         <a href={randomizedProject.website} target="_blank" rel="noreferrer">

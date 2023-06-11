@@ -1,5 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Cta given api return a single invalid item should render cta when title is  and website is  1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`Cta given api return a single invalid item should render cta when title is  and website is test 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`Cta given api return a single invalid item should render cta when title is test and website is  1`] = `
+<body>
+  <div />
+</body>
+`;
+
 exports[`Cta given api return a single item should render cta 1`] = `
 <body>
   <div>
