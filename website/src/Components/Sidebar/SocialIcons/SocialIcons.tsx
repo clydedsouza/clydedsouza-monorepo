@@ -1,9 +1,9 @@
-import Envelope from './Icons/Envelope'
-import GitHub from './Icons/GitHub'
-import LinkedIn from './Icons/LinkedIn'
-import Medium from './Icons/Medium'
-import Twitter from './Icons/Twitter'
-import YouTube from './Icons/YouTube'
+import Envelope from '../../Icons/Envelope'
+import GitHub from '../../Icons/GitHub'
+import LinkedIn from '../../Icons/LinkedIn'
+import Medium from '../../Icons/Medium'
+import Twitter from '../../Icons/Twitter'
+import YouTube from '../../Icons/YouTube'
 import './SocialIcons.scss'
 
 function SocialIcons() {

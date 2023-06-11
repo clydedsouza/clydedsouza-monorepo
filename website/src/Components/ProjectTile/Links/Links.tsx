@@ -1,6 +1,6 @@
 import { IProject } from '../../../Types/ProjectData'
-import GitHub from '../../Sidebar/SocialIcons/Icons/GitHub'
-import Globe from '../../Sidebar/SocialIcons/Icons/Globe'
+import GitHub from '../../Icons/GitHub'
+import Globe from '../../Icons/Globe'
 import './Links.scss'
 
 function Links(props: Partial<IProject>) {
