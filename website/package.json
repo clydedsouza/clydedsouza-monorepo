@@ -1,6 +1,7 @@
 {
-  "name": "web",
+  "name": "clydedsouza.net",
   "version": "0.1.0",
+  "author": "Clyde D'Souza",
   "private": true,
   "scripts": {
     "vscode:setup": "ext install esbenp.prettier-vscode",

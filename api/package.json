@@ -1,6 +1,6 @@
 {
-  "name": "clydedsouza-projects",
-  "version": "0.0.1",
+  "name": "api.clydedsouza.net",
+  "version": "0.1.0",
   "author": "Clyde D'Souza",
   "scripts": {
     "generate:src": "markdown-json -c ./src/settings/src.json",
