@@ -6,7 +6,7 @@ website: https://www.tutorialspoint.com/profile/clyde-d-souza
 github: ""
 madeUsing: []
 category: NFT
-image: https://files.clydedsouza.net/portfolio/rarible-teaser.png
+image: https://files.clydedsouza.net/platforms/tutorialspoint.png
 imageDescription: Clyde's NFT's on Rarible
 ---
 

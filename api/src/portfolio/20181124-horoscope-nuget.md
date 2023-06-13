@@ -13,7 +13,7 @@ madeUsing:
   - Azure DevOps
   - Azure Artifacts
 category: NuGet
-image: https://files.clydedsouza.net/portfolio/horoscope-nuget.jpg
+image: https://files.clydedsouza.net/portfolio/horoscope-nuget.png
 imageDescription: A NuGet package for zodiac signs.
 ---
 

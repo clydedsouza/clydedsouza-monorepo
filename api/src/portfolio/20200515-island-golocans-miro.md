@@ -6,7 +6,7 @@ website: https://miro.com/miroverse/retrospective-in-the-island-of-golocans/
 github: ""
 madeUsing: []
 category: Miro
-image: https://files.clydedsouza.net/portfolio/miro-profile.png
+image: https://files.clydedsouza.net/portfolio/miro-golocans.png
 imageDescription: Clyde on Miro
 ---
 

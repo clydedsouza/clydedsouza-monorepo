@@ -9,7 +9,7 @@ website: https://youtu.be/cFslS0b_2dg
 github: ""
 madeUsing: []
 category: Conference speaker
-image: https://files.clydedsouza.net/portfolio/dotnetconf-teaser.png
+image: https://files.clydedsouza.net/portfolio/dotnetconf.png
 imageDescription: Clyde D'Souza speaking at the .NET Conference 2020.
 ---
 

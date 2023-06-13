@@ -6,7 +6,7 @@ website: https://opensea.io/clydedz
 github: ""
 madeUsing: []
 category: NFT
-image: https://files.clydedsouza.net/portfolio/opensea-teaser.png
+image: https://files.clydedsouza.net/platforms/opensea.png
 imageDescription: Clyde's NFT's on OpenSea
 ---
 

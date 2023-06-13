@@ -6,7 +6,7 @@ website: https://marketplace.visualstudio.com/publishers/clydedsouza
 github: ""
 madeUsing: []
 category: NFT
-image: https://files.clydedsouza.net/portfolio/rarible-teaser.png
+image: https://files.clydedsouza.net/platforms/vsmarketplace.png
 imageDescription: Clyde's NFT's on Rarible
 ---
 
