@@ -1,9 +1,0 @@
-{
-    "name": "pinned",
-    "cwd": "./",
-    "src": "portfolio/",
-    "filePattern": "**/*.pin.md",
-    "dist": "public/pinned.json",
-    "metadata": false,
-    "deterministicOrder": true
-  }

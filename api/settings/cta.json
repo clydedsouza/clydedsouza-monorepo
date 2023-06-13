@@ -1,7 +1,7 @@
 {
   "name": "cta",
   "cwd": "./",
-  "src": "portfolio/cta/",
+  "src": "src/cta/",
   "filePattern": "**/*.md",
   "dist": "public/cta.json",
   "metadata": false,

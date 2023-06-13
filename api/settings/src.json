@@ -1,9 +1,9 @@
 {
-  "name": "platforms",
+  "name": "src",
   "cwd": "./",
-  "src": "src/platforms/",
+  "src": "src/",
   "filePattern": "**/*.md",
-  "dist": "public/platforms.json",
+  "dist": "public/src.json",
   "metadata": false,
   "deterministicOrder": true
 }

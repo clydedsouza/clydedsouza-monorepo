@@ -1,9 +1,9 @@
 {
-    "name": "highlights",
-    "cwd": "./",
-    "src": "portfolio/highlights/",
-    "filePattern": "**/*.md",
-    "dist": "public/highlights.json",
-    "metadata": false,
-    "deterministicOrder": true
-  }
+  "name": "highlights",
+  "cwd": "./",
+  "src": "src/",
+  "filePattern": "**/*.pin.md",
+  "dist": "public/highlights.json",
+  "metadata": false,
+  "deterministicOrder": true
+}
