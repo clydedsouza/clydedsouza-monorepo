@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "author": "Clyde D'Souza",
   "scripts": {
-    "generate:src": "markdown-json -c ./settings/src.json",
-    "generate:cta": "markdown-json -c ./settings/cta.json",
-    "generate:portfolio": "markdown-json -c ./settings/portfolio.json",
-    "generate:highlights": "markdown-json -c ./settings/highlights.json",
-    "generate:platforms": "markdown-json -c ./settings/platforms.json",
+    "generate:src": "markdown-json -c ./src/settings/src.json",
+    "generate:cta": "markdown-json -c ./src/settings/cta.json",
+    "generate:portfolio": "markdown-json -c ./src/settings/portfolio.json",
+    "generate:highlights": "markdown-json -c ./src/settings/highlights.json",
+    "generate:platforms": "markdown-json -c ./src/settings/platforms.json",
     "generate:api": "npm run generate:portfolio & npm run generate:platforms & npm run generate:highlights & npm run generate:cta & npm run generate:src"
   },
   "dependencies": {
