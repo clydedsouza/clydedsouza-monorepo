@@ -14,7 +14,5 @@ madeUsing:
   - Azure Artifacts
 category: NuGet
 image: https://files.clydedsouza.net/portfolio/horoscope-nuget.png
-imageDescription: A NuGet package for zodiac signs.
+imageDescription: Horoscope—A NuGet package for zodiac signs.
 ---
-
-A NuGet package for zodiac signs.

@@ -10,11 +10,9 @@ madeUsing:
   - TypeScript
   - Node.js
   - Mocha
-category: Azure DevOps Extension
+category: Azure DevOps extension
 image: https://files.clydedsouza.net/portfolio/metataganalyzer.png
 imageDescription:
   An Azure DevOps task that generates a report after analysing the
   meta tags of each page on your website.
 ---
-
-An Azure DevOps task that generates a report after analysing the meta tags of each page on your website.

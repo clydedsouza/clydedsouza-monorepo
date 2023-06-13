@@ -1,13 +1,13 @@
 ---
 title: Retrospective in the Island of Golocans
 date: 01 May 2020
-description: You can now copy Miro templates I've designed and published to Miroverse. Check out some cool templates readily available for you to use.
+description: Grab a copy of the award-winning retrospective Miro template I put together from Miroverse and gave a pleasant time exploring this island!.
 website: https://miro.com/miroverse/retrospective-in-the-island-of-golocans/
 github: ""
-madeUsing: []
+madeUsing:
+  - Miro
+  - Figma
 category: Miro
 image: https://files.clydedsouza.net/portfolio/miro-golocans.png
-imageDescription: Clyde on Miro
+imageDescription: Retrospective in the Island of Golocans—An award-winning retrospective template
 ---
-
-Content to be added.

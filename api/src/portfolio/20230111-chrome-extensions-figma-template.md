@@ -1,20 +1,12 @@
 ---
-title: Figma Chrome Extensions Template
+title: Figma Chrome Extension Template
 date: 01 Nov 2021
-description: Have a look at the various Chrome extensions  developed by Clyde.
-website: https://chrome.google.com/webstore/search/Clyde%20D'Souza
-github: https://github.com/topics/clydedz-chrome-extension
+description: This Figma template contains various frames built to the sizes that you'd require while publishing a Chrome extension. You can straight away design inside these frames, re-use components, and create all the required assets.
+website: https://www.figma.com/community/file/1127061326249481158
+github: ""
 madeUsing:
-  - jQuery
-  - HTML
-  - Sass
-  - Chrome API
-  - Jest
-  - JavaScript
-  - TypeScript
-category: Chrome Extensions
+  - Figma
+category: Figma
 image: https://files.clydedsouza.net/portfolio/figma-chrome-ext-template.png
-imageDescription: Chrome Extensions developed by Clyde D'Souza
+imageDescription: This Figma template contains various frames built to the sizes that you'd require while publishing a Chrome extension.
 ---
-
-Content to be added

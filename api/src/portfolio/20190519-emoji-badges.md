@@ -11,11 +11,9 @@ madeUsing:
   - Node.js
   - Mocha
   - Istanbul+nyc
-category: VS Code Extension
+category: VS Code extension
 image: https://files.clydedsouza.net/portfolio/emojibadgesvscode.png
 imageDescription:
   Snippets to insert emoji badges to your markdown file. These are
   shields.io badges boosted with emojis.
 ---
-
-Snippets to insert emoji badges to your markdown file. These are shields.io badges boosted with emojis. I've documented the process of creating a VS Code Extension on [Medium](http://bit.ly/cdz03)

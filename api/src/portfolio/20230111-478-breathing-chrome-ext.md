@@ -1,20 +1,15 @@
 ---
-title: Chrome Extensions
+title: 4-7-8 Breathing
 date: 01 Nov 2021
-description: Have a look at the various Chrome extensions  developed by Clyde.
-website: https://chrome.google.com/webstore/search/Clyde%20D'Souza
-github: https://github.com/topics/clydedz-chrome-extension
+description: A 4-7-8 breathing exercise ready in every new tab. Relieves stress, reduces anxiety and calms the nerves.
+website: https://bit.ly/478breathing-ext
+github: https://github.com/ClydeDz/478-breathing-chrome-extension
 madeUsing:
-  - jQuery
   - HTML
-  - Sass
-  - Chrome API
-  - Jest
   - JavaScript
-  - TypeScript
-category: Chrome Extensions
+  - SCSS
+  - Jest
+category: Chrome extension
 image: https://files.clydedsouza.net/portfolio/478-breathing-chrome-ext.png
-imageDescription: Chrome Extensions developed by Clyde D'Souza
+imageDescription: A 4-7-8 breathing exercise ready in every new tab. Relieves stress, reduces anxiety and calms the nerves.
 ---
-
-Content to be added
