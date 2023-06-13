@@ -22,7 +22,7 @@ const projectDataMockResponse = [
     github: '',
     madeUsing: ['Photoshop'],
     category: 'Graphic Design',
-    image: 'https://files.clydedsouza.net/images/projects/tulips-collage.jpg',
+    image: 'https://files.clydedsouza.net/portfolio/tulips-collage.jpg',
     imageDescription: "Church magazine cover designs by Clyde D'Souza",
     excerpt:
       '<p>For about two years, from December 2012 to December 2014, I was a member of my parishes editorial board responsible for putting together the monthly (sometimes quarterly) bulletin called Tulips that would then be distributed to all members of the parish. My responsibility was to put together a cover design for each magazine.</p>',
@@ -39,8 +39,7 @@ const projectDataMockResponse = [
     github: 'https://github.com/profilesticker/profilesticker.github.io/',
     madeUsing: ['HTML', 'CSS', 'SCSS', 'JavaScript', 'Mustache.js'],
     category: 'Website',
-    image:
-      'https://files.clydedsouza.net/images/projects/profilesticker-website.png',
+    image: 'https://files.clydedsouza.net/portfolio/profilesticker-website.png',
     imageDescription:
       'Add a sticker to your profile picture using Profile Sticker in just 4 easy steps.',
     excerpt:
@@ -61,7 +60,7 @@ describe('Projects', () => {
         )
     })
 
-    describe.each([PageTypes.Highlights, PageTypes.Platforms])(
+    describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
       'given page type is %s',
       (pageType: PageTypes) => {
         it('should render projects', async () => {
@@ -96,7 +95,7 @@ describe('Projects', () => {
         )
     })
 
-    describe.each([PageTypes.Highlights, PageTypes.Platforms])(
+    describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
       'given page type is %s',
       (pageType: PageTypes) => {
         it('should render projects', async () => {
@@ -110,7 +109,7 @@ describe('Projects', () => {
     )
 
     it('should sort the projects in desc order', async () => {
-      render(<Projects {...{ name: PageTypes.Highlights }} />)
+      render(<Projects {...{ name: PageTypes.Portfolio }} />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       const headings = screen.getAllByRole('heading')
       expect(headings[0]).toHaveTextContent(projectDataMockResponse[1].title)
@@ -130,7 +129,7 @@ describe('Projects', () => {
         )
     })
 
-    describe.each([PageTypes.Highlights, PageTypes.Platforms])(
+    describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
       'given page type is %s',
       (pageType: PageTypes) => {
         it('should render empty projects', async () => {
@@ -151,7 +150,7 @@ describe('Projects', () => {
         .mockImplementationOnce(() => Promise.reject('Error'))
     })
 
-    describe.each([PageTypes.Highlights, PageTypes.Platforms])(
+    describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
       'given page type is %s',
       (pageType: PageTypes) => {
         it('should render empty projects', async () => {

@@ -25,7 +25,7 @@ const projectWithoutLinks: IProject = {
   github: '',
   madeUsing: ['Photoshop'],
   category: 'Graphic Design',
-  image: 'https://files.clydedsouza.net/images/projects/tulips-collage.jpg',
+  image: 'https://files.clydedsouza.net/portfolio/tulips-collage.jpg',
   imageDescription: "Church magazine cover designs by Clyde D'Souza",
 }
 
@@ -38,7 +38,7 @@ const projectWithoutDescription: IProject = {
   github: 'https://github.com/chemeleon/chemeleon.github.io/',
   madeUsing: ['html', 'sass'],
   category: 'Website',
-  image: 'https://files.clydedsouza.net/images/projects/chemeleon.jpg',
+  image: 'https://files.clydedsouza.net/portfolio/chemeleon.jpg',
   imageDescription: 'test',
 }
 
@@ -52,8 +52,7 @@ const projectWithAllInfo: IProject = {
   github: 'https://github.com/profilesticker/profilesticker.github.io/',
   madeUsing: ['HTML', 'CSS', 'SCSS', 'JavaScript', 'Mustache.js'],
   category: 'Website',
-  image:
-    'https://files.clydedsouza.net/images/projects/profilesticker-website.png',
+  image: 'https://files.clydedsouza.net/portfolio/profilesticker-website.png',
   imageDescription:
     'Add a sticker to your profile picture using Profile Sticker in just 4 easy steps.',
 }

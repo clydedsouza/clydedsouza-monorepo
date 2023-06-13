@@ -45,7 +45,7 @@ describe('Cache', () => {
           }
         })
 
-      const projects = await getCachedProjectData(PageTypes.Highlights)
+      const projects = await getCachedProjectData(PageTypes.Portfolio)
 
       expect(projects.data).toHaveLength(1)
     })
@@ -68,7 +68,7 @@ describe('Cache', () => {
           }
         })
 
-      await getCachedProjectData(PageTypes.Highlights)
+      await getCachedProjectData(PageTypes.Portfolio)
 
       expect(apiCoreModule.getProjectData).toBeCalledTimes(1)
     })
@@ -91,7 +91,7 @@ describe('Cache', () => {
           }
         })
 
-      const projects = await getCachedProjectData(PageTypes.Highlights)
+      const projects = await getCachedProjectData(PageTypes.Portfolio)
 
       expect(mapHas).toBeCalledTimes(1)
       expect(mapSet).toBeCalledTimes(1)
@@ -120,8 +120,8 @@ describe('Cache', () => {
           }
         })
 
-      await getCachedProjectData(PageTypes.Highlights)
-      await getCachedProjectData(PageTypes.Highlights)
+      await getCachedProjectData(PageTypes.Portfolio)
+      await getCachedProjectData(PageTypes.Portfolio)
 
       expect(apiCoreModule.getProjectData).toBeCalledTimes(1)
       expect(mapHas).toBeCalledTimes(2)
@@ -147,7 +147,7 @@ describe('Cache', () => {
           }
         })
 
-      await getCachedProjectData(PageTypes.Highlights)
+      await getCachedProjectData(PageTypes.Portfolio)
       await getCachedProjectData(PageTypes.Platforms)
 
       expect(apiCoreModule.getProjectData).toBeCalledTimes(2)
@@ -187,7 +187,7 @@ describe('Cache', () => {
           return true
         })
 
-      await getCachedProjectData(PageTypes.Highlights).catch(() => undefined)
+      await getCachedProjectData(PageTypes.Portfolio).catch(() => undefined)
 
       expect(mapHas).toBeCalledTimes(1)
       expect(mapDelete).toBeCalledTimes(1)

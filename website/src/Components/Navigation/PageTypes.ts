@@ -1,7 +1,7 @@
 export enum PageTypes {
   About = 'About',
-  Highlights = 'Highlights',
+  Portfolio = 'Portfolio',
   Platforms = 'Platforms',
-  Pinned = 'Pinned',
+  Highlights = 'Highlights',
   Cta = 'Cta',
 }

@@ -13,9 +13,9 @@ exports[`Navigation should render navigation 1`] = `
       </a>
       <a
         class=""
-        href="/highlights"
+        href="/portfolio"
       >
-        Highlights
+        Portfolio
       </a>
       <a
         class=""
@@ -146,7 +146,7 @@ exports[`Navigation should render navigation 1`] = `
       Highlights
     </h2>
     <div
-      class="pinned-projects"
+      class="highlights"
     >
       <p>
         Couldn‘t load the data at this stage

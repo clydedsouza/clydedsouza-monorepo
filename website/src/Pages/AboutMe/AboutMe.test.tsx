@@ -8,7 +8,7 @@ import AboutMe from './AboutMe'
 
 jest.mock('../../Api/Cache')
 
-const pinnedDataMockResponse = [
+const highlightDataMockResponse = [
   {
     id: '20121201-tulips-cover',
     contents:
@@ -21,7 +21,7 @@ const pinnedDataMockResponse = [
     github: '',
     madeUsing: ['Photoshop'],
     category: 'Graphic Design',
-    image: 'https://files.clydedsouza.net/images/projects/tulips-collage.jpg',
+    image: 'https://files.clydedsouza.net/portfolio/tulips-collage.jpg',
     imageDescription: "Church magazine cover designs by Clyde D'Souza",
     excerpt:
       '<p>For about two years, from December 2012 to December 2014, I was a member of my parishes editorial board responsible for putting together the monthly (sometimes quarterly) bulletin called Tulips that would then be distributed to all members of the parish. My responsibility was to put together a cover design for each magazine.</p>',
@@ -38,8 +38,7 @@ const pinnedDataMockResponse = [
     github: 'https://github.com/profilesticker/profilesticker.github.io/',
     madeUsing: ['HTML', 'CSS', 'SCSS', 'JavaScript', 'Mustache.js'],
     category: 'Website',
-    image:
-      'https://files.clydedsouza.net/images/projects/profilesticker-website.png',
+    image: 'https://files.clydedsouza.net/portfolio/profilesticker-website.png',
     imageDescription:
       'Add a sticker to your profile picture using Profile Sticker in just 4 easy steps.',
     excerpt:
@@ -54,7 +53,7 @@ describe('About me', () => {
       .mockImplementationOnce(() =>
         Promise.resolve({
           app: {},
-          data: [pinnedDataMockResponse[0], pinnedDataMockResponse[1]],
+          data: [highlightDataMockResponse[0], highlightDataMockResponse[1]],
         })
       )
   })

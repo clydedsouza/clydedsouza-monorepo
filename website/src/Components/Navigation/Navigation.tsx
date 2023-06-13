@@ -15,10 +15,10 @@ function Menu() {
           {PageTypes.About}
         </NavLink>
         <NavLink
-          to={PageTypes.Highlights.toLowerCase()}
+          to={PageTypes.Portfolio.toLowerCase()}
           className={({ isActive }) => (isActive ? 'active' : '')}
         >
-          {PageTypes.Highlights}
+          {PageTypes.Portfolio}
         </NavLink>
         <NavLink
           to={PageTypes.Platforms.toLowerCase()}
@@ -39,8 +39,8 @@ function Navigation() {
         <Route path="/" element={<Menu />}>
           <Route index element={<AboutMe />} />
           <Route
-            path={PageTypes.Highlights.toLowerCase()}
-            element={<Projects name={PageTypes.Highlights} />}
+            path={PageTypes.Portfolio.toLowerCase()}
+            element={<Projects name={PageTypes.Portfolio} />}
           />
           <Route
             path={PageTypes.Platforms.toLowerCase()}

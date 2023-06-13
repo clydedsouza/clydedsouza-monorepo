@@ -33,22 +33,22 @@ describe('Core', () => {
     })
 
     it('should call api once', async () => {
-      await getProjectData(PageTypes.Highlights)
+      await getProjectData(PageTypes.Portfolio)
       expect(getAxios).toBeCalledTimes(1)
     })
 
     it('should return project data', async () => {
-      const projects = await getProjectData(PageTypes.Highlights)
+      const projects = await getProjectData(PageTypes.Portfolio)
       await waitFor(() =>
         expect(projects.data).toMatchObject(apiDataMockResponse)
       )
     })
 
     it.each([
-      PageTypes.Highlights,
+      PageTypes.Portfolio,
       PageTypes.Platforms,
       PageTypes.Cta,
-      PageTypes.Pinned,
+      PageTypes.Highlights,
     ])(
       'should call correct api endpoint when page type is %s',
       async (pageType: PageTypes) => {
@@ -72,13 +72,13 @@ describe('Core', () => {
     })
 
     it('should call api once', async () => {
-      await getProjectData(PageTypes.Highlights).catch(() => undefined)
+      await getProjectData(PageTypes.Portfolio).catch(() => undefined)
       expect(getAxios).toBeCalledTimes(1)
     })
 
     it('should return error message', async () => {
       let error = ''
-      await getProjectData(PageTypes.Highlights).catch((err) => {
+      await getProjectData(PageTypes.Portfolio).catch((err) => {
         error = err.message
       })
 

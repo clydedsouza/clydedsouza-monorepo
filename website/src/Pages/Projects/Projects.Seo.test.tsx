@@ -22,7 +22,7 @@ describe('Projects', () => {
       )
   })
 
-  describe.each([PageTypes.Highlights, PageTypes.Platforms])(
+  describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
     'given page type is %s',
     (pageType: PageTypes) => {
       it(`should render projects seo`, async () => {

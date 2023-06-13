@@ -6,15 +6,15 @@ import { LoaderTypes } from '../../../Components/Loader/LoaderTypes'
 import { PageTypes } from '../../../Components/Navigation/PageTypes'
 import ProjectTile from '../../../Components/ProjectTile/ProjectTile'
 
-const MAX_PINNED_ITEMS = 3
+const MAX_HIGHLIGHT_ITEMS = 3
 
-function Pinned() {
+function Highlights() {
   const [projectData, setProjectData] = useState<IProject[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     setIsLoading(true)
-    getCachedProjectData(PageTypes.Pinned)
+    getCachedProjectData(PageTypes.Highlights)
       .then((apiResponse) => {
         setProjectData(apiResponse.data)
       })
@@ -32,7 +32,7 @@ function Pinned() {
       {isLoading ? (
         <Loader variant={LoaderTypes.Primary} />
       ) : (
-        <div className="pinned-projects">
+        <div className="highlights">
           {projectData.length > 0 ? (
             projectData
               .sort((dateA, dateB) => {
@@ -41,7 +41,7 @@ function Pinned() {
                   Number(new Date(dateB.date)) - Number(new Date(dateA.date))
                 )
               })
-              .slice(0, MAX_PINNED_ITEMS)
+              .slice(0, MAX_HIGHLIGHT_ITEMS)
               .map((item) => <ProjectTile {...item} key={item.title} />)
           ) : (
             <p>Couldn&lsquo;t load the data at this stage</p>
@@ -52,4 +52,4 @@ function Pinned() {
   )
 }
 
-export default Pinned
+export default Highlights

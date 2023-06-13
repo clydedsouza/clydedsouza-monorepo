@@ -8,7 +8,7 @@ function ProjectTile(props: IProject) {
     <div className="project-tile">
       <div
         style={{
-          backgroundImage: `url(${props.image}), url("https://files.clydedsouza.net/images/projects/omg-team.jpg")`,
+          backgroundImage: `url(${props.image}), url("https://files.clydedsouza.net/highlights/omg-team.jpg")`,
         }}
         aria-label={props.imageDescription}
       >

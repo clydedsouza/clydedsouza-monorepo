@@ -8,13 +8,13 @@ const getProjectApiUrl = (pageType: PageTypes) => {
   switch (pageType) {
     case PageTypes.Cta:
       return `${BASE_URL}cta.json`
-    case PageTypes.Pinned:
-      return `${BASE_URL}pinned.json`
+    case PageTypes.Highlights:
+      return `${BASE_URL}highlights.json`
     case PageTypes.Platforms:
       return `${BASE_URL}platforms.json`
-    case PageTypes.Highlights:
+    case PageTypes.Portfolio:
     default:
-      return `${BASE_URL}highlights.json`
+      return `${BASE_URL}portfolio.json`
   }
 }
 

@@ -5,11 +5,11 @@ import {
 } from '@testing-library/react'
 import * as apiCacheModule from '../../../Api/Cache'
 import { PageTypes } from '../../../Components/Navigation/PageTypes'
-import Pinned from './Pinned'
+import Highlights from './Highlights'
 
 jest.mock('../../../Api/Cache')
 
-const pinnedDataMockResponse = [
+const highlightsDataMockResponse = [
   {
     id: 'highlights\\20180113-light-and-spark-npo.pin',
     contents:
@@ -23,7 +23,7 @@ const pinnedDataMockResponse = [
     madeUsing: [],
     category: 'Offline workshop',
     image:
-      'https://files.clydedsouza.net/images/projects/lightandsparknpo-siteteaser.png',
+      'https://files.clydedsouza.net/portfolio/lightandsparknpo-siteteaser.png',
     imageDescription: 'Light & Spark NPO - Ruia Jan 2018 Event',
     excerpt:
       '<p>Light &amp; Spark NPO&apos;s first event happened on the 13th and 14th of January 2018 at <a href="https://www.ruiacollege.edu/Default.aspx">Ramnarain Ruia College</a>, Mumbai. We taught 36 Computer Science students and gave an online presence to 1 NGO &#x2013; Healing Dove Foundation.</p>',
@@ -40,7 +40,7 @@ const pinnedDataMockResponse = [
     github: '',
     madeUsing: [],
     category: 'Skillshare online class',
-    image: 'https://files.clydedsouza.net/images/projects/ddnp.png',
+    image: 'https://files.clydedsouza.net/portfolio/ddnp.png',
     imageDescription:
       'Developing and distributing NuGet packages – Skillshare class',
     excerpt:
@@ -58,8 +58,7 @@ const pinnedDataMockResponse = [
     github: '',
     madeUsing: [],
     category: 'Bedtime stories',
-    image:
-      'https://files.clydedsouza.net/images/projects/mama-tell-me-a-story.png',
+    image: 'https://files.clydedsouza.net/portfolio/mama-tell-me-a-story.png',
     imageDescription:
       'Mama, Tell Me a Story is a collection of twelve short bedtime stories',
     excerpt:
@@ -76,8 +75,7 @@ const pinnedDataMockResponse = [
     github: '',
     madeUsing: [],
     category: 'Conference speaker',
-    image:
-      'https://files.clydedsouza.net/images/projects/dotnetconf-teaser.png',
+    image: 'https://files.clydedsouza.net/portfolio/dotnetconf-teaser.png',
     imageDescription: "Clyde D'Souza speaking at the .NET Conference 2020.",
     excerpt: '<p>Content to be added.</p>',
   },
@@ -93,7 +91,7 @@ const pinnedDataMockResponse = [
     github: '',
     madeUsing: [],
     category: 'Bedtime stories',
-    image: 'https://files.clydedsouza.net/images/projects/aitellmeastory.png',
+    image: 'https://files.clydedsouza.net/portfolio/aitellmeastory.png',
     imageDescription:
       'AI, Tell Me a Story is a collection of fifty short bedtime stories',
     excerpt:
@@ -101,7 +99,7 @@ const pinnedDataMockResponse = [
   },
 ]
 
-describe('Pinned', () => {
+describe('Highlights', () => {
   describe('given api returns a single item', () => {
     beforeEach(() => {
       jest
@@ -109,25 +107,25 @@ describe('Pinned', () => {
         .mockImplementationOnce(() =>
           Promise.resolve({
             app: {},
-            data: [pinnedDataMockResponse[0]],
+            data: [highlightsDataMockResponse[0]],
           })
         )
     })
 
-    it('should render pinned', async () => {
-      render(<Pinned />)
+    it('should render highlights', async () => {
+      render(<Highlights />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(document.body).toMatchSnapshot()
     })
 
     it('should call API with correct page type', async () => {
-      render(<Pinned />)
+      render(<Highlights />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(apiCacheModule.getCachedProjectData).toBeCalledTimes(1)
       expect(apiCacheModule.getCachedProjectData).toBeCalledWith(
-        PageTypes.Pinned
+        PageTypes.Highlights
       )
     })
   })
@@ -140,34 +138,34 @@ describe('Pinned', () => {
           Promise.resolve({
             app: {},
             data: [
-              pinnedDataMockResponse[0],
-              pinnedDataMockResponse[1],
-              pinnedDataMockResponse[2],
-              pinnedDataMockResponse[3],
-              pinnedDataMockResponse[4],
+              highlightsDataMockResponse[0],
+              highlightsDataMockResponse[1],
+              highlightsDataMockResponse[2],
+              highlightsDataMockResponse[3],
+              highlightsDataMockResponse[4],
             ],
           })
         )
     })
 
-    it('should render pinned', async () => {
-      render(<Pinned />)
+    it('should render highlights', async () => {
+      render(<Highlights />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(document.body).toMatchSnapshot()
     })
 
     it('should sort items in descending order', async () => {
-      render(<Pinned />)
+      render(<Highlights />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       const headings = screen.getAllByRole('heading', { name: /Project -/ })
-      expect(headings[0]).toHaveTextContent(pinnedDataMockResponse[4].title)
-      expect(headings[1]).toHaveTextContent(pinnedDataMockResponse[3].title)
-      expect(headings[2]).toHaveTextContent(pinnedDataMockResponse[2].title)
+      expect(headings[0]).toHaveTextContent(highlightsDataMockResponse[4].title)
+      expect(headings[1]).toHaveTextContent(highlightsDataMockResponse[3].title)
+      expect(headings[2]).toHaveTextContent(highlightsDataMockResponse[2].title)
     })
 
-    it('should show max 3 pinned items', async () => {
-      render(<Pinned />)
+    it('should show max 3 highlight items', async () => {
+      render(<Highlights />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       const headings = screen.getAllByRole('heading', { name: /Project -/ })
       expect(headings).toHaveLength(3)
@@ -186,8 +184,8 @@ describe('Pinned', () => {
         )
     })
 
-    it('should render pinned', async () => {
-      render(<Pinned />)
+    it('should render highlights', async () => {
+      render(<Highlights />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(document.body).toMatchSnapshot()
@@ -201,8 +199,8 @@ describe('Pinned', () => {
         .mockImplementationOnce(() => Promise.reject('Error'))
     })
 
-    it('should render pinned', async () => {
-      render(<Pinned />)
+    it('should render highlights', async () => {
+      render(<Highlights />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
 
       expect(document.body).toMatchSnapshot()

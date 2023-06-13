@@ -31,6 +31,8 @@ describe('Navigation', () => {
     render(<Navigation />)
     await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
     expect(apiCacheModule.getCachedProjectData).toBeCalledTimes(1)
-    expect(apiCacheModule.getCachedProjectData).toBeCalledWith(PageTypes.Pinned)
+    expect(apiCacheModule.getCachedProjectData).toBeCalledWith(
+      PageTypes.Highlights
+    )
   })
 })

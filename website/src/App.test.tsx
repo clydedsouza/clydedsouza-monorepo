@@ -40,6 +40,8 @@ describe('App', () => {
     expect(apiCacheModule.getCachedProjectData).toBeCalledTimes(3)
     expect(apiCacheModule.getCachedProjectData).toBeCalledWith(PageTypes.Cta)
     expect(apiCacheModule.getCachedProjectData).toBeCalledWith(PageTypes.Cta)
-    expect(apiCacheModule.getCachedProjectData).toBeCalledWith(PageTypes.Pinned)
+    expect(apiCacheModule.getCachedProjectData).toBeCalledWith(
+      PageTypes.Highlights
+    )
   })
 })

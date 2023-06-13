@@ -1,6 +1,6 @@
 import Seo from '../../Components/Seo/Seo'
 import Bio from './Bio/Bio'
-import Pinned from './Pinned/Pinned'
+import Highlights from './Highlights/Highlights'
 
 function AboutMe() {
   return (
@@ -8,7 +8,7 @@ function AboutMe() {
       <Seo />
       <Bio />
       <br></br>
-      <Pinned />
+      <Highlights />
     </>
   )
 }
