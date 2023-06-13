@@ -8,7 +8,7 @@
     "generate:portfolio": "markdown-json -c ./settings/portfolio.json",
     "generate:highlights": "markdown-json -c ./settings/highlights.json",
     "generate:platforms": "markdown-json -c ./settings/platforms.json",
-    "generate:api": "npm run generate:portfolio & npm run generate:platforms & npm run generate:pinned & npm run generate:cta & npm run generate:src"
+    "generate:api": "npm run generate:portfolio & npm run generate:platforms & npm run generate:highlights & npm run generate:cta & npm run generate:src"
   },
   "dependencies": {
     "markdown-json": "^1.6.1"
