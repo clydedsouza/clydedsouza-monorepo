@@ -1,15 +1,13 @@
 ---
-title: Clyde on Gumroad
-date: 06 Sep 2020
+title: Gumroad
+date: ""
 description:
   I've published few artifacts on Gumroad which is a marketplace to sell
-  products. Do check it out and maybe even hit that follow button there.
+  digital products. Do check it out and potentially even grab something from my store.
 website: https://gumroad.com/clydedsouza
 github: ""
 madeUsing: []
-category: Gumroad
+category: ""
 image: https://files.clydedsouza.net/platforms/gumroad.png
-imageDescription: Follow Clyde on Gumroad
+imageDescription: Clyde's digital store on Gumroad
 ---
-
-Content to be added.

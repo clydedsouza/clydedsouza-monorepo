@@ -1,13 +1,11 @@
 ---
 title: Figma
-date: 01 Nov 2021
-description: Have a look at the various Chrome extensions  developed by Clyde.
+date: ""
+description: I've published some Figma designs o.
 website: https://www.figma.com/@clydedz
 github: ""
 madeUsing: []
-category: Design templates
+category: ""
 image: https://files.clydedsouza.net/platforms/figma.png
 imageDescription: Chrome Extensions developed by Clyde D'Souza
 ---
-
-Content to be added
