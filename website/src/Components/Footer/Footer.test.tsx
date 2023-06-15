@@ -25,7 +25,7 @@ describe('Footer', () => {
       .mockImplementationOnce(() =>
         Promise.resolve({
           app: {},
-          data: [ctaDataMockResponse[0]],
+          data: [...ctaDataMockResponse],
         })
       )
   })

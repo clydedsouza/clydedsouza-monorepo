@@ -23,7 +23,7 @@ describe('Mainstage', () => {
     jest.spyOn(apiCacheModule, 'getCachedProjectData').mockImplementation(() =>
       Promise.resolve({
         app: {},
-        data: [apiDataMockResponse[0]],
+        data: [...apiDataMockResponse],
       })
     )
   })

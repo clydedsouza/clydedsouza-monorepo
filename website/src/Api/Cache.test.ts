@@ -17,17 +17,17 @@ const apiDataMockResponse = [
 ]
 
 describe('Cache', () => {
-  describe('given core api returns a result', () => {
+  describe('given core API returns a result', () => {
     beforeEach(() => {
       jest.spyOn(apiCoreModule, 'getProjectData').mockImplementation(() =>
         Promise.resolve({
           app: {},
-          data: [apiDataMockResponse[0]],
+          data: [...apiDataMockResponse],
         })
       )
     })
 
-    it('should return api data', async () => {
+    it('should return API data', async () => {
       jest
         .spyOn(cacheStorageModule.projectDataCacheMap, 'set')
         .mockImplementation(jest.fn())
@@ -41,7 +41,7 @@ describe('Cache', () => {
         .mockImplementation(() => {
           return {
             app: {},
-            data: [apiDataMockResponse[0]],
+            data: [...apiDataMockResponse],
           }
         })
 
@@ -50,7 +50,7 @@ describe('Cache', () => {
       expect(projects.data).toHaveLength(1)
     })
 
-    it('should call core api once', async () => {
+    it('should call core API once', async () => {
       jest
         .spyOn(cacheStorageModule.projectDataCacheMap, 'set')
         .mockImplementation(jest.fn())
@@ -64,7 +64,7 @@ describe('Cache', () => {
         .mockImplementation(() => {
           return {
             app: {},
-            data: [apiDataMockResponse[0]],
+            data: [...apiDataMockResponse],
           }
         })
 
@@ -87,7 +87,7 @@ describe('Cache', () => {
         .mockImplementation(() => {
           return {
             app: {},
-            data: [apiDataMockResponse[0]],
+            data: [...apiDataMockResponse],
           }
         })
 
@@ -99,7 +99,7 @@ describe('Cache', () => {
       expect(projects.data).toHaveLength(1)
     })
 
-    it('should call core api once even when two requests of same page type are made', async () => {
+    it('should call core API once even when two requests of same page type are made', async () => {
       const mapSet = jest
         .spyOn(cacheStorageModule.projectDataCacheMap, 'set')
         .mockImplementation(jest.fn())
@@ -116,7 +116,7 @@ describe('Cache', () => {
         .mockImplementation(() => {
           return {
             app: {},
-            data: [apiDataMockResponse[0]],
+            data: [...apiDataMockResponse],
           }
         })
 
@@ -129,7 +129,7 @@ describe('Cache', () => {
       expect(mapGet).toBeCalledTimes(2)
     })
 
-    it('should call core api twice even when two requests of different page type are made', async () => {
+    it('should call core API twice even when two requests of different page type are made', async () => {
       const mapSet = jest
         .spyOn(cacheStorageModule.projectDataCacheMap, 'set')
         .mockImplementation(jest.fn())
@@ -143,7 +143,7 @@ describe('Cache', () => {
         .mockImplementation(() => {
           return {
             app: {},
-            data: [apiDataMockResponse[0]],
+            data: [...apiDataMockResponse],
           }
         })
 
@@ -157,7 +157,7 @@ describe('Cache', () => {
     })
   })
 
-  describe('given core api returns an error', () => {
+  describe('given core API returns an error', () => {
     beforeEach(() => {
       jest
         .spyOn(apiCoreModule, 'getProjectData')

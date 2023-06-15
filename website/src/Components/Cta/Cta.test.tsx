@@ -74,7 +74,7 @@ describe('Cta', () => {
         .mockImplementationOnce(() =>
           Promise.resolve({
             app: {},
-            data: [ctaDataMockResponse[0], ctaDataMockResponse[1]],
+            data: [...ctaDataMockResponse],
           })
         )
     })

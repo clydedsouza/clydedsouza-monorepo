@@ -16,13 +16,13 @@ jest.mock('axios')
 const getAxios = jest.spyOn(axios, 'get')
 
 describe('Core', () => {
-  describe('given api returns a result', () => {
+  describe('given API returns a result', () => {
     beforeEach(() => {
       getAxios.mockImplementation(() =>
         Promise.resolve({
           data: {
             app: {},
-            data: apiDataMockResponse,
+            data: [...apiDataMockResponse],
           },
         })
       )
@@ -32,7 +32,7 @@ describe('Core', () => {
       jest.resetAllMocks()
     })
 
-    it('should call api once', async () => {
+    it('should call API once', async () => {
       await getProjectData(PageTypes.Portfolio)
       expect(getAxios).toBeCalledTimes(1)
     })
@@ -50,7 +50,7 @@ describe('Core', () => {
       PageTypes.Cta,
       PageTypes.Highlights,
     ])(
-      'should call correct api endpoint when page type is %s',
+      'should call correct API endpoint when page type is %s',
       async (pageType: PageTypes) => {
         await getProjectData(pageType)
         expect(getAxios).toBeCalledWith(
@@ -60,7 +60,7 @@ describe('Core', () => {
     )
   })
 
-  describe('given api returns an error', () => {
+  describe('given API returns an error', () => {
     beforeEach(() => {
       getAxios.mockImplementation(() =>
         Promise.reject('API endpoint unavailable')
@@ -71,7 +71,7 @@ describe('Core', () => {
       jest.resetAllMocks()
     })
 
-    it('should call api once', async () => {
+    it('should call API once', async () => {
       await getProjectData(PageTypes.Portfolio).catch(() => undefined)
       expect(getAxios).toBeCalledTimes(1)
     })
