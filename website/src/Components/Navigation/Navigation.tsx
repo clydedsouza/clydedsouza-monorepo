@@ -1,6 +1,7 @@
 import { BrowserRouter, NavLink, Outlet, Route, Routes } from 'react-router-dom'
 import AboutMe from '../../Pages/AboutMe/AboutMe'
-import Projects from '../../Pages/Projects/Projects'
+import Platforms from '../../Pages/Platforms/Platforms'
+import Portfolio from '../../Pages/Portfolio/Portfolio'
 import './Navigation.scss'
 import { PageTypes } from './PageTypes'
 
@@ -40,11 +41,11 @@ function Navigation() {
           <Route index element={<AboutMe />} />
           <Route
             path={PageTypes.Portfolio.toLowerCase()}
-            element={<Projects name={PageTypes.Portfolio} />}
+            element={<Portfolio />}
           />
           <Route
             path={PageTypes.Platforms.toLowerCase()}
-            element={<Projects name={PageTypes.Platforms} />}
+            element={<Platforms />}
           />
           <Route path="*" element={<AboutMe />} />
         </Route>

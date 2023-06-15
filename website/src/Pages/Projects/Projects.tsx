@@ -5,20 +5,21 @@ import Loader from '../../Components/Loader/Loader'
 import { LoaderTypes } from '../../Components/Loader/LoaderTypes'
 import { PageTypes } from '../../Components/Navigation/PageTypes'
 import ProjectTile from '../../Components/ProjectTile/ProjectTile'
-import Seo from '../../Components/Seo/Seo'
 import './Projects.scss'
 
 export interface IProjectProps {
-  name: PageTypes
+  pageType: PageTypes
+  sortProject?: (projectA: IProject, projectB: IProject) => number
 }
 
 function Projects(props: IProjectProps) {
+  const { pageType, sortProject } = props
   const [projectData, setProjectData] = useState<IProject[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     setIsLoading(true)
-    getCachedProjectData(props.name)
+    getCachedProjectData(pageType)
       .then((apiResponse) => {
         setProjectData(apiResponse.data)
       })
@@ -28,11 +29,10 @@ function Projects(props: IProjectProps) {
       .finally(() => {
         setIsLoading(false)
       })
-  }, [props.name])
+  }, [pageType])
 
   return (
     <>
-      <Seo title={props.name} />
       {isLoading ? (
         <Loader variant={LoaderTypes.Primary} />
       ) : (
@@ -40,12 +40,7 @@ function Projects(props: IProjectProps) {
           <div className="projects">
             {projectData.length > 0 ? (
               projectData
-                .sort((dateA, dateB) => {
-                  if (!dateA.date || !dateB.date) return 0
-                  return (
-                    Number(new Date(dateB.date)) - Number(new Date(dateA.date))
-                  )
-                })
+                .sort(sortProject)
                 .map((item) => <ProjectTile {...item} key={item.id} />)
             ) : (
               <p>Couldn&lsquo;t load the data at this stage</p>

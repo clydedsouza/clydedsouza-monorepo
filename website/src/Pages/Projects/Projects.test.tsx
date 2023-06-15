@@ -47,7 +47,13 @@ const projectDataMockResponse = [
   },
 ]
 
+const sortCallbackMock = jest.fn()
+
 describe('Projects', () => {
+  afterEach(() => {
+    jest.resetAllMocks()
+  })
+
   describe('given api returns a single item', () => {
     beforeEach(() => {
       jest
@@ -60,19 +66,28 @@ describe('Projects', () => {
         )
     })
 
+    it('should render projects', async () => {
+      render(<Projects pageType={PageTypes.Portfolio} />)
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
+      expect(document.body).toMatchSnapshot()
+    })
+
+    it('should not call the supplied sort callback', async () => {
+      render(
+        <Projects
+          pageType={PageTypes.Portfolio}
+          sortProject={sortCallbackMock}
+        />
+      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
+      expect(sortCallbackMock).not.toBeCalled()
+    })
+
     describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
       'given page type is %s',
       (pageType: PageTypes) => {
-        it('should render projects', async () => {
-          render(<Projects {...{ name: pageType }} />)
-          await waitForElementToBeRemoved(() =>
-            screen.queryByRole('progressbar')
-          )
-          expect(document.body).toMatchSnapshot()
-        })
-
         it(`should call API with ${pageType} page type`, async () => {
-          render(<Projects {...{ name: pageType }} />)
+          render(<Projects {...{ pageType: pageType }} />)
           await waitForElementToBeRemoved(() =>
             screen.queryByRole('progressbar')
           )
@@ -95,25 +110,21 @@ describe('Projects', () => {
         )
     })
 
-    describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
-      'given page type is %s',
-      (pageType: PageTypes) => {
-        it('should render projects', async () => {
-          render(<Projects {...{ name: pageType }} />)
-          await waitForElementToBeRemoved(() =>
-            screen.queryByRole('progressbar')
-          )
-          expect(document.body).toMatchSnapshot()
-        })
-      }
-    )
-
-    it('should sort the projects in desc order', async () => {
-      render(<Projects {...{ name: PageTypes.Portfolio }} />)
+    it('should render projects', async () => {
+      render(<Projects pageType={PageTypes.Portfolio} />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
-      const headings = screen.getAllByRole('heading')
-      expect(headings[0]).toHaveTextContent(projectDataMockResponse[1].title)
-      expect(headings[1]).toHaveTextContent(projectDataMockResponse[0].title)
+      expect(document.body).toMatchSnapshot()
+    })
+
+    it('should call the supplied sort callback', async () => {
+      render(
+        <Projects
+          pageType={PageTypes.Portfolio}
+          sortProject={sortCallbackMock}
+        />
+      )
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
+      expect(sortCallbackMock).toBeCalled()
     })
   })
 
@@ -129,18 +140,11 @@ describe('Projects', () => {
         )
     })
 
-    describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
-      'given page type is %s',
-      (pageType: PageTypes) => {
-        it('should render empty projects', async () => {
-          render(<Projects {...{ name: pageType }} />)
-          await waitForElementToBeRemoved(() =>
-            screen.queryByRole('progressbar')
-          )
-          expect(document.body).toMatchSnapshot()
-        })
-      }
-    )
+    it('should render empty projects', async () => {
+      render(<Projects pageType={PageTypes.Portfolio} />)
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
+      expect(document.body).toMatchSnapshot()
+    })
   })
 
   describe('given api returns an error', () => {
@@ -150,17 +154,10 @@ describe('Projects', () => {
         .mockImplementationOnce(() => Promise.reject('Error'))
     })
 
-    describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
-      'given page type is %s',
-      (pageType: PageTypes) => {
-        it('should render empty projects', async () => {
-          render(<Projects {...{ name: pageType }} />)
-          await waitForElementToBeRemoved(() =>
-            screen.queryByRole('progressbar')
-          )
-          expect(document.body).toMatchSnapshot()
-        })
-      }
-    )
+    it('should render empty projects', async () => {
+      render(<Projects pageType={PageTypes.Portfolio} />)
+      await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
+      expect(document.body).toMatchSnapshot()
+    })
   })
 })

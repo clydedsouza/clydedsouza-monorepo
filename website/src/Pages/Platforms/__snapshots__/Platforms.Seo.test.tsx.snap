@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Platforms should render platforms seo 1`] = `
+<head>
+  <title>
+    Platforms – Clyde D'Souza – Software Engineer and Author
+  </title>
+  <link
+    data-rh="true"
+    href="https://clydedsouza.net/platforms"
+    rel="canonical"
+  />
+  <meta
+    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    data-rh="true"
+    name="description"
+  />
+  <meta
+    content="https://clydedsouza.net/platforms"
+    data-rh="true"
+    property="og:url"
+  />
+  <meta
+    content="Platforms – Clyde D'Souza – Software Engineer and Author"
+    data-rh="true"
+    property="og:title"
+  />
+  <meta
+    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    data-rh="true"
+    property="og:description"
+  />
+  <meta
+    content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
+    data-rh="true"
+    property="og:image"
+  />
+  <meta
+    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    data-rh="true"
+    property="twitter:card"
+  />
+  <meta
+    content="Platforms – Clyde D'Souza – Software Engineer and Author"
+    data-rh="true"
+    property="twitter:title"
+  />
+  <meta
+    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    data-rh="true"
+    property="twitter:description"
+  />
+  <meta
+    content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
+    data-rh="true"
+    property="twitter:image"
+  />
+</head>
+`;
