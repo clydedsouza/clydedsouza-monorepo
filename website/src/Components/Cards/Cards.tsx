@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react'
 import { getCachedProjectData } from '../../Api/Cache'
 import { IProject } from '../../Api/IProjectData'
-import Loader from '../../Components/Loader/Loader'
-import { LoaderTypes } from '../../Components/Loader/LoaderTypes'
-import { PageTypes } from '../../Components/Navigation/PageTypes'
-import ProjectTile from '../../Components/ProjectTile/ProjectTile'
-import './Projects.scss'
+import Loader from '../Loader/Loader'
+import { LoaderTypes } from '../Loader/LoaderTypes'
+import { PageTypes } from '../Navigation/PageTypes'
+import Card from './Card/Card'
+import './Cards.scss'
 
 export interface IProjectProps {
   pageType: PageTypes
+  maxItemsToBeDisplayed?: number
   sortProject?: (projectA: IProject, projectB: IProject) => number
 }
 
-function Projects(props: IProjectProps) {
-  const { pageType, sortProject } = props
+function Cards(props: IProjectProps) {
+  const { pageType, maxItemsToBeDisplayed, sortProject } = props
   const [projectData, setProjectData] = useState<IProject[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -41,7 +42,8 @@ function Projects(props: IProjectProps) {
             {projectData.length > 0 ? (
               projectData
                 .sort(sortProject)
-                .map((item) => <ProjectTile {...item} key={item.id} />)
+                .slice(0, maxItemsToBeDisplayed)
+                .map((item) => <Card {...item} key={item.id} />)
             ) : (
               <p>Couldn&lsquo;t load the data at this stage</p>
             )}
@@ -52,4 +54,4 @@ function Projects(props: IProjectProps) {
   )
 }
 
-export default Projects
+export default Cards

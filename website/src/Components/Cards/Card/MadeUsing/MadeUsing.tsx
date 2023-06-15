@@ -1,4 +1,4 @@
-import { IProject } from '../../../Api/IProjectData'
+import { IProject } from '../../../../Api/IProjectData'
 import './MadeUsing.scss'
 
 function MadeUsing(props: Partial<IProject>) {

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
-import { IProject } from '../../Api/IProjectData'
-import ProjectTile from './ProjectTile'
+import { IProject } from '../../../Api/IProjectData'
+import Card from './Card'
 
 const emptyProject: IProject = {
   title: '',
@@ -57,24 +57,24 @@ const projectWithAllInfo: IProject = {
     'Add a sticker to your profile picture using Profile Sticker in just 4 easy steps.',
 }
 
-describe('Project tile', () => {
-  it('should render tile', () => {
-    render(<ProjectTile {...projectWithAllInfo} />)
+describe('Card', () => {
+  it('should render card', () => {
+    render(<Card {...projectWithAllInfo} />)
     expect(document.body).toMatchSnapshot()
   })
 
-  it('should render tile with empty project', () => {
-    render(<ProjectTile {...emptyProject} />)
+  it('should render card with empty project', () => {
+    render(<Card {...emptyProject} />)
     expect(document.body).toMatchSnapshot()
   })
 
-  it('should render tile without links', () => {
-    render(<ProjectTile {...projectWithoutLinks} />)
+  it('should render card without links', () => {
+    render(<Card {...projectWithoutLinks} />)
     expect(document.body).toMatchSnapshot()
   })
 
-  it('should render tile without description', () => {
-    render(<ProjectTile {...projectWithoutDescription} />)
+  it('should render card without description', () => {
+    render(<Card {...projectWithoutDescription} />)
     expect(document.body).toMatchSnapshot()
   })
 })

@@ -1,7 +1,7 @@
 import { IProject } from '../../Api/IProjectData'
+import Cards from '../../Components/Cards/Cards'
 import { PageTypes } from '../../Components/Navigation/PageTypes'
 import Seo from '../../Components/Seo/Seo'
-import Projects from '../Projects/Projects'
 
 function Platforms() {
   const sortPlatformsByIdAsc = (projectA: IProject, projectB: IProject) => {
@@ -12,7 +12,7 @@ function Platforms() {
   return (
     <>
       <Seo title={PageTypes.Platforms} />
-      <Projects
+      <Cards
         pageType={PageTypes.Platforms}
         sortProject={sortPlatformsByIdAsc}
       />

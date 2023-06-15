@@ -289,7 +289,7 @@ exports[`App should render app 1`] = `
         Highlights
       </h2>
       <div
-        class="highlights"
+        class="projects"
       >
         <div
           class="project-tile"

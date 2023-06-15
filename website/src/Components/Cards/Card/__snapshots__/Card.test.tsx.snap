@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Project tile should render tile 1`] = `
+exports[`Card should render card 1`] = `
 <body>
   <div>
     <div
@@ -79,7 +79,7 @@ exports[`Project tile should render tile 1`] = `
 </body>
 `;
 
-exports[`Project tile should render tile with empty project 1`] = `
+exports[`Card should render card with empty project 1`] = `
 <body>
   <div>
     <div
@@ -133,7 +133,7 @@ exports[`Project tile should render tile with empty project 1`] = `
 </body>
 `;
 
-exports[`Project tile should render tile without description 1`] = `
+exports[`Card should render card without description 1`] = `
 <body>
   <div>
     <div
@@ -201,7 +201,7 @@ exports[`Project tile should render tile without description 1`] = `
 </body>
 `;
 
-exports[`Project tile should render tile without links 1`] = `
+exports[`Card should render card without links 1`] = `
 <body>
   <div>
     <div

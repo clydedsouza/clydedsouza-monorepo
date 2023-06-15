@@ -1,9 +1,9 @@
-import { IProject } from '../../Api/IProjectData'
+import { IProject } from '../../../Api/IProjectData'
+import './Card.scss'
 import Links from './Links/Links'
 import MadeUsing from './MadeUsing/MadeUsing'
-import './ProjectTile.scss'
 
-function ProjectTile(props: IProject) {
+function Card(props: IProject) {
   return (
     <div className="project-tile">
       <div
@@ -24,4 +24,4 @@ function ProjectTile(props: IProject) {
   )
 }
 
-export default ProjectTile
+export default Card

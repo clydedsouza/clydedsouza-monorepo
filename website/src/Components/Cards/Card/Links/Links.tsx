@@ -1,6 +1,6 @@
-import { IProject } from '../../../Api/IProjectData'
-import GitHub from '../../Icons/GitHub'
-import Globe from '../../Icons/Globe'
+import { IProject } from '../../../../Api/IProjectData'
+import GitHub from '../../../Icons/GitHub'
+import Globe from '../../../Icons/Globe'
 import './Links.scss'
 
 function Links(props: Partial<IProject>) {

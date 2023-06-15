@@ -4,8 +4,8 @@ import {
   waitForElementToBeRemoved,
 } from '@testing-library/react'
 import * as apiCacheModule from '../../Api/Cache'
-import { PageTypes } from '../../Components/Navigation/PageTypes'
-import Projects from './Projects'
+import { PageTypes } from '../Navigation/PageTypes'
+import Cards from './Cards'
 
 jest.mock('../../Api/Cache')
 
@@ -49,7 +49,7 @@ const projectDataMockResponse = [
 
 const sortCallbackMock = jest.fn()
 
-describe('Projects', () => {
+describe('Cards', () => {
   afterEach(() => {
     jest.resetAllMocks()
   })
@@ -66,18 +66,15 @@ describe('Projects', () => {
         )
     })
 
-    it('should render projects', async () => {
-      render(<Projects pageType={PageTypes.Portfolio} />)
+    it('should render cards', async () => {
+      render(<Cards pageType={PageTypes.Portfolio} />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(document.body).toMatchSnapshot()
     })
 
     it('should not call the supplied sort callback', async () => {
       render(
-        <Projects
-          pageType={PageTypes.Portfolio}
-          sortProject={sortCallbackMock}
-        />
+        <Cards pageType={PageTypes.Portfolio} sortProject={sortCallbackMock} />
       )
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(sortCallbackMock).not.toBeCalled()
@@ -87,7 +84,7 @@ describe('Projects', () => {
       'given page type is %s',
       (pageType: PageTypes) => {
         it(`should call API with ${pageType} page type`, async () => {
-          render(<Projects {...{ pageType: pageType }} />)
+          render(<Cards {...{ pageType: pageType }} />)
           await waitForElementToBeRemoved(() =>
             screen.queryByRole('progressbar')
           )
@@ -110,18 +107,15 @@ describe('Projects', () => {
         )
     })
 
-    it('should render projects', async () => {
-      render(<Projects pageType={PageTypes.Portfolio} />)
+    it('should render cards', async () => {
+      render(<Cards pageType={PageTypes.Portfolio} />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(document.body).toMatchSnapshot()
     })
 
     it('should call the supplied sort callback', async () => {
       render(
-        <Projects
-          pageType={PageTypes.Portfolio}
-          sortProject={sortCallbackMock}
-        />
+        <Cards pageType={PageTypes.Portfolio} sortProject={sortCallbackMock} />
       )
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(sortCallbackMock).toBeCalled()
@@ -140,8 +134,8 @@ describe('Projects', () => {
         )
     })
 
-    it('should render empty projects', async () => {
-      render(<Projects pageType={PageTypes.Portfolio} />)
+    it('should render empty cards', async () => {
+      render(<Cards pageType={PageTypes.Portfolio} />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(document.body).toMatchSnapshot()
     })
@@ -154,8 +148,8 @@ describe('Projects', () => {
         .mockImplementationOnce(() => Promise.reject('Error'))
     })
 
-    it('should render empty projects', async () => {
-      render(<Projects pageType={PageTypes.Portfolio} />)
+    it('should render empty cards', async () => {
+      render(<Cards pageType={PageTypes.Portfolio} />)
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(document.body).toMatchSnapshot()
     })

@@ -7,7 +7,7 @@ exports[`Highlights given api returns a single item should render highlights 1`]
       Highlights
     </h2>
     <div
-      class="highlights"
+      class="projects"
     >
       <div
         class="project-tile"
@@ -59,7 +59,7 @@ exports[`Highlights given api returns an error should render highlights 1`] = `
       Highlights
     </h2>
     <div
-      class="highlights"
+      class="projects"
     >
       <p>
         Couldn‘t load the data at this stage
@@ -76,7 +76,7 @@ exports[`Highlights given api returns multiple items should render highlights 1`
       Highlights
     </h2>
     <div
-      class="highlights"
+      class="projects"
     >
       <div
         class="project-tile"
@@ -204,7 +204,7 @@ exports[`Highlights given api returns no items should render highlights 1`] = `
       Highlights
     </h2>
     <div
-      class="highlights"
+      class="projects"
     >
       <p>
         Couldn‘t load the data at this stage
