@@ -323,7 +323,7 @@ exports[`App should render app 1`] = `
                 </svg>
               </a>
               <a
-                href="test"
+                href="https://github.com"
                 rel="noreferrer"
                 target="_blank"
               >

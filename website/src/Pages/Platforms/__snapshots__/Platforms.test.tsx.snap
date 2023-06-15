@@ -23,7 +23,7 @@ exports[`Platforms should render platforms page 1`] = `
             class="card-links"
           >
             <a
-              href="test"
+              href="https://test.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -38,7 +38,7 @@ exports[`Platforms should render platforms page 1`] = `
               </svg>
             </a>
             <a
-              href="test"
+              href="https://github.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -72,7 +72,7 @@ exports[`Platforms should render platforms page 1`] = `
             class="card-links"
           >
             <a
-              href="test"
+              href="https://test.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -87,7 +87,7 @@ exports[`Platforms should render platforms page 1`] = `
               </svg>
             </a>
             <a
-              href="test"
+              href="https://github.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -121,7 +121,7 @@ exports[`Platforms should render platforms page 1`] = `
             class="card-links"
           >
             <a
-              href="test"
+              href="https://test.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -136,7 +136,7 @@ exports[`Platforms should render platforms page 1`] = `
               </svg>
             </a>
             <a
-              href="test"
+              href="https://github.com"
               rel="noreferrer"
               target="_blank"
             >

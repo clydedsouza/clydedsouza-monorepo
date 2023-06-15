@@ -7,6 +7,6 @@ export const emptyProject = {
   date: '',
   id: '',
   madeUsing: [],
-  website: 'test',
-  github: 'test',
+  website: 'https://test.com',
+  github: 'https://github.com',
 }

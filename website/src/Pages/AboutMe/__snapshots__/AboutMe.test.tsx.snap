@@ -144,7 +144,7 @@ exports[`About me should render about me 1`] = `
             class="card-links"
           >
             <a
-              href="test"
+              href="https://test.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -159,7 +159,7 @@ exports[`About me should render about me 1`] = `
               </svg>
             </a>
             <a
-              href="test"
+              href="https://github.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -193,7 +193,7 @@ exports[`About me should render about me 1`] = `
             class="card-links"
           >
             <a
-              href="test"
+              href="https://test.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -208,7 +208,7 @@ exports[`About me should render about me 1`] = `
               </svg>
             </a>
             <a
-              href="test"
+              href="https://github.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -242,7 +242,7 @@ exports[`About me should render about me 1`] = `
             class="card-links"
           >
             <a
-              href="test"
+              href="https://test.com"
               rel="noreferrer"
               target="_blank"
             >
@@ -257,7 +257,7 @@ exports[`About me should render about me 1`] = `
               </svg>
             </a>
             <a
-              href="test"
+              href="https://github.com"
               rel="noreferrer"
               target="_blank"
             >
