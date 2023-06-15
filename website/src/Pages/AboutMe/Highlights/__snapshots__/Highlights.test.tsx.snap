@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Highlights given api returns a single item should render highlights 1`] = `
+exports[`Highlights given API returns a single item should render highlights 1`] = `
 <body>
   <div>
     <h2>
@@ -52,7 +52,7 @@ exports[`Highlights given api returns a single item should render highlights 1`]
 </body>
 `;
 
-exports[`Highlights given api returns an error should render highlights 1`] = `
+exports[`Highlights given API returns an error should render highlights 1`] = `
 <body>
   <div>
     <h2>
@@ -69,7 +69,7 @@ exports[`Highlights given api returns an error should render highlights 1`] = `
 </body>
 `;
 
-exports[`Highlights given api returns multiple items should render highlights 1`] = `
+exports[`Highlights given API returns multiple items should render highlights 1`] = `
 <body>
   <div>
     <h2>
@@ -197,7 +197,7 @@ exports[`Highlights given api returns multiple items should render highlights 1`
 </body>
 `;
 
-exports[`Highlights given api returns no items should render highlights 1`] = `
+exports[`Highlights given API returns no items should render highlights 1`] = `
 <body>
   <div>
     <h2>

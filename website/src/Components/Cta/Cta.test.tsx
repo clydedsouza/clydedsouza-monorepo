@@ -25,7 +25,7 @@ const ctaDataMockResponse = [
 ]
 
 describe('Cta', () => {
-  describe('given api return a single item', () => {
+  describe('given API return a single item', () => {
     beforeEach(() => {
       jest
         .spyOn(apiCacheModule, 'getCachedProjectData')
@@ -48,7 +48,7 @@ describe('Cta', () => {
     { title: '', website: '' },
     { title: 'test', website: '' },
     { title: '', website: 'test' },
-  ])('given api return a single invalid item', ({ title, website }) => {
+  ])('given API return a single invalid item', ({ title, website }) => {
     beforeEach(() => {
       jest
         .spyOn(apiCacheModule, 'getCachedProjectData')
@@ -67,7 +67,7 @@ describe('Cta', () => {
     })
   })
 
-  describe('given api returns multiple items', () => {
+  describe('given API returns multiple items', () => {
     beforeEach(() => {
       jest
         .spyOn(apiCacheModule, 'getCachedProjectData')
@@ -90,7 +90,7 @@ describe('Cta', () => {
     })
   })
 
-  describe('given api returns no items', () => {
+  describe('given API returns no items', () => {
     beforeEach(() => {
       jest
         .spyOn(apiCacheModule, 'getCachedProjectData')
@@ -109,7 +109,7 @@ describe('Cta', () => {
     })
   })
 
-  describe('given api returns an error', () => {
+  describe('given API returns an error', () => {
     beforeEach(() => {
       jest
         .spyOn(apiCacheModule, 'getCachedProjectData')

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Cards given api returns a single item should render cards 1`] = `
+exports[`Cards given API returns a single item should render cards 1`] = `
 <body>
   <div>
     <div
@@ -37,7 +37,7 @@ exports[`Cards given api returns a single item should render cards 1`] = `
 </body>
 `;
 
-exports[`Cards given api returns an error should render empty cards 1`] = `
+exports[`Cards given API returns an error should render empty cards 1`] = `
 <body>
   <div>
     <div
@@ -51,7 +51,7 @@ exports[`Cards given api returns an error should render empty cards 1`] = `
 </body>
 `;
 
-exports[`Cards given api returns multiple items should render cards 1`] = `
+exports[`Cards given API returns multiple items should render cards 1`] = `
 <body>
   <div>
     <div
@@ -160,7 +160,7 @@ exports[`Cards given api returns multiple items should render cards 1`] = `
 </body>
 `;
 
-exports[`Cards given api returns no items should render empty cards 1`] = `
+exports[`Cards given API returns no items should render empty cards 1`] = `
 <body>
   <div>
     <div

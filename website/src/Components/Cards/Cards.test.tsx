@@ -54,7 +54,7 @@ describe('Cards', () => {
     jest.resetAllMocks()
   })
 
-  describe('given api returns a single item', () => {
+  describe('given API returns a single item', () => {
     beforeEach(() => {
       jest
         .spyOn(apiCacheModule, 'getCachedProjectData')
@@ -95,7 +95,7 @@ describe('Cards', () => {
     )
   })
 
-  describe('given api returns multiple items', () => {
+  describe('given API returns multiple items', () => {
     beforeEach(() => {
       jest
         .spyOn(apiCacheModule, 'getCachedProjectData')
@@ -122,7 +122,7 @@ describe('Cards', () => {
     })
   })
 
-  describe('given api returns no items', () => {
+  describe('given API returns no items', () => {
     beforeEach(() => {
       jest
         .spyOn(apiCacheModule, 'getCachedProjectData')
@@ -141,7 +141,7 @@ describe('Cards', () => {
     })
   })
 
-  describe('given api returns an error', () => {
+  describe('given API returns an error', () => {
     beforeEach(() => {
       jest
         .spyOn(apiCacheModule, 'getCachedProjectData')

@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Cta given api return a single invalid item should render cta when title is  and website is  1`] = `
+exports[`Cta given API return a single invalid item should render cta when title is  and website is  1`] = `
 <body>
   <div />
 </body>
 `;
 
-exports[`Cta given api return a single invalid item should render cta when title is  and website is test 1`] = `
+exports[`Cta given API return a single invalid item should render cta when title is  and website is test 1`] = `
 <body>
   <div />
 </body>
 `;
 
-exports[`Cta given api return a single invalid item should render cta when title is test and website is  1`] = `
+exports[`Cta given API return a single invalid item should render cta when title is test and website is  1`] = `
 <body>
   <div />
 </body>
 `;
 
-exports[`Cta given api return a single item should render cta 1`] = `
+exports[`Cta given API return a single item should render cta 1`] = `
 <body>
   <div>
     <div
@@ -36,7 +36,7 @@ exports[`Cta given api return a single item should render cta 1`] = `
 </body>
 `;
 
-exports[`Cta given api returns an error should render empty cta 1`] = `
+exports[`Cta given API returns an error should render empty cta 1`] = `
 <body>
   <div>
     <p>
@@ -46,7 +46,7 @@ exports[`Cta given api returns an error should render empty cta 1`] = `
 </body>
 `;
 
-exports[`Cta given api returns no items should render empty cta 1`] = `
+exports[`Cta given API returns no items should render empty cta 1`] = `
 <body>
   <div>
     <p>
