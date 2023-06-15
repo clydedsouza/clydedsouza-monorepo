@@ -125,10 +125,10 @@ exports[`About me should render about me 1`] = `
       Highlights
     </h2>
     <div
-      class="projects"
+      class="cards"
     >
       <div
-        class="project-tile"
+        class="card"
       >
         <div
           aria-label="Add a sticker to your profile picture using Profile Sticker in just 4 easy steps."
@@ -164,7 +164,7 @@ exports[`About me should render about me 1`] = `
             </span>
           </div>
           <div
-            class="project-links"
+            class="card-links"
           >
             <a
               href="https://profilesticker.net"
@@ -200,7 +200,7 @@ exports[`About me should render about me 1`] = `
         </div>
       </div>
       <div
-        class="project-tile"
+        class="card"
       >
         <div
           aria-label="Church magazine cover designs by Clyde D'Souza"

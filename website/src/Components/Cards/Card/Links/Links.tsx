@@ -7,7 +7,7 @@ function Links(props: Partial<IProject>) {
   if (!props.website && !props.github) return <></>
 
   return (
-    <div className="project-links">
+    <div className="card-links">
       {props.website && (
         <a href={props.website} target="_blank" rel="noreferrer">
           <Globe />

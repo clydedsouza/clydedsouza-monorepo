@@ -4,10 +4,10 @@ exports[`Cards given api returns a single item should render cards 1`] = `
 <body>
   <div>
     <div
-      class="projects"
+      class="cards"
     >
       <div
-        class="project-tile"
+        class="card"
       >
         <div
           aria-label="Church magazine cover designs by Clyde D'Souza"
@@ -41,7 +41,7 @@ exports[`Cards given api returns an error should render empty cards 1`] = `
 <body>
   <div>
     <div
-      class="projects"
+      class="cards"
     >
       <p>
         Couldn‘t load the data at this stage
@@ -55,10 +55,10 @@ exports[`Cards given api returns multiple items should render cards 1`] = `
 <body>
   <div>
     <div
-      class="projects"
+      class="cards"
     >
       <div
-        class="project-tile"
+        class="card"
       >
         <div
           aria-label="Church magazine cover designs by Clyde D'Souza"
@@ -84,7 +84,7 @@ exports[`Cards given api returns multiple items should render cards 1`] = `
         </div>
       </div>
       <div
-        class="project-tile"
+        class="card"
       >
         <div
           aria-label="Add a sticker to your profile picture using Profile Sticker in just 4 easy steps."
@@ -120,7 +120,7 @@ exports[`Cards given api returns multiple items should render cards 1`] = `
             </span>
           </div>
           <div
-            class="project-links"
+            class="card-links"
           >
             <a
               href="https://profilesticker.net"
@@ -164,7 +164,7 @@ exports[`Cards given api returns no items should render empty cards 1`] = `
 <body>
   <div>
     <div
-      class="projects"
+      class="cards"
     >
       <p>
         Couldn‘t load the data at this stage

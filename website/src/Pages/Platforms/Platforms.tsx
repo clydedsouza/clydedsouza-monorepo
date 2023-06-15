@@ -12,10 +12,7 @@ function Platforms() {
   return (
     <>
       <Seo title={PageTypes.Platforms} />
-      <Cards
-        pageType={PageTypes.Platforms}
-        sortProject={sortPlatformsByIdAsc}
-      />
+      <Cards pageType={PageTypes.Platforms} sortCards={sortPlatformsByIdAsc} />
     </>
   )
 }

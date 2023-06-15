@@ -4,7 +4,7 @@ import { PageTypes } from '../../Components/Navigation/PageTypes'
 import Seo from '../../Components/Seo/Seo'
 
 function Portfolio() {
-  const sortProjectsByDateDesc = (projectA: IProject, projectB: IProject) => {
+  const sortPortfolioByDateDesc = (projectA: IProject, projectB: IProject) => {
     if (!projectA.date || !projectB.date) return 0
     return Number(new Date(projectB.date)) - Number(new Date(projectA.date))
   }
@@ -14,7 +14,7 @@ function Portfolio() {
       <Seo title={PageTypes.Portfolio} />
       <Cards
         pageType={PageTypes.Portfolio}
-        sortProject={sortProjectsByDateDesc}
+        sortCards={sortPortfolioByDateDesc}
       />
     </>
   )

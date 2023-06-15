@@ -146,7 +146,7 @@ exports[`Navigation should render navigation 1`] = `
       Highlights
     </h2>
     <div
-      class="projects"
+      class="cards"
     >
       <p>
         Couldn‘t load the data at this stage

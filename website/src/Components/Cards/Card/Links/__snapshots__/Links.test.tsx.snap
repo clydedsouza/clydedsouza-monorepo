@@ -10,7 +10,7 @@ exports[`Links should render links component when website is  and github is http
 <body>
   <div>
     <div
-      class="project-links"
+      class="card-links"
     >
       <a
         href="https://github.com/"
@@ -36,7 +36,7 @@ exports[`Links should render links component when website is https://www.google.
 <body>
   <div>
     <div
-      class="project-links"
+      class="card-links"
     >
       <a
         href="https://www.google.com/"
@@ -62,7 +62,7 @@ exports[`Links should render links component when website is https://www.google.
 <body>
   <div>
     <div
-      class="project-links"
+      class="card-links"
     >
       <a
         href="https://www.google.com/"

@@ -147,10 +147,10 @@ exports[`Mainstage should render mainstage 1`] = `
         Highlights
       </h2>
       <div
-        class="projects"
+        class="cards"
       >
         <div
-          class="project-tile"
+          class="card"
         >
           <div
             aria-label=""
@@ -163,7 +163,7 @@ exports[`Mainstage should render mainstage 1`] = `
             </h3>
             <p />
             <div
-              class="project-links"
+              class="card-links"
             >
               <a
                 href="https://aitellmeastory.clydedsouza.net"

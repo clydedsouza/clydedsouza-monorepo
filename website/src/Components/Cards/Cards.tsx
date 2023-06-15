@@ -7,14 +7,14 @@ import { PageTypes } from '../Navigation/PageTypes'
 import Card from './Card/Card'
 import './Cards.scss'
 
-export interface IProjectProps {
+export interface ICardsProps {
   pageType: PageTypes
-  maxItemsToBeDisplayed?: number
-  sortProject?: (projectA: IProject, projectB: IProject) => number
+  maxCardsToBeDisplayed?: number
+  sortCards?: (projectA: IProject, projectB: IProject) => number
 }
 
-function Cards(props: IProjectProps) {
-  const { pageType, maxItemsToBeDisplayed, sortProject } = props
+function Cards(props: ICardsProps) {
+  const { pageType, maxCardsToBeDisplayed, sortCards } = props
   const [projectData, setProjectData] = useState<IProject[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -38,11 +38,11 @@ function Cards(props: IProjectProps) {
         <Loader variant={LoaderTypes.Primary} />
       ) : (
         <>
-          <div className="projects">
+          <div className="cards">
             {projectData.length > 0 ? (
               projectData
-                .sort(sortProject)
-                .slice(0, maxItemsToBeDisplayed)
+                .sort(sortCards)
+                .slice(0, maxCardsToBeDisplayed)
                 .map((item) => <Card {...item} key={item.id} />)
             ) : (
               <p>Couldn&lsquo;t load the data at this stage</p>

@@ -15,8 +15,8 @@ function Highlights() {
       <h2>Highlights</h2>
       <Cards
         pageType={PageTypes.Highlights}
-        maxItemsToBeDisplayed={MAX_HIGHLIGHT_ITEMS}
-        sortProject={sortHighlightsByDateDesc}
+        maxCardsToBeDisplayed={MAX_HIGHLIGHT_ITEMS}
+        sortCards={sortHighlightsByDateDesc}
       />
     </>
   )

@@ -74,7 +74,7 @@ describe('Cards', () => {
 
     it('should not call the supplied sort callback', async () => {
       render(
-        <Cards pageType={PageTypes.Portfolio} sortProject={sortCallbackMock} />
+        <Cards pageType={PageTypes.Portfolio} sortCards={sortCallbackMock} />
       )
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(sortCallbackMock).not.toBeCalled()
@@ -115,7 +115,7 @@ describe('Cards', () => {
 
     it('should call the supplied sort callback', async () => {
       render(
-        <Cards pageType={PageTypes.Portfolio} sortProject={sortCallbackMock} />
+        <Cards pageType={PageTypes.Portfolio} sortCards={sortCallbackMock} />
       )
       await waitForElementToBeRemoved(() => screen.queryByRole('progressbar'))
       expect(sortCallbackMock).toBeCalled()

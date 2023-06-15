@@ -7,10 +7,10 @@ exports[`Highlights given api returns a single item should render highlights 1`]
       Highlights
     </h2>
     <div
-      class="projects"
+      class="cards"
     >
       <div
-        class="project-tile"
+        class="card"
       >
         <div
           aria-label="Light & Spark NPO - Ruia Jan 2018 Event"
@@ -27,7 +27,7 @@ exports[`Highlights given api returns a single item should render highlights 1`]
             A 2-day workshop where we taught industry-relevant technologies to students and helped an NGO with their online requirements. This event was conducted at Ruia College, Mumbai.
           </p>
           <div
-            class="project-links"
+            class="card-links"
           >
             <a
               href="https://lightandsparknpo.github.io/2019-11-20-ruia-mumbai-2018/"
@@ -59,7 +59,7 @@ exports[`Highlights given api returns an error should render highlights 1`] = `
       Highlights
     </h2>
     <div
-      class="projects"
+      class="cards"
     >
       <p>
         Couldn‘t load the data at this stage
@@ -76,10 +76,10 @@ exports[`Highlights given api returns multiple items should render highlights 1`
       Highlights
     </h2>
     <div
-      class="projects"
+      class="cards"
     >
       <div
-        class="project-tile"
+        class="card"
       >
         <div
           aria-label="AI, Tell Me a Story is a collection of fifty short bedtime stories"
@@ -96,7 +96,7 @@ exports[`Highlights given api returns multiple items should render highlights 1`
             Looking for the perfect bedtime storybook to ignite your child's imagination and instill important values? Look no further than AI, Tell Me a Story, a collection of fifty captivating short stories, each with a valuable life lesson to teach kids.
           </p>
           <div
-            class="project-links"
+            class="card-links"
           >
             <a
               href="http://aitellmeastory.clydedsouza.net/"
@@ -117,7 +117,7 @@ exports[`Highlights given api returns multiple items should render highlights 1`
         </div>
       </div>
       <div
-        class="project-tile"
+        class="card"
       >
         <div
           aria-label="Clyde D'Souza speaking at the .NET Conference 2020."
@@ -134,7 +134,7 @@ exports[`Highlights given api returns multiple items should render highlights 1`
             I had this amazing opportunity to speak at the .NET Conference 2020. I spoke on how to add health checks to a .NET Core application and also include its dependencies.
           </p>
           <div
-            class="project-links"
+            class="card-links"
           >
             <a
               href="https://youtu.be/cFslS0b_2dg"
@@ -155,7 +155,7 @@ exports[`Highlights given api returns multiple items should render highlights 1`
         </div>
       </div>
       <div
-        class="project-tile"
+        class="card"
       >
         <div
           aria-label="Mama, Tell Me a Story is a collection of twelve short bedtime stories"
@@ -172,7 +172,7 @@ exports[`Highlights given api returns multiple items should render highlights 1`
             Mama, Tell Me a Story is a collection of twelve short bedtime stories that parents will love reading to their kids over and over again. The stories are engaging and revolves around characters that your kids will absolutely love. Each story holds the power to unlock your child’s superpower—their imagination!
           </p>
           <div
-            class="project-links"
+            class="card-links"
           >
             <a
               href="http://mamatellmeastory.clydedsouza.net/"
@@ -204,7 +204,7 @@ exports[`Highlights given api returns no items should render highlights 1`] = `
       Highlights
     </h2>
     <div
-      class="projects"
+      class="cards"
     >
       <p>
         Couldn‘t load the data at this stage

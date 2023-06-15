@@ -1,19 +1,7 @@
 import { render } from '@testing-library/react'
+import { emptyProject } from '../../../../TestHelpers/testHelper'
 import { IProject } from '../../../Api/IProjectData'
 import Card from './Card'
-
-const emptyProject: IProject = {
-  title: '',
-  description: '',
-  image: '',
-  imageDescription: '',
-  category: '',
-  date: '',
-  id: '',
-  madeUsing: [],
-  website: 'test',
-  github: 'test',
-}
 
 const projectWithoutLinks: IProject = {
   id: '20121201-tulips-cover',

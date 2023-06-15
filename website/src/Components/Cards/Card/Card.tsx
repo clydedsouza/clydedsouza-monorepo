@@ -5,7 +5,7 @@ import MadeUsing from './MadeUsing/MadeUsing'
 
 function Card(props: IProject) {
   return (
-    <div className="project-tile">
+    <div className="card">
       <div
         style={{
           backgroundImage: `url(${props.image}), url("https://files.clydedsouza.net/highlights/omg-team.jpg")`,
