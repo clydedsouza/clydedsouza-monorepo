@@ -1,0 +1,92 @@
+name: Build and deploy images
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "web/**"
+      - "api/**"
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "web/**"
+      - "api/**"
+
+jobs:
+  build_images:
+    name: Build images
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: images
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Compress platform images
+        uses: ClydeDz/compress-images@v1
+        with:
+          input-directory: platforms
+          output-directory: public/platforms
+
+      - name: Compress portfolio images
+        uses: ClydeDz/compress-images@v1
+        with:
+          input-directory: portfolio
+          output-directory: public/portfolio
+
+      - name: Compress site images
+        uses: ClydeDz/compress-images@v1
+        with:
+          input-directory: site
+          output-directory: public/site
+
+      - name: Compress device-icons images
+        uses: ClydeDz/compress-images@v1
+        with:
+          input-directory: device-icons
+          output-directory: public/device-icons
+
+      - name: Upload image files
+        uses: actions/upload-artifact@v3
+        with:
+          path: ./images/public
+
+  deploy_images:
+    name: Deploy images
+    runs-on: ubuntu-latest
+    needs: build_images
+    if: |
+      success() &&
+      github.ref == 'refs/heads/main'
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      # - name: Deploy artifacts to a repo
+      #   uses: tagus/git-deploy@v0.4.1
+      #   with:
+      #     changes: artifact
+      #     repository: git@github.com:clydedz/webdeploy-monorepo-poc.git
+      #     ssh_key: ${{ secrets.REPO_DEPLOY_KEY }}
+      #     name: clydedz
+      #     email: 13506613+ClydeDz@users.noreply.github.com
+      #     clean_repo: true
+      #     branch: main
+      #     message: "Commit from the monorepo website deploy action"
