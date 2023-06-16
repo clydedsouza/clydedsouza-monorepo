@@ -50,7 +50,7 @@ jobs:
       - name: Upload website files
         uses: actions/upload-artifact@v3
         with:
-          path: ./web/build
+          path: ./website/build
 
   deploy_website:
     name: Deploy website
