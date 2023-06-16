@@ -9,9 +9,7 @@ function Seo(props: ISeo) {
   const description =
     "Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
   const image = `${WEBSITE_BASE_URL}images/clydedsouza-share-2023.jpg`
-  const url = `${WEBSITE_BASE_URL}${
-    props.title ? props.title?.toLowerCase() : ''
-  }`
+  const url = `${WEBSITE_BASE_URL}${props.title?.toLowerCase() ?? ''}`
 
   return (
     <HelmetProvider>
