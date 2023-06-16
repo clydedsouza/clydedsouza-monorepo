@@ -30,25 +30,25 @@ jobs:
       - name: Compress platform images
         uses: ClydeDz/compress-images@v1
         with:
-          input-directory: platforms
+          input-directory: images/platforms
           output-directory: public/platforms
 
       - name: Compress portfolio images
         uses: ClydeDz/compress-images@v1
         with:
-          input-directory: portfolio
+          input-directory: images/portfolio
           output-directory: public/portfolio
 
       - name: Compress site images
         uses: ClydeDz/compress-images@v1
         with:
-          input-directory: site
+          input-directory: images/site
           output-directory: public/site
 
       - name: Compress device-icons images
         uses: ClydeDz/compress-images@v1
         with:
-          input-directory: device-icons
+          input-directory: images/device-icons
           output-directory: public/device-icons
 
       - name: Upload image files
@@ -68,9 +68,6 @@ jobs:
         shell: bash
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
