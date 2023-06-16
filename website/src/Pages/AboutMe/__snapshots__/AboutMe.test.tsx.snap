@@ -132,9 +132,7 @@ exports[`About me should render about me 1`] = `
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Madness monkey
@@ -181,9 +179,7 @@ exports[`About me should render about me 1`] = `
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Amazing alloy
@@ -230,9 +226,7 @@ exports[`About me should render about me 1`] = `
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Zinger zebra

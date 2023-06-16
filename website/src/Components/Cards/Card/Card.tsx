@@ -12,7 +12,7 @@ function Card(props: IProject) {
         }}
         aria-label={props.imageDescription}
       >
-        <span>{props.category}</span>
+        {props.category ? <span>{props.category}</span> : <></>}
       </div>
       <div>
         <h3>{props.title}</h3>

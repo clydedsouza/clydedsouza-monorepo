@@ -87,9 +87,7 @@ exports[`Card should render card with empty project 1`] = `
     >
       <div
         aria-label=""
-      >
-        <span />
-      </div>
+      />
       <div>
         <h3 />
         <p />

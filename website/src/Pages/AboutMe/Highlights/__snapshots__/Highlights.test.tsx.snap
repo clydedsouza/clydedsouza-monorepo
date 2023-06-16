@@ -14,9 +14,7 @@ exports[`Highlights given API returns a single item should render highlights 1`]
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Project - Light & Spark NPO - Ruia Jan 2018 Event
@@ -94,9 +92,7 @@ exports[`Highlights given API returns multiple items should render highlights 1`
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Project - AI, Tell Me a Story
@@ -143,9 +139,7 @@ exports[`Highlights given API returns multiple items should render highlights 1`
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Project - .NET Conf 2020
@@ -192,9 +186,7 @@ exports[`Highlights given API returns multiple items should render highlights 1`
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Project - Mama, Tell Me a Story

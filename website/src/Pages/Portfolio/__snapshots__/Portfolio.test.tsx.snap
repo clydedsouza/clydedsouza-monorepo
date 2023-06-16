@@ -11,9 +11,7 @@ exports[`Portfolio should render portfolio page 1`] = `
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Madness monkey
@@ -60,9 +58,7 @@ exports[`Portfolio should render portfolio page 1`] = `
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Amazing alloy
@@ -109,9 +105,7 @@ exports[`Portfolio should render portfolio page 1`] = `
       >
         <div
           aria-label=""
-        >
-          <span />
-        </div>
+        />
         <div>
           <h3>
             Zinger zebra

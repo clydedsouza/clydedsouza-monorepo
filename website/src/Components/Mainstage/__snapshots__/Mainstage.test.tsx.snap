@@ -154,9 +154,7 @@ exports[`Mainstage should render mainstage 1`] = `
         >
           <div
             aria-label=""
-          >
-            <span />
-          </div>
+          />
           <div>
             <h3>
               Purchase my book AI, Tell Me a Story from these platforms.
