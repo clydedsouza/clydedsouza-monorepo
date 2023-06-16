@@ -1,0 +1,86 @@
+name: Build and deploy website
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "api/**"
+      - "images/**"
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "api/**"
+      - "images/**"
+
+jobs:
+  build_website:
+    name: Build website
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: website
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install NPM packages
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run prettier
+        run: npm run pretty
+
+      - name: Run unit tests
+        run: npm run test
+
+      - name: Build website
+        run: npm run build
+
+      - name: Upload website files
+        uses: actions/upload-artifact@v3
+        with:
+          path: ./web/build
+
+  deploy_website:
+    name: Deploy website
+    runs-on: ubuntu-latest
+    needs: build_website
+    if: |
+      success() &&
+      github.ref == 'refs/heads/main'
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: artifact
+          path: artifact
+
+      - name: Display structure of downloaded files
+        run: ls -R
+
+      - name: Deploy artifacts to the website repo
+        uses: tagus/git-deploy@v0.4.1
+        with:
+          changes: artifact
+          repository: git@github.com:clydedsouza/clydedsouza.github.io.git
+          ssh_key: ${{ secrets.WEBSITE_REPO_DEPLOY_KEY }}
+          name: clydedsouza
+          email: 16275549+clydedsouza@users.noreply.github.com
+          clean_repo: true
+          branch: gh-pages
+          message: "Commit from the monorepo website deploy job"
