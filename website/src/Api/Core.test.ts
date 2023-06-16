@@ -1,7 +1,7 @@
 import { waitFor } from '@testing-library/react'
 import axios from 'axios'
 import { PageTypes } from '../Components/Navigation/PageTypes'
-import { getProjectData } from './Core'
+import { API_BASE_URL, getProjectData } from './Core'
 
 const apiDataMockResponse = [
   {
@@ -54,7 +54,7 @@ describe('Core', () => {
       async (pageType: PageTypes) => {
         await getProjectData(pageType)
         expect(getAxios).toBeCalledWith(
-          `https://api.clydedsouza.net/${pageType.toLowerCase()}.json`
+          `${API_BASE_URL}${pageType.toLowerCase()}.json`
         )
       }
     )
