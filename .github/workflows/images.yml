@@ -21,7 +21,6 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: images
 
     steps:
       - name: Checkout code
@@ -31,25 +30,25 @@ jobs:
         uses: ClydeDz/compress-images@v1
         with:
           input-directory: images/platforms
-          output-directory: public/platforms
+          output-directory: images/public/platforms
 
       - name: Compress portfolio images
         uses: ClydeDz/compress-images@v1
         with:
           input-directory: images/portfolio
-          output-directory: public/portfolio
+          output-directory: images/public/portfolio
 
       - name: Compress site images
         uses: ClydeDz/compress-images@v1
         with:
           input-directory: images/site
-          output-directory: public/site
+          output-directory: images/public/site
 
       - name: Compress device-icons images
         uses: ClydeDz/compress-images@v1
         with:
           input-directory: images/device-icons
-          output-directory: public/device-icons
+          output-directory: images/public/device-icons
 
       - name: Upload image files
         uses: actions/upload-artifact@v3
