@@ -11,7 +11,7 @@ exports[`Portfolio should render portfolio seo 1`] = `
     rel="canonical"
   />
   <meta
-    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    content="Have a look at some of the most interesting projects created by Clyde D'Souza, a software engineer and author based in Auckland, New Zealand."
     data-rh="true"
     name="description"
   />
@@ -26,17 +26,17 @@ exports[`Portfolio should render portfolio seo 1`] = `
     property="og:title"
   />
   <meta
-    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    content="Have a look at some of the most interesting projects created by Clyde D'Souza, a software engineer and author based in Auckland, New Zealand."
     data-rh="true"
     property="og:description"
   />
   <meta
-    content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
+    content="https://files.clydedsouza.net/site/ogimage-portfolio.png"
     data-rh="true"
     property="og:image"
   />
   <meta
-    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    content="Have a look at some of the most interesting projects created by Clyde D'Souza, a software engineer and author based in Auckland, New Zealand."
     data-rh="true"
     property="twitter:card"
   />
@@ -46,12 +46,12 @@ exports[`Portfolio should render portfolio seo 1`] = `
     property="twitter:title"
   />
   <meta
-    content="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+    content="Have a look at some of the most interesting projects created by Clyde D'Souza, a software engineer and author based in Auckland, New Zealand."
     data-rh="true"
     property="twitter:description"
   />
   <meta
-    content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
+    content="https://files.clydedsouza.net/site/ogimage-portfolio.png"
     data-rh="true"
     property="twitter:image"
   />

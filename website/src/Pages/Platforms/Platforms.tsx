@@ -11,7 +11,11 @@ function Platforms() {
 
   return (
     <>
-      <Seo title={PageTypes.Platforms} />
+      <Seo
+        title={PageTypes.Platforms}
+        image="https://files.clydedsouza.net/site/ogimage-platforms.png"
+        description="Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz"
+      />
       <Cards pageType={PageTypes.Platforms} sortCards={sortPlatformsByIdAsc} />
     </>
   )

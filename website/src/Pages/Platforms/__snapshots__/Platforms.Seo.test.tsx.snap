@@ -31,7 +31,7 @@ exports[`Platforms should render platforms seo 1`] = `
     property="og:description"
   />
   <meta
-    content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
+    content="https://files.clydedsouza.net/site/ogimage-platforms.png"
     data-rh="true"
     property="og:image"
   />
@@ -51,7 +51,7 @@ exports[`Platforms should render platforms seo 1`] = `
     property="twitter:description"
   />
   <meta
-    content="https://clydedsouza.net/images/clydedsouza-share-2023.jpg"
+    content="https://files.clydedsouza.net/site/ogimage-platforms.png"
     data-rh="true"
     property="twitter:image"
   />
