@@ -8,7 +8,7 @@ function Card(props: IProject) {
     <div className="card">
       <div
         style={{
-          backgroundImage: `url(${props.image}), url("https://files.clydedsouza.net/highlights/omg-team.jpg")`,
+          backgroundImage: `url(${props.image}), url("https://files.clydedsouza.net/site/project-placeholder.png")`,
         }}
         aria-label={props.imageDescription}
       >
