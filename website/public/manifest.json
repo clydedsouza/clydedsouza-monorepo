@@ -3,18 +3,18 @@
   "name": "Clyde D'Souza – Software Engineer and Author",
   "icons": [
     {
-      "src": "images/device-icons/apple-touch-icon-57x57.png",
+      "src": "https://files.clydedsouza.net/device-icons/apple-touch-icon-57x57.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "images/device-icons/apple-touch-icon-180x180.png",
+      "src": "https://files.clydedsouza.net/device-icons/apple-touch-icon-180x180.png",
       "type": "image/png",
       "sizes": "192x192"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#009688",
   "background_color": "#ffffff"
 }
