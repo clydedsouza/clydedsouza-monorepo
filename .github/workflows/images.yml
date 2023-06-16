@@ -75,14 +75,14 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
-      # - name: Deploy artifacts to a repo
-      #   uses: tagus/git-deploy@v0.4.1
-      #   with:
-      #     changes: artifact
-      #     repository: git@github.com:clydedz/webdeploy-monorepo-poc.git
-      #     ssh_key: ${{ secrets.REPO_DEPLOY_KEY }}
-      #     name: clydedz
-      #     email: 13506613+ClydeDz@users.noreply.github.com
-      #     clean_repo: true
-      #     branch: main
-      #     message: "Commit from the monorepo website deploy action"
+      - name: Deploy artifacts to the images repo
+        uses: tagus/git-deploy@v0.4.1
+        with:
+          changes: artifact
+          repository: git@github.com:clydedsouza/clydedsouza-web-files.git
+          ssh_key: ${{ secrets.IMAGES_REPO_DEPLOY_KEY }}
+          name: clydedsouza
+          email: 16275549+clydedsouza@users.noreply.github.com
+          clean_repo: true
+          branch: gh-pages
+          message: "Commit from the monorepo images deploy job"
