@@ -1,4 +1,5 @@
 import { BrowserRouter, NavLink, Outlet, Route, Routes } from 'react-router-dom'
+import { sendNavigationClickedEvent } from '../../Api/Analytics'
 import AboutMe from '../../Pages/AboutMe/AboutMe'
 import Platforms from '../../Pages/Platforms/Platforms'
 import Portfolio from '../../Pages/Portfolio/Portfolio'
@@ -12,18 +13,21 @@ function Menu() {
         <NavLink
           to="/"
           className={({ isActive }) => (isActive ? 'active' : '')}
+          onClick={() => sendNavigationClickedEvent(PageTypes.About)}
         >
           {PageTypes.About}
         </NavLink>
         <NavLink
           to={PageTypes.Portfolio.toLowerCase()}
           className={({ isActive }) => (isActive ? 'active' : '')}
+          onClick={() => sendNavigationClickedEvent(PageTypes.Portfolio)}
         >
           {PageTypes.Portfolio}
         </NavLink>
         <NavLink
           to={PageTypes.Platforms.toLowerCase()}
           className={({ isActive }) => (isActive ? 'active' : '')}
+          onClick={() => sendNavigationClickedEvent(PageTypes.Platforms)}
         >
           {PageTypes.Platforms}
         </NavLink>

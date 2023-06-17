@@ -3,6 +3,7 @@ import { PageTypes } from '../Components/Navigation/PageTypes'
 import {
   initAnalyticsWithSuperProperties,
   sendLinkClickedEvent,
+  sendNavigationClickedEvent,
   sendPageViewEvent,
 } from './Analytics'
 import {
@@ -43,6 +44,27 @@ describe('Analytics', () => {
       sendPageViewEvent(PageTypes.Cta)
       expect(mixpanelTrackThrowErrorMock).toThrowError()
       expect(sendPageViewEvent).not.toThrowError()
+    })
+  })
+
+  describe('given sendNavigationClickedEvent is called', () => {
+    it('should send a page view event', () => {
+      sendNavigationClickedEvent(PageTypes.Cta)
+      expect(mixpanelTrackMock).toHaveBeenCalledWith('Navigation clicked', {
+        page: PageTypes.Cta,
+      })
+    })
+
+    it('should handle error gracefully', () => {
+      const mixpanelTrackThrowErrorMock = jest
+        .spyOn(mixpanel, 'track')
+        .mockImplementation(() => {
+          throw Error('Something is broken')
+        })
+
+      sendNavigationClickedEvent(PageTypes.Cta)
+      expect(mixpanelTrackThrowErrorMock).toThrowError()
+      expect(sendNavigationClickedEvent).not.toThrowError()
     })
   })
 

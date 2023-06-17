@@ -41,3 +41,13 @@ export const sendLinkClickedEvent = (props: ILinkClickedProps) => {
     undefined
   }
 }
+
+export const sendNavigationClickedEvent = (pageType: PageTypes) => {
+  try {
+    mixpanel.track('Navigation clicked', {
+      page: pageType,
+    })
+  } catch {
+    undefined
+  }
+}
