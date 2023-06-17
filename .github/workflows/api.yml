@@ -73,5 +73,5 @@ jobs:
           name: clydedsouza
           email: 16275549+clydedsouza@users.noreply.github.com
           clean_repo: true
-          branch: master
+          branch: main
           message: "Commit from the monorepo API deploy job"
