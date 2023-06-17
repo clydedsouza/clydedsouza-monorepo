@@ -1,5 +1,5 @@
 ---
-title: ".NET Conf 2020"
+title: .NET Conf 2020
 date: 12 Nov 2020
 description: I had an amazing opportunity to speak at the .NET Conference 2020.
   I spoke on how to add health checks to a .NET Core application and also include
