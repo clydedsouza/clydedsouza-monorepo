@@ -1,7 +1,5 @@
-import { NavLink } from 'react-router-dom'
 import { sendLinkClickedEvent } from '../../../Api/Analytics'
 import { AnalyticsLinkType } from '../../../Api/IAnalytics'
-import { PageTypes } from '../../../Components/Navigation/PageTypes'
 
 function Bio() {
   return (
@@ -149,19 +147,7 @@ function Bio() {
         >
           teaching
         </a>
-        , and I&apos;ve also created many{' '}
-        <NavLink
-          to={PageTypes.Portfolio.toLowerCase()}
-          onClick={() =>
-            sendLinkClickedEvent({
-              link: 'portfolio',
-              type: AnalyticsLinkType.Navigation,
-            })
-          }
-        >
-          other projects
-        </NavLink>
-        .
+        , and I&apos;ve also created many other projects.
       </p>
       <p>
         I&apos;m an alumnus of{' '}

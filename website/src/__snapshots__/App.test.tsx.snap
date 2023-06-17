@@ -262,14 +262,7 @@ exports[`App should render app 1`] = `
         >
           teaching
         </a>
-        , and I've also created many
-         
-        <a
-          href="/#/projects"
-        >
-          other projects
-        </a>
-        .
+        , and I've also created many other projects.
       </p>
       <p>
         I'm an alumnus of
