@@ -85,5 +85,5 @@ jobs:
           name: clydedsouza
           email: 16275549+clydedsouza@users.noreply.github.com
           clean_repo: true
-          branch: gh-pages
+          branch: master
           message: "Commit from the monorepo images deploy job"
