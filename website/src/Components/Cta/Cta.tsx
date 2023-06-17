@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import { sendLinkClickedEvent } from '../../Api/Analytics'
 import { getCachedProjectData } from '../../Api/Cache'
+import { AnalyticsLinkType } from '../../Api/IAnalytics'
 import { IProject } from '../../Api/IProjectData'
 import Loader from '../Loader/Loader'
 import { LoaderTypes } from '../Loader/LoaderTypes'
@@ -36,7 +38,18 @@ function Cta({ location }: ICtaProps) {
     if (!randomizedProject.title || !randomizedProject.website) return
     return (
       <div className="cta" data-location={location}>
-        <a href={randomizedProject.website} target="_blank" rel="noreferrer">
+        <a
+          href={randomizedProject.website}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: randomizedProject.website,
+              type: AnalyticsLinkType.Cta,
+              location: location,
+            })
+          }
+        >
           {randomizedProject.title}
         </a>
       </div>
