@@ -1,3 +1,8 @@
+import { NavLink } from 'react-router-dom'
+import { sendLinkClickedEvent } from '../../../Api/Analytics'
+import { AnalyticsLinkType } from '../../../Api/IAnalytics'
+import { PageTypes } from '../../../Components/Navigation/PageTypes'
+
 function Bio() {
   return (
     <>
@@ -10,6 +15,12 @@ function Bio() {
           href="https://www.xero.com/nz/?ref=clydedsouza.net"
           rel="noreferrer"
           target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'https://www.xero.com/nz/',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
         >
           Xero
         </a>
@@ -18,6 +29,12 @@ function Bio() {
           href="https://www.datacom.co.nz/?ref=clydedsouza.net"
           rel="noreferrer"
           target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'https://www.datacom.co.nz/',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
         >
           Datacom
         </a>{' '}
@@ -26,6 +43,12 @@ function Bio() {
           href="https://www.heritagehotels.co.nz/?ref=clydedsouza.net"
           rel="noreferrer"
           target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'https://www.heritagehotels.co.nz/',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
         >
           Heritage Hotels
         </a>
@@ -39,6 +62,12 @@ function Bio() {
           href="https://lightandsparknpo.github.io/team/"
           rel="noreferrer"
           target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'https://lightandsparknpo.github.io/team/',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
         >
           amazing team
         </a>
@@ -47,6 +76,12 @@ function Bio() {
           href="https://lightandsparknpo.github.io/2019-11-20-ruia-mumbai-2018/"
           rel="noreferrer"
           target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'https://lightandsparknpo.github.io/2019-11-20-ruia-mumbai-2018/',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
         >
           here
         </a>
@@ -59,6 +94,12 @@ function Bio() {
           href="http://mamatellmeastory.clydedsouza.net/"
           rel="noreferrer"
           target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'http://mamatellmeastory.clydedsouza.net/',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
         >
           these platforms
         </a>
@@ -67,7 +108,17 @@ function Bio() {
       </p>
       <p>
         In my spare time, I like to explore other interests like{' '}
-        <a href="https://medium.com/@clydedz" rel="noreferrer" target="_blank">
+        <a
+          href="https://medium.com/@clydedz"
+          rel="noreferrer"
+          target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'https://medium.com/@clydedz',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
+        >
           writing
         </a>
         ,{' '}
@@ -75,6 +126,12 @@ function Bio() {
           href="https://www.behance.net/clydedz"
           rel="noreferrer"
           target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'https://www.behance.net/clydedz',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
         >
           designing
         </a>
@@ -83,11 +140,28 @@ function Bio() {
           href="https://www.skillshare.com/r/user/clydedsouza"
           rel="noreferrer"
           target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'https://www.skillshare.com/r/user/clydedsouza',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
         >
           teaching
         </a>
         , and I&apos;ve also created many{' '}
-        <a href="/#/projects">other projects</a>.
+        <NavLink
+          to={PageTypes.Portfolio.toLowerCase()}
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'portfolio',
+              type: AnalyticsLinkType.Navigation,
+            })
+          }
+        >
+          other projects
+        </NavLink>
+        .
       </p>
       <p>
         I&apos;m an alumnus of{' '}
@@ -95,6 +169,12 @@ function Bio() {
           href="https://www.aut.ac.nz/?ref=clydedsouza"
           rel="noreferrer"
           target="_blank"
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: 'https://www.aut.ac.nz/',
+              type: AnalyticsLinkType.GeneralWebsite,
+            })
+          }
         >
           Auckland University of Technology (AUT)
         </a>{' '}

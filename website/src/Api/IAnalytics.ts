@@ -7,6 +7,7 @@ export enum AnalyticsLinkType {
   CardGitHub = 'GitHub',
   CardWebsite = 'Website',
   GeneralWebsite = 'External website',
+  Navigation = 'Navigation',
 }
 
 export interface ILinkClickedProps {
