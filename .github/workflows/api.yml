@@ -61,9 +61,6 @@ jobs:
           name: artifact
           path: artifact
 
-      - name: Display structure of downloaded files
-        run: ls -R
-
       - name: Deploy artifacts to the API repo
         uses: tagus/git-deploy@v0.4.1
         with:
