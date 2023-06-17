@@ -114,9 +114,7 @@ describe('Analytics', () => {
         it(`should initialize analytics with ${projectId} and super properties`, () => {
           process.env = { ...processEnvironment, NODE_ENV: environment }
 
-          const storageApi = require('./Analytics')
-
-          storageApi.initAnalyticsWithSuperProperties()
+          initAnalyticsWithSuperProperties()
 
           expect(mixpanelInitMock).toBeCalledWith(projectId)
           expect(mixpanelRegisterMock).toBeCalledWith({
