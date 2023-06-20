@@ -1,4 +1,4 @@
-import { BrowserRouter, NavLink, Outlet, Route, Routes } from 'react-router-dom'
+import { HashRouter, NavLink, Outlet, Route, Routes } from 'react-router-dom'
 import { sendNavigationClickedEvent } from '../../Api/Analytics'
 import AboutMe from '../../Pages/AboutMe/AboutMe'
 import Platforms from '../../Pages/Platforms/Platforms'
@@ -39,7 +39,7 @@ function Menu() {
 
 function Navigation() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Menu />}>
           <Route index element={<AboutMe />} />
@@ -54,7 +54,7 @@ function Navigation() {
           <Route path="*" element={<AboutMe />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

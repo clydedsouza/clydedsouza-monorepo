@@ -150,19 +150,19 @@ exports[`App should render app 1`] = `
         <a
           aria-current="page"
           class="active"
-          href="/"
+          href="#/"
         >
           About
         </a>
         <a
           class=""
-          href="/portfolio"
+          href="#/portfolio"
         >
           Portfolio
         </a>
         <a
           class=""
-          href="/platforms"
+          href="#/platforms"
         >
           Platforms
         </a>
