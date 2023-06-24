@@ -7,6 +7,7 @@
     "vscode:setup": "ext install esbenp.prettier-vscode",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "pretty": "prettier --check .",
     "pretty:fix": "prettier --write .",
     "lint": "eslint . -c .eslintrc.js",
@@ -41,7 +42,8 @@
     "@types/mixpanel-browser": "^2.38.2",
     "@types/react-dom": "^18.2.1",
     "prettier": "^2.8.8",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-snap": "^1.23.0"
   },
   "browserslist": {
     "production": [
