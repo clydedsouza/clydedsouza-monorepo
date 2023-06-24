@@ -7,7 +7,7 @@ exports[`About me should render seo 1`] = `
   </title>
   <link
     data-rh="true"
-    href="https://clydedsouza.net/"
+    href="https://clydedsouza.net/#/"
     rel="canonical"
   />
   <meta
@@ -16,7 +16,7 @@ exports[`About me should render seo 1`] = `
     name="description"
   />
   <meta
-    content="https://clydedsouza.net/"
+    content="https://clydedsouza.net/#/"
     data-rh="true"
     property="og:url"
   />

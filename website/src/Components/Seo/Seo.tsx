@@ -14,7 +14,7 @@ function Seo(props: ISeo) {
   const defaultOgImage = 'https://files.clydedsouza.net/site/ogimage.png'
   const image = props.image ?? defaultOgImage
 
-  const url = `${WEBSITE_BASE_URL}${props.title?.toLowerCase() ?? ''}`
+  const url = `${WEBSITE_BASE_URL}#/${props.title?.toLowerCase() ?? ''}`
 
   return (
     <HelmetProvider>

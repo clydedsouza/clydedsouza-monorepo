@@ -7,7 +7,7 @@ exports[`Platforms should render platforms seo 1`] = `
   </title>
   <link
     data-rh="true"
-    href="https://clydedsouza.net/platforms"
+    href="https://clydedsouza.net/#/platforms"
     rel="canonical"
   />
   <meta
@@ -16,7 +16,7 @@ exports[`Platforms should render platforms seo 1`] = `
     name="description"
   />
   <meta
-    content="https://clydedsouza.net/platforms"
+    content="https://clydedsouza.net/#/platforms"
     data-rh="true"
     property="og:url"
   />
