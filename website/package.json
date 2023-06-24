@@ -45,6 +45,9 @@
     "react-dom": "^18.2.0",
     "react-snap": "^1.23.0"
   },
+  "reactSnap": {
+    "inlineCss": true
+  },
   "browserslist": {
     "production": [
       ">0.2%",
