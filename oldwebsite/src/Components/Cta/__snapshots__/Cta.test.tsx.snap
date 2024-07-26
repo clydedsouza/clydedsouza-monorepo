@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cta given API return a single invalid item should render cta when title is  and website is  1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`Cta given API return a single invalid item should render cta when title is  and website is test 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`Cta given API return a single invalid item should render cta when title is test and website is  1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`Cta given API return a single item should render cta 1`] = `
+<body>
+  <div>
+    <div
+      class="cta"
+    >
+      <a
+        href="https://aitellmeastory.clydedsouza.net"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Purchase my book AI, Tell Me a Story from these platforms.
+      </a>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Cta given API returns an error should render empty cta 1`] = `
+<body>
+  <div>
+    <p>
+      Couldn‘t load the data at this stage
+    </p>
+  </div>
+</body>
+`;
+
+exports[`Cta given API returns no items should render empty cta 1`] = `
+<body>
+  <div>
+    <p>
+      Couldn‘t load the data at this stage
+    </p>
+  </div>
+</body>
+`;

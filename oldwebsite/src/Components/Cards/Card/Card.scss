@@ -1,0 +1,89 @@
+﻿@import '../../../Sass/variables';
+
+.card {
+  width: 19.89vw;
+  display: inline-block;
+  border-radius: 5px;
+  color: $bg-color;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: 0.4s ease-in-out;
+  transform: scale(1);
+  padding: 0px;
+  margin: 2vh 1.09vw 2vh 0;
+  background: $background-gradient;
+  vertical-align: top;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+  @media (orientation: portrait) {
+    width: 47.8%;
+    margin: 2vh 1.09vw 0.5vh 0;
+  }
+
+  @include for-mobiles-down {
+    width: 99%;
+  }
+
+  @include for-tablets-up {
+    width: 48.5%;
+  }
+
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+  }
+
+  > div:first-child {
+    position: relative;
+    background-color: $primary-accent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 168px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: -2px;
+    width: 100.6%;
+    margin-left: -1px;
+
+    @include for-mobiles-down {
+      width: 100.6%;
+    }
+
+    @include for-desktop-up {
+      min-height: 140px;
+    }
+
+    span {
+      background-color: $contrast-accent;
+      padding: 3px 7px;
+      color: $primary-accent;
+      text-transform: uppercase;
+      font-size: x-small;
+      letter-spacing: 2px;
+      font-weight: bold;
+      margin-bottom: 6px;
+      float: left;
+      display: block;
+      clear: both;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      position: relative;
+      left: -1px;
+      top: 7px;
+    }
+  }
+
+  > div:last-child {
+    padding: 0 9px;
+    font-size: small;
+
+    h3 {
+      color: white;
+      -webkit-text-fill-color: #fff;
+      font-size: 22px;
+      font-weight: normal;
+      margin: 18px 0 9px 0;
+    }
+  }
+}
