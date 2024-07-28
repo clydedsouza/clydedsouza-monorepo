@@ -1,17 +1,11 @@
 import mixpanel from "mixpanel-browser";
 import { PageTypes } from "../blocks/Navigation/PageTypes";
-import {
-  ILinkClickedProps,
-  MIXPANEL_DEV_PROJECT_ID,
-  MIXPANEL_PROD_PROJECT_ID,
-} from "./IAnalytics";
+import { ILinkClickedProps, MIXPANEL_DEV_PROJECT_ID } from "./IAnalytics";
 
 export const initAnalyticsWithSuperProperties = () => {
   const mixpanelProjectId =
-    process.env.NODE_ENV === "production"
-      ? MIXPANEL_PROD_PROJECT_ID
-      : MIXPANEL_DEV_PROJECT_ID;
-
+    process.env.NEXT_PUBLIC_MIXPANEL_TOKEN ?? MIXPANEL_DEV_PROJECT_ID;
+  console.log("************", process.env.NEXT_PUBLIC_MIXPANEL_TOKEN);
   try {
     mixpanel.init(mixpanelProjectId, {
       debug: true,

@@ -6,11 +6,7 @@ import {
   sendNavigationClickedEvent,
   sendPageViewEvent,
 } from "./Analytics";
-import {
-  AnalyticsLinkType,
-  MIXPANEL_DEV_PROJECT_ID,
-  MIXPANEL_PROD_PROJECT_ID,
-} from "./IAnalytics";
+import { AnalyticsLinkType, MIXPANEL_DEV_PROJECT_ID } from "./IAnalytics";
 
 const mixpanelTrackMock = jest.spyOn(mixpanel, "track");
 const mixpanelInitMock = jest.spyOn(mixpanel, "init");
@@ -126,8 +122,10 @@ describe("Analytics", () => {
 
   describe("given initAnalyticsWithSuperProperties is called", () => {
     describe.each([
-      { environment: "production", projectId: MIXPANEL_PROD_PROJECT_ID },
-      { environment: "test", projectId: MIXPANEL_DEV_PROJECT_ID },
+      {
+        environment: "production",
+        projectId: "XXf70ae3a52dd646aea4025dc1f30aXX",
+      },
       { environment: "development", projectId: MIXPANEL_DEV_PROJECT_ID },
     ])(
       "given node environment is $environment",
@@ -135,7 +133,7 @@ describe("Analytics", () => {
         it(`should initialize analytics with ${projectId} and super properties`, () => {
           process.env = {
             ...processEnvironment,
-            NODE_ENV: environment as "test" | "production" | "development",
+            NEXT_PUBLIC_MIXPANEL_TOKEN: projectId,
           };
 
           initAnalyticsWithSuperProperties();
