@@ -1,7 +1,0 @@
-# robots.txt for https://clydedsouza.net
-
-User-agent: *
-Allow: /
-
-# sitemap file
-Sitemap: https://clydedsouza.net/sitemap.xml
