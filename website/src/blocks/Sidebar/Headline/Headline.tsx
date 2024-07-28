@@ -1,4 +1,4 @@
-// import './Headline.scss'
+import "./Headline.scss";
 
 function Headline() {
   return (

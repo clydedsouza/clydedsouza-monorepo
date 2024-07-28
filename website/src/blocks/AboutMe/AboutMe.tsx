@@ -1,7 +1,7 @@
 // import { useEffect } from "react";
 // import { sendPageViewEvent } from '../../Api/Analytics'
 import Bio from "./Bio/Bio";
-// import Highlights from './Highlights/Highlights'
+import Highlights from './Highlights/Highlights'
 
 function AboutMe() {
   // useEffect(() => {
@@ -12,7 +12,7 @@ function AboutMe() {
     <>
       <Bio />
       <br></br>
-      {/* <Highlights /> */}
+      <Highlights />
     </>
   );
 }
