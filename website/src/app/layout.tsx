@@ -3,8 +3,13 @@ import Navigation from "@/blocks/Navigation/Navigation";
 import { RegisterAnalytics } from "@/blocks/RegisterAnalytics/RegisterAnalytics";
 import Sidebar from "@/blocks/Sidebar/Sidebar";
 import { JSONLD } from "@/utility/ldjson";
+import { Viewport } from "next";
 import "./globals.scss";
 import "./layout.scss";
+
+export const viewport: Viewport = {
+  themeColor: "#009688",
+};
 
 export default function RootLayout({
   children,

@@ -42,7 +42,6 @@ export const generateMetadata = (props: ISeo): Metadata => {
     },
     keywords:
       "Clyde D'Souza, @ClydeDz, full-stack software engineer, senior software engineer, passionate front end developer, passionate back end developer, full stack developer, author, childrens bedtime stories, eye for ui, ux, Mumbai, India, IND, Auckland, New Zealand, NZ",
-    themeColor: "#009688",
     manifest: `${WEBSITE_BASE_URL}manifest.json`,
     verification: {
       other: {

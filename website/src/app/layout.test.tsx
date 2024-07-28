@@ -30,7 +30,7 @@ describe("Layout", () => {
 
   it("should layout page", async () => {
     const { baseElement } = render(
-      <RootLayout children={<>Body of the website</>} />,
+      <RootLayout>{"Body of the website"}</RootLayout>,
       {
         container: document.body,
       }
