@@ -9,24 +9,12 @@ import RootLayout from "./layout";
 
 jest.mock("../api/Cache");
 
-const highlightsDataMockResponse = [
+const projectDataMockResponse = [
   {
     ...emptyProject,
     id: "123-amazing-alloy",
     title: "Amazing alloy",
     date: "01 May 2020",
-  },
-  {
-    ...emptyProject,
-    id: "012-zinger-zebra",
-    title: "Zinger zebra",
-    date: "01 Jul 2017",
-  },
-  {
-    ...emptyProject,
-    id: "020-madness-monkey",
-    title: "Madness monkey",
-    date: "30 March 2023",
   },
 ];
 
@@ -35,7 +23,7 @@ describe("Layout", () => {
     jest.spyOn(apiCacheModule, "getCachedProjectData").mockImplementation(() =>
       Promise.resolve({
         app: {},
-        data: [...highlightsDataMockResponse],
+        data: [...projectDataMockResponse],
       })
     );
   });
