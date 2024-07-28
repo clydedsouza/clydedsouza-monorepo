@@ -4,6 +4,7 @@ import { RegisterAnalytics } from "@/blocks/RegisterAnalytics/RegisterAnalytics"
 import Sidebar from "@/blocks/Sidebar/Sidebar";
 import { JSONLD } from "@/utility/ldjson";
 import { Viewport } from "next";
+import { Chatbot } from "../blocks/Chatbot/Chatbot";
 import "./globals.scss";
 import "./layout.scss";
 
@@ -26,7 +27,7 @@ export default function RootLayout({
           href="https://clydedsouza.net/sitemap.xml"
         />
       </head>
-      <body>
+      <body suppressHydrationWarning={true}>
         <RegisterAnalytics />
         <Sidebar />
         <main>
@@ -34,6 +35,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </main>
+        <Chatbot />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSONLD) }}
