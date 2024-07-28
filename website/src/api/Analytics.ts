@@ -5,7 +5,6 @@ import { ILinkClickedProps, MIXPANEL_DEV_PROJECT_ID } from "./IAnalytics";
 export const initAnalyticsWithSuperProperties = () => {
   const mixpanelProjectId =
     process.env.NEXT_PUBLIC_MIXPANEL_TOKEN ?? MIXPANEL_DEV_PROJECT_ID;
-  console.log("************", process.env.NEXT_PUBLIC_MIXPANEL_TOKEN);
   try {
     mixpanel.init(mixpanelProjectId, {
       debug: true,

@@ -8,7 +8,7 @@ import {
 import { PageTypes } from "../../../blocks/Navigation/PageTypes";
 import Highlights from "./Highlights";
 
-jest.mock("../../../Api/Cache");
+jest.mock("../../../api/Cache");
 
 const highlightsDataMockResponse = [
   {

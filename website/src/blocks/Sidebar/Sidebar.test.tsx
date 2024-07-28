@@ -7,7 +7,7 @@ import {
 } from "@testing-library/react";
 import Sidebar from "./Sidebar";
 
-jest.mock("../../Api/Cache");
+jest.mock("../../api/Cache");
 
 const ctaDataMockResponse = [
   {

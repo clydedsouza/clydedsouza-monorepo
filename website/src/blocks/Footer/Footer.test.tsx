@@ -7,7 +7,7 @@ import {
 } from "@testing-library/react";
 import Footer from "./Footer";
 
-jest.mock("../../Api/Cache");
+jest.mock("../../api/Cache");
 
 const ctaDataMockResponse = [
   {

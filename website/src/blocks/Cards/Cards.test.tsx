@@ -7,7 +7,7 @@ import {
 import { PageTypes } from "../Navigation/PageTypes";
 import Cards from "./Cards";
 
-jest.mock("../../Api/Cache");
+jest.mock("../../api/Cache");
 
 const projectDataMockResponse = [
   {
