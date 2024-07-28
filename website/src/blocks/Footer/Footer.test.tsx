@@ -31,8 +31,8 @@ describe("Footer", () => {
   });
 
   it("should render footer", async () => {
-    render(<Footer />);
+    const { container } = render(<Footer />);
     await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-    expect(document.body).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

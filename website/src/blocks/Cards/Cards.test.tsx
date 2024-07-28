@@ -57,9 +57,9 @@ describe("Cards", () => {
     });
 
     it("should render cards", async () => {
-      render(<Cards pageType={PageTypes.Portfolio} />);
+      const { container } = render(<Cards pageType={PageTypes.Portfolio} />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     describe.each([PageTypes.Portfolio, PageTypes.Platforms])(
@@ -92,9 +92,9 @@ describe("Cards", () => {
     });
 
     it("should render cards", async () => {
-      render(<Cards pageType={PageTypes.Portfolio} />);
+      const { container } = render(<Cards pageType={PageTypes.Portfolio} />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -111,9 +111,9 @@ describe("Cards", () => {
     });
 
     it("should render empty cards", async () => {
-      render(<Cards pageType={PageTypes.Portfolio} />);
+      const { container } = render(<Cards pageType={PageTypes.Portfolio} />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -125,9 +125,9 @@ describe("Cards", () => {
     });
 
     it("should render empty cards", async () => {
-      render(<Cards pageType={PageTypes.Portfolio} />);
+      const { container } = render(<Cards pageType={PageTypes.Portfolio} />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 });

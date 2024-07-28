@@ -31,8 +31,8 @@ describe("Sidebar", () => {
   });
 
   it("should render sidebar", async () => {
-    render(<Sidebar />);
+    const { container } = render(<Sidebar />);
     await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-    expect(document.body).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

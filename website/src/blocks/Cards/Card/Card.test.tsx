@@ -47,22 +47,22 @@ const projectWithAllInfo: IProject = {
 
 describe("Card", () => {
   it("should render card", () => {
-    render(<Card {...projectWithAllInfo} />);
-    expect(document.body).toMatchSnapshot();
+    const { container } = render(<Card {...projectWithAllInfo} />);
+    expect(container).toMatchSnapshot();
   });
 
   it("should render card with empty project", () => {
-    render(<Card {...emptyProject} />);
-    expect(document.body).toMatchSnapshot();
+    const { container } = render(<Card {...emptyProject} />);
+    expect(container).toMatchSnapshot();
   });
 
   it("should render card without links", () => {
-    render(<Card {...projectWithoutLinks} />);
-    expect(document.body).toMatchSnapshot();
+    const { container } = render(<Card {...projectWithoutLinks} />);
+    expect(container).toMatchSnapshot();
   });
 
   it("should render card without description", () => {
-    render(<Card {...projectWithoutDescription} />);
-    expect(document.body).toMatchSnapshot();
+    const { container } = render(<Card {...projectWithoutDescription} />);
+    expect(container).toMatchSnapshot();
   });
 });

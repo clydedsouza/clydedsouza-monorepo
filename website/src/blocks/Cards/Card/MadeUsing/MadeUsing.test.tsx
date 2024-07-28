@@ -1,26 +1,26 @@
-import { render } from '@testing-library/react'
-import { IProject } from '../../../../Api/IProjectData'
-import MadeUsing from './MadeUsing'
+import { IProject } from "@/api/IProjectData";
+import { render } from "@testing-library/react";
+import MadeUsing from "./MadeUsing";
 
-describe('Made using', () => {
+describe("Made using", () => {
   it.each([
     {
       madeUsing: [],
     },
     {
-      madeUsing: ['html'],
+      madeUsing: ["html"],
     },
     {
-      madeUsing: ['html', 'javascript'],
+      madeUsing: ["html", "javascript"],
     },
   ])(
-    'should render made using component when $madeUsing is supplied',
+    "should render made using component when $madeUsing is supplied",
     ({ madeUsing }) => {
       const project: Partial<IProject> = {
         madeUsing,
-      }
-      render(<MadeUsing {...project} />)
-      expect(document.body).toMatchSnapshot()
+      };
+      const { container } = render(<MadeUsing {...project} />);
+      expect(container).toMatchSnapshot();
     }
-  )
-})
+  );
+});

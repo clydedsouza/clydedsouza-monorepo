@@ -43,9 +43,9 @@ describe("About me", () => {
   });
 
   it("should render about me", async () => {
-    render(<AboutMe />);
+    const { container } = render(<AboutMe />);
     await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
 
-    expect(document.body).toMatchSnapshot();
+    expect(container).toMatchSnapshot();
   });
 });

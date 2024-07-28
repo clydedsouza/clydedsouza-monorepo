@@ -57,10 +57,10 @@ describe("Highlights", () => {
     });
 
     it("should render highlights", async () => {
-      render(<Highlights />);
+      const { container } = render(<Highlights />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
 
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("should call API with correct page type", async () => {
@@ -87,10 +87,10 @@ describe("Highlights", () => {
     });
 
     it("should render highlights", async () => {
-      render(<Highlights />);
+      const { container } = render(<Highlights />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
 
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
 
     it("should sort items in descending order", async () => {
@@ -131,10 +131,10 @@ describe("Highlights", () => {
     });
 
     it("should render highlights", async () => {
-      render(<Highlights />);
+      const { container } = render(<Highlights />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
 
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -146,10 +146,10 @@ describe("Highlights", () => {
     });
 
     it("should render highlights", async () => {
-      render(<Highlights />);
+      const { container } = render(<Highlights />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
 
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 });

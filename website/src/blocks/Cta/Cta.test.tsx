@@ -38,9 +38,9 @@ describe("Cta", () => {
     });
 
     it("should render cta", async () => {
-      render(<Cta />);
+      const { container } = render(<Cta />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -61,9 +61,9 @@ describe("Cta", () => {
     });
 
     it(`should render cta when title is ${title} and website is ${website}`, async () => {
-      render(<Cta />);
+      const { container } = render(<Cta />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -103,9 +103,9 @@ describe("Cta", () => {
     });
 
     it("should render empty cta", async () => {
-      render(<Cta />);
+      const { container } = render(<Cta />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -117,9 +117,9 @@ describe("Cta", () => {
     });
 
     it("should render empty cta", async () => {
-      render(<Cta />);
+      const { container } = render(<Cta />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-      expect(document.body).toMatchSnapshot();
+      expect(container).toMatchSnapshot();
     });
   });
 });
