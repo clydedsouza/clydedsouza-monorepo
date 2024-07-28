@@ -5,9 +5,9 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
-import AboutMe from "./AboutMe";
+import Home from "./page";
 
-jest.mock("../../Api/Cache");
+jest.mock("../api/Cache");
 
 const highlightsDataMockResponse = [
   {
@@ -30,7 +30,7 @@ const highlightsDataMockResponse = [
   },
 ];
 
-describe("About me", () => {
+describe("Home", () => {
   beforeEach(() => {
     jest
       .spyOn(apiCacheModule, "getCachedProjectData")
@@ -42,10 +42,9 @@ describe("About me", () => {
       );
   });
 
-  it("should render about me", async () => {
-    render(<AboutMe />);
+  it("should home page", async () => {
+    const { baseElement } = render(<Home />);
     await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
-
-    expect(document.body).toMatchSnapshot();
+    expect(baseElement).toMatchSnapshot();
   });
 });

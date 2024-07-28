@@ -1,22 +1,22 @@
-import { waitFor } from '@testing-library/react'
-import axios from 'axios'
-import { PageTypes } from '../Components/Navigation/PageTypes'
-import { API_BASE_URL, getProjectData } from './Core'
+import { PageTypes } from "@/blocks/Navigation/PageTypes";
+import { waitFor } from "@testing-library/react";
+import axios from "axios";
+import { API_BASE_URL, getProjectData } from "./Core";
 
 const apiDataMockResponse = [
   {
-    id: 'ai-tell-me-a-story',
-    title: 'Purchase my book AI, Tell Me a Story from these platforms.',
-    website: 'https://aitellmeastory.clydedsouza.net',
+    id: "ai-tell-me-a-story",
+    title: "Purchase my book AI, Tell Me a Story from these platforms.",
+    website: "https://aitellmeastory.clydedsouza.net",
   },
-]
+];
 
-jest.mock('axios')
+jest.mock("axios");
 
-const getAxios = jest.spyOn(axios, 'get')
+const getAxios = jest.spyOn(axios, "get");
 
-describe('Core', () => {
-  describe('given API returns a result', () => {
+describe("Core", () => {
+  describe("given API returns a result", () => {
     beforeEach(() => {
       getAxios.mockImplementation(() =>
         Promise.resolve({
@@ -25,24 +25,24 @@ describe('Core', () => {
             data: [...apiDataMockResponse],
           },
         })
-      )
-    })
+      );
+    });
 
     afterEach(() => {
-      jest.resetAllMocks()
-    })
+      jest.resetAllMocks();
+    });
 
-    it('should call API once', async () => {
-      await getProjectData(PageTypes.Portfolio)
-      expect(getAxios).toBeCalledTimes(1)
-    })
+    it("should call API once", async () => {
+      await getProjectData(PageTypes.Portfolio);
+      expect(getAxios).toBeCalledTimes(1);
+    });
 
-    it('should return project data', async () => {
-      const projects = await getProjectData(PageTypes.Portfolio)
+    it("should return project data", async () => {
+      const projects = await getProjectData(PageTypes.Portfolio);
       await waitFor(() =>
         expect(projects.data).toMatchObject(apiDataMockResponse)
-      )
-    })
+      );
+    });
 
     it.each([
       PageTypes.Portfolio,
@@ -50,39 +50,39 @@ describe('Core', () => {
       PageTypes.Cta,
       PageTypes.Highlights,
     ])(
-      'should call correct API endpoint when page type is %s',
+      "should call correct API endpoint when page type is %s",
       async (pageType: PageTypes) => {
-        await getProjectData(pageType)
+        await getProjectData(pageType);
         expect(getAxios).toBeCalledWith(
           `${API_BASE_URL}${pageType.toLowerCase()}.json`
-        )
+        );
       }
-    )
-  })
+    );
+  });
 
-  describe('given API returns an error', () => {
+  describe("given API returns an error", () => {
     beforeEach(() => {
       getAxios.mockImplementation(() =>
-        Promise.reject('API endpoint unavailable')
-      )
-    })
+        Promise.reject("API endpoint unavailable")
+      );
+    });
 
     afterEach(() => {
-      jest.resetAllMocks()
-    })
+      jest.resetAllMocks();
+    });
 
-    it('should call API once', async () => {
-      await getProjectData(PageTypes.Portfolio).catch(() => undefined)
-      expect(getAxios).toBeCalledTimes(1)
-    })
+    it("should call API once", async () => {
+      await getProjectData(PageTypes.Portfolio).catch(() => undefined);
+      expect(getAxios).toBeCalledTimes(1);
+    });
 
-    it('should return error message', async () => {
-      let error = ''
+    it("should return error message", async () => {
+      let error = "";
       await getProjectData(PageTypes.Portfolio).catch((err) => {
-        error = err.message
-      })
+        error = err.message;
+      });
 
-      await waitFor(() => expect(error).toEqual('API error'))
-    })
-  })
-})
+      await waitFor(() => expect(error).toEqual("API error"));
+    });
+  });
+});

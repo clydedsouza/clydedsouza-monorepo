@@ -1,10 +1,10 @@
+import * as apiCacheModule from "@/api/Cache";
+import { emptyProject } from "@/test-util/emptyProject";
 import {
   render,
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
-import { emptyProject } from "../../../../TestHelpers/testHelper";
-import * as apiCacheModule from "../../../Api/Cache";
 import { PageTypes } from "../../../blocks/Navigation/PageTypes";
 import Highlights from "./Highlights";
 
@@ -67,8 +67,8 @@ describe("Highlights", () => {
       render(<Highlights />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
 
-      expect(apiCacheModule.getCachedProjectData).toBeCalledTimes(1);
-      expect(apiCacheModule.getCachedProjectData).toBeCalledWith(
+      expect(apiCacheModule.getCachedProjectData).toHaveBeenCalledTimes(1);
+      expect(apiCacheModule.getCachedProjectData).toHaveBeenCalledWith(
         PageTypes.Highlights
       );
     });
@@ -96,7 +96,9 @@ describe("Highlights", () => {
     it("should sort items in descending order", async () => {
       render(<Highlights />);
       await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
+
       const headings = screen.getAllByRole("heading", { name: /Project -/ });
+
       expect(headings[0]).toHaveTextContent(
         highlightsDataMockResponse[4].title
       );

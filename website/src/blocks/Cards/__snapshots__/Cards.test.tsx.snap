@@ -61,32 +61,6 @@ exports[`Cards given API returns multiple items should render cards 1`] = `
         class="card"
       >
         <div
-          aria-label="Church magazine cover designs by Clyde D'Souza"
-        >
-          <span>
-            Graphic Design
-          </span>
-        </div>
-        <div>
-          <h3>
-            Tulips cover page designs
-          </h3>
-          <p>
-            I was responsible for designing the cover page for Tulips - a church bulletin. Each cover page was designed in accordance to a theme for that particular issue and conveyed the underlying meaning of the theme.
-          </p>
-          <div
-            class="made-using"
-          >
-            <span>
-              Photoshop
-            </span>
-          </div>
-        </div>
-      </div>
-      <div
-        class="card"
-      >
-        <div
           aria-label="Add a sticker to your profile picture using Profile Sticker in just 4 easy steps."
         >
           <span>
@@ -152,6 +126,32 @@ exports[`Cards given API returns multiple items should render cards 1`] = `
                 />
               </svg>
             </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="card"
+      >
+        <div
+          aria-label="Church magazine cover designs by Clyde D'Souza"
+        >
+          <span>
+            Graphic Design
+          </span>
+        </div>
+        <div>
+          <h3>
+            Tulips cover page designs
+          </h3>
+          <p>
+            I was responsible for designing the cover page for Tulips - a church bulletin. Each cover page was designed in accordance to a theme for that particular issue and conveyed the underlying meaning of the theme.
+          </p>
+          <div
+            class="made-using"
+          >
+            <span>
+              Photoshop
+            </span>
           </div>
         </div>
       </div>
