@@ -27,6 +27,7 @@ export const generateMetadata = (props: ISeo): Metadata => {
       title,
       description,
       type: "website",
+      locale: "en_US",
       images: [{ url: image }],
     },
     twitter: {
@@ -39,6 +40,61 @@ export const generateMetadata = (props: ISeo): Metadata => {
       name: "Clyde D'Souza",
       url: WEBSITE_BASE_URL,
     },
+    keywords:
+      "Clyde D'Souza, @ClydeDz, full-stack software engineer, senior software engineer, passionate front end developer, passionate back end developer, full stack developer, author, childrens bedtime stories, eye for ui, ux, Mumbai, India, IND, Auckland, New Zealand, NZ",
+    themeColor: "#009688",
+    manifest: `${WEBSITE_BASE_URL}manifest.json`,
+    icons: [
+      {
+        rel: "icon",
+        url: `${WEBSITE_BASE_URL}favicon.ico`,
+      },
+      {
+        rel: "icon",
+        url: "https://files.clydedsouza.net/device-icons/apple-touch-icon-180x180.png",
+        sizes: "192x192",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "https://files.clydedsouza.net/device-icons/apple-touch-icon-57x57.png",
+        sizes: "57x57",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "https://files.clydedsouza.net/device-icons/apple-touch-icon-114x114.png",
+        sizes: "114x114",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "https://files.clydedsouza.net/device-icons/apple-touch-icon-72x72.png",
+        sizes: "72x72",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "https://files.clydedsouza.net/device-icons/apple-touch-icon-60x60.png",
+        sizes: "60x60",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "https://files.clydedsouza.net/device-icons/apple-touch-icon-120x120.png",
+        sizes: "120x120",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "https://files.clydedsouza.net/device-icons/apple-touch-icon-76x76.png",
+        sizes: "76x76",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "https://files.clydedsouza.net/device-icons/apple-touch-icon-152x152.png",
+        sizes: "152x152",
+      },
+      {
+        rel: "apple-touch-icon",
+        url: "https://files.clydedsouza.net/device-icons/apple-touch-icon-180x180.png",
+        sizes: "180x180",
+      },
+    ],
   };
   return metadata;
 };
