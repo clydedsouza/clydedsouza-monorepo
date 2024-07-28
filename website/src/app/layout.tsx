@@ -1,8 +1,10 @@
+import Footer from "@/blocks/Footer/Footer";
+import Navigation from "@/blocks/Navigation/Navigation";
+import { RegisterAnalytics } from "@/blocks/RegisterAnalytics/RegisterAnalytics";
+import Sidebar from "@/blocks/Sidebar/Sidebar";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import "./globals.scss";
+import "./layout.scss";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,9 +16,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log(process.env.NODE_ENV);
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <RegisterAnalytics />
+        <Sidebar />
+        <main>
+          <Navigation />
+          {children}
+          <Footer />
+        </main>
+      </body>
     </html>
   );
 }

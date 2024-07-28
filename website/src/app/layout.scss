@@ -1,0 +1,26 @@
+@import "../styles/variables";
+
+main {
+  width: 63%;
+  padding: 16px 35px;
+  display: inline-block;
+  padding-left: 34%;
+
+  @include for-tablets-down {
+    & {
+      padding: 16px;
+      height: auto;
+      display: inline-block;
+    }
+  }
+
+  @include for-tablets-down {
+    padding: 15px 21px;
+    width: 90%;
+  }
+
+  @include for-legacy-mobiles-down {
+    padding: 16px 18px;
+    width: 88%;
+  }
+}
