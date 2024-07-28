@@ -8,8 +8,8 @@ jest.mock("../../api/Analytics");
 
 describe("Navigation", () => {
   it("should render navigation", () => {
-    render(<Navigation />);
-    expect(document.body).toMatchSnapshot();
+    const { container } = render(<Navigation />);
+    expect(container).toMatchSnapshot();
   });
 
   it("should send analytics event when nav item is clicked", async () => {
