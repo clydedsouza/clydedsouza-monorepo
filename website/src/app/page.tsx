@@ -3,11 +3,7 @@ import { PageViewAnalytics } from "@/blocks/Analytics/PageViewAnalytics";
 import { PageTypes } from "@/blocks/Navigation/PageTypes";
 import { generateMetadata } from "@/utility/seo";
 
-export const metadata = generateMetadata({
-  title: undefined,
-  image: undefined,
-  description: undefined,
-});
+export const metadata = generateMetadata({});
 
 export default function Home() {
   return (
