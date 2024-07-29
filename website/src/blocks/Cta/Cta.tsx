@@ -58,17 +58,11 @@ function Cta({ location }: ICtaProps) {
     );
   };
 
-  return (
-    <>
-      {isLoading ? (
-        <Loader variant={LoaderTypes.Inverse} />
-      ) : projectData.length > 0 ? (
-        CtaLink(projectData)
-      ) : (
-        <p>Couldn&lsquo;t load the data at this stage</p>
-      )}
-    </>
-  );
+  if (isLoading) return <Loader variant={LoaderTypes.Inverse} />;
+
+  if (projectData.length < 1) return <></>;
+
+  return <>{CtaLink(projectData)}</>;
 }
 
 export default Cta;

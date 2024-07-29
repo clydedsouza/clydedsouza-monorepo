@@ -22,18 +22,6 @@ exports[`Cta given API return a single item should render cta 1`] = `
 </div>
 `;
 
-exports[`Cta given API returns an error should render empty cta 1`] = `
-<div>
-  <p>
-    Couldn‘t load the data at this stage
-  </p>
-</div>
-`;
+exports[`Cta given API returns an error should render empty cta 1`] = `<div />`;
 
-exports[`Cta given API returns no items should render empty cta 1`] = `
-<div>
-  <p>
-    Couldn‘t load the data at this stage
-  </p>
-</div>
-`;
+exports[`Cta given API returns no items should render empty cta 1`] = `<div />`;
