@@ -1,7 +1,0 @@
-# Ignore folders:
-build
-coverage
-node_modules
-
-# Ignore files:
-*.svg
