@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render footer 1`] = `
+<div>
+  <footer>
+    <div
+      class="cta"
+      data-location="footer"
+    >
+      <a
+        href="https://aitellmeastory.clydedsouza.net"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Purchase my book AI, Tell Me a Story from these platforms.
+      </a>
+    </div>
+    <p>
+      Website crafted by Clyde DSouza
+    </p>
+  </footer>
+</div>
+`;
