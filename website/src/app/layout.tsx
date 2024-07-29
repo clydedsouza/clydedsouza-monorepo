@@ -1,6 +1,6 @@
 import Footer from "@/blocks/Footer/Footer";
 import Navigation from "@/blocks/Navigation/Navigation";
-import { RegisterAnalytics } from "@/blocks/RegisterAnalytics/RegisterAnalytics";
+import { RegisterAnalytics } from "@/blocks/Analytics/RegisterAnalytics";
 import Sidebar from "@/blocks/Sidebar/Sidebar";
 import { JSONLD } from "@/utility/ldjson";
 import { Viewport } from "next";

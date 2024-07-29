@@ -2,12 +2,25 @@
 
 import { sendNavigationClickedEvent } from "@/api/Analytics";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import "./Navigation.scss";
 import { PageTypes } from "./PageTypes";
 
+const getCurrentPage = (pathFromNextJs: string) => {
+  const cleanPath = pathFromNextJs.replaceAll("/", "").toLowerCase();
+
+  if (cleanPath === PageTypes.Platforms.toLowerCase()) {
+    return PageTypes.Platforms;
+  } else if (cleanPath === PageTypes.Portfolio.toLowerCase()) {
+    return PageTypes.Portfolio;
+  } else {
+    return PageTypes.About;
+  }
+};
+
 function Navigation() {
-  const [currentPage, setCurrentPage] = useState(PageTypes.About);
+  const [currentPage, setCurrentPage] = useState(getCurrentPage(usePathname()));
 
   const onNavigationItemClick = (pageType: PageTypes) => {
     sendNavigationClickedEvent(pageType);

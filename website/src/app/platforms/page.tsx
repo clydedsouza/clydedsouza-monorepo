@@ -1,3 +1,4 @@
+import { PageViewAnalytics } from "@/blocks/Analytics/PageViewAnalytics";
 import Cards from "@/blocks/Cards/Cards";
 import { PageTypes } from "@/blocks/Navigation/PageTypes";
 import { generateMetadata } from "@/utility/seo";
@@ -10,5 +11,10 @@ export const metadata = generateMetadata({
 });
 
 export default function Platforms() {
-  return <Cards pageType={PageTypes.Platforms} />;
+  return (
+    <>
+      <PageViewAnalytics page={PageTypes.Platforms} />
+      <Cards pageType={PageTypes.Platforms} />
+    </>
+  );
 }

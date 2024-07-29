@@ -5,9 +5,11 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from "@testing-library/react";
+import * as nextNavigationModule from "next/navigation";
 import RootLayout from "./layout";
 
 jest.mock("../api/Cache");
+jest.mock("next/navigation");
 
 const projectDataMockResponse = [
   {
@@ -20,12 +22,17 @@ const projectDataMockResponse = [
 
 describe("Layout", () => {
   beforeEach(() => {
+    jest.spyOn(nextNavigationModule, "usePathname").mockReturnValue("/");
     jest.spyOn(apiCacheModule, "getCachedProjectData").mockImplementation(() =>
       Promise.resolve({
         app: {},
         data: [...projectDataMockResponse],
       })
     );
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   it("should layout page", async () => {
