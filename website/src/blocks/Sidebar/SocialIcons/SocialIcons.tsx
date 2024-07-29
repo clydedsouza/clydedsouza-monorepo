@@ -1,5 +1,7 @@
-// import { sendLinkClickedEvent } from '../../../Api/Analytics'
-// import { AnalyticsLinkType } from '../../../Api/IAnalytics'
+"use client";
+
+import { sendLinkClickedEvent } from "@/api/Analytics";
+import { AnalyticsLinkType } from "@/api/IAnalytics";
 import Envelope from "../../Icons/Envelope";
 import GitHub from "../../Icons/GitHub";
 import LinkedIn from "../../Icons/LinkedIn";
@@ -23,12 +25,12 @@ function SocialIcons() {
           href={LINKEDIN_PROFILE}
           target="_blank"
           rel="noreferrer"
-          // onClick={() =>
-          //   sendLinkClickedEvent({
-          //     link: LINKEDIN_PROFILE,
-          //     type: AnalyticsLinkType.SocialIcons,
-          //   })
-          // }
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: LINKEDIN_PROFILE,
+              type: AnalyticsLinkType.SocialIcons,
+            })
+          }
         >
           <LinkedIn />
         </a>
@@ -38,12 +40,12 @@ function SocialIcons() {
           href={TWITTER_PROFILE}
           target="_blank"
           rel="noreferrer"
-          // onClick={() =>
-          //   sendLinkClickedEvent({
-          //     link: TWITTER_PROFILE,
-          //     type: AnalyticsLinkType.SocialIcons,
-          //   })
-          // }
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: TWITTER_PROFILE,
+              type: AnalyticsLinkType.SocialIcons,
+            })
+          }
         >
           <Twitter />
         </a>
@@ -53,12 +55,12 @@ function SocialIcons() {
           href={YOUTUBE_PROFILE}
           target="_blank"
           rel="noreferrer"
-          // onClick={() =>
-          //   sendLinkClickedEvent({
-          //     link: YOUTUBE_PROFILE,
-          //     type: AnalyticsLinkType.SocialIcons,
-          //   })
-          // }
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: YOUTUBE_PROFILE,
+              type: AnalyticsLinkType.SocialIcons,
+            })
+          }
         >
           <YouTube />
         </a>
@@ -68,12 +70,12 @@ function SocialIcons() {
           href={GITHUB_PROFILE}
           target="_blank"
           rel="noreferrer"
-          // onClick={() =>
-          //   sendLinkClickedEvent({
-          //     link: GITHUB_PROFILE,
-          //     type: AnalyticsLinkType.SocialIcons,
-          //   })
-          // }
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: GITHUB_PROFILE,
+              type: AnalyticsLinkType.SocialIcons,
+            })
+          }
         >
           <GitHub />
         </a>
@@ -83,12 +85,12 @@ function SocialIcons() {
           href={MEDIUM_PROFILE}
           target="_blank"
           rel="noreferrer"
-          // onClick={() =>
-          //   sendLinkClickedEvent({
-          //     link: MEDIUM_PROFILE,
-          //     type: AnalyticsLinkType.SocialIcons,
-          //   })
-          // }
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: MEDIUM_PROFILE,
+              type: AnalyticsLinkType.SocialIcons,
+            })
+          }
         >
           <Medium />
         </a>
@@ -98,12 +100,12 @@ function SocialIcons() {
           href={`${EMAIL_ADDRESS}?Subject=Hi%20Clyde%21&Body=Hi%20Clyde,%20%0D%0DI%20wanted%20to%20get%20in%20touch%20with%20you.%0D%0DThanks,%20%0D%0DSent%20from%20https%3A%2F%2Fclydedsouza.net`}
           target="_blank"
           rel="noreferrer"
-          // onClick={() =>
-          //   sendLinkClickedEvent({
-          //     link: EMAIL_ADDRESS,
-          //     type: AnalyticsLinkType.SocialIcons,
-          //   })
-          // }
+          onClick={() =>
+            sendLinkClickedEvent({
+              link: EMAIL_ADDRESS,
+              type: AnalyticsLinkType.SocialIcons,
+            })
+          }
         >
           <Envelope />
         </a>
