@@ -62,6 +62,9 @@ jobs:
       - name: Build with Next.js
         run: npx --no-install next build
 
+      - name: Generate sitemap file
+        run: npm run sitemap
+
       - name: Upload website files
         uses: actions/upload-artifact@v3
         with:
