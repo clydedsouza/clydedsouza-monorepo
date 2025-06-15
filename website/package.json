@@ -1,6 +1,6 @@
 {
   "name": "clydedsouza.net",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "Clyde D'Souza",
   "private": true,
   "scripts": {
@@ -8,11 +8,11 @@
     "build": "next build",
     "postbuild": "npm run sitemap",
     "sitemap": "next-sitemap",
-    "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "vscode:setup": "ext install esbenp.prettier-vscode",
-    "test": "jest"
+    "test": "jest",
+    "update-snapshots": "jest -u"
   },
   "dependencies": {
     "@tawk.to/tawk-messenger-react": "^2.0.2",

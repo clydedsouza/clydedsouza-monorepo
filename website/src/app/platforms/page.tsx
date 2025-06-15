@@ -7,7 +7,7 @@ export const metadata = generateMetadata({
   title: PageTypes.Platforms,
   image: "https://files.clydedsouza.net/site/ogimage-platforms.png",
   description:
-    "Clyde D'Souza is software engineer and author based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz",
+    "Clyde D'Souza is software engineer and digital content creator based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz",
 });
 
 export default function Platforms() {
