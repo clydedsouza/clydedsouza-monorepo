@@ -54,6 +54,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           path: ./images/public
+          include-hidden-files: true
 
   deploy_images:
     name: Deploy images
