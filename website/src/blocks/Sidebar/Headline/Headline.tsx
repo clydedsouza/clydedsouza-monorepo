@@ -5,7 +5,7 @@ function Headline() {
     <div className="headline">
       <h1>Clyde D&apos;Souza</h1>
       <div>
-        <p>Software Engineer and Author</p>
+        <p>Software Engineer. Digital Content Creator.</p>
         <p>
           <small>Auckland, New Zealand</small>
         </p>
