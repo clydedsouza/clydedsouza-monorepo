@@ -4,6 +4,7 @@
  */
 
 import {assist} from '@sanity/assist'
+import {codeInput} from '@sanity/code-input'
 import {visionTool} from '@sanity/vision'
 import {defineConfig} from 'sanity'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
@@ -128,6 +129,7 @@ export default defineConfig({
     unsplashImageAsset(),
     assist(),
     visionTool(),
+    codeInput(),
   ],
 
   // Schema configuration, imported from ./src/schemaTypes/index.ts

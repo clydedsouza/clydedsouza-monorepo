@@ -84,7 +84,7 @@ export default function CustomPortableText({
       },
     },
     types: {
-      codeBlock: ({ value }) => (
+      code: ({ value }) => (
         <SyntaxHighlighter
           language={value.language}
           style={atomOneDark}
@@ -98,11 +98,10 @@ export default function CustomPortableText({
           <iframe
             src={`https://gist.github.com/${value.url.split("github.com/")[1]}.pibb`}
             width="100%"
-            height={"800px"}
           />
         </div>
       ),
-      googleAd: ({ value }) => (
+      googleAds: ({ value }) => (
         <div>
           {/* Replace with your actual ad code */}
           <b>google ad here</b>
@@ -114,7 +113,7 @@ export default function CustomPortableText({
           />
         </div>
       ),
-      youTube: ({ value }) => {
+      youtube: ({ value }) => {
         return (
           <ReactPlayer src={value.url} width={"440px"} height={"247.50px"} />
         );
