@@ -1,14 +1,14 @@
 // ./schemaTypes/youTubeType/index.ts
 
-import {PlayIcon} from '@sanity/icons'
+import {FaYoutube} from 'react-icons/fa'
 import {defineField, defineType} from 'sanity'
-import {YouTubePreview} from './youtubePreview'
+import {YouTubePreview} from './YouTubePreview'
 
 export const youtube = defineType({
-  name: 'youTube',
+  name: 'youtube',
   type: 'object',
-  title: 'YouTube Embed',
-  icon: PlayIcon,
+  title: 'YouTube Video',
+  icon: FaYoutube,
   fields: [
     defineField({
       name: 'url',
@@ -17,9 +17,9 @@ export const youtube = defineType({
     }),
   ],
   preview: {
-    select: {title: 'url'},
+    select: {url: 'url'},
   },
   components: {
-    preview: YouTubePreview,
+    preview: YouTubePreview as React.ComponentType<any>,
   },
 })

@@ -16,7 +16,7 @@ import {
 import {structureTool} from 'sanity/structure'
 import {schemaTypes} from './src/schemaTypes'
 import {structure} from './src/structure'
-import './studio.css'
+import './src/styles/studio.css'
 
 // Environment variables for project configuration
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'your-projectID'

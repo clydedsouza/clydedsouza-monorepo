@@ -1,111 +1,16 @@
-import {FaGithub} from 'react-icons/fa'
-import {FcGoogle} from 'react-icons/fc'
 import {PiCodeBlock} from 'react-icons/pi'
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
-/**
- * This is the schema definition for the rich text fields used for
- * for this blog studio. When you import it in schemas.js it can be
- * reused in other parts of the studio with:
- *  {
- *    name: 'someName',
- *    title: 'Some title',
- *    type: 'blockContent'
- *  }
- *
- * Learn more: https://www.sanity.io/docs/block-content
- */
 export const blockContent = defineType({
   title: 'Block Content',
   name: 'blockContent',
   type: 'array',
   of: [
     defineArrayMember({
-      type: 'block',
-      marks: {
-        annotations: [
-          {
-            name: 'link',
-            type: 'object',
-            title: 'Link',
-            fields: [
-              defineField({
-                name: 'linkType',
-                title: 'Link Type',
-                type: 'string',
-                initialValue: 'href',
-                options: {
-                  list: [
-                    {title: 'URL', value: 'href'},
-                    {title: 'Page', value: 'page'},
-                    {title: 'Post', value: 'post'},
-                  ],
-                  layout: 'radio',
-                },
-              }),
-              defineField({
-                name: 'href',
-                title: 'URL',
-                type: 'url',
-                hidden: ({parent}) => parent?.linkType !== 'href' && parent?.linkType != null,
-                validation: (Rule) =>
-                  Rule.custom((value, context: any) => {
-                    if (context.parent?.linkType === 'href' && !value) {
-                      return 'URL is required when Link Type is URL'
-                    }
-                    return true
-                  }),
-              }),
-              defineField({
-                name: 'page',
-                title: 'Page',
-                type: 'reference',
-                to: [{type: 'page'}],
-                hidden: ({parent}) => parent?.linkType !== 'page',
-                validation: (Rule) =>
-                  Rule.custom((value, context: any) => {
-                    if (context.parent?.linkType === 'page' && !value) {
-                      return 'Page reference is required when Link Type is Page'
-                    }
-                    return true
-                  }),
-              }),
-              defineField({
-                name: 'post',
-                title: 'Post',
-                type: 'reference',
-                to: [{type: 'post'}],
-                hidden: ({parent}) => parent?.linkType !== 'post',
-                validation: (Rule) =>
-                  Rule.custom((value, context: any) => {
-                    if (context.parent?.linkType === 'post' && !value) {
-                      return 'Post reference is required when Link Type is Post'
-                    }
-                    return true
-                  }),
-              }),
-              defineField({
-                name: 'openInNewTab',
-                title: 'Open in new tab',
-                type: 'boolean',
-                initialValue: false,
-              }),
-            ],
-          },
-        ],
-      },
+      type: 'link',
     }),
     defineArrayMember({
-      type: 'image',
-      options: {hotspot: true},
-      fields: [
-        defineField({
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative text',
-          description: 'Important for SEO and accessibility.',
-        }),
-      ],
+      type: 'inlineImage',
     }),
     defineArrayMember({
       name: 'codeBlock',
@@ -154,86 +59,13 @@ export const blockContent = defineType({
       ],
     }),
     defineArrayMember({
-      name: 'githubGist',
-      title: 'GitHub Gist',
-      type: 'object',
-      icon: <FaGithub />,
-      preview: {
-        select: {
-          url: 'url',
-        },
-        prepare({url}) {
-          return {
-            title: 'GitHub Gist',
-            subtitle: url,
-            media: <FaGithub />,
-          }
-        },
-      },
-      fields: [
-        defineField({
-          name: 'url',
-          title: 'Gist URL',
-          type: 'url',
-          validation: (rule) => rule.uri({scheme: ['https']}),
-        }),
-      ],
+      type: 'githubGist',
     }),
     defineArrayMember({
-      name: 'googleAd',
-      title: 'Google Ad',
-      type: 'object',
-      preview: {
-        select: {
-          adSlot: 'adSlot',
-        },
-        prepare({adSlot}) {
-          return {
-            title: 'Google Ad',
-            subtitle: adSlot,
-            media: <FcGoogle />,
-          }
-        },
-      },
-      icon: () => <FcGoogle />,
-      fields: [
-        defineField({
-          name: 'adSlot',
-          title: 'Ad Slot',
-          type: 'string',
-          description: 'Google AdSense slot ID or other identifier',
-        }),
-        // Add more fields as needed (e.g., ad format)
-      ],
+      type: 'googleAds',
     }),
     defineArrayMember({
-      type: 'youTube',
+      type: 'youtube',
     }),
-    // defineArrayMember({
-    //   name: 'youtubeVideo',
-    //   title: 'Embedded YouTube Video',
-    //   type: 'object',
-    //   preview: {
-    //     select: {
-    //       url: 'url',
-    //     },
-    //     prepare({url}) {
-    //       return {
-    //         title: 'Google Ad',
-    //         subtitle: url,
-    //         media: <FaYoutube color="red" />,
-    //       }
-    //     },
-    //   },
-    //   icon: () => <FaYoutube color="red" />,
-    //   fields: [
-    //     defineField({
-    //       name: 'url',
-    //       type: 'url',
-    //       title: 'YouTube video URL',
-    //     }),
-    //     // Add more fields as needed (e.g., ad format)
-    //   ],
-    // }),
   ],
 })
