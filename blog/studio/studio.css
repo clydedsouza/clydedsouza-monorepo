@@ -1,0 +1,10 @@
+/* studio.css */
+div[data-ui='Container'] {
+  max-width: 70rem;
+}
+div[data-ui='Card'] div.pt-editable > div.pt-block {
+  max-width: 80%;
+}
+div[data-ui='Card'] div[data-testid='pt-editor'] {
+  min-height: 50rem;
+}

@@ -3,19 +3,20 @@
  * Learn more: https://www.sanity.io/docs/configuration
  */
 
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
+import {assist} from '@sanity/assist'
 import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './src/schemaTypes'
-import {structure} from './src/structure'
+import {defineConfig} from 'sanity'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
 import {
-  presentationTool,
   defineDocuments,
   defineLocations,
+  presentationTool,
   type DocumentLocation,
 } from 'sanity/presentation'
-import {assist} from '@sanity/assist'
+import {structureTool} from 'sanity/structure'
+import {schemaTypes} from './src/schemaTypes'
+import {structure} from './src/structure'
+import './studio.css'
 
 // Environment variables for project configuration
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'your-projectID'
@@ -122,6 +123,7 @@ export default defineConfig({
     structureTool({
       structure, // Custom studio structure configuration, imported from ./src/structure.ts
     }),
+
     // Additional plugins for enhanced functionality
     unsplashImageAsset(),
     assist(),
