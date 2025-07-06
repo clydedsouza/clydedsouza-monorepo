@@ -9,6 +9,7 @@ import {infoSection} from './objects/infoSection'
 import {inlineImage} from './objects/inlineImage/inlineImage'
 import {link} from './objects/link/link'
 
+import {tags} from './objects/tags/tags'
 import {youtube} from './objects/youtube/youtube'
 import {settings} from './singletons/settings'
 
@@ -27,6 +28,7 @@ export const schemaTypes = [
   googleAds,
   youtube,
   link,
+  tags,
   blockContent,
   infoSection,
   callToAction,

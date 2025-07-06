@@ -42,6 +42,25 @@ export const post = defineType({
       type: 'text',
     }),
     defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'tag'}],
+          options: {
+            filter: '', // Optional: filter tags if needed
+          },
+        },
+      ],
+      options: {
+        // This enables the autocomplete UI for references
+        layout: 'tags',
+      },
+      description: 'Add tags to this post. You can create new tags as you type.',
+    }),
+    defineField({
       name: 'coverImage',
       title: 'Cover Image',
       type: 'image',

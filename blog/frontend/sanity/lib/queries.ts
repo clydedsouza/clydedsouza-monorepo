@@ -9,6 +9,7 @@ const postFields = /* groq */ `
   "slug": slug.current,
   excerpt,
   coverImage,
+  tags[]->{_id, title, slug},
   "date": coalesce(date, _updatedAt),
   "author": author->{firstName, lastName, picture},
 `;
@@ -71,6 +72,29 @@ export const morePostsQuery = defineQuery(`
   *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {
     ${postFields}
   }
+`);
+
+export const postsByTagQuery = defineQuery(`
+  *[_type == "post" && references(*[_type=="tag" && slug.current == $tagSlug]._id)]{
+  ${postFields}
+  }
+`);
+
+export const allTagsQuery = defineQuery(`
+  *[_type == "tag"] | order(title asc) {
+    _id,
+    title,
+    slug
+  }
+`);
+
+export const topTagsQuery = defineQuery(`
+  *[_type == "tag"] {
+    _id,
+    title,
+    slug,
+    "postCount": count(*[_type == "post" && references(^._id)])
+  } | order(postCount desc)[0...10]
 `);
 
 export const postQuery = defineQuery(`

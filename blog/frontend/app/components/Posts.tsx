@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-import { sanityFetch } from "@/sanity/lib/live";
-import { morePostsQuery, allPostsQuery } from "@/sanity/lib/queries";
-import { Post as PostType, AllPostsQueryResult } from "@/sanity.types";
+import Avatar from "@/app/components/Avatar";
 import DateComponent from "@/app/components/Date";
 import OnBoarding from "@/app/components/Onboarding";
-import Avatar from "@/app/components/Avatar";
+import { AllPostsQueryResult } from "@/sanity.types";
+import { sanityFetch } from "@/sanity/lib/live";
+import { allPostsQuery, postsByTagQuery } from "@/sanity/lib/queries";
 import { createDataAttribute } from "next-sanity";
 
 const Post = ({ post }: { post: AllPostsQueryResult[number] }) => {
@@ -75,14 +75,18 @@ const Posts = ({
 export const MorePosts = async ({
   skip,
   limit,
+  tagSlug = "science",
 }: {
   skip: string;
   limit: number;
+  tagSlug?: string;
 }) => {
   const { data } = await sanityFetch({
-    query: morePostsQuery,
-    params: { skip, limit },
+    query: postsByTagQuery, // this used to be morePostsQuery
+    params: { skip, limit, tagSlug },
   });
+
+  console.log(data, tagSlug);
 
   if (!data || data.length === 0) {
     return null;
