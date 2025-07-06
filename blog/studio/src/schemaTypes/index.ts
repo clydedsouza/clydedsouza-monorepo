@@ -1,6 +1,7 @@
 import {page} from './documents/page'
 import {person} from './documents/person'
 import {post} from './documents/post'
+import {readingList} from './documents/readingList'
 import {blockContent} from './objects/blockContent'
 import {callToAction} from './objects/callToAction'
 import {githubGist} from './objects/githubGist/githubGist'
@@ -21,8 +22,9 @@ export const schemaTypes = [
   // Documents
   page,
   post,
-  person,
+  readingList,
   tags,
+  person,
   // Objects
   inlineImage,
   githubGist,
