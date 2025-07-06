@@ -15,6 +15,7 @@ import {
   type DocumentLocation,
 } from 'sanity/presentation'
 import {structureTool} from 'sanity/structure'
+import {BlogLogo} from './src/images/BlogLogo'
 import {schemaTypes} from './src/schemaTypes'
 import {structure} from './src/structure'
 import './src/styles/studio.css'
@@ -38,6 +39,8 @@ function resolveHref(documentType?: string, slug?: string): string | undefined {
   switch (documentType) {
     case 'post':
       return slug ? `/posts/${slug}` : undefined
+    case 'tags':
+      return slug ? `/tags/${slug}` : undefined
     case 'page':
       return slug ? `/${slug}` : undefined
     default:
@@ -49,7 +52,8 @@ function resolveHref(documentType?: string, slug?: string): string | undefined {
 // Main Sanity configuration
 export default defineConfig({
   name: 'default',
-  title: 'Sanity + Next.js Starter Template',
+  title: "Clyde's Blog",
+  icon: BlogLogo,
 
   projectId,
   dataset,
@@ -76,6 +80,10 @@ export default defineConfig({
           },
           {
             route: '/posts/:slug',
+            filter: `_type == "post" && slug.current == $slug || _id == $slug`,
+          },
+          {
+            route: '/tags/:slug',
             filter: `_type == "post" && slug.current == $slug || _id == $slug`,
           },
         ]),
