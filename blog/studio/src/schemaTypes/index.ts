@@ -9,7 +9,7 @@ import {infoSection} from './objects/infoSection'
 import {inlineImage} from './objects/inlineImage/inlineImage'
 import {link} from './objects/link/link'
 
-import {tags} from './objects/tags/tags'
+import {tags} from './documents/tags'
 import {youtube} from './objects/youtube/youtube'
 import {settings} from './singletons/settings'
 
@@ -22,13 +22,13 @@ export const schemaTypes = [
   page,
   post,
   person,
+  tags,
   // Objects
   inlineImage,
   githubGist,
   googleAds,
   youtube,
   link,
-  tags,
   blockContent,
   infoSection,
   callToAction,

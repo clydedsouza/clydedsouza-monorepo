@@ -1,3 +1,4 @@
+import {TagsIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 export const tags = defineType({
@@ -5,6 +6,7 @@ export const tags = defineType({
   type: 'document',
   title: 'Tags',
   description: 'Create and manage tags for posts',
+  icon: TagsIcon,
   fields: [
     defineField({
       name: 'title',
