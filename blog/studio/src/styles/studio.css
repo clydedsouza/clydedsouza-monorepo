@@ -8,3 +8,8 @@ div[data-ui='Card'] div.pt-editable > div.pt-block {
 div[data-ui='Card'] div[data-testid='pt-editor'] {
   min-height: 50rem;
 }
+
+/* decrease the width of the rich text editor left side component */
+div[data-ui='Box'].gPvleA {
+  max-width: 33%;
+}

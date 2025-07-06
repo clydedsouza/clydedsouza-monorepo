@@ -1,12 +1,12 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import { notFound } from "next/navigation";
 import { type PortableTextBlock } from "next-sanity";
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 import Avatar from "@/app/components/Avatar";
 import CoverImage from "@/app/components/CoverImage";
-import { MorePosts } from "@/app/components/Posts";
 import PortableText from "@/app/components/PortableText";
+import { MorePosts } from "@/app/components/Posts";
 import { sanityFetch } from "@/sanity/lib/live";
 import { postPagesSlugs, postQuery } from "@/sanity/lib/queries";
 import { resolveOpenGraphImage } from "@/sanity/lib/utils";
@@ -35,7 +35,7 @@ export async function generateStaticParams() {
  */
 export async function generateMetadata(
   props: Props,
-  parent: ResolvingMetadata,
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const params = await props.params;
   const { data: post } = await sanityFetch({
@@ -72,9 +72,9 @@ export default async function PostPage(props: Props) {
 
   return (
     <>
-      <div className="">
-        <div className="container my-12 lg:my-24 grid gap-12">
-          <div>
+      <div className="container">
+        <div className="grid grid-cols-3 gap-4 min-h-screen h-full items-start">
+          <div className="my-12 lg:my-24 col-span-2 flex flex-col h-full">
             <div className="pb-6 grid gap-6 mb-6 border-b border-gray-100">
               <div className="max-w-3xl flex flex-col gap-6">
                 <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-7xl">
@@ -102,6 +102,12 @@ export default async function PostPage(props: Props) {
                 />
               )}
             </article>
+          </div>
+          <div className="my-12 lg:my-24 flex flex-col h-full">
+            <div className="sticky top-8">
+              sidebar
+              <CoverImage image={post.coverImage} priority />
+            </div>
           </div>
         </div>
       </div>
