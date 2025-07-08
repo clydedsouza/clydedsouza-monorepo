@@ -68,6 +68,33 @@ export const allPostsQuery = defineQuery(`
   }
 `);
 
+// This query is used to fetch the latest 10 posts for the homepage
+export const latestTenPostsQuery = defineQuery(`
+  *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc)[0...10] {
+    ${postFields}
+  }
+`);
+
+// This query is used to fetch the latest 10 posts for the homepage
+export const latestTenReadingListsQuery = defineQuery(`
+  *[_type == "readingList" && defined(slug.current)] | order(date asc)[0...10] {
+    _id,
+    title,
+    excerpt,
+    "slug": slug.current,
+    posts[]->{
+      _id,
+      "title": coalesce(title, "Untitled"),
+      "slug": slug.current,
+      excerpt,
+      coverImage,
+      tags[]->{_id, title, slug},
+      "date": coalesce(date, _updatedAt),
+      "author": author->{firstName, lastName, picture},
+    },
+  }
+`);
+
 export const morePostsQuery = defineQuery(`
   *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {
     ${postFields}
