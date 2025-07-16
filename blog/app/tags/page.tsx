@@ -1,8 +1,8 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import { slug } from 'github-slugger'
+import Link from '@/components/CustomLink/Link'
+import Tag from '@/components/Tag/Tag'
 import tagData from 'app/data/static/tags.json'
-import { genPageMetadata } from 'app/seo'
+import { slug } from 'github-slugger'
+import { genPageMetadata } from 'lib/seo'
 
 export const metadata = genPageMetadata({ title: 'Tags', description: 'Things I blog about' })
 

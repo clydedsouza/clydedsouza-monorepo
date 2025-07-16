@@ -1,6 +1,6 @@
 'use client'
 
-import Link from '@/components/Link'
+import Link from '@/components/CustomLink/Link'
 import { usePathname } from 'next/navigation'
 
 export interface IPaginationProps {

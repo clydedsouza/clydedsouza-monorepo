@@ -1,10 +1,10 @@
-import headerNavLinks from '@/data/headerNavLinks'
-import { Logo } from '@/data/Logo'
+import headerNavLinks from '@/components/Header/headerNavLinks'
 import siteMetadata from '@/data/siteMetadata'
-import Link from './Link'
+import Link from '../CustomLink/Link'
+import SearchButton from '../SearchButton/SearchButton'
+import ThemeSwitch from '../ThemeSwitch/ThemeSwitch'
+import { Logo } from './Logo'
 import MobileNav from './MobileNav'
-import SearchButton from './SearchButton'
-import ThemeSwitch from './ThemeSwitch'
 
 const Header = () => {
   let headerClass =

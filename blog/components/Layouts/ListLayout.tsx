@@ -1,7 +1,7 @@
 'use client'
 
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
+import Link from '@/components/CustomLink/Link'
+import Tag from '@/components/Tag/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import type { Blog } from 'contentlayer/generated'
 import { usePathname } from 'next/navigation'

@@ -1,5 +1,5 @@
+import Link from '@/components/CustomLink/Link'
 import { FeaturedPost } from '@/components/FeaturedPost/FeaturedPost'
-import Link from '@/components/Link'
 import { PostItems } from '@/components/PostItems/PostItems'
 import siteMetadata from '@/data/siteMetadata'
 import { allBlogs, Blog } from 'contentlayer/generated'
@@ -10,7 +10,6 @@ export default async function Page() {
   const sortedPostsInDescOrder: Blog[] = sortPosts(allBlogs)
   const posts: CoreContent<Blog>[] = allCoreContent(sortedPostsInDescOrder)
   console.log(posts)
-  console.log(posts.forEach((post) => post.title + ' dwd ' + post.subtitle))
 
   return (
     <>

@@ -1,4 +1,4 @@
-import ListLayout from '@/layouts/ListLayoutWithTags'
+import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import { allBlogs } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'

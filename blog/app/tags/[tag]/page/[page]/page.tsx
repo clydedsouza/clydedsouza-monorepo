@@ -1,4 +1,4 @@
-import ListLayout from '@/layouts/ListLayoutWithTags'
+import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import tagData from 'app/data/static/tags.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
