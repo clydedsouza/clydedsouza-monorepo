@@ -1,9 +1,9 @@
 'use client'
 
-import { PostItems } from '@/components/Homepage/PostItems'
 import { IPaginationProps, Pagination } from '@/components/Pagination/Pagination'
+import { PostItems } from '@/components/PostItems/PostItems'
 import { TagSidebar } from '@/components/TagSidebar/TagSidebar'
-import tagData from 'app/tag-data.json'
+import tagData from 'app/data/static/tags.json'
 import type { Blog } from 'contentlayer/generated'
 import { usePathname } from 'next/navigation'
 import { CoreContent } from 'pliny/utils/contentlayer'

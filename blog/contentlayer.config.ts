@@ -61,16 +61,12 @@ const computedFields: ComputedFields = {
 
 /**
  * Count the occurrences of all tags across blog posts and write to json file
- * Excludes tags that start with "Reading list: " and draft posts in production
  */
 async function createTagCount(allBlogs) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
-      console.log(file.tags)
       file.tags.forEach((tag) => {
-        if (tag.includes('Reading list: ')) return
-
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
@@ -81,7 +77,7 @@ async function createTagCount(allBlogs) {
     }
   })
   const formatted = await prettier.format(JSON.stringify(tagCount, null, 2), { parser: 'json' })
-  writeFileSync('./app/tag-data.json', formatted)
+  writeFileSync('./app/data/static/tags.json', formatted)
 }
 
 /**
@@ -91,16 +87,12 @@ async function createTagCount(allBlogs) {
 async function createReadingListCount(allBlogs) {
   const readingListCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
-    console.log(file.tags)
-    if (file.tags && (!isProduction || file.draft !== true)) {
-      file.tags.forEach((tag) => {
-        if (!tag.includes('Reading list: ')) return
-
-        const formattedTag = tag.replace(/Reading list: /g, '')
-        if (formattedTag in readingListCount) {
-          readingListCount[formattedTag] += 1
+    if (file.readingList && (!isProduction || file.draft !== true)) {
+      file.readingList.forEach((readingListItem) => {
+        if (readingListItem in readingListCount) {
+          readingListCount[readingListItem] += 1
         } else {
-          readingListCount[formattedTag] = 1
+          readingListCount[readingListItem] = 1
         }
       })
     }
@@ -108,7 +100,7 @@ async function createReadingListCount(allBlogs) {
   const formatted = await prettier.format(JSON.stringify(readingListCount, null, 2), {
     parser: 'json',
   })
-  writeFileSync('./app/readinglist-data.json', formatted)
+  writeFileSync('./app/data/static/readingList.json', formatted)
 }
 
 function createSearchIndex(allBlogs) {
@@ -132,9 +124,11 @@ export const Blog = defineDocumentType(() => ({
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
     tags: { type: 'list', of: { type: 'string' }, default: [] },
+    readingList: { type: 'list', of: { type: 'string' }, default: [] },
     lastmod: { type: 'date' },
     draft: { type: 'boolean' },
     summary: { type: 'string' },
+    subtitle: { type: 'string' },
     images: { type: 'json' },
     authors: { type: 'list', of: { type: 'string' } },
     layout: { type: 'string' },

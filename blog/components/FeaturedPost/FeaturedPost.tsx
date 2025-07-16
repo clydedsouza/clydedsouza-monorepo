@@ -26,7 +26,7 @@ export const FeaturedPost = ({ posts }: { posts: CoreContent<Blog>[] }) => {
           >
             <h3 className="text-5xl font-bold">{post.title}</h3>
           </Link>
-          <div className="my-4 text-2xl font-medium text-slate-600">{post.summary}</div>
+          <div className="my-4 text-2xl font-medium text-slate-600">{post.subtitle}</div>
           <div className="my-2 max-w-3xl text-gray-500">{post.readingTime.text}</div>
           <div className="my-2 max-w-3xl text-gray-500">
             Published <time dateTime={post.date}>{formatDate(post.date, siteMetadata.locale)}</time>
