@@ -17,7 +17,7 @@ export const PostItems = ({ posts }: { posts: CoreContent<Blog>[] }) => {
             <div className="flex flex-1 flex-col py-2">
               <Link
                 className="hover:text-brand underline transition-colors"
-                href={`/blog/${post.slug}`}
+                href={`/posts/${post.slug}`}
               >
                 <h3 className="mb-2 text-2xl font-bold">{post.title}</h3>
               </Link>

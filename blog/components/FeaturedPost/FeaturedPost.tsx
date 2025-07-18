@@ -22,7 +22,7 @@ export const FeaturedPost = ({ posts }: { posts: CoreContent<Blog>[] }) => {
         <div className="m-4 basis-1/3">
           <Link
             className="hover:text-brand underline transition-colors"
-            href={`/blog/${post.slug}`}
+            href={`/posts/${post.slug}`}
           >
             <h3 className="text-5xl font-bold">{post.title}</h3>
           </Link>
