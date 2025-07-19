@@ -4,11 +4,13 @@ import Pre from 'pliny/ui/Pre'
 import TOCInline from 'pliny/ui/TOCInline'
 import Image from './CustomImage/Image'
 import CustomLink from './CustomLink/Link'
+import { InlineImage } from './InlineImage/InlineImage'
 import TableWrapper from './TableWrapper/TableWrapper'
 import YouTube from './YouTube/YouTube'
 
 export const components: MDXComponents = {
   Image,
+  InlineImage,
   TOCInline,
   a: CustomLink,
   pre: Pre,
