@@ -7,15 +7,15 @@ import Header from '@/components/Header/Header'
 import SectionContainer from '@/components/Layouts/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import { Metadata } from 'next'
-import { Space_Grotesk } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchConfig, SearchProvider } from 'pliny/search'
 import { ThemeProviders } from '../lib/theme-providers'
 
-const space_grotesk = Space_Grotesk({
+const interGoogleFont = Inter({
   subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-grotesk',
+  display: 'auto',
+  variable: '--font-Inter',
 })
 
 export const metadata: Metadata = {
@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang={siteMetadata.language}
-      className={`${space_grotesk.variable} scroll-smooth`}
+      className={`${interGoogleFont.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <link

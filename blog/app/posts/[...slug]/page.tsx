@@ -1,9 +1,7 @@
 import 'css/prism.css'
 import 'katex/dist/katex.css'
 
-import PostBanner from '@/components/Layouts/PostBanner'
 import PostLayout from '@/components/Layouts/PostLayout'
-import PostSimple from '@/components/Layouts/PostSimple'
 import { components } from '@/components/MDXComponents'
 import siteMetadata from '@/data/siteMetadata'
 import type { Authors, Blog } from 'contentlayer/generated'
@@ -12,13 +10,6 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { allCoreContent, coreContent, sortPosts } from 'pliny/utils/contentlayer'
-
-const defaultLayout = 'PostLayout'
-const layouts = {
-  PostSimple,
-  PostLayout,
-  PostBanner,
-}
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string[] }>
@@ -104,18 +95,16 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
     }
   })
 
-  const Layout = layouts[post.layout || defaultLayout]
-  console.log(post.body.code)
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
+
+      <PostLayout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
-      </Layout>
+      </PostLayout>
     </>
   )
 }

@@ -161,6 +161,7 @@ export const Authors = defineDocumentType(() => ({
     name: { type: 'string', required: true },
     avatar: { type: 'string' },
     occupation: { type: 'string' },
+    bio: { type: 'string' },
     company: { type: 'string' },
     email: { type: 'string' },
     twitter: { type: 'string' },
@@ -192,7 +193,7 @@ export default makeSource({
         {
           behavior: 'prepend',
           headingProperties: {
-            className: ['content-header'],
+            className: ['content-header mt-8 mb-6'],
           },
           content: icon,
         },

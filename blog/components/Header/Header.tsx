@@ -8,7 +8,7 @@ import MobileNav from './MobileNav'
 
 const Header = () => {
   let headerClass =
-    'flex items-center w-full bg-white/95 dark:bg-gray-950 justify-between py-4 backdrop-blur-lg sticky top-0 z-50'
+    'flex items-center w-full  bg-white/95 dark:bg-gray-950 justify-between py-4 backdrop-blur-lg sticky top-0 z-50'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }
