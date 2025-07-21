@@ -1,3 +1,4 @@
+import { CustomAd } from '@/components/CustomAd/CustomAd'
 import Image from '@/components/CustomImage/Image'
 import Tag from '@/components/Tag/Tag'
 import Link from 'next/link'
@@ -48,22 +49,22 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
                   <dt className="sr-only">Author bio</dt>
                   <dd className="text-sm text-gray-600 dark:text-gray-100">{author.bio}</dd>
                 </li>
+                <li>
+                  <dt className="sr-only">Kofi support button</dt>
+                  <a href={author.kofi} target="_blank">
+                    <img
+                      height="36"
+                      style={{ border: '0px', height: '36px' }}
+                      src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
+                      alt="Buy Me a Coffee at ko-fi.com"
+                    />
+                  </a>
+                </li>
               </>
             ))}
           </ul>
         </dd>
       </dl>
-
-      <div>
-        <a href="https://ko-fi.com/L3L026ITT" target="_blank">
-          <img
-            height="36"
-            style={{ border: '0px', height: '36px' }}
-            src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
-            alt="Buy Me a Coffee at ko-fi.com"
-          />
-        </a>
-      </div>
 
       <div className="text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2">
         {tags && (
@@ -123,6 +124,9 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
         )}
       </div>
       <div>TODO: google ad, newsletter signup, personal ad, share buttons</div>
+      <div>
+        <CustomAd isRandom={false} adKey="MAMABOOKPAPERBACK" />
+      </div>
     </aside>
   )
 }

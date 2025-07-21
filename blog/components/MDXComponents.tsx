@@ -2,6 +2,7 @@ import type { MDXComponents } from 'mdx/types'
 import BlogNewsletterForm from 'pliny/ui/BlogNewsletterForm'
 import Pre from 'pliny/ui/Pre'
 import TOCInline from 'pliny/ui/TOCInline'
+import { CustomAd } from './CustomAd/CustomAd'
 import Image from './CustomImage/Image'
 import CustomLink from './CustomLink/Link'
 import { InlineImage } from './InlineImage/InlineImage'
@@ -17,4 +18,5 @@ export const components: MDXComponents = {
   table: TableWrapper,
   BlogNewsletterForm,
   YouTube,
+  CustomAd,
 }

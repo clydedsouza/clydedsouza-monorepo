@@ -8,7 +8,7 @@ import MobileNav from './MobileNav'
 
 const Header = () => {
   let headerClass =
-    'flex items-center w-full  bg-white/95 dark:bg-gray-950 justify-between py-4 backdrop-blur-lg sticky top-0 z-50'
+    'flex items-center w-full h-14 bg-white/95 dark:bg-gray-950 justify-between py-4 backdrop-blur-lg sticky top-0 z-50'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }
@@ -20,7 +20,7 @@ const Header = () => {
           <div className="mr-3">
             <Logo />
           </div>
-          <div className="hidden text-3xl font-semibold sm:block">{siteMetadata.headerTitle}</div>
+          <div className="hidden text-xl font-semibold sm:block">{siteMetadata.headerTitle}</div>
         </div>
       </Link>
       <div className="flex items-center space-x-4 leading-5 sm:-mr-6 sm:space-x-6">
@@ -40,7 +40,7 @@ const Header = () => {
         </div>
 
         <Link
-          className="flex items-center justify-center gap-4 rounded-full bg-black px-4 py-2 text-white transition-colors duration-200 hover:bg-teal-500 focus:bg-teal-500 sm:px-6 sm:py-3 dark:bg-teal-500 dark:hover:bg-black dark:focus:bg-black"
+          className="flex items-center justify-center gap-4 rounded-full bg-black px-2 py-1 text-white transition-colors duration-200 hover:bg-teal-500 focus:bg-teal-500 sm:px-4 sm:py-2 dark:bg-teal-500 dark:hover:bg-black dark:focus:bg-black"
           href="https://github.com/sanity-io/sanity-template-nextjs-clean"
           target="_blank"
           rel="noopener noreferrer"
