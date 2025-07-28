@@ -1,5 +1,6 @@
 import { CustomAd } from '@/components/CustomAd/CustomAd'
 import Image from '@/components/CustomImage/Image'
+import { NewsletterSignupForm } from '@/components/Newsletter/NewsletterSignupForm'
 import Tag from '@/components/Tag/Tag'
 import Link from 'next/link'
 import { LayoutProps } from '../types/types'
@@ -65,6 +66,8 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
           </ul>
         </dd>
       </dl>
+
+      <NewsletterSignupForm />
 
       <div className="text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2">
         {tags && (

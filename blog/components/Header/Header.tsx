@@ -32,7 +32,7 @@ const Header = () => {
               <Link
                 key={link.title}
                 href={link.href}
-                className="hover:text-primary-500 dark:hover:text-primary-400 m-1 font-medium text-gray-900 dark:text-gray-100"
+                className="hover:text-primary-500 dark:hover:text-primary-400 m-1 text-sm font-medium text-gray-900 dark:text-gray-100"
               >
                 {link.title}
               </Link>
@@ -40,7 +40,7 @@ const Header = () => {
         </div>
 
         <Link
-          className="flex items-center justify-center gap-4 rounded-full bg-black px-2 py-1 text-white transition-colors duration-200 hover:bg-teal-500 focus:bg-teal-500 sm:px-4 sm:py-2 dark:bg-teal-500 dark:hover:bg-black dark:focus:bg-black"
+          className="flex items-center justify-center gap-4 rounded-full bg-black px-2 py-1 text-sm text-white transition-colors duration-200 hover:bg-teal-500 focus:bg-teal-500 sm:px-4 sm:py-2 dark:bg-teal-500 dark:hover:bg-black dark:focus:bg-black"
           href="https://github.com/sanity-io/sanity-template-nextjs-clean"
           target="_blank"
           rel="noopener noreferrer"

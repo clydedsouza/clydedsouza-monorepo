@@ -1,11 +1,23 @@
-import { NewsletterAPI } from 'pliny/newsletter'
-import siteMetadata from '@/data/siteMetadata'
+export const dynamic = 'force-dynamic' //was force-static
 
-export const dynamic = 'force-static'
+export async function POST(req: Request) {
+  const { email, first_name } = await req.json()
+  console.log('Received request to add subscriber to newsletter', email, first_name)
+  return new Response(JSON.stringify({ message: 'Newsletter route is active' }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  })
+  // const { email } = await req.json()
 
-const handler = NewsletterAPI({
-  // @ts-ignore
-  provider: siteMetadata.newsletter.provider,
-})
+  // const kitRes = await fetch('https://api.kit.co/subscribe', {
+  //   method: 'POST',
+  //   headers: {
+  //     Authorization: `Bearer ${process.env.KIT_API_KEY}`,
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({ email }),
+  // })
 
-export { handler as GET, handler as POST }
+  // const result = await kitRes.json()
+  // return Response.json(result)
+}
