@@ -1,9 +1,12 @@
-export async function addSubscriber() {
-  // in a client component
-  const res = await fetch('/api/newsletter', {
+export interface INewsletterPayload {
+  firstName: string
+  email: string
+}
+
+export async function addSubscriber({ firstName, email }: INewsletterPayload) {
+  return await fetch('/api/newsletter', {
     method: 'POST',
-    body: JSON.stringify({ email: 'bob@gmail.com', first_name: 'Bob' }),
+    body: JSON.stringify({ email, firstName }),
     headers: { 'Content-Type': 'application/json' },
   })
-  console.log(res)
 }

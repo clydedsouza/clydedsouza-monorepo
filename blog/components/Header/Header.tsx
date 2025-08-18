@@ -7,14 +7,8 @@ import { Logo } from './Logo'
 import MobileNav from './MobileNav'
 
 const Header = () => {
-  let headerClass =
-    'flex items-center w-full h-14 bg-white/95 dark:bg-gray-950 justify-between py-4 backdrop-blur-lg sticky top-0 z-50'
-  if (siteMetadata.stickyNav) {
-    headerClass += ' sticky top-0 z-50'
-  }
-
   return (
-    <header className={headerClass}>
+    <header className="border-t-primary-500 sticky top-0 z-50 flex h-14 w-full items-center justify-between border-t-4 bg-white/95 px-8 py-4 backdrop-blur-lg dark:bg-gray-950">
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center justify-between">
           <div className="mr-3">

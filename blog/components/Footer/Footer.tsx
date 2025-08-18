@@ -20,8 +20,18 @@ export default function Footer() {
           <SocialIcon kind="medium" href={siteMetadata.medium} size={6} />
         </div>
         <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>{`Copyright © ${siteMetadata.author} ${new Date().getFullYear()}.`}</div>
-          <div>All rights reserved</div>
+          {/* <div>{`Copyright © ${siteMetadata.author} ${new Date().getFullYear()}.`}</div> */}
+          <div>
+            Copyright ©{' '}
+            <Link
+              href={siteMetadata.authorUrl}
+              className="hover:text-primary-500 cursor-pointer hover:underline"
+            >
+              {siteMetadata.author}
+            </Link>{' '}
+            {new Date().getFullYear()}.
+          </div>
+          <div>All rights reserved.</div>
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
