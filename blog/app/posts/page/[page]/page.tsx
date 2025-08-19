@@ -1,9 +1,9 @@
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import { allBlogs } from 'contentlayer/generated'
+import { POSTS_PAGE_TITLE, POSTS_PER_PAGE } from 'lib/constants'
+import { getPaginationVariables } from 'lib/pagination'
 import { notFound } from 'next/navigation'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-
-const POSTS_PER_PAGE = 6
 
 export const generateStaticParams = async () => {
   const totalPages = Math.ceil(allBlogs.length / POSTS_PER_PAGE)
@@ -13,22 +13,13 @@ export const generateStaticParams = async () => {
 }
 
 export default async function Page(props: { params: Promise<{ page: string }> }) {
-  const params = await props.params
   const posts = allCoreContent(sortPosts(allBlogs))
+  const params = await props.params
   const pageNumber = parseInt(params.page as string)
-  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
+  const { initialDisplayPosts, pagination, totalPages } = getPaginationVariables(posts, pageNumber)
 
-  // Return 404 for invalid page numbers or empty pages
   if (pageNumber <= 0 || pageNumber > totalPages || isNaN(pageNumber)) {
     return notFound()
-  }
-  const initialDisplayPosts = posts.slice(
-    POSTS_PER_PAGE * (pageNumber - 1),
-    POSTS_PER_PAGE * pageNumber
-  )
-  const pagination = {
-    currentPage: pageNumber,
-    totalPages: totalPages,
   }
 
   return (
@@ -36,7 +27,7 @@ export default async function Page(props: { params: Promise<{ page: string }> })
       posts={posts}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title="All 45Posts"
+      title={POSTS_PAGE_TITLE}
     />
   )
 }

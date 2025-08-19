@@ -34,7 +34,7 @@ export const CustomAd = ({ isRandom = true, adKey = 'MAMABOOKKINDLE' }: ICustomA
 
   return (
     <div className="flex justify-center">
-      <div className="my-2 h-fit w-[302px] border-2 border-black bg-black hover:border-teal-500 hover:bg-teal-500">
+      <div className="my-2 h-fit w-[302px]">
         <Link
           href={ad.url}
           target="_blank"
@@ -48,7 +48,7 @@ export const CustomAd = ({ isRandom = true, adKey = 'MAMABOOKKINDLE' }: ICustomA
             height={302}
             className="mx-auto my-0 mt-0 mb-0 aspect-1/1 object-cover py-0"
           />
-          <div className="mx-auto px-1 py-1 text-xs font-medium text-white no-underline">
+          <div className="mx-auto px-0 py-1 text-xs font-medium text-black/50 no-underline">
             Blog ad
           </div>
           <div className="sr-only">{ad.alt}</div>

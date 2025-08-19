@@ -3,11 +3,11 @@ import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/data/static/tags.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
+import { getTagPageTitle } from 'lib/constants'
+import { getPaginationVariables } from 'lib/pagination'
 import { genPageMetadata } from 'lib/seo'
 import { Metadata } from 'next'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-
-const POSTS_PER_PAGE = 5
 
 export async function generateMetadata(props: {
   params: Promise<{ tag: string }>
@@ -37,23 +37,18 @@ export const generateStaticParams = async () => {
 export default async function TagPage(props: { params: Promise<{ tag: string }> }) {
   const params = await props.params
   const tag = decodeURI(params.tag)
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
-  const filteredPosts = allCoreContent(
+  const postsWithTag = allCoreContent(
     sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
   )
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
-  const initialDisplayPosts = filteredPosts.slice(0, POSTS_PER_PAGE)
-  const pagination = {
-    currentPage: 1,
-    totalPages: totalPages,
-  }
+
+  const { initialDisplayPosts, pagination } = getPaginationVariables(postsWithTag, 1)
 
   return (
     <ListLayout
-      posts={filteredPosts}
+      posts={postsWithTag}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title={title}
+      title={getTagPageTitle(tag)}
     />
   )
 }

@@ -1,30 +1,22 @@
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import { allBlogs } from 'contentlayer/generated'
+import { POSTS_PAGE_TITLE } from 'lib/constants'
+import { getPaginationVariables } from 'lib/pagination'
 import { genPageMetadata } from 'lib/seo'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
-
-const POSTS_PER_PAGE = 6
 
 export const metadata = genPageMetadata({ title: 'Blog' })
 
 export default async function BlogPage(props: { searchParams: Promise<{ page: string }> }) {
   const posts = allCoreContent(sortPosts(allBlogs))
-  const pageNumber = 1
-  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
-  const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE * pageNumber)
-  const pagination = {
-    currentPage: pageNumber,
-    totalPages: totalPages,
-  }
-
-  console.log(totalPages, initialDisplayPosts.length, posts.length)
+  const { initialDisplayPosts, pagination } = getPaginationVariables(posts, 1)
 
   return (
     <ListLayout
       posts={posts}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title="All blog posts"
+      title={POSTS_PAGE_TITLE}
     />
   )
 }
