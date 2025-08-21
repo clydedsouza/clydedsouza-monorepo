@@ -17,6 +17,7 @@ export default async function BlogPage(props: { searchParams: Promise<{ page: st
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
       title={POSTS_PAGE_TITLE}
+      sidebarType="TAGS"
     />
   )
 }

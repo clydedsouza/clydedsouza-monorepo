@@ -1,7 +1,7 @@
 'use client'
 
+import Capsule from '@/components/Capsule/Capsule'
 import Link from '@/components/CustomLink/Link'
-import Tag from '@/components/Tag/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import type { Blog } from 'contentlayer/generated'
 import { usePathname } from 'next/navigation'
@@ -98,7 +98,7 @@ export default function ListLayout({
                 type="text"
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search articles"
-                className="focus:border-primary-500 focus:ring-primary-500 block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
+                className="focus:border-primary-500 focus:ring-primary-500 block w-full  border border-gray-300 bg-white px-4 py-2 text-gray-900 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
               />
             </label>
             <svg
@@ -139,7 +139,7 @@ export default function ListLayout({
                       </h3>
                       <div className="flex flex-wrap">
                         {tags?.map((tag) => (
-                          <Tag key={tag} text={tag} />
+                          <Capsule key={tag} text={tag} urlPrefix="/tags/" />
                         ))}
                       </div>
                     </div>

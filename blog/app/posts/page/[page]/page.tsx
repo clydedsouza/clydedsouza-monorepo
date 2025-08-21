@@ -28,6 +28,7 @@ export default async function Page(props: { params: Promise<{ page: string }> })
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
       title={POSTS_PAGE_TITLE}
+      sidebarType="TAGS"
     />
   )
 }

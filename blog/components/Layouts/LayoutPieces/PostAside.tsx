@@ -1,12 +1,12 @@
+import Capsule from '@/components/Capsule/Capsule'
 import { CustomAd } from '@/components/CustomAd/CustomAd'
 import Image from '@/components/CustomImage/Image'
 import { NewsletterSignupForm } from '@/components/Newsletter/NewsletterSignupForm'
-import Tag from '@/components/Tag/Tag'
 import Link from 'next/link'
 import { LayoutProps } from '../types/types'
 
 export const PostAside = ({ content, authorDetails, next, prev, children }: LayoutProps) => {
-  const { tags, path } = content
+  const { tags, path, readingList } = content
 
   const basePath = path.split('/')[0]
 
@@ -58,6 +58,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
                       style={{ border: '0px', height: '36px' }}
                       src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
                       alt="Buy Me a Coffee at ko-fi.com"
+                      className="rounded-full"
                     />
                   </a>
                 </li>
@@ -70,21 +71,43 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
       <NewsletterSignupForm />
 
       <div className="text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2">
-        {tags && (
-          <div className="py-4 xl:py-8">
-            <h2 className="mb-2 text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+        {tags && tags.length > 0 && (
+          <div className="py-4">
+            <h2 className="mb-2 text-xs font-bold tracking-wide text-gray-800 uppercase dark:text-gray-400">
               Tags
             </h2>
             <div className="flex flex-wrap">
               {tags.map((tag) => (
-                <Tag key={tag} text={tag} />
+                <Capsule key={tag} text={tag} urlPrefix="/tags/" />
               ))}
             </div>
           </div>
         )}
+      </div>
+
+      <div className="text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2">
+        {readingList && readingList.length > 0 && (
+          <div className="py-4">
+            <h2 className="mb-2 text-xs font-bold tracking-wide text-gray-800 uppercase dark:text-gray-400">
+              Reading list
+            </h2>
+            <div className="flex flex-wrap">
+              {readingList.map((listItem) => (
+                <Capsule key={listItem} text={listItem} urlPrefix="/lists/" />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <CustomAd isRandom={false} adKey="MAMABOOKPAPERBACK" />
+
+      <div>
         {(next || prev) && (
-          <div className="flex justify-between gap-2 xl:block xl:space-y-8">
-            <h2 className="mb-3 text-lg font-bold text-gray-800 dark:text-gray-400">Next reads</h2>
+          <div className="flex justify-between gap-2 py-3 xl:block xl:space-y-8">
+            <h2 className="mb-2 text-xs font-bold tracking-wide text-gray-800 uppercase dark:text-gray-400">
+              Next reads
+            </h2>
             {prev && prev.path && (
               <Link href={`/${prev.path}`}>
                 <div>
@@ -126,10 +149,8 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
           </div>
         )}
       </div>
+
       <div>TODO: google ad, newsletter signup, personal ad, share buttons</div>
-      <div>
-        <CustomAd isRandom={false} adKey="MAMABOOKPAPERBACK" />
-      </div>
     </aside>
   )
 }

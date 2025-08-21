@@ -1,8 +1,9 @@
 'use client'
 
+import readingListData from '@/app/data/static/readingList.json'
 import tagData from '@/app/data/static/tags.json'
 import { IPaginationProps, Pagination } from '@/components/Pagination/Pagination'
-import { TagSidebar } from '@/components/TagSidebar/TagSidebar'
+import { Sidebar } from '@/components/Sidebar/Sidebar'
 import type { Blog } from 'contentlayer/generated'
 import { usePathname } from 'next/navigation'
 import { CoreContent } from 'pliny/utils/contentlayer'
@@ -14,6 +15,7 @@ interface ListLayoutProps {
   title: string
   initialDisplayPosts?: CoreContent<Blog>[]
   pagination?: IPaginationProps
+  sidebarType?: 'TAGS' | 'LISTS'
 }
 
 export default function ListLayoutWithTags({
@@ -21,11 +23,18 @@ export default function ListLayoutWithTags({
   title,
   initialDisplayPosts = [],
   pagination,
+  sidebarType,
 }: ListLayoutProps) {
   const pathname = usePathname()
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+
+  const sidebarItemTotals =
+    sidebarType === 'TAGS'
+      ? (tagData as Record<string, number>)
+      : (readingListData as Record<string, number>)
+  const sidebarItemKeys = Object.keys(sidebarItemTotals)
+  const sidebarSortedItems = sidebarItemKeys.sort(
+    (a, b) => sidebarItemTotals[b] - sidebarItemTotals[a]
+  )
 
   const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
 
@@ -43,7 +52,14 @@ export default function ListLayoutWithTags({
             )}
           </div>
           <aside className="hidden xl:block">
-            <TagSidebar pathname={pathname} sortedTags={sortedTags} tagCounts={tagCounts} />
+            <Sidebar
+              title={sidebarType === 'TAGS' ? 'All tags' : 'All reading lists'}
+              items={sidebarSortedItems}
+              itemCounts={sidebarItemTotals}
+              ariaLabel={sidebarType === 'TAGS' ? 'View posts tagged' : 'View posts in list'}
+              pathname={pathname}
+              pathnameIdentifier={sidebarType === 'TAGS' ? '/tags' : '/lists'}
+            />
           </aside>
         </div>
       </SectionContainer>

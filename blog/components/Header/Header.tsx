@@ -1,5 +1,6 @@
 import headerNavLinks from '@/components/Header/headerNavLinks'
 import siteMetadata from '@/data/siteMetadata'
+import { SHOW_THEME_SELECTION } from 'lib/constants'
 import Link from '../CustomLink/Link'
 import SearchButton from '../SearchButton/SearchButton'
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch'
@@ -41,7 +42,7 @@ const Header = () => {
         >
           <span className="whitespace-nowrap">Visit my website</span>
         </Link>
-        <ThemeSwitch />
+        {SHOW_THEME_SELECTION && <ThemeSwitch />}
         <MobileNav />
       </div>
     </header>

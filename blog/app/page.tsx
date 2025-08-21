@@ -15,14 +15,16 @@ export default async function Page() {
     <>
       <SectionContainer>
         <FeaturedPost posts={posts} />
-        <div className="mb-0 grid grid-cols-3 gap-2 pt-6">
+        <div className="mt-10 mb-0 grid grid-cols-3 gap-2">
           <div className="col-span-2">
-            <h2 className="text-primary-500 text-3xl font-semibold">Hot off the press</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-3xl">
+              Hot off the press
+            </h2>
           </div>
           <div className="flex justify-end text-base font-medium">
             <Link
-              href="/blog"
-              className="bg-primary-500 flex items-center justify-center gap-4 rounded-full px-4 py-2 text-white transition-colors duration-200 hover:bg-slate-800 focus:bg-slate-800 sm:px-6 sm:py-2"
+              href="/posts"
+              className="bg-primary-500 flex items-center justify-center gap-4 rounded-full px-4 py-2 text-white transition-colors duration-200 hover:bg-slate-800 focus:bg-slate-800 sm:px-8 sm:py-2"
               aria-label="View all posts"
             >
               View all posts

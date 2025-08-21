@@ -48,7 +48,7 @@ export const CustomAd = ({ isRandom = true, adKey = 'MAMABOOKKINDLE' }: ICustomA
             height={302}
             className="mx-auto my-0 mt-0 mb-0 aspect-1/1 object-cover py-0"
           />
-          <div className="mx-auto px-0 py-1 text-xs font-medium text-black/50 no-underline">
+          <div className="mx-auto px-0 py-1 text-right text-xs font-medium text-black/50 no-underline">
             Blog ad
           </div>
           <div className="sr-only">{ad.alt}</div>

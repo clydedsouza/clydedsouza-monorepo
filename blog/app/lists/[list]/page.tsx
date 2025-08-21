@@ -34,22 +34,26 @@ export const generateStaticParams = async () => {
   }))
 }
 
-export default async function TagPage(props: { params: Promise<{ tag: string }> }) {
+export default async function ReadingListPage(props: { params: Promise<{ list: string }> }) {
   const params = await props.params
-  const tag = decodeURI(params.tag)
-  const postsWithTag = allCoreContent(
-    sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
+  const listName = decodeURI(params.list)
+  const postsInReadingList = allCoreContent(
+    sortPosts(
+      allBlogs.filter(
+        (post) => post.readingList && post.readingList.map((t) => slug(t)).includes(listName)
+      )
+    )
   )
 
-  const { initialDisplayPosts, pagination } = getPaginationVariables(postsWithTag, 1)
+  const { initialDisplayPosts, pagination } = getPaginationVariables(postsInReadingList, 1)
 
   return (
     <ListLayout
-      posts={postsWithTag}
+      posts={postsInReadingList}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title={getTagPageTitle(tag)}
-      sidebarType="TAGS"
+      title={getTagPageTitle(listName)}
+      sidebarType="LISTS"
     />
   )
 }
