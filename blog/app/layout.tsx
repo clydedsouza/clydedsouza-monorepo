@@ -2,6 +2,7 @@ import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
+import { RegisterAnalytics } from '@/components/Analytics/RegisterAnalytics'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import siteMetadata from '@/data/siteMetadata'
@@ -100,6 +101,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666761687967451"
           crossOrigin="anonymous"
         ></script>
+        <RegisterAnalytics />
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
