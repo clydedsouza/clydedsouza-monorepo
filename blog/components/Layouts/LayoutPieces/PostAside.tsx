@@ -4,6 +4,7 @@ import Image from '@/components/CustomImage/Image'
 import { NewsletterSignupForm } from '@/components/Newsletter/NewsletterSignupForm'
 import Link from 'next/link'
 import { LayoutProps } from '../types/types'
+import VerticalAd from '@/components/GoogleAds/VerticalAd'
 
 export const PostAside = ({ content, authorDetails, next, prev, children }: LayoutProps) => {
   const { tags, path, readingList } = content
@@ -69,6 +70,8 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
       </dl>
 
       <NewsletterSignupForm />
+
+      <VerticalAd adSlot="xyz" />
 
       <div className="text-sm leading-5 font-medium xl:col-start-1 xl:row-start-2">
         {tags && tags.length > 0 && (

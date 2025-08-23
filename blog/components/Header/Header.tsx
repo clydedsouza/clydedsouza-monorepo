@@ -36,7 +36,7 @@ const Header = () => {
 
         <Link
           className="flex items-center justify-center gap-4 rounded-full bg-black px-2 py-1 text-sm text-white transition-colors duration-200 hover:bg-teal-500 focus:bg-teal-500 sm:px-4 sm:py-2 dark:bg-teal-500 dark:hover:bg-black dark:focus:bg-black"
-          href="https://github.com/sanity-io/sanity-template-nextjs-clean"
+          href={siteMetadata.authorUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
