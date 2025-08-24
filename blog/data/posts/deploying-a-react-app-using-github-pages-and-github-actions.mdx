@@ -1,0 +1,150 @@
+---
+title: 'Deploying a React App Using GitHub Pages and GitHub Actions'
+subtitle: 'A simple guide to hosting your single page application'
+date: '2021-04-06'
+lastmod: '2021-04-06'
+tags: ['React', 'GitHub', 'GitHub Pages', 'GitHub Actions']
+readingList: []
+draft: false
+summary: 'A simple guide to hosting your single page application'
+images: ['/static/images/blog/ghapages.png']
+---
+
+<InlineImage
+  src="/static/images/blog/ghapages.png"
+  alt="Cover image for this article featuring React’s logo, GitHub’s logo, and GitHub Actions logo."
+  caption={
+    <>
+      Image source: Featured logo’s left to right: React, GitHub and GitHub Actions. Image created
+      by the author.
+    </>
+  }
+/>
+
+### Introduction
+
+I recently created a website using the [Create React App](https://create-react-app.dev/) starter template to demonstrate an [npm package](https://www.npmjs.com/package/react-markdown-content) I developed. I thought it would be pretty straightforward to deploy this site using GitHub Pages, however, I was wrong. After some trial and error, I managed to sort it out. This article aims at recreating the scenario and walking you through the process of solving each problem we encounter along the way.
+
+### #1 Starting point
+
+Let’s start with a common base. We’ll begin by creating a React app using the Create React App utility and also add the code to a GitHub repository. I’ve used the following command to generate this sample React app.
+
+```
+npx create-react-app <project directory> --template typescript
+```
+
+At this point, your project directory should look something like the screenshot below. I haven’t added or modified anything — these are the files and folders that get generated out-of-the-box when we run the `npx` command stated above. I just made sure it works locally by running the command `npm run start` and that’s about it.
+
+![Screenshot of the project directory after completing step 1 of this article.](https://cdn-images-1.medium.com/max/800/1*c6AsfWCMC-5uANCLBZXqDg.png)
+
+I’ve pushed these changes to my [GitHub repository](https://github.com/ClydeDz/create-react-app-ghpages-demo) and if you’re following along, you can do the same, too. [This](https://github.com/ClydeDz/create-react-app-ghpages-demo/tree/step-1) is what my repository looked like at this stage if you want to compare.
+
+### #2 Deploying to GitHub pages
+
+When we run the command `npm run build`, Create React App puts the production files into the `build` directory. However, if you take a look at the `.gitignore` file, you’ll see that the `build` directory is added to this list, thus, preventing you from committing the contents of this folder to GitHub. So, how do we publish our app, then?
+
+#### GitHub Actions
+
+Let’s bring [GitHub Actions](https://docs.github.com/en/actions) to the rescue! We need to build our app every time code is committed and that’s where GitHub Actions comes in. Create a YAML file called `build-deploy.yml` in the `.github/workflows` directory of your app. Paste the following contents into this YAML file. [This](https://github.com/ClydeDz/create-react-app-ghpages-demo/tree/step-2) is what my GitHub repository looked like at this stage.
+
+I recently wrote [this article](https://codeburst.io/fundamentals-of-github-actions-d35dc3102447) explaining the fundamentals of GitHub Actions, so I won’t get into too much detail here. To summarize, this YAML file defines the workflow in GitHub Actions. This workflow will get triggered every time a change is pushed to the main branch or a pull request is created to merge changes to the main branch, it will build the React app and deploy the contents of the `build` directory to the `gh-pages` branch.
+
+[**Fundamentals of GitHub Actions**\
+*Confidently create workflow files in your GitHub repository*codeburst.io](https://codeburst.io/fundamentals-of-github-actions-d35dc3102447 'https://codeburst.io/fundamentals-of-github-actions-d35dc3102447')[](https://codeburst.io/fundamentals-of-github-actions-d35dc3102447)
+
+A quick note on `${{ secrets.GITHUB_TOKEN }} `— GitHub automatically creates a `GITHUB_TOKEN` secret to use in your workflow. It comes with write access to the repository, therefore, allowing you to update the `gh-pages` branch. Read the full list of permissions [here](https://docs.github.com/en/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token).
+
+If you’re following along, commit this file to your repository. Immediately, you’ll notice that GitHub Pages will now build based on what you have in your workflow file. If you head over to the Actions tab in GitHub, you’ll see your workflow being executed and hopefully, after some time, marked as successful. Feel free to click around in the UI and explore this area of your GitHub repository.
+
+![Screenshot of GitHub Actions UI featuring a successful workflow run.](https://cdn-images-1.medium.com/max/800/1*kHWQ5K54ZtRuHveK6LHPZQ.png)
+
+Given that the status shows up as successful, this action would have also created a new branch called `gh-pages` and would have deployed the production-ready code in there.
+
+![Screenshot of the gh-pages branch of the GitHub repository.](https://cdn-images-1.medium.com/max/800/1*mVszntQwIxruxEc8f1WO4Q.png)
+
+Easy as, isn’t it?
+
+#### GitHub Pages
+
+Now that we have our build files placed in a different branch, let’s go ahead and enable GitHub Pages. Click on **Settings&#x20;**&#x66;rom the menu and then scroll down to the **GitHub Pages** section.
+
+Here, we’re going to configure where our website contents are located. Since our build files get pushed to the `gh-pages` branch, let’s choose that from the dropdown. Click on the **Save** button. The page will refresh and when you scroll back down to this section, you’ll see a URL. Click on that URL to see the website.
+
+![Screenshot showing how to enable GitHub Pages.](https://cdn-images-1.medium.com/max/800/1*bb8oLbOoLvTSy9vWS9dGVQ.png)
+
+Wait, what happened? I can’t see the React app output, can you?
+
+![Screenshot showing the demo website with an empty screen and error messages in the console.](https://cdn-images-1.medium.com/max/1200/1*pdrhN-O9vYXHK4heNYxgHQ.png)
+
+You may see an empty screen and if you open up the console, you’ll see a bunch of errors.
+
+> **Tip:** If you don’t see an empty screen and instead, see a 404 message from GitHub, please wait for a couple of minutes, try a different browser and finally, try clearing the cache. Since this will be the first time you’re visiting the site, it might have not updated things in the background just yet.
+
+Note the URL it’s trying to get the JavaScript and CSS files from — it’s using the base URL but not using the path `create-react-app-ghpages-demo`. Obviously, since no JavaScript or CSS files exists in the base URL, we’re getting a 404 error.
+
+You may get this error only if you’re using GitHub Pages with your project site, i.e., of the format `https://<username>.github.io/<project>/`. If your repository is named using the format `<username>.github.io` then you may not get the above error after enabling GitHub Pages. This is because your site is no longer deployed at the root but instead deployed one level deeper at `https://<username>.github.io/<project>/`.
+
+So, how do we resolve this issue? Let’s take a look.
+
+### #3 Setting the homepage value
+
+Open up the source code for this app, and in the `package.json` file, add this key-value pair. Replace the parts in the URL below as appropriate.
+
+```
+"homepage": "https://<username>.github.io/<project>/",
+```
+
+In my instance, this is what I had to add:
+
+```
+"homepage": "https://clydedz.github.io/create-react-app-ghpages-demo/",
+```
+
+After making this change, push it to GitHub. This will trigger a build and deployment. [This](https://github.com/ClydeDz/create-react-app-ghpages-demo/tree/step-3) is what my GitHub repository looks like at this stage if you’d like to compare.
+
+Give it a minute or two and then visit the website again. You should now see your React app up and running. Hooray!
+
+![Screenshot showing the demo website.](https://cdn-images-1.medium.com/max/800/1*BIgZyEBdo6AndYQ17APTew.png)
+
+### #4 Adding React Router
+
+Up next, we’ll take a look at the common scenario of adding routing to the React app. Will it work seamlessly? Or will we encounter another error? Let’s find out.
+
+I’ll be using [React Router](https://reactrouter.com/web/guides/quick-start) for this and I’ll type the following command to install this npm package.
+
+```
+npm install --save react-router-dom
+```
+
+I followed the [basic example](https://reactrouter.com/web/example/basic) to add [three routes](https://github.com/ClydeDz/create-react-app-ghpages-demo/blob/step-4/src/App.tsx#L14-L33). Each of these three routes refers to three individual React components. [This](https://github.com/ClydeDz/create-react-app-ghpages-demo/tree/step-4) is what my GitHub repository looked like after adding React Router.
+
+If you run the command `npm run start`, you’ll be able to observe a very odd behaviour.
+
+- It starts with http://localhost:3000/create-react-app-ghpages-demo but the page only contains the navigation links with no other content.
+- Clicking on the **About** link updates the URL to http://localhost:3000/about and it now displays some content. However, with the value `create-react-app-ghpages-demo` completely taken out from the URL, we’re not really on the correct site anymore (a hard refresh on that URL will give an error).
+
+Commit these changes to GitHub anyway (you may also have to update your unit tests). After a successful deployment, you should be able to replicate this behavior online as well. This is obviously not ideal.
+
+![GIF showing the observed error after adding navigation.](https://cdn-images-1.medium.com/max/800/1*yFdoJ72WUHHi02HmKOcROQ.gif)
+
+### #5 Resolving errors with routing
+
+The reason for this weird behavior is right now the router believes the website is being served from the root directory. This isn’t true — the demo app is being served from a sub-directory — hence the mismatch.
+
+To resolve this, let’s update [this line of code](https://github.com/ClydeDz/create-react-app-ghpages-demo/blob/step-4/src/App.tsx#L14) from:
+
+```
+<Router>
+```
+
+to:
+
+```
+<Router basename={process.env.PUBLIC_URL}>
+```
+
+The value of `process.env.PUBLIC_URL` will be `/<project>`. The [basename](https://reactrouter.com/web/api/BrowserRouter/basename-string) property allows us to specify the actual base URL for the routes which, in this case, will be the sub-directory. [This](https://github.com/ClydeDz/create-react-app-ghpages-demo/tree/step-5) is what my GitHub repository looks like after this update.
+
+Now all that’s left is for us to test the [demo website](https://clydedz.github.io/create-react-app-ghpages-demo/) and confirm that it works like charm.
+
+That’s it! Thanks for reading.

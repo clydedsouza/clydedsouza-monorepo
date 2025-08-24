@@ -1,0 +1,163 @@
+---
+title: 'Can you colour this table?'
+subtitle: 'A problem-solving approach to re-skinning a table using CSS'
+date: '2020-06-12'
+lastmod: '2020-06-12'
+tags: ['html', 'css', 'table']
+readingList: []
+draft: false
+summary: 'A problem-solving approach to re-skinning a table using CSS'
+images: ['/static/images/blog/tablecss.png']
+---
+
+<InlineImage
+  src="/static/images/blog/tablecss.png"
+  alt="Image of a beige stool with an overlay of bright colours"
+  caption={
+    <>
+      Image source: <a href="https://unsplash.com/photos/4kTbAMRAHtQ">Beige stool</a> and{' '}
+      <a href="https://unsplash.com/photos/wHddViTmSvA">bright colours</a> from Unsplash.
+    </>
+  }
+/>
+
+### Introduction
+
+I recently came across a unique problem whose solution relied solely on CSS. I thought I must document it and explain the process of coming up with a solution for those intrigued.
+
+### Problem
+
+I’m going to recreate the scenario — I need to re-skin the tables on a website and the given requirements tell me that the background colour of the table header must be yellow, and the table rows will be the alternating background colour of wheat and plum. Below is a picture of what the table can look like.
+
+![Image showing the accepted outputs for the tables](https://cdn-images-1.medium.com/max/800/1*Y38uXZt5W0qMVULd3PJORg.png)
+
+Accepted outputs for the tables
+
+I have two tables on the website, however, the HTML structure of both the tables is different. One makes use of a `<thead>` and `<tbody>` element to distinguish the table’s header from the body. The HTML looks something like the snippet below.
+
+Table with a \<thead> and a `<tbody>`
+
+While the other table only uses a`<tbody>` element like the snippet below.
+
+Table with only a \<tbody>
+
+The challenge is:
+
+- I must not update the HTML code for either of these tables.
+- I must use the same CSS solution for both the tables.
+
+### Follow along (optional)
+
+If you’d like to follow along and learn, feel free to fork this [JSFiddle](https://jsfiddle.net/o9jwtmsn/) for the table with `<thead>` and `<tbody>` and this [JSFiddle](https://jsfiddle.net/84qkvu3g/) for the table with only a `<tbody>`. Here’s how you would fork and create your copy of a JSFiddle.
+
+![Image showing how to fork a fiddle](https://cdn-images-1.medium.com/max/800/1*oBAnpwfnefr2yINjPmVOiA.png)
+
+Forking a JSFiddle creates your copy of the original
+
+### Solution
+
+Alright, let’s solve this problem one step at a time.
+
+#### Alternating background colours
+
+First, we need alternating background colours for our table rows, so let’s go ahead and add the following CSS rules. This will give a background colour of wheat to all even rows and background colour of plum to all odd rows.
+
+```
+tr:nth-child(even) {
+  background: wheat;
+}
+```
+
+```
+tr:nth-child(odd) {
+  background: plum;
+}
+```
+
+This produces the following output for both tables.
+
+![Image showing both tables after adding alternate background colour](https://cdn-images-1.medium.com/max/800/1*sXLuA3BjlVUIohw2XZE-rg.png)
+
+Both tables after adding an alternate background colour
+
+You might have noticed that the left table has a plum colour background on rows one and two, but earlier I mentioned that only odd rows will get a background of plum and even row will get background colour of wheat. This is because the nth-child rule works for elements under the same parent. Since the heading row in the left table is under a `<thead>` element, and the first _lorem ipsum_ row in the body is under the `<tbody>` element, both qualify to be an odd-numbered row as both these table rows are row #1 under their parent elements.
+
+Cool. Now that we’ve got our alternate colours sorted, we need to make the table header yellow.
+
+#### Yellow table header: Round 1
+
+Since we need the first row in both tables to be yellow, let’s add this CSS rule to our CSS file.
+
+```
+tbody tr:first-of-type,
+thead tr:first-of-type {
+  background-color: yellow;
+}
+```
+
+The selector `tbody tr:first-of-type` targets the first `<tr>` element nested inside a `<tbody>` element. And the selector `thead tr:first-of-type` targets the first `<tr>` element inside a `<thead>` element. This produces the below output.
+
+![Image showing both tables after round 1 of adding a yellow table header](https://cdn-images-1.medium.com/max/800/1*5N6ReDUBZfxxF3a3Ij70cw.png)
+
+Both tables after round 1 of adding a yellow table header
+
+The table with only a `<tbody>` element satisfies our expected outcome, but the table with a `<thead>` and `<tbody>` doesn’t look right. What happened there was, both the selectors `tbody tr:first-of-type` and `thead tr:first-of-type` got applied since this table has both a `<thead>` and a `<tbody> `element and a `<tr>` nested inside both.
+
+#### Yellow table header: Round 2
+
+Now we need to fix our left table without disturbing the right table. What’s your first thought?
+
+What?
+
+I see.
+
+Okay, let’s try that.
+
+You’re thinking that we should just add the below CSS rule at the end of the CSS file so that this takes precedence over the code we’ve written above. This will change the background colour of the first `<tr>` that’s nested only inside `<tbody>` to plum.
+
+```
+tbody tr:first-of-type {
+  background-color: plum;
+}
+```
+
+And indeed, it did change. This is what both the tables look like now. 😅
+
+![Image showing both tables after round 2 of adding a yellow table header](https://cdn-images-1.medium.com/max/800/1*vee0G-Hr-4qK7qENDDxsBA.png)
+
+Both tables after round 2 of adding a yellow table header
+
+We’ve managed to fix the left table, but disturbed the output of the right table. Don’t be disheartened. We’re on the right track to solving this.
+
+#### Yellow table header: Round 3
+
+Let’s prepend the `thead +` to the above CSS selector. It should now look something like this.
+
+```
+thead + tbody tr:first-of-type {
+  background-color: plum;
+}
+```
+
+The `+` sign in a CSS selector is used to represent an adjacent sibling. This means the `<thead>` and `<tbody>` elements must be adjacent elements in the produced HTML, and `<tbody>` must appear immediately after `<thead>` and not before. The first `<tr>` element under such a `<tbody>` element will get this CSS rule applied.
+
+This produces the following output. Hey, this is what we expected our outcome to look like, didn’t we? Great work! 😄
+
+![Image showing both tables after round 3 of adding a yellow table header](https://cdn-images-1.medium.com/max/800/1*S-aakFAiGDxJu7IGLbPdMg.png)
+
+Both tables after round 3 of adding a yellow table header
+
+### Links
+
+If you’d like to see the final results for both variations of the tables and maybe even experiment a bit by changing a few things, feel free to fork the following JSFiddles.
+
+- [JSFiddle link](https://jsfiddle.net/Lwsvq6d0/2/) for the table with a `<thead>` and a `<tbody>` element.
+- [JSFiddle link](https://jsfiddle.net/0nL12u9k/) for the table with only a `<tbody>` element.
+
+That’s it! Thanks for reading.
+
+By [Clyde D'Souza](https://medium.com/@clydedz) on [June 12, 2020](https://medium.com/p/6e3a7393c9c8).
+
+[Canonical link](https://medium.com/@clydedz/can-you-colour-this-table-6e3a7393c9c8)
+
+Exported from [Medium](https://medium.com) on August 22, 2025.

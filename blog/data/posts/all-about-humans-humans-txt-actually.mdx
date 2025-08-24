@@ -1,0 +1,84 @@
+---
+title: 'All about humans. Humans.txt, actually'
+subtitle: 'Appreciating the people who help build your website.'
+date: '2020-03-04'
+lastmod: '2020-03-04'
+tags: ['web development']
+readingList: []
+draft: false
+summary: 'Appreciating the people who help build your website.'
+images: ['/static/images/blog/humanstxt.png']
+---
+
+<InlineImage
+  src="/static/images/blog/humanstxt.png"
+  alt="A photo of a team looking at a laptop"
+  caption={
+    <>
+      Image source: <a href="https://unsplash.com/photos/Of_m3hMsoAA">Unsplash</a>
+    </>
+  }
+/>
+
+### Introduction
+
+You may have heard about robots.txt but have you heard about humans.txt? As the [official site](http://humanstxt.org/) states, a humans.txt file is “an initiative for knowing the people behind a website.” This article dives into the humans.txt file a little deeper.
+
+### What is humans.txt?
+
+It’s a simple `.txt` file that usually contains a list of all the people who’ve contributed towards the website. The file is named humans.txt and is placed in the root directory of the website. So, if your website is www\.example.com, you’d be able to locate the humans.txt file at www\.example.com/humans.txt.
+
+Before we dive into the guidelines for this file and details on implementation, let’s take a look at some examples on the internet — clap if you recognise at least one brand. 😄
+
+### Examples
+
+#### Medium
+
+The popular blogging platform has a neat way of using their [humans.txt file](https://medium.com/humans.txt). Apart from the humour and contact information, Medium uses this file to acknowledge people who report vulnerabilities using their [Bug Bounty Disclosure Program](https://help.medium.com/hc/en-us/articles/213481308-Bug-Bounty-Disclosure-Program).
+
+#### Netflix
+
+The streaming giant has created, in what appears to be, a large screen with a generic acknowledgement to their staff, and people watching this screen, in their [humans.txt file](https://www.netflix.com/humans.txt).
+
+#### Trello
+
+This collaboration tool uses their [humans.txt](https://trello.com/humans.txt) file the most standard way — crediting their team and also a mention to their alumni.
+
+#### Google
+
+The search engine giant has a very modest message in their [humans.txt file](https://www.google.com/humans.txt) and a link to their careers page.
+
+#### Humans TXT
+
+How could I not include humans.txt’s own website as an example? Their [humans.txt file](http://humanstxt.org/humans.txt) mentions their core team and other general acknowledgements. Humans TXT also encourages you to use their humans.txt file as a guideline.
+
+### Content
+
+While Humans TXT encourages you to use their [humans.txt file](http://humanstxt.org/humans.txt) as a guideline, you can pretty much add any information you want in here. There are no fixed rules around this file, unlike a [robots.txt file](https://www.robotstxt.org/robotstxt.html). Just ensure the TXT file is saved in UTF-8 encoded format to avoid any issues with special characters in the file.
+
+A super simple version of this file could look something like this —
+
+### Implementation
+
+After you’ve drafted your humans.txt file, it’s time to place it in the root directory of your website, as pictured below.
+
+![Picture showing where a humans.txt is placed.](https://cdn-images-1.medium.com/max/800/1*3FTDelxg7QelW_EAnfIPqQ.png)
+
+Next, place the below `<link>` tag into the `<head>` section of your website to reference the humans.txt file you’ve just added.
+
+```
+<link type="text/plain" rel="author" href="humans.txt" />
+```
+
+After publishing your website, let’s say www\.example.com, if you head to www\.example.com/humans.txt, you should see your file in there.
+
+### Summary
+
+Alright, time for a quick recap —
+
+1. We started with an introduction and then dived into what a humans.txt file actually is.
+2. We then looked at some examples from the internet — some that stand out and some that follow the standard.
+3. Next, we looked at what a super simple humans.txt file can contain.
+4. And finally, we looked at where we would place this file and what code is required to reference this file.
+
+That’s it!

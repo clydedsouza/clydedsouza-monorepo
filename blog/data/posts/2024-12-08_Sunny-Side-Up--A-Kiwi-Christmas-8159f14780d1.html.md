@@ -1,0 +1,82 @@
+# Sunny Side Up: A Kiwi Christmas
+
+Swapping snowflakes for sand, sunshine, and a surfing Santa
+
+***
+
+### Sunny Side Up: A Kiwi Christmas
+
+#### Swapping snowflakes for sand, sunshine, and a surfing Santa
+
+![A Santa hat on a surf board illustrating the experience of Christmas in New Zealand.](https://cdn-images-1.medium.com/max/800/1*WVzcrYFEEUHUNLad6PSCwQ.jpeg)
+
+Image courtesy: [Unsplash](https://unsplash.com/photos/santa-hat-on-rack-9AElxnfszHI)
+
+What comes to your mind when you think about Christmas?
+
+Is it snowflakes gently falling outside your window, a white blanket of snow everywhere, warm drinks by the fireplace, and woolly ugly sweaters keeping you nice and cosy? For many, Christmas brings to mind images of winter wonderlands, icy roads, and warm and cheerful family gatherings inside. Heck, even if you Google the word Christmas, all you see is winter-themed festivities, reinforcing your imagination of what Christmas should look like. But if you celebrate Christmas in New Zealand, you’re in for something quite different!
+
+#### A Southern Hemisphere Christmas
+
+In New Zealand, Christmas falls at the height of summer. Instead of dressing up in layers, Kiwis are more likely to be seen in shorts and flip-flops (or *jandals*, as they call them here in NZ). There’s no snow in sight, but the sun shines brightly, and the long, warm days are perfect for outdoor fun. Imagine spending Christmas at the beach, enjoying a barbecue, or going on a summer holiday rather than nestling inside from the cold. It’s a festive season that’s much more about sunscreen than scarves.
+
+#### What to expect in New Zealand at Christmas
+
+Christmas in New Zealand is laid-back and revolves around family, friends, and the outdoors. While some Northern Hemisphere traditions remain — like decorating Christmas trees and exchanging gifts — others take on a unique Kiwi twist. One of the standout differences is that many people in New Zealand head outdoors for Christmas Day, often holding festive gatherings in parks, backyards, or at the beach. Pavlova, a meringue dessert topped with fresh summer fruits like strawberries and kiwifruit, is a Christmas classic here.
+
+Shops and businesses often close on Christmas — it’s called [restricted trading days](https://www.employment.govt.nz/leave-and-holidays/public-holidays/restricted-trading-days-for-shops) which enforces that all shops must be closed on three and a half public holidays according to the Shop Trading Hours Act 1990 — and some businesses often enjoy this break for an extended period through New Year’s with many Kiwis taking time off work to go on holiday. If you’re living in New Zealand or visiting during the holiday season, you’ll notice the country slows down. There’s a real sense of relaxation as people head to coastal towns, and campgrounds, or simply take time off to enjoy summer activities like surfing, hiking, or fishing.
+
+#### Things to do during a Kiwi Christmas
+
+If you’re visiting New Zealand during the Christmas season, there are plenty of quintessential Kiwi experiences to enjoy:
+
+1. **Beach barbecues**\
+   Instead of turkey and ham, many Kiwis opt for barbecued seafood, beef, lamb, or even sausages. It’s common to see families gathered on the beach or in parks, grilling up a feast and enjoying a laid-back Christmas picnic. If you’re looking to purchase some gear, [Mitre10](https://www.mitre10.co.nz/shop/outdoor-bbq/bbqs-accessories) or [Bunnings Warehouse](https://www.bunnings.co.nz/products/outdoor-living/barbecue) are both good options.
+2. **Surf and swim\&#xA;**&#x49;t’s summer, so why not make use of the extra sunshine time and head over to the beach for a swim or some surf? Before you head down there, though, check out this [Safe Swim website](https://www.safeswim.org.nz/) to ensure the water quality is safe to swim in.
+3. **Summer festivals and events**\
+   Christmas in New Zealand kicks off the summer holiday season, so you can expect a calendar packed with outdoor events. From Christmas parades in towns and cities to carol singing in the park, there’s no shortage of ways to get into the festive spirit. [CocaCola’s Christmas in the Park](https://christmasinthepark.coke.co.nz/christmas-in-the-park) is a popular festival that happens every year and it’s worth checking out.
+4. **Go on a road trip**\
+   One of the best ways to experience New Zealand in summer is to hit the road. With many locals going on vacation, you’ll find some towns bustling with holiday-makers while others, particularly in the cities, feel wonderfully quiet. The long days are ideal for exploring New Zealand’s scenic landscapes, whether it’s the beautiful beaches of the North Island or the majestic mountains and lakes of the South Island. Visit [CityHop](https://www.cityhop.co.nz/) or [JUCY](https://www.jucy.com/nz/en) if you need to book a rental car or van.
+5. **Visit a Kiwi bach**\
+   A bach (pronounced *batch*) is a small holiday home, often by the beach or in rural areas. Staying at a bach is a quintessential Kiwi experience. These homes away from home are perfect for a relaxed holiday, with many offering stunning views and a cosy, unpretentious vibe.**&#x20;**&#x59;ou’ll need to be quick to book, though.
+6. **Christmas in the Garden**\
+   Because it’s summer, Kiwis also love decorating their gardens with fairy lights and ornaments. It’s common to see people enjoying Christmas lunches or dinners in their backyards (did I mention barbecue?) under the sun, making the most of the warm weather. Or just some party games in the backyard or board games indoors with the folks.
+7. **Strawberry picking**\
+   Summer is also a great time to go Strawberry picking. Most of these places are reasonably priced and you can almost pick a bucket full of fresh fruit to indulge. These places also have fresh fruit ice cream which is a must-try! [Good Planet ](https://goodplanet.co.nz/pick-your-own)in Auckland is very popular but [this article](https://www.aucklandforkids.co.nz/the-best-places-to-go-strawberry-picking-in-auckland/) also outlines a few other spots.
+8. **Watch the Pohutukawa trees bloom**\
+   In place of snowy fir trees, New Zealanders celebrate the blooming of the [pohutukawa tree](https://www.doc.govt.nz/nature/native-plants/pohutukawa/), often called the New Zealand Christmas tree. This coastal tree bursts into vibrant red flowers during December, adding a natural festive touch to the landscape. Check with the botanical garden in the city you’re living in to see if they have these trees.
+9. **Go try out an adventure**\
+   New Zealand is famous for adventure sports and is the top spot for adrenaline-seeking folks — it is the home of adventure tourism — and New Zealand Tourism has put together a [list of the top 10 adventure activities](https://www.newzealand.com/nz/feature/new-zealand-must-do-top-10-adventure-experiences/) that you could try out this summer.
+
+While New Zealand’s Christmas season may seem unconventional to those from the Northern Hemisphere, its charm lies in its simplicity. A Kiwi Christmas is an experience you won’t forget!
+
+So, what will you be doing this summer?
+
+***
+
+> ***Keep in touch!\&#xA;****Get an email whenever I publish a story.&#x20;*[*Subscribe now*](https://clydedz.medium.com/subscribe)*.*
+
+***
+
+The following section contains affiliate and referral links.
+
+#### Traveling to New Zealand?
+
+I’d recommend [Wise](https://wise.com/invite/ahpc/clyded54), a travel card with really good exchange rates. You can add your to your Google Wallet or Apple Pay, withdraw from an ATM for free, and you can also exchange money from your local currency to the foreign currency in ahead of time, perhaps when the exchange rates are favourable. You’d definitely want to have this debit card handy when you’re traveling! Click on [this link](https://wise.com/invite/ahpc/clyded54) to get your Wise card.
+
+#### Christmas gifting
+
+Keeping up with the Christmas theme, here are some Christmas-themed gifts worth checking out.
+
+* LEGO Santa’s Sleigh: <https://amzn.to/49a9rVD>
+* Yankee Candle Christmas Cookie Scented: <https://amzn.to/3V92df8>
+* Govee Christmas Lights: <https://amzn.to/4i8LYIA>
+* Mjokoj Christmas Gift Bags: <https://amzn.to/3V8wQBl>
+* WRAPAHOLIC Reversible Christmas Wrapping Paper: <https://amzn.to/3AZJrzJ>
+* Amazon.com eGift Card: <https://amzn.to/3ZkoxVn>
+
+By [Clyde D'Souza](https://medium.com/@clydedz) on [December 8, 2024](https://medium.com/p/8159f14780d1).
+
+[Canonical link](https://medium.com/@clydedz/sunny-side-up-a-kiwi-christmas-8159f14780d1)
+
+Exported from [Medium](https://medium.com) on August 22, 2025.

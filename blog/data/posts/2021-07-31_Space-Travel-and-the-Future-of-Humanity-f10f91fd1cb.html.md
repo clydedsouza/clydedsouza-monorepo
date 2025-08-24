@@ -1,0 +1,41 @@
+# Space Travel and the Future of Humanity
+
+Where shall we go from here?
+
+***
+
+### Space Travel and the Future of Humanity
+
+#### Where shall we go from here?
+
+![Image of a rocket taking off.](https://cdn-images-1.medium.com/max/2560/1*Df4eE6lXyL3niN8IarKWYQ.jpeg)
+
+Image from [Unsplash](https://unsplash.com/photos/OHOU-5UVIYQ)
+
+Both Jeff Bezos and Richard Branson have said that they have been fascinated with space and have dreamt of going to space as a child. Decades later, the companies they built have launched them to space. While there’s been a lot of controversy around billionaires racing into space, what can we take away from this major milestone? Let’s find out!
+
+#### Dream big
+
+Travelling to space isn’t an easy feat, but many of us have had this dream and many other extraordinary dreams not necessarily knowing the specifics of how to accomplish it. Those of us who persist long enough, end up achieving these extraordinary dreams. However, some give up on their dreams on the drawing board itself because of the fear that their dreams are too big or impossible to achieve. Dreams don’t cost you anything, so go ahead and dream big and who knows, one day you’ll make your dream come true!
+
+> “The future belongs to those who believe in the beauty of their dreams.” ― Eleanor Roosevelt
+
+#### Dream consistently
+
+The outrageous dreams and ambitions we had as kids usually fades away over time. Having a dream that then turns into a desire and to keep this desire fuelled for decades, takes more effort than you can imagine. So, once you’ve figured out that big thing you’d like to achieve, ensure you consistently put some effort towards it. It could be either reading more about that subject or something as simple as putting up a poster in your room to remind you of it. As [Steve Jobs said](https://www.washingtonpost.com/blogs/answer-sheet/post/steve-jobs-told-students-stay-hungry-stay-foolish/2011/10/05/gIQA1qVjOL_blog.html), “Stay hungry. Stay foolish.”
+
+> “It’s not what we do once in a while that shapes our lives. It’s what we do consistently.” ― Anthony Robbins
+
+#### Remember to be human
+
+Let’s face it, not everyone is going to space. The majority of us will still be residing here on Earth, so remember to be human. Look out for one another, treat others like you’d want to be treated but even better, and perhaps we’ll have a better chance of surviving on this planet.
+
+> “Love and compassion are necessities, not luxuries. Without them, humanity cannot survive.” ― Dalai Lama
+
+Dream big, dream consistently and remember to be human. ❤️
+
+By [Clyde D'Souza](https://medium.com/@clydedz) on [July 31, 2021](https://medium.com/p/f10f91fd1cb).
+
+[Canonical link](https://medium.com/@clydedz/space-travel-and-the-future-of-humanity-f10f91fd1cb)
+
+Exported from [Medium](https://medium.com) on August 22, 2025.

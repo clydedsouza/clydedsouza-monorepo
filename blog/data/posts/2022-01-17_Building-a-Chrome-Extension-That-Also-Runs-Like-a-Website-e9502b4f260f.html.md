@@ -1,0 +1,67 @@
+# Building a Chrome Extension That Also Runs Like a Website
+
+A practical example of factory pattern decoupling
+
+***
+
+### Building a Chrome Extension That Also Runs Like a Website
+
+#### A practical example of factory pattern decoupling
+
+![Cover image for this article featuring a Chrome browser over an image of leaves.](https://cdn-images-1.medium.com/max/2560/1*KPzOi05aaoK0qwupGW6vLg.png)
+
+Chrome browser design over a background image from [Unsplash](https://unsplash.com/photos/qLW70Aoo8BE). Cover image made using [Figma](http://figma.com).
+
+### Problem
+
+I recently developed a Chrome extension called [Retro Notes](https://bit.ly/retro-notes-ext) using React. The contents you fill up in the textboxes are synced with your Chrome profile using [Chrome’s storage sync API](https://developer.chrome.com/docs/extensions/reference/storage/). The implementation is pretty simple — I directly make use of the API, as documented, to get and set storage values.
+
+The extension works as expected when running it within the Chrome extension context. This way, the app has access to Chrome’s storage API. However, when I run this React app as a standalone website, it fails because it cannot access Chrome’s storage API anymore.
+
+![Image showing the error visible when running the Chrome extension as a standalone website without decoupling the dependency.](https://cdn-images-1.medium.com/max/1200/1*aJGAdtam6Es7Y48yH9CB_w.png)
+
+This limits my development experience as every time I make any changes to the app, even if it’s just cosmetic, I have to re-open the app as a Chrome extension locally instead of just starting the website locally.
+
+So, how do we solve this?
+
+### Solution
+
+The problem here is that we have tight coupling between the two components — the custom React component and Chrome’s storage API object. When running without the Chrome extension context, `chrome.storage.sync` becomes invalid and because of this tight coupling, we cannot easily replace this either. Tight coupling generally makes testing difficult and because of the direct dependency, changes to the dependency will also affect the dependent component. Therefore, this is considered bad practice.
+
+On the contrary, when we decouple or loosely couple dependencies, systems don’t rely heavily on each other. In this example, the React component doesn’t need to know what type of storage is being used and the implementation details of how we’re setting values into the storage — but it does, so let’s change that.
+
+#### Step 1: Decoupling the storage implementation details
+
+Let’s start by extracting the Chrome storage API code into its own file. We’ll wrap the `chrome.storage.sync.set()` method into a generic `setStorage()` method and just pass the relevant parameters. I’m using TypeScript, so I can create an interface to strongly type these methods and use that interface here. Notice that I’ve named the interface `IStorageApi` instead of `IChromeStorageApi` — there’s a reason for this, and we’ll get to it later in this article. The full code snippet can be found below.
+
+Now, we can import the Chrome storage API file we created above into our custom component, and then call the `setStorage()` method instead.
+
+This is better — we no longer are tightly coupling the storage functionality into the custom component, but we are still tightly coupling the storage method. Let’s say, I decide to swap the storage method and instead of using Chrome’s storage API, I use my own backend server’s API endpoint. This would mean that I’d need to refactor this file only to update the references from `ChromeStorageApi` to `CustomStorageApi`, for example.
+
+Additionally, if I run the application as a standalone website, outside of Chrome’s extension context, it still doesn’t work because we’re using the Chrome storage API directly. So, we haven’t really improved the development experience just yet.
+
+#### Step 2: Decoupling the storage method
+
+To resolve this, let’s create another file called `DevelopmentStorage.ts` that inherits the same `IStorageApi` interface, but in the implementation of the method, instead of using Chrome’s storage API, we’ll store the data in a local object. Since we should be able to implement different implementations of the storage interface, naming the interface to something generic like `IStorageApi` makes more sense. The full code snippet is below.
+
+Next, we’ll create a *factory*. Depending on the condition, it either returns the actual Chrome storage API module or it returns the mocked development storage API module. In our case, when we run the site as an extension, `process.env.NODE_ENV` is set to `production` and when we run the site as a standalone site, the value is set to `development`.
+
+Finally, let’s update the custom component and use the factory-generated module instead of directly referencing a particular module.
+
+The React component doesn’t need to know the implementation details of how the items are fetched and stored into Chrome’s storage. It can simply interact with an API that is responsible for providing this storage functionality. This way, if we want to store the values into our custom storage, we wouldn’t need to make any changes to the custom component.
+
+Now, if I run the application as a standalone website, it loads perfectly fine and is usable. Needless to say, I can also run this app as a Chrome extension without any issues.
+
+![Screenshot of the Chrome extension when running as a standalone website.](https://cdn-images-1.medium.com/max/1200/1*FRopUd76mw5NFeMRvyGCNw.png)
+
+### References
+
+If you’d like to see the complete code for Retro Notes, it’s [available on GitHub](https://github.com/ClydeDz/retro-notes-chrome-extension). If you’d like to try out the Retro Notes Chrome extension, download it from the [Chrome Web Store](https://bit.ly/retro-notes-ext).
+
+That’s it. Thanks for reading!
+
+By [Clyde D'Souza](https://medium.com/@clydedz) on [January 17, 2022](https://medium.com/p/e9502b4f260f).
+
+[Canonical link](https://medium.com/@clydedz/building-a-chrome-extension-that-also-runs-like-a-website-e9502b4f260f)
+
+Exported from [Medium](https://medium.com) on August 22, 2025.

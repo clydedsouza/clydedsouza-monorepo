@@ -1,0 +1,71 @@
+---
+title: 'Word to HTML Made Easy'
+subtitle: 'A neat and fast way to convert your Word document to HTML'
+date: '2020-12-07'
+lastmod: '2020-12-07'
+tags: ['HTML', 'Word']
+readingList: []
+draft: false
+summary: 'A neat and fast way to convert your Word document to HTML'
+images: ['/static/images/blog/wordhtml.png']
+---
+
+<InlineImage
+  src="/static/images/blog/wordhtml.png"
+  alt="Featured image containing an arrow drawn from Word logo to HTML5 logo representing the topic for this article."
+  caption={
+    <>
+      Image source: <a href="https://unsplash.com/photos/1_CMoFsPfso">Background</a> and{' '}
+      <a href="https://unsplash.com/photos/zF_pTLx_Dkg">arrow</a> with Microsoft Word logo on the
+      left and HTML logo on the right.
+    </>
+  }
+/>
+
+### Introduction
+
+I’ve come across this problem multiple times now, maybe a few of you have faced the same too. I’m talking about that time when you were sent a Word document and were told to transfer its contents onto a website. Yes, that time. What did you do? Did you copy-paste the contents and then typed the HTML tags by hand? What if I told you that there was a better way? Don’t believe me? Read on to be delighted.
+
+### Problem
+
+Imagine you’ve been given multiple pages worth of content in Word and have been told to transfer this on a website. Not only must all the content be transferred, but the formatting of the content must also match the Word document. How would you approach this problem?
+
+![Image of a sample Word document with rich text content.](https://cdn-images-1.medium.com/max/800/1*fk9C10XImByvlA92hBlaWg.png)
+
+A sample Word document with rich text content.
+
+> **Fun fact**: If you want to generate lorem ipsum content in Word like the screenshot above, just type `=lorem(10)` and hit enter. This will generate ten paragraphs of lorem ipsum content.
+
+### Solution
+
+#### Option 1: Using an online tool
+
+I’d highly recommend using the online tool [HTML Cleaner](https://html-cleaner.com/). It allows you to paste in the contents of the Word document and retains the formatting of the contents. It instantly produces the HTML output for the same content. All you now have to do is copy the HTML contents and paste it into your website. The GIF below shows this in action.
+
+![GIF showing Word to HTML conversion.](https://cdn-images-1.medium.com/max/1200/1*FuaEpRqDFB5FFP9K-AJCQw.gif)
+
+GIF showing Word to HTML conversion.
+
+In the GIF above, I pasted the HTML output into [JSFiddle](https://jsfiddle.net/) to quickly mock what the final website would look like. If you’d like to see this JSFiddle, click [here](https://jsfiddle.net/px46uadn/).
+
+Note: I’ve tried adding images to the Word document but I wasn't able to copy it across to the tool. So that’s something you might have to manually bring into the HTML document.
+
+#### Option 2: Using Word’s export feature
+
+Alternatively, you can head over to Word → Click on File → Click on Export → Click on Change File Type → Then click on Save as Another File Type → Click on the Save As button → From the popup, select Web Page, Filtered → Click on Save to save this file on your computer.
+
+![Image showing how to save a Word document as another file type.](https://cdn-images-1.medium.com/max/800/1*EZ05Nc5WL-M4BzCsR8t_Rg.png)
+
+Saving a Word document as another file type.
+
+This generates an HTML file in the desired location. The downside is that it generates a complete HTML document with a lot of fluff including style tags, meta tags, a lot of inline styles, and HTML that’s not very clean (as pictured below).
+
+![Image showing a sample of the HTML produced using Word’s export feature.](https://cdn-images-1.medium.com/max/800/1*POrvuldMOEBIMg3xvPB6ew.png)
+
+Sample of the HTML produced using Word’s export feature
+
+### Conclusion
+
+I would personally recommend going with Option 1 as it produces a much cleaner HTML that you can copy-paste into your HTML document straight away. I hope this has made your life easier. If you are using a different approach to convert a Word document to HTML, please let me know in the comments below.
+
+That’s it! Thanks for reading.

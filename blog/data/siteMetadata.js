@@ -8,7 +8,7 @@ const siteMetadata = {
   language: 'en-us',
   locale: 'en-US',
   theme: 'system',
-  siteUrl: 'https://blog.clydedsouza.net',
+  siteUrl: 'http://localhost:3000',
   siteRepo: 'https://github.com/clydedsouza/clydedsouza-monorepo',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,

@@ -1,0 +1,39 @@
+# The Chopstick Test
+
+Finding quality friends using a chopstick
+
+***
+
+### The Chopstick Test
+
+#### Finding quality friends using a chopstick
+
+![Finding quality friends using the chopstick test.](https://cdn-images-1.medium.com/max/800/1*WJOhoE_BRgEWs6uwoGtMDw.jpeg)
+
+Image from [Unsplash](https://unsplash.com/photos/esCRvuR7Tnk)
+
+Remember how we used to physically go to the office every day of the week? Yes, much like you, even I don’t believe how we used to pull that off. But anyway, not all was in vain. Let me tell you a story about one of those days.
+
+At work, I would always sit for lunch with my lunchmates. We would either dine in at a restaurant nearby or take it away and eat in the office. There were heaps of reasonably priced options at that time, and on days you felt like splurging, you weren’t left disappointed.
+
+On one uneventful day, we decided to buy some sushi. We came back to the office, found a table, and settled in. My lunchmates opened the sushi packet, broke open the chopsticks, and started to dig in. While I, on the other hand, struggled to find a fork and a plate. Those were the days when lunchtimes would get so busy because everyone at work would take their break at the same time and the office kitchen would be packed. Those were also the days when I didn’t know how to use chopsticks.
+
+Seeing my arrangement, my lunchmates were taken aback. They couldn’t fathom the idea of using a fork to eat sushi. “Enough is enough,” said one of my lunchmates. They then proceeded to teach me how to use chopsticks. Although it was embarrassing to be trying to learn how to eat with chopsticks in public, both for me and for them, they still encouraged me to keep trying and ensured that I was able to eventually eat with them. Now, that’s a sign of a good quality friendship!
+
+Finding friends is challenging as-is as one grows older and life gets busier. And finding good ones is yet another mission. In addition to that, how do you filter out good, pure friendship from those who secretly mean ill or are just conditional friends? Hence, the chopstick test.
+
+Here, a chopstick is a metaphor for trying out something potentially new and/or embarrassing. It’s a way of testing how a friend might behave around you when you’re in the middle of something potentially embarrassing. This could be struggling to eat with chopsticks, running out of cash unexpectedly, having a wardrobe malfunction, trying to learn a sport you have no clue about, trying out a new cuisine, or trying out fine dining — you get the gist.
+
+A good friend isn’t bothered about feeling embarrassed. They’ll support you no matter what, they’ll give you candid feedback, and also be willing to teach you something if needed. They’ll also never judge you or pass negative remarks to your face or behind your back. A good friend is someone you can be yourself all the time without any hesitation. You’ll feel safe around them.
+
+Unconditional support from a friend is the purest and if you’ve found yourself one, go ahead and make sure they know about it! If you haven’t found one yet, I hope you find someone soon.
+
+***
+
+***Disclaimer:****&#x20;The Chopstick Test is based on my experiences alone but I’d love to hear if you’ve also had similar experiences. Feel free to let me know in the comments below.*
+
+By [Clyde D'Souza](https://medium.com/@clydedz) on [November 24, 2023](https://medium.com/p/14cf0c33dee6).
+
+[Canonical link](https://medium.com/@clydedz/the-chopstick-test-14cf0c33dee6)
+
+Exported from [Medium](https://medium.com) on August 22, 2025.

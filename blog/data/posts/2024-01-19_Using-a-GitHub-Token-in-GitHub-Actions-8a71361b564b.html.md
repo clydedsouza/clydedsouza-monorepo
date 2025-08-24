@@ -1,0 +1,136 @@
+# Using a GitHub Token in GitHub Actions
+
+A deep dive into the token, its usage, and permissions
+
+***
+
+### Using a GitHub Token in GitHub Actions
+
+#### A deep dive into the token, its usage, and permissions
+
+![](https://cdn-images-1.medium.com/max/800/1*kuycwFz6q2dNEBpR31fKqA.jpeg)
+
+Image source: [Unsplash](https://unsplash.com/photos/a-bunch-of-keys-that-are-on-a-yellow-background-vLuj--T3Fp8)
+
+### Introduction
+
+GitHub Actions is a pretty powerful tool at our disposal especially if we’re using the GitHub ecosystem, and from the action, it’s possible to perform authorized actions like adding a pull request comment, checking in code to a branch, or even publishing an npm package. I recently ran into an error while using a GitHub token to publish an npm package to the GitHub registry and the investigation to resolve it surfaced some interesting learnings in this area. This article is to dive deep into the world of GitHub tokens while using GitHub Actions.
+
+### Prerequisites
+
+To begin with, let’s get a few things ready. I created a repository in GitHub and added some barebones code for an npm package. This package is named @clydedz/demo-fuschia-pomeranian and just exports one method called `sayHello()` that prints a console log output. We’re not too worried about the functionality this package is going to provide as we only intend to use it to demonstrate the crux of this article. An important point, however, is that the package is prefixed with the scope @clydedz because I intend to publish this package to the GitHub registry and [GitHub dictates](https://github.com/orgs/community/discussions/52267#discussioncomment-5554918) that it must have the same scope name as my GitHub username. You can check out what the repository looked at up until this point [here](https://github.com/ClydeDz/github-npm-package-token-demo/commit/5575ec67b22a8ec4e74e910eb55baed37eebd2c0).
+
+### Publishing the npm package using GitHub Actions
+
+The next step is to add a [GitHub workflow file](https://github.com/ClydeDz/github-npm-package-token-demo/commit/7b5135e2b40b325c18e5a30d06f864aea3f0f5dd) that will build the code and publish the npm package. The entire workflow file is linked [here](https://github.com/ClydeDz/github-npm-package-token-demo/commit/7b5135e2b40b325c18e5a30d06f864aea3f0f5dd) for your reference. For this article, we’ll specifically look at the step that publishes the npm package. I’ve used the GitHub action called [JS-DevTools/npm-publish](https://github.com/marketplace/actions/npm-publish), and as the code snippet below outlines, I need to supply it with the GitHub token and the registry URL because the default is set to npm js.
+
+```
+- name: Publish package to GitHub
+  uses: JS-DevTools/npm-publish@v2
+  with:
+    token: ${{ secrets.GITHUB_TOKEN }}
+    registry: 'https://npm.pkg.github.com'
+```
+
+When you enable GitHub actions, GitHub installs a GitHub App on your repository. The GITHUB\_TOKEN secret is a GitHub App installation access token. At the start of each workflow job, GitHub automatically creates a unique GITHUB\_TOKEN secret to use in your workflow. You can use the GITHUB\_TOKEN to authenticate in the workflow job authorizing the job to publish the npm package to your repository. The syntax for supplying the GITHUB\_TOKEN is much like any other GitHub secret and goes like `${{ secrets.GITHUB_TOKEN }}`.
+
+When the action runs for the latest commit to the repository, it fails at the Publish package to GitHub step. If we look at the logs, we’ll notice a 403 Forbidden error message. But why is that the case? Shouldn’t the GITHUB\_TOKEN have done the job?
+
+![](https://cdn-images-1.medium.com/max/800/1*VKyk0zvlqholefiuLsktFQ.png)
+
+Image courtesy of the author
+
+### Configuring permissions for the GitHub token
+
+By default, the GITHUB\_TOKEN only has restricted access. If we head over to our GitHub repository → Settings → Actions → General → And scroll down to Workflow permissions, we’ll see that it’s currently set to Read repository contents and package permissions. This means that it cannot write packages to our repository and since we’re trying to publish an npm package, it fails with a 403 Forbidden error.
+
+![](https://cdn-images-1.medium.com/max/800/1*7qC7Dmo49CEPqAi6GZUDcA.png)
+
+Image courtesy of the author
+
+Let’s update this permission to Read and write permissions and then click the Save button. We’ll then re-run the failed GitHub action. This time it will succeed. Hooray!
+
+![](https://cdn-images-1.medium.com/max/800/1*AxWXHRKMiemrN-Frzx2dxw.png)
+
+Image courtesy of the author
+
+### Principle of least privilege
+
+While updating the workflow permissions granted to the GITHUB\_TOKEN resolves the error, it is applying that setting for all scopes as outlined in the subtext of that setting option, also quoted below.
+
+> Workflows have read and write permissions in the repository for all scopes.
+
+Other scopes include actions, contents, deployments, issues, pages, and more. Giving read and write access means giving the token permissive action, and this applies this access level to all of these scopes as also outlined in [this table from the GitHub documentation page](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
+
+The rule of thumb should be to always follow the principle of least privilege which means giving GITHUB\_TOKEN the minimum levels of access. Since our GITHUB\_TOKEN only needs access to publish the npm package, how do we limit the read and write permission to only this scope?
+
+Fortunately for us, this can be achieved quite simply and using configuration as code. We can use the permissions key in the workflow file to modify permissions for the GITHUB\_TOKEN for an entire workflow or individual jobs. The code snippet below shows what a full list of permissions (at the time of writing) would look like.
+
+```
+permissions:
+  actions: read|write|none
+  checks: read|write|none
+  contents: read|write|none
+  deployments: read|write|none
+  id-token: read|write|none
+  issues: read|write|none
+  discussions: read|write|none
+  packages: read|write|none
+  pages: read|write|none
+  pull-requests: read|write|none
+  repository-projects: read|write|none
+  security-events: read|write|none
+  statuses: read|write|none
+```
+
+For our use case, we only need to explicitly set the write permission for the scope called packages. Any permission that’s not in this list is set to no access except metadata which always gets read access. The code snippet below shows this change in action and you can also look at [this commit](https://github.com/ClydeDz/github-npm-package-token-demo/commit/e4b5cd17a378f96bfba03e1a777322b75b5571c3) for reference.
+
+```
+name: 'Build and publish npm package'
+
+on:
+  # Contents of 'on' go here, omitted for brevity
+
+permissions:
+  packages: write
+
+jobs:
+  # Contents of 'jobs' go here, omitted for brevity
+```
+
+### Granularising it further
+
+Since the permission for the GITHUB\_TOKEN is set at the workflow level, all jobs will inherit this access. This means that if this workflow file had multiple jobs, each trying to use the GITHUB\_TOKEN for a different use case, it would fail. And we definitely don’t want to club all the permissions that every job requires at the workflow level.
+
+The alternative is to move the permissions code block to the job level. The code snippet below shows this in action and you can also look at [this commit](https://github.com/ClydeDz/github-npm-package-token-demo/commit/48014e859ec891b2b853ce6efc1db770799808fe) for reference.
+
+```
+name: 'Build and publish npm package'
+
+on: 
+  # Contents of 'on' go here, omitted for brevity
+
+jobs:
+  your_job_name:
+    # Metadata about the job, omitted for brevity 
+
+    permissions:
+      packages: write
+
+    steps:
+      # Steps executed in this job, omitted for brevity
+```
+
+This gives granular control over what level of access the GITHUB\_TOKEN needs in each job. Once again, any permission that isn’t specified is given no access by default except metadata which is always given read access.
+
+The default permission for the GITHUB\_TOKEN, in order of precedence, is applied from the enterprise or organization level, then the repository, then the workflow file, and finally the individual job. This means that if set at the repository level, the permissions for the token will be adjusted accordingly for that repository, while other repositories continue to reflect the default setting. If set at the individual job level, the permissions for the token will be adjusted accordingly for that job alone.
+
+The source code for the example used in this article can be found in [this GitHub repository](https://github.com/ClydeDz/github-npm-package-token-demo). If you have any questions, feel free to add them down below in the comments.
+
+That’s it! Thanks for reading.
+
+By [Clyde D'Souza](https://medium.com/@clydedz) on [January 19, 2024](https://medium.com/p/8a71361b564b).
+
+[Canonical link](https://medium.com/@clydedz/using-a-github-token-in-github-actions-8a71361b564b)
+
+Exported from [Medium](https://medium.com) on August 22, 2025.

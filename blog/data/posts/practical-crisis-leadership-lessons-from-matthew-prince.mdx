@@ -1,0 +1,108 @@
+---
+title: 'Practical crisis leadership lessons from Matthew Prince'
+subtitle: 'The time when Cloudflare went down and took a large piece of the internet with it and how the CEO handled the situation'
+date: '2020-07-25'
+lastmod: '2020-07-25'
+tags: ['cloudflare', 'leadership', 'lessons']
+readingList: []
+draft: false
+summary: 'The time when Cloudflare went down and took a large piece of the internet with it and how the CEO handled the situation'
+images: ['/static/images/blog/cloudflare.jpg']
+---
+
+<InlineImage
+  src="/static/images/blog/cloudflare.jpg"
+  alt="An image of Superman symbolising leadership in a difficult situation."
+  caption={
+    <>
+      Image source:{' '}
+      <a href="https://unsplash.com/photos/superman-flying-near-green-grass-en7G3hTSjBQ">
+        Unsplash
+      </a>
+    </>
+  }
+/>
+
+[Crisis leadership](https://www2.deloitte.com/content/dam/Deloitte/us/Documents/risk/us-aers-crisis-leadership.pdf) is the actions a leader can take before, during, and after a crisis to effectively reduce the duration and impact of these extremely difficult situations \[[1](https://www.oreilly.com/library/view/crisis-leadership-using/9781604916768/)]. While many companies and the people running these companies have a crisis plan in place, they may not have actually tested their plans, or the plans may be inadequate. Tough times like this really puts ones character to test. This article aims at reflecting how [Matthew Prince](https://medium.com/u/de67919e7f2e), the CEO of [Cloudflare](https://www.cloudflare.com/), dealt with a recent outage at Cloudflare which had a significant impact on the internet.
+
+> “Faced with crisis, the man of character falls back on himself. He imposes his own stamp of action, takes responsibility for it, makes it his own.” — Charles de Gaulle
+
+### Background
+
+As outlined in their [blog post](https://blog.cloudflare.com/cloudflare-outage-on-july-17-2020/), due to backbone congestion in Atlanta, the team decided to add some configuration that would allow traffic to hit other regions. Instead, a misconfiguration resulted in traffic being diverted to Atlanta. The backbone is a series of private lines between Cloudflare’s data centres for faster and more reliable paths between them. The increase in traffic to Atlanta resulted in CPU overload (red region in the picture below) which meant the affected data centres weren’t getting any traffic (white regions in the picture below) — hence the outage in multiple regions around the globe.
+
+![An image of Cloudflare’s traffic manager taken from their blog post about an outage.](https://cdn-images-1.medium.com/max/800/1*P34W_NypwlJhfzQ_EOluow.png)
+
+Image source: [Cloudflare](https://blog-cloudflare-com-assets.storage.googleapis.com/2020/07/tm.png)
+
+The incident affected 12 of its data centres impacting sites like Tumblr, Discord, League of Legends, and Shopify. Interestingly, neither it is the first time [an outage at Cloudflare](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/) has had such an impact, nor it is the first time [Prince responded to the situation](https://www.inc.com/jason-aten/cloudflare-outage-takes-down-internet-for-second-time-in-a-week-heres-how-companys-ceo-responded.html) (and [this one](https://twitter.com/eastdakota/status/1250520852354854912)) like a pro.
+
+> [](https://twitter.com/eastdakota/status/1284298908156346368)
+
+Source: [Twitter](https://twitter.com/eastdakota/status/1284298908156346368)
+
+### Key lessons
+
+Let’s take a look at some key leadership takeaways from this incident. The lessons can be summarized in the acronym CART. Curious? Allow me to elaborate.
+
+#### Communication
+
+In a time span of about an hour, Prince [tweeted updates](https://twitter.com/eastdakota/status/1284253034596331520) about the Cloudflare outage, how it was being restored and what really caused the outage. Importantly, he assured users that this was _not&#x20;_&#x63;aused due to an attack on the system. A couple of hours later, he tweeted another summary of what had happened along with a link to the blog post which outlined the entire incident in greater detail.
+
+What did he do right? Prince knows the importance of concise and timely communication. He was proactive in communicating the fact that they were aware of the outage, the impact it had and were taking the necessary steps to investigate and restore services. He provided information upfront, rather than keep people waiting and build unnecessary speculation. When he didn’t have all the details in hand, he made it clear that a blog post outlining the complete incident will follow soon, setting the right expectations amongst Cloudflare’s stakeholders.
+
+> [](https://twitter.com/eastdakota/status/1284266812100632576)
+
+Source: [Twitter](https://twitter.com/eastdakota/status/1284266812100632576)
+
+#### Action
+
+[Mistakes are also an opportunity](https://www.inc.com/ron-gibori/great-leaders-take-blame-pass-along-credit.html). An opportunity to rethink creative ways to solve problems. An opportunity to reprioritize improvements and changes that were on the backlog. And most importantly, an opportunity to see what we can do better tomorrow.
+
+Prince did just that. He announced that his team had applied safeguards to ensure that an incident like this doesn’t occur again. The linked blog post also talks about another change that was deployed on Monday, July 20, adding another layer of protection against changes to their backbone.
+
+> [](https://twitter.com/eastdakota/status/1284298908156346368)
+
+Source: [Twitter](https://twitter.com/eastdakota/status/1284298908156346368)
+
+A quote from Cloudflare’s [blog post on this outage](https://blog.cloudflare.com/cloudflare-outage-on-july-17-2020/), dated July 17, 2020:
+
+> We are making the following changes:
+
+> Introduce a maximum-prefix limit on our backbone BGP sessions — this would have shut down the backbone in Atlanta, but our network is built to function properly without a backbone. This change will be deployed on Monday, July 20.
+
+> Change the BGP local-preference for local server routes. This change will prevent a single location from attracting other locations’ traffic in a similar manner. This change has been deployed following the incident.
+
+#### Responsibility
+
+Responding to the tweet with the blog post, a [user wrote](https://twitter.com/parastang95/status/1284310061599166464) “I’d hate to be the one who typed that. Yikes!” Given the impact this outage had, I can imagine it wouldn’t feel any good to know that you were the one who made the typo. However, mistakes happen. That’s just how it is. No one sets out to make a mistake — all you can do is put your best foot forward.
+
+> “We make mistakes all the time — but we make different mistakes all the time, which I think is a sign of a healthy organization.” — Matthew Prince, [DCD, July 02, 2019](https://www.datacenterdynamics.com/en/analysis/cloudflare-ceo-talks-outage-was-entirely-our-problem-was-mistake-which-we-made/).
+
+Addressing this comment, Prince shifted the conversation highlighting the root cause was that there were no checks in place to prevent this from happening. The problem, as Prince puts it succinctly, was a leadership one and not engineering.
+
+> [](https://twitter.com/eastdakota/status/1284310766011600896)
+
+Source: [Twitter](https://twitter.com/eastdakota/status/1284310766011600896)
+
+> “Leadership is a potent combination of strategy and character. But if you must be without one, be without strategy.” — General H. Norman Schwarzkopf
+
+Although accepting responsibility when things go south is [leadership 101](https://hbr.org/2011/10/why-good-leaders-pass-the-cred), it’s easier on paper than practise, especially in tough times like this. But by doing so, Prince won the trust of employees and other stakeholders.
+
+#### Transparency
+
+In the updates, Prince didn’t shy away from [admitting in clear writing](https://twitter.com/eastdakota/status/1284266812100632576) that the outage was caused by a mistaken configuration they were applying to a router during a routine update. While this sounds silly, it is important to remember that many companies still hesitate to disclose the technical details and cause of an outage in fear of a potential financial implication or sheer embarrassment.
+
+Individually, for Prince, it would have also been way easier to wait for the official blog post explaining the issue rather than put yourself out there in a digital world where nothing is forgotten. Instead, he chose to do the opposite, earning him a wave of positive reactions online admiring how well he and the team at Cloudflare dealt with the outage. [Higher-ambition leaders](https://hbr.org/2011/09/the-higher-ambition-leader) realise the power of transparency to their organisation and Prince just proved this in practice.
+
+Therefore, it is commendable that:
+
+- He didn’t forget to articulate the root cause of the incident amidst the panic. I can only imagine what it must have been like at Cloudflare that day!
+- He laid out the facts to the point — avoiding the use of any business jargons, avoiding sugarcoating the impact of the outage, and not trying to hide what really caused this incident.
+- He followed it up with an action plan assuring users that preventive measures were being added to prevent this from happening again.
+
+---
+
+Well, there you go! Practical crisis leadership lessons from Cloudflare’s CEO and co-founder Matthew Prince. Should you find yourself in a difficult situation in the future, simply remember CART — **C**ommunication, **A**ction, **R**esponsibility, and **T**ransparency.
+
+That’s it. Thanks for reading!
