@@ -19,8 +19,8 @@ export const PostItems = ({ posts }: { posts: CoreContent<Blog>[] }) => {
             }
           >
             <Link className="hover:text-brand" href={`/posts/${post.slug}`}>
-              <div className="relative aspect-[2/1] w-full">
-                <Image fill alt={''} src={post.images[0]} priority={true} />
+              <div className="relative aspect-[16/9] w-full">
+                <Image fill objectFit="cover" alt={''} src={post.images[0]} priority={true} />
               </div>
               <div className="flex flex-1 flex-col py-2">
                 <h3 className="text-2xl font-bold dark:text-slate-50">{post.title}</h3>
