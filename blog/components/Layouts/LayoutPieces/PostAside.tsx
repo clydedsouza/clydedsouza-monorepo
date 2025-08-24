@@ -4,11 +4,13 @@ import { CustomAd } from '@/components/CustomAd/CustomAd'
 import Image from '@/components/CustomImage/Image'
 import VerticalAd from '@/components/GoogleAds/VerticalAd'
 import { NewsletterSignupForm } from '@/components/Newsletter/NewsletterSignupForm'
+
+import { SocialShare } from '@/components/SocialShare/SocialShare'
 import Link from 'next/link'
 import { LayoutProps } from '../types/types'
 
 export const PostAside = ({ content, authorDetails, next, prev, children }: LayoutProps) => {
-  const { tags, path, readingList } = content
+  const { tags, path, readingList, title, summary } = content
 
   const basePath = path.split('/')[0]
 
@@ -69,6 +71,8 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
           </ul>
         </dd>
       </dl>
+
+      <SocialShare title={title} summary={summary} />
 
       <NewsletterSignupForm />
 
@@ -153,8 +157,6 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
           </div>
         )}
       </div>
-
-      <div>TODO: google ad, newsletter signup, personal ad, share buttons</div>
     </aside>
   )
 }
