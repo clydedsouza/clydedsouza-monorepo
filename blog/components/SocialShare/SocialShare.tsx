@@ -1,3 +1,4 @@
+import siteMetadata from '@/data/siteMetadata'
 import {
   EmailIcon,
   EmailShareButton,
@@ -15,8 +16,15 @@ import {
   WhatsappShareButton,
 } from 'next-share'
 
+const getCurrentUrl = () => {
+  if (typeof window !== 'undefined') {
+    return window.location.href
+  }
+  return siteMetadata.siteUrl
+}
+
 export const SocialShare = ({ title, summary }: { title: string; summary?: string }) => {
-  const pathname = window.location.href
+  const pathname = getCurrentUrl()
   return (
     <div className="my-6">
       <h2 className="mb-2 text-xs font-bold tracking-wide text-gray-800 uppercase dark:text-gray-400">

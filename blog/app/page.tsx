@@ -34,9 +34,6 @@ export default async function Page() {
         <PostItems posts={posts.slice(1, 5)} />
       </SectionContainer>
       <NewsletterSignupForm isFullWidth />
-      {/* <SectionContainer>
-        <PostItems posts={posts.slice(5, 9)} />
-      </SectionContainer> */}
     </>
   )
 }
