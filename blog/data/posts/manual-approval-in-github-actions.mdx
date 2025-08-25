@@ -4,7 +4,7 @@ subtitle: 'Learn how to only deploy when someone has approved it'
 date: '2024-12-29'
 lastmod: '2024-12-29'
 tags: ['one', 'two']
-readingList: []
+readingList: ['GitHub Actions']
 draft: false
 summary: 'Learn how to only deploy when someone has approved it'
 images: ['/static/images/blog/powerautomate.jpg']
@@ -20,7 +20,7 @@ images: ['/static/images/blog/powerautomate.jpg']
   }
 />
 
-***
+---
 
 ### Manual Approval in GitHub Actions
 
@@ -44,7 +44,7 @@ When I run this workflow, it executes the build and deploy jobs and marks them w
 
 Image courtesy of the author
 
-Since we’ve also set the environment for the deployment job as *production*, we also see this environment showing up on the **Deployments** page of the GitHub repository.
+Since we’ve also set the environment for the deployment job as _production_, we also see this environment showing up on the **Deployments** page of the GitHub repository.
 
 ![](https://cdn-images-1.medium.com/max/800/1*Cpbsl-FdYt7spWHxjjFh2Q.png)
 
@@ -62,7 +62,7 @@ Image courtesy of the author
 
 After you’ve done that, don’t forget to click on the **Save protection rules** button to save your changes.
 
-Now, when we run the GitHub Action, you’ll see that the deploy job hasn’t been automatically processed yet. Instead, we see a message *production waiting for review* and the **Deployment protection rules** section below also lets us know that we’re waiting for approvals. The yellow banner is visible only to approvers because they need to review the deployment and either approve or decline it.
+Now, when we run the GitHub Action, you’ll see that the deploy job hasn’t been automatically processed yet. Instead, we see a message _production waiting for review_ and the **Deployment protection rules** section below also lets us know that we’re waiting for approvals. The yellow banner is visible only to approvers because they need to review the deployment and either approve or decline it.
 
 ![](https://cdn-images-1.medium.com/max/800/1*OQDVoXsazR4wtvhgeNhyLw.png)
 
@@ -86,7 +86,7 @@ Back in th&#x65;**&#x20;Summary&#x20;**&#x70;age, the **Deployment protection ru
 
 Image courtesy of the author
 
-An important note is that adding multiple people and teams to the **Required reviewers** list doesn’t mean that approval is required from *ALL* the members. In reality, it’s *either ONE* of the reviewers from this list that can approve the deployment and it will be accepted.
+An important note is that adding multiple people and teams to the **Required reviewers** list doesn’t mean that approval is required from _ALL_ the members. In reality, it’s _either ONE_ of the reviewers from this list that can approve the deployment and it will be accepted.
 
 ![](https://cdn-images-1.medium.com/max/800/1*10yL6QZeWzI4VfOs6zfRgA.png)
 

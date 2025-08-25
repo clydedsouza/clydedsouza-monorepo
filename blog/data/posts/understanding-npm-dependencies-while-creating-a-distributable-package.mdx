@@ -4,7 +4,7 @@ subtitle: 'A step-by-step guide to solving a problem'
 date: '2024-03-04'
 lastmod: '2024-03-04'
 tags: ['one', 'two']
-readingList: []
+readingList: ['NPM library']
 draft: false
 summary: 'A step-by-step guide to solving a problem'
 images: ['/static/images/blog/powerautomate.jpg']
@@ -20,7 +20,7 @@ images: ['/static/images/blog/powerautomate.jpg']
   }
 />
 
-***
+---
 
 ### Understanding NPM Dependencies While Creating a Distributable Package
 
@@ -42,7 +42,7 @@ Image courtesy of the author
 
 ### Part 1: The distributable package-a
 
-Let’s say we’re working on creating a distributable package called *package-a*. From this package, we’ll export an interface that will have one property from package-a and one property from package-b by extending the interface from package-b. The code snippet below shows what it would look like in action.
+Let’s say we’re working on creating a distributable package called _package-a_. From this package, we’ll export an interface that will have one property from package-a and one property from package-b by extending the interface from package-b. The code snippet below shows what it would look like in action.
 
 ```
 import { IPackageB } from "package-b";
@@ -69,7 +69,7 @@ Let’s follow the suggested solution to run the `npm i --save-dev @types/packag
 
 ### Part 2: Unboxing package-b
 
-To answer that question, let’s take a look at how *package-b* was made and published.
+To answer that question, let’s take a look at how _package-b_ was made and published.
 
 This package has an exported interface with a property in it, like the code snippet below. So, we can be assured that it does export what we need.
 
@@ -91,7 +91,7 @@ Looping back to the error we encountered in the earlier section, since package-a
 
 Great, so our distributable package package-a is ready. We’ve published package-a to our npm feed and it’s now ready to be consumed. The steps to publish an npm package are out of the scope of this article, so I’ll skip documenting that here.
 
-Our *consumer application* is a simple TypeScript script that when compiled into JavaScript, we can run it using the command line to test out our package. Since this is a recreation, I’m keeping the consumer application lightweight, but in the real scenario, it was a full-blown web application.
+Our _consumer application_ is a simple TypeScript script that when compiled into JavaScript, we can run it using the command line to test out our package. Since this is a recreation, I’m keeping the consumer application lightweight, but in the real scenario, it was a full-blown web application.
 
 We’ll install package-a into the consumer application and then write a block of code, like the snippet below, to test out package-a.
 
@@ -112,7 +112,7 @@ But wait, what’s this? When consumed, `propertyTwo`which was the one extended 
 
 Image courtesy of the author
 
-In VS Code, if I click on the `IPackageA` interface, I can peek into package-a’s code that’s located in the node\_modules folder and we see an error again. This seems to be the same error we encountered earlier along with the same suggested solution. But when we fixed this issue while developing package-a, why is this complaining again?
+In VS Code, if I click on the `IPackageA` interface, I can peek into package-a’s code that’s located in the node_modules folder and we see an error again. This seems to be the same error we encountered earlier along with the same suggested solution. But when we fixed this issue while developing package-a, why is this complaining again?
 
 ![](https://cdn-images-1.medium.com/max/800/1*PpI7jZEFXZrfr-BaiwWb8A.png)
 
@@ -152,7 +152,7 @@ Now, when our consumer application installs the latest version of package-a, you
 
 Image courtesy of the author
 
-And if you peek into what node\_modules have been installed in the consumer application, you’ll notice that the dependent types package @types/package-b now exists.
+And if you peek into what node_modules have been installed in the consumer application, you’ll notice that the dependent types package @types/package-b now exists.
 
 ![](https://cdn-images-1.medium.com/max/800/1*SCar3yIzFB5A2B2uUzF3HQ.png)
 

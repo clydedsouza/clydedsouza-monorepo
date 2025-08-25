@@ -4,7 +4,7 @@ subtitle: 'Fundamentals of Composite GitHub Actions'
 date: '2023-08-01'
 lastmod: '2023-08-01'
 tags: ['one', 'two']
-readingList: []
+readingList: ['GitHub Actions']
 draft: false
 summary: 'Fundamentals of Composite GitHub Actions'
 images: ['/static/images/blog/powerautomate.jpg']
@@ -20,7 +20,7 @@ images: ['/static/images/blog/powerautomate.jpg']
   }
 />
 
-***
+---
 
 ### Splitting Your GitHub Actions Into Smaller Pieces
 
@@ -50,7 +50,7 @@ This leads to the temptation of writing all your code in a single workflow file 
 
 #### Large files
 
-Since you could now have *n* number of steps in each job, there is a very high likelihood of your workflow file becoming very lengthy. This is also true if your pipeline has multiple stages which will correspond to multiple jobs. As you would’ve guessed, writing multiple lines of code in a single file makes it harder to read and maintain, so it’s best to avoid this practice.
+Since you could now have _n_ number of steps in each job, there is a very high likelihood of your workflow file becoming very lengthy. This is also true if your pipeline has multiple stages which will correspond to multiple jobs. As you would’ve guessed, writing multiple lines of code in a single file makes it harder to read and maintain, so it’s best to avoid this practice.
 
 What can we do then? That’s where composite actions come to the rescue.
 

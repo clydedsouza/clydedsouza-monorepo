@@ -4,7 +4,7 @@ subtitle: 'Creating a custom GitHub composite action and publishing it to the Gi
 date: '2023-07-02'
 lastmod: '2023-07-02'
 tags: ['one', 'two']
-readingList: []
+readingList: ['GitHub Actions']
 draft: false
 summary: 'Creating a custom GitHub composite action and publishing it to the GitHub marketplace'
 images: ['/static/images/blog/powerautomate.jpg']
@@ -20,7 +20,7 @@ images: ['/static/images/blog/powerautomate.jpg']
   }
 />
 
-***
+---
 
 ### Lights, Camera, GitHub Action!
 
@@ -52,9 +52,9 @@ GitHub Actions is more than just DevOps, though. It lets you run workflows when 
 
 There are three types of actions that you could build.
 
-* **JavaScript actions:** These actions can run directly on a runner machine and since we’re only dealing with code here, this type of action is much faster than a Docker container action. The packaged JavaScript code should be pure JavaScript and not rely on other binaries.
-* **Docker container actions:** This approach allows you to package the environment along with the GitHub actions code. This is useful if your action needs a specific environment, dependencies or tools, which can be all packaged up in a container. This does come with a downside of making it slower than JavaScript actions because of the latency to build and retrieve the container. Additionally, Docker container actions can only execute on runners with a Linux operating system.
-* **Composite actions:** A composite action allows you to bundle multiple workflow steps into a single action, which can then be called in any workflow file as a single action instead of having to write all the steps.
+- **JavaScript actions:** These actions can run directly on a runner machine and since we’re only dealing with code here, this type of action is much faster than a Docker container action. The packaged JavaScript code should be pure JavaScript and not rely on other binaries.
+- **Docker container actions:** This approach allows you to package the environment along with the GitHub actions code. This is useful if your action needs a specific environment, dependencies or tools, which can be all packaged up in a container. This does come with a downside of making it slower than JavaScript actions because of the latency to build and retrieve the container. Additionally, Docker container actions can only execute on runners with a Linux operating system.
+- **Composite actions:** A composite action allows you to bundle multiple workflow steps into a single action, which can then be called in any workflow file as a single action instead of having to write all the steps.
 
 ### Deciding what type of custom action to build
 
@@ -130,9 +130,9 @@ We then used our custom action `ClydeDz/compress-images@main` and only supplied 
 
 As per [this section in the documentation](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses), an action can be consumed from a public repository in the following ways:
 
-* A specific commit, e.g. `uses: clydedz/compress-images@8f4b7f84864484a7bf31766abe9204da3cbe65b3`. This is the most stable as it references the exact commit that works without any risk of breaking changes being introduced.
-* The name of the branch, e.g. `uses: clydedz/compress-images@main`. This is great to get whatever changes are in specific branches and is also great for just testing an upcoming change to the action. However, when using this in production, this introduces the risk of someone pushing a breaking change to the branch.
-* A specific version tag, e.g. `uses: clydedz/compress-images@v2.3.4`or `uses: clydedz/compress-images@v3`. Depending on how the author of the action tags the releases, you could use the specific version tag to consume an action. Note, if the author is using the full tagging format `major.minor.patch` e.g. `v2.3.4` and if you only reference the major version e.g. `v2` to consume the action, it will fail. A corresponding tag must exist in the repository for GitHub to find the action you’re referencing.
+- A specific commit, e.g. `uses: clydedz/compress-images@8f4b7f84864484a7bf31766abe9204da3cbe65b3`. This is the most stable as it references the exact commit that works without any risk of breaking changes being introduced.
+- The name of the branch, e.g. `uses: clydedz/compress-images@main`. This is great to get whatever changes are in specific branches and is also great for just testing an upcoming change to the action. However, when using this in production, this introduces the risk of someone pushing a breaking change to the branch.
+- A specific version tag, e.g. `uses: clydedz/compress-images@v2.3.4`or `uses: clydedz/compress-images@v3`. Depending on how the author of the action tags the releases, you could use the specific version tag to consume an action. Note, if the author is using the full tagging format `major.minor.patch` e.g. `v2.3.4` and if you only reference the major version e.g. `v2` to consume the action, it will fail. A corresponding tag must exist in the repository for GitHub to find the action you’re referencing.
 
 Hence, in the code snippet above, we’re referencing what’s in the main branch since that’s the branch that holds the latest developed code.
 
@@ -202,17 +202,17 @@ If you’ve followed along with this article and created and published your own 
 
 That’s it! Thanks for reading.
 
-***
+---
 
 ## Level Up Coding
 
 Thanks for being a part of our community! Before you go:
 
-* 👏 Clap for the story and follow the author 👉
-* 📰 View more content in the [Level Up Coding publication](https://levelup.gitconnected.com/?utm_source=pub\&utm_medium=post)
-* 💰 Free coding interview course ⇒ [View Course](https://skilled.dev/?utm_source=luc\&utm_medium=article)
-* 🧠 AI Tools ⇒ [View Now](https://www.aimind.so/)
-* 🔔 Follow us: [Twitter](https://twitter.com/gitconnected) | [LinkedIn](https://www.linkedin.com/company/gitconnected) | [Newsletter](https://newsletter.levelup.dev/)
+- 👏 Clap for the story and follow the author 👉
+- 📰 View more content in the [Level Up Coding publication](https://levelup.gitconnected.com/?utm_source=pub&utm_medium=post)
+- 💰 Free coding interview course ⇒ [View Course](https://skilled.dev/?utm_source=luc&utm_medium=article)
+- 🧠 AI Tools ⇒ [View Now](https://www.aimind.so/)
+- 🔔 Follow us: [Twitter](https://twitter.com/gitconnected) | [LinkedIn](https://www.linkedin.com/company/gitconnected) | [Newsletter](https://newsletter.levelup.dev/)
 
 🚀👉 [**Join the Level Up talent collective and find an amazing job**](https://jobs.levelup.dev/talent/welcome?referral=true)
 
