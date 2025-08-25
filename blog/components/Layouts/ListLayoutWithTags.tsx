@@ -41,8 +41,8 @@ export default function ListLayoutWithTags({
         <h1 className="py-6 text-5xl font-extrabold tracking-tight text-gray-900 sm:text-5xl sm:leading-10 md:text-5xl md:leading-14 dark:text-gray-100">
           {title}
         </h1>
-        <div className="flex sm:space-x-6">
-          <div>
+        <div className="grid-rows-[auto_1fr] pb-8 xl:grid xl:grid-cols-4 xl:gap-x-6">
+          <div className="xl:col-span-3 xl:row-span-2">
             <PostItemsNoLimit posts={displayPosts} />
             {pagination && pagination.totalPages > 1 && (
               <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />

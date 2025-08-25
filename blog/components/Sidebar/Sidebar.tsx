@@ -26,7 +26,7 @@ export const Sidebar = ({ title, items, itemCounts, ariaLabel }: ISidebar) => {
   const basePath = getBaseUrlFromPathname(pathname)
 
   return (
-    <div className="h-100vh hidden max-h-screen max-w-[280px] min-w-[280px] flex-wrap overflow-auto pt-5 sm:flex">
+    <div className="h-100vh hidden max-h-screen max-w-[300px] min-w-[300px] flex-wrap overflow-x-hidden overflow-y-auto pt-5 sm:flex">
       <div className="px-3">
         <Link
           href={basePath}
@@ -41,13 +41,13 @@ export const Sidebar = ({ title, items, itemCounts, ariaLabel }: ISidebar) => {
             return (
               <li key={item} className="my-3">
                 {pathname.includes(constructedItemUrl) ? (
-                  <h3 className="text-primary-500 inline px-3 py-2 text-sm font-bold uppercase">
-                    {`${item} (${itemCounts[item]})`}
+                  <h3 className="text-primary-500 inline truncate px-3 py-2 text-sm font-medium uppercase">
+                    {`> ${item} (${itemCounts[item]})`}
                   </h3>
                 ) : (
                   <Link
                     href={`${basePath}${slug(item)}`}
-                    className="hover:text-primary-500 dark:hover:text-primary-500 px-3 py-2 text-sm font-medium text-gray-500 uppercase dark:text-gray-300"
+                    className="hover:text-primary-500 dark:hover:text-primary-500 truncate px-3 py-2 text-sm font-medium text-gray-500 uppercase dark:text-gray-300"
                     aria-label={`${ariaLabel} ${item}`}
                   >
                     {`${item} (${itemCounts[item]})`}
