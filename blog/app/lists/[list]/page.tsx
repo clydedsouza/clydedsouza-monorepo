@@ -1,4 +1,3 @@
-import readingListData from '@/app/data/static/readingList.json'
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/data/static/tags.json'
@@ -6,21 +5,24 @@ import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import { getPaginationVariables } from 'lib/pagination'
 import { genPageMetadata } from 'lib/seo'
+import { getListNameFromSlug } from 'lib/staticDataUtils'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 export async function generateMetadata(props: {
   params: Promise<{ list: string }>
 }): Promise<Metadata> {
   const params = await props.params
-  const tag = decodeURI(params.list)
+  const listNameInSlugFormat = decodeURI(params.list)
+  const listName = getListNameFromSlug(listNameInSlugFormat)
   return genPageMetadata({
-    title: tag,
-    description: `${siteMetadata.title} ${tag} tagged content`,
+    title: `${listName} | Reading List`,
+    description: `Article in reading list ${listName} in ${siteMetadata.title}`,
     alternates: {
       canonical: './',
       types: {
-        'application/rss+xml': `${siteMetadata.siteUrl}/tags/${tag}/feed.xml`,
+        'application/rss+xml': `${siteMetadata.siteUrl}/tags/${listNameInSlugFormat}/feed.xml`,
       },
     },
   })
@@ -46,9 +48,11 @@ export default async function ReadingListPage(props: { params: Promise<{ list: s
     )
   )
 
-  const listName =
-    Object.keys(readingListData).find((item) => slug(item) === listNameInSlugFormat) ??
-    listNameInSlugFormat
+  if (!listNameInSlugFormat || !postsInReadingList || postsInReadingList.length < 1) {
+    return notFound()
+  }
+
+  const listName = getListNameFromSlug(listNameInSlugFormat)
 
   const { initialDisplayPosts, pagination } = getPaginationVariables(postsInReadingList, 1)
 

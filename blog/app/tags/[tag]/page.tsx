@@ -5,21 +5,24 @@ import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import { getPaginationVariables } from 'lib/pagination'
 import { genPageMetadata } from 'lib/seo'
+import { getTagNameFromSlug } from 'lib/staticDataUtils'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 export async function generateMetadata(props: {
   params: Promise<{ tag: string }>
 }): Promise<Metadata> {
   const params = await props.params
-  const tag = decodeURI(params.tag)
+  const tagInSlugFormat = decodeURI(params.tag)
+  const tag = getTagNameFromSlug(tagInSlugFormat)
   return genPageMetadata({
-    title: tag,
-    description: `${siteMetadata.title} ${tag} tagged content`,
+    title: `${tag} | Tags`,
+    description: `Articles tagged ${tag} in ${siteMetadata.title}`,
     alternates: {
       canonical: './',
       types: {
-        'application/rss+xml': `${siteMetadata.siteUrl}/tags/${tag}/feed.xml`,
+        'application/rss+xml': `${siteMetadata.siteUrl}/tags/${tagInSlugFormat}/feed.xml`,
       },
     },
   })
@@ -44,8 +47,11 @@ export default async function TagPage(props: { params: Promise<{ tag: string }> 
     )
   )
 
-  const tagName =
-    Object.keys(tagData).find((item) => slug(item) === tagInSlugFormat) ?? tagInSlugFormat
+  if (!tagInSlugFormat || !postsWithTag || postsWithTag.length < 1) {
+    return notFound()
+  }
+
+  const tagName = getTagNameFromSlug(tagInSlugFormat)
 
   const { initialDisplayPosts, pagination } = getPaginationVariables(postsWithTag, 1)
 

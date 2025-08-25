@@ -1,9 +1,30 @@
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
+import siteMetadata from '@/data/siteMetadata'
 import { allBlogs } from 'contentlayer/generated'
 import { POSTS_PAGE_TITLE, POSTS_PER_PAGE } from 'lib/constants'
 import { getPaginationVariables } from 'lib/pagination'
+import { genPageMetadata } from 'lib/seo'
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+
+export async function generateMetadata(props: {
+  params: Promise<{ page: string }>
+}): Promise<Metadata> {
+  const params = await props.params
+  const page = params.page
+
+  return genPageMetadata({
+    title: `All Blog Posts | Page ${page}`,
+    description: `Read all blog posts in ${siteMetadata.title}`,
+    alternates: {
+      canonical: './',
+      types: {
+        'application/rss+xml': `${siteMetadata.siteUrl}/posts/feed.xml`,
+      },
+    },
+  })
+}
 
 export const generateStaticParams = async () => {
   const totalPages = Math.ceil(allBlogs.length / POSTS_PER_PAGE)
