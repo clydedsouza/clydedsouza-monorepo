@@ -1,8 +1,9 @@
+import readingListData from '@/app/data/static/readingList.json'
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import tagData from 'app/data/static/tags.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
-import { getTagPageTitle, POSTS_PER_PAGE } from 'lib/constants'
+import { POSTS_PER_PAGE } from 'lib/constants'
 import { getPaginationVariables } from 'lib/pagination'
 import { notFound } from 'next/navigation'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
@@ -19,13 +20,22 @@ export const generateStaticParams = async () => {
   })
 }
 
-export default async function TagPage(props: { params: Promise<{ tag: string; page: string }> }) {
+export default async function ListPage(props: { params: Promise<{ list: string; page: string }> }) {
   const params = await props.params
-  const tag = decodeURI(params.tag)
+  const listNameInSlugFormat = decodeURI(params.list)
   const pageNumber = parseInt(params.page)
   const postsWithTag = allCoreContent(
-    sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
+    sortPosts(
+      allBlogs.filter(
+        (post) =>
+          post.readingList && post.readingList.map((t) => slug(t)).includes(listNameInSlugFormat)
+      )
+    )
   )
+
+  const listName =
+    Object.keys(readingListData).find((item) => slug(item) === listNameInSlugFormat) ??
+    listNameInSlugFormat
 
   const { initialDisplayPosts, pagination, totalPages } = getPaginationVariables(
     postsWithTag,
@@ -41,7 +51,7 @@ export default async function TagPage(props: { params: Promise<{ tag: string; pa
       posts={postsWithTag}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title={getTagPageTitle(tag)}
+      title={listName}
       sidebarType="LISTS"
     />
   )

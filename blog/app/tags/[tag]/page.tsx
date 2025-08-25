@@ -3,7 +3,6 @@ import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/data/static/tags.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
-import { getTagPageTitle } from 'lib/constants'
 import { getPaginationVariables } from 'lib/pagination'
 import { genPageMetadata } from 'lib/seo'
 import { Metadata } from 'next'
@@ -36,10 +35,17 @@ export const generateStaticParams = async () => {
 
 export default async function TagPage(props: { params: Promise<{ tag: string }> }) {
   const params = await props.params
-  const tag = decodeURI(params.tag)
+  const tagInSlugFormat = decodeURI(params.tag)
   const postsWithTag = allCoreContent(
-    sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
+    sortPosts(
+      allBlogs.filter(
+        (post) => post.tags && post.tags.map((t) => slug(t)).includes(tagInSlugFormat)
+      )
+    )
   )
+
+  const tagName =
+    Object.keys(tagData).find((item) => slug(item) === tagInSlugFormat) ?? tagInSlugFormat
 
   const { initialDisplayPosts, pagination } = getPaginationVariables(postsWithTag, 1)
 
@@ -48,7 +54,7 @@ export default async function TagPage(props: { params: Promise<{ tag: string }> 
       posts={postsWithTag}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title={getTagPageTitle(tag)}
+      title={tagName}
       sidebarType="TAGS"
     />
   )

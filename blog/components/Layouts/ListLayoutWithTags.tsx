@@ -5,7 +5,6 @@ import tagData from '@/app/data/static/tags.json'
 import { IPaginationProps, Pagination } from '@/components/Pagination/Pagination'
 import { Sidebar } from '@/components/Sidebar/Sidebar'
 import type { Blog } from 'contentlayer/generated'
-import { usePathname } from 'next/navigation'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { PostItemsNoLimit } from '../PostItems/PostItemsNoLimit'
 import SectionContainer from './SectionContainer'
@@ -25,8 +24,6 @@ export default function ListLayoutWithTags({
   pagination,
   sidebarType,
 }: ListLayoutProps) {
-  const pathname = usePathname()
-
   const sidebarItemTotals =
     sidebarType === 'TAGS'
       ? (tagData as Record<string, number>)
@@ -57,8 +54,6 @@ export default function ListLayoutWithTags({
               items={sidebarSortedItems}
               itemCounts={sidebarItemTotals}
               ariaLabel={sidebarType === 'TAGS' ? 'View posts tagged' : 'View posts in list'}
-              pathname={pathname}
-              pathnameIdentifier={sidebarType === 'TAGS' ? '/tags' : '/lists'}
             />
           </aside>
         </div>

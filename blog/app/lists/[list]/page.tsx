@@ -1,19 +1,19 @@
+import readingListData from '@/app/data/static/readingList.json'
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import siteMetadata from '@/data/siteMetadata'
 import tagData from 'app/data/static/tags.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
-import { getTagPageTitle } from 'lib/constants'
 import { getPaginationVariables } from 'lib/pagination'
 import { genPageMetadata } from 'lib/seo'
 import { Metadata } from 'next'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 export async function generateMetadata(props: {
-  params: Promise<{ tag: string }>
+  params: Promise<{ list: string }>
 }): Promise<Metadata> {
   const params = await props.params
-  const tag = decodeURI(params.tag)
+  const tag = decodeURI(params.list)
   return genPageMetadata({
     title: tag,
     description: `${siteMetadata.title} ${tag} tagged content`,
@@ -36,14 +36,19 @@ export const generateStaticParams = async () => {
 
 export default async function ReadingListPage(props: { params: Promise<{ list: string }> }) {
   const params = await props.params
-  const listName = decodeURI(params.list)
+  const listNameInSlugFormat = decodeURI(params.list)
   const postsInReadingList = allCoreContent(
     sortPosts(
       allBlogs.filter(
-        (post) => post.readingList && post.readingList.map((t) => slug(t)).includes(listName)
+        (post) =>
+          post.readingList && post.readingList.map((t) => slug(t)).includes(listNameInSlugFormat)
       )
     )
   )
+
+  const listName =
+    Object.keys(readingListData).find((item) => slug(item) === listNameInSlugFormat) ??
+    listNameInSlugFormat
 
   const { initialDisplayPosts, pagination } = getPaginationVariables(postsInReadingList, 1)
 
@@ -52,7 +57,7 @@ export default async function ReadingListPage(props: { params: Promise<{ list: s
       posts={postsInReadingList}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title={getTagPageTitle(listName)}
+      title={listName}
       sidebarType="LISTS"
     />
   )
