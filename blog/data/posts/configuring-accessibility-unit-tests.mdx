@@ -7,28 +7,21 @@ tags: ['one', 'two']
 readingList: []
 draft: false
 summary: 'With a little help from the Jest Axe Library'
-images: ['/static/images/blog/powerautomate.jpg']
+images: ['/static/images/blog/a11y.jpg']
 ---
 
 <InlineImage
-  src="/static/images/blog/powerautomate.jpg"
-  alt="Featured photo of a waterfall representing Microsoft Power Automate"
+  src="/static/images/blog/a11y.jpg"
+  alt="Featured photo of a person using an accessibility keyboard"
   caption={
     <>
-      Image source: <a href="https://unsplash.com/photos/waAAaeC9hns">Unsplash</a>
+      Image source:{' '}
+      <a href="https://unsplash.com/photos/person-holding-black-plastic-case-HE1zW44Zm_Y">
+        Unsplash
+      </a>
     </>
   }
 />
-
-***
-
-### Configuring Accessibility Unit Tests
-
-#### With a little help from the Jest Axe Library
-
-![](https://cdn-images-1.medium.com/max/800/1*mIadsMu1cqsi1h7bIgwKsg.jpeg)
-
-Image source: [Unsplash](https://unsplash.com/photos/person-holding-black-plastic-case-HE1zW44Zm_Y)
 
 ### Introduction
 
@@ -45,27 +38,27 @@ We’ll start by installing all the required packages to get our unit tests work
 Open up the terminal window in the project directory and paste the following npm install command.
 
 ```
-npm install --save-dev 
-    @testing-library/react 
+npm install --save-dev
+    @testing-library/react
     @testing-library/jest-dom
-    @testing-library/user-event 
-    jest 
-    jest-environment-jsdom 
-    babel-jest    
-    @babel/preset-env 
+    @testing-library/user-event
+    jest
+    jest-environment-jsdom
+    babel-jest
+    @babel/preset-env
     @babel/preset-react
-    @types/jest  
+    @types/jest
 ```
 
 Here’s an explanation of what packages we’re installing:
 
-* **@testing-library/react:** This is the library for testing React components.
-* **@testing-library/jest-dom:** This package provides custom Jest matchers for DOM assertions like `toBeInTheDocument()`.
-* **@testing-library/user-event:** This package provides the ability to simulate user interactions like `userEvent.click()`.
-* **jest:** This is the testing framework we’re using.
-* **jest-environment-jsdom:&#x20;**&#x54;his package simulates a DOM environment as if you were in the browser. This means that every DOM API we call can be observed in the same way it would be observed in a browser!
-* **babel-jest, @babel/preset-env, @babel/preset-react:** This is required for transpiling modern JavaScript and JSX for Jest.
-* **@types/jest:** This is required only for IntelliSense to work in VSCode
+- **@testing-library/react:** This is the library for testing React components.
+- **@testing-library/jest-dom:** This package provides custom Jest matchers for DOM assertions like `toBeInTheDocument()`.
+- **@testing-library/user-event:** This package provides the ability to simulate user interactions like `userEvent.click()`.
+- **jest:** This is the testing framework we’re using.
+- **jest-environment-jsdom:&#x20;**&#x54;his package simulates a DOM environment as if you were in the browser. This means that every DOM API we call can be observed in the same way it would be observed in a browser!
+- **babel-jest, @babel/preset-env, @babel/preset-react:** This is required for transpiling modern JavaScript and JSX for Jest.
+- **@types/jest:** This is required only for IntelliSense to work in VSCode
 
 First, we will create the file `jest.config.js` in the root directory and copy the following contents into it.
 
@@ -98,7 +91,7 @@ module.exports = {
 Next, in the `jest.setup.js` file, we will add the following content. This file is also to be placed in the root directory. This will add custom Jest matchers for DOM nodes.
 
 ```
-import "@testing-library/jest-dom"; 
+import "@testing-library/jest-dom";
 ```
 
 Let’s not forget to create the CSS-style mock file in the `<root directory>\__mocks__\styleMock.js` directory.
@@ -137,8 +130,8 @@ To add accessibility tests in Jest, we’ll need to add two more packages.
 npm install --save-dev jest-axe @types/jest-axe
 ```
 
-* **jest-axe:** This is the package that contains a custom Jest matcher for [Axe](https://github.com/dequelabs/axe-core) for testing accessibility.
-* **@types/jest-axe:** This is only required to enable IntelliSense in VSCode.
+- **jest-axe:** This is the package that contains a custom Jest matcher for [Axe](https://github.com/dequelabs/axe-core) for testing accessibility.
+- **@types/jest-axe:** This is only required to enable IntelliSense in VSCode.
 
 We’ll add some additional code to the `button.test.jsx` file. In the snippet below, I’ve only shown the code we need to add to the test file to get the accessibility test working for this component.
 
@@ -184,12 +177,6 @@ If we intentionally supply empty text to the button like this `render(<Button la
 
 Image courtesy of the author
 
-Now, just because we implemented accessibility tests, it doesn’t mean that we can 100% rely on these tests alone and it will cover all accessibility issues. In fact, the [jest-axe](https://www.npmjs.com/package/jest-axe) library itself has a disclaimer stating that — “*The project does not guarantee that what you build is accessible. The GDS Accessibility team found that only \~30% of issues are found by automated testing*”. But it’s still better to have them in so we can at least cover the basics using automated tests.
+Now, just because we implemented accessibility tests, it doesn’t mean that we can 100% rely on these tests alone and it will cover all accessibility issues. In fact, the [jest-axe](https://www.npmjs.com/package/jest-axe) library itself has a disclaimer stating that — “_The project does not guarantee that what you build is accessible. The GDS Accessibility team found that only \~30% of issues are found by automated testing_”. But it’s still better to have them in so we can at least cover the basics using automated tests.
 
 That’s it! Thanks for reading.
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [February 4, 2025](https://medium.com/p/15846edb0366).
-
-[Canonical link](https://medium.com/@clydedz/configuring-accessibility-unit-tests-15846edb0366)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.

@@ -1,0 +1,136 @@
+---
+title: 'Code Review Etiquette'
+subtitle: 'Soft skills to enable effective pull requests'
+date: '2023-11-15'
+lastmod: '2023-11-15'
+tags: ['one', 'two']
+readingList: ['Software Engineering']
+draft: false
+summary: 'Soft skills to enable effective pull requests'
+images: ['/static/images/blog/codereview.jpg']
+---
+
+<InlineImage
+  src="/static/images/blog/codereview.jpg"
+  alt="Image of what it looks like collaborating as a software engineer."
+  caption={
+    <>
+      Image source:{' '}
+      <a href="https://unsplash.com/photos/woman-in-gray-tank-top-and-purple-pants-standing-beside-window-during-daytime-jNKfJ6u78nw">
+        Unsplash
+      </a>
+    </>
+  }
+/>
+
+Working as a software engineer isn’t always about writing code. It’s also about, among other things, documenting software and processes, mentoring junior engineers, collaborating with fellow engineers, product managers, and designers to build software, and reviewing and giving feedback on code during pull requests to ensure the best possible version of the codebase is shipped out.
+
+Giving feedback is a skill that could take a while to master. And while giving feedback on someone’s code can sometimes feel like walking on eggshells, it’s a crucial responsibility as a software engineer that you mustn’t shy away from. Don’t be discouraged by conflicts or pushbacks, that’s natural and there’s usually always a way to deal with it diplomatically. Remember, you must regularly practice giving feedback to keep getting better at it.
+
+I’ve compiled the following nine points to keep in mind while reviewing and responding to pull request comments. I trust this will help you. Feel free to also add your comments to this article to start a conversation.
+
+1. Review only what’s modified
+2. Review without hesitation
+3. Keep it non-personal
+4. No personal opinions
+5. Spread the positivity
+6. Approving, rejecting, or adding neutral comments
+7. Testing for defects
+8. What else can be reviewed?
+9. Responding to feedback
+
+Let’s go!
+
+---
+
+#### 1) Review only what’s modified
+
+Okay, so let’s start with the obvious one — reviewing only the code that’s modified.
+
+A git pull request visually allows you to compare the lines of code that have been changed, added, or deleted. It is recommended to only review these modified lines of code. Anything that’s not modified in the pull request is out of the scope of this review.
+
+If you spot a line of code that could be fixed up that just happens to be around the area of the modified code but it’s not modified in this pull request, then it’s out of scope. Any additional suggestions must come through the right channels. This could be creating additional tickets in the backlog and/or discussing improvements with fellow engineers on a regular cadence.
+
+Suggesting additional unexpected changes to a pull request increases the scope of the pull request and before you know it, the number of changed files has increased beyond the intended limit and the pull request isn’t one logical changeset.
+
+Having said the above, a reason one might talk about code that’s not part of the modified changeset would be to bring to the author’s attention a piece of code that could’ve been used instead of rewriting it. This is a very common scenario if a new engineer, experienced or otherwise, joins a team and is still learning their way around the code base. They might’ve not come across a utility function, for example, and it’s not a bad thing to let them know about it.
+
+#### 2) Review without hesitation
+
+If you find yourself hesitating to add your code review comments, you might either fear how your comments will be perceived by others or you might not trust your own skills enough to be confident of having and putting forward your viewpoint — both are not easy problems to solve.
+
+For the former, ideally, there should be enough [psychological safety](https://www.mckinsey.com/featured-insights/mckinsey-explainers/what-is-psychological-safety) within the team to enable each person to courageously voice their opinions without the fear of judgment or being taken the wrong way or any sort of hesitation. The best course of action would be to speak with your manager about this so that this can be addressed as a team.
+
+For the latter, it could either be imposter syndrome or genuinely coming from a place of lack of experience. Again, a complex problem to solve and possibly out of the scope of this article, but my two cents is that it's okay to add comments to the best of your knowledge and it’s also okay to be wrong. Eventually, if you don’t believe in yourself, nobody else will.
+
+#### 3) Keep it non-personal
+
+If you’re not paying close attention, it is very easy to write comments in an accusatory tone. The use of words like ‘_you_’ can feel quite personal when reading and given the nature of pull request comments, it could feel like a personal attack when the author reads them.
+
+Comments should also be non-commanding. Pull requests are a way of collaborating with your peers, not a way of commanding them on how code should be written.
+
+As an example, instead of writing “_You should replace these parameters and use an object instead,_” one could write, “_Have we considered replacing these parameters and using an object instead?_”
+
+Remember — we’re not intending to sugarcoat our feedback, we’re just being respectful and polite.
+
+It’s also wise to try and avoid the use of sarcasm or trolling of any kind. Given the author’s frame of mind, while reading feedback, they could very well misunderstand humor for something personal.
+
+#### 4) No personal opinions
+
+While reviewing a pull request, keep personal opinions and biases aside. Code should be reviewed objectively, and based on standards that the team has agreed upon.
+
+If you’d write code in a certain way but the author has written it in another way, that’s okay. Coding is a collaborative art and everyone should have the agency to solve a problem in their own way without feeling the need to do it somebody else’s way. As long as it meets the set standards and is functionally correct, a pull request shouldn’t contain comments that are subjective or make a recommendation that pulls out a ruleset that until that point nobody knew was being followed.
+
+#### 5) Spread the positivity
+
+The only kind of personal opinions that are acceptable is where you’re providing genuine positive feedback or a simple note of appreciation for the author.
+
+Vince Lombardi quoted, “Praise in public, criticize in private,” and while pull request criticisms are public (as in visible to everyone in the team/company), let’s not forget to sing the praises publicly, too.
+
+#### 6) Approving, rejecting, or adding neutral comments
+
+It’s a good idea to get together as a team to understand when it’s okay to approve a pull request, when it’s okay to request changes on a pull request, and what it means to add a comment-only review.
+
+- **Approving:** In the obvious case this could mean that everything looks good and there are no further changes that the reviewer can think of. However, this could also mean that there are only some trivial changes that are needed and the reviewer is confident the author will make them.
+- **Requesting a change:** If there are aspects of the code that need to be addressed before being merged, a change can be requested as part of the review. Something to keep in mind is that certain rules could be applied when a change is requested on a pull request so that the merge button becomes disabled until the required amount of approvals has been received.
+- **Comment-only review:** Add a comment-only review if you don’t intend to explicitly approve or reject a pull request. This could be an informational message, positive feedback, or just an observation. Something to keep in mind is that for comment-only reviews, the author may not deem it a priority to make suggested changes.
+
+#### 7) Testing for defects
+
+What if you got the latest version from the pull request branch and noticed a couple of bugs after you tested the changes? What should your approach be?
+
+If the change doesn’t satisfy the acceptance criteria, then it shouldn’t be considered development complete. Merging these changes would only mean that additional tickets would need to be created to fix the bugs. Now, this type of scenario is something that the team should discuss and converge on, but my recommendation would be to add your testing findings as part of your pull request review comments. Depending on the criticality or impact of the bug, you might also want to request changes on the pull request rather than letting it slide.
+
+Of course, if a change is sliced into tiny pull requests, you may not be able to always test the changes. For instance, one could create a pull request just to add new models and classes that will be required as part of the larger requirement, and maybe this approach has been agreed upon, which is also acceptable.
+
+#### 8) What else can be reviewed?
+
+Commit messages, the pull request description and its title are all part of the pull request, so it’s valid if someone requests any changes to it.
+
+While commit messages are generally overlooked, your team might have some standards in place and a shared understanding of what a good commit message might look like. This could be including a ticket number in the message, and making sure it’s concise and conveys the message correctly.
+
+On similar lines as the commit message, the pull request title might need to be in a certain format, too, which might’ve been pre-agreed with the team. The description of the pull request could contain the reason why these changes are introduced and possibly even a checklist that needs to be met.
+
+#### 9) Responding to feedback
+
+Pull request etiquette does not only apply to the reviewers but also to the author when responding to feedback.
+
+It’s highly recommended to appreciate if someone has made a good suggestion or observed something that might’ve initially gone unnoticed. Pull request comments are a great way to learn good engineering standards, practice collaboration, and also save you from unintentionally merging code that could potentially later cause troubles in a production environment. Having an extra pair of eyes to ensure everything looks good is a privilege.
+
+If the comments are not in your favor, don’t be discouraged. Always try and assume the best intention from your reviewer. It’s okay to disagree with a suggestion but please make sure that it’s diplomatically handled. Where possible, try and fall back to standards that have been agreed upon as a team or cite legitimate sources for your decisions. Finally, when in doubt, remember to be human and err on the polite side.
+
+---
+
+Let’s close this article off with a quick recap of the nine pull request etiquettes —
+
+1. Review only what’s modified
+2. Review without hesitation
+3. Keep it non-personal
+4. No personal opinions
+5. Spread the positivity
+6. Approving, rejecting, or neutral comments
+7. Testing for defects
+8. What else can be reviewed?
+9. Responding to feedback
+
+That’s it! Thanks for reading.

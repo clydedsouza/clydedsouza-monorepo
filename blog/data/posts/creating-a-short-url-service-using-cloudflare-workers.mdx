@@ -4,31 +4,21 @@ subtitle: 'Deploy serverless code instantly across the globe'
 date: '2022-01-27'
 lastmod: '2022-01-27'
 tags: ['one', 'two']
-readingList: []
+readingList: ['Cloudflare']
 draft: false
 summary: 'Deploy serverless code instantly across the globe'
-images: ['/static/images/blog/powerautomate.jpg']
+images: ['/static/images/blog/guidepost1.jpg']
 ---
 
 <InlineImage
-  src="/static/images/blog/powerautomate.jpg"
-  alt="Featured photo of a waterfall representing Microsoft Power Automate"
+  src="/static/images/blog/guidepost1.jpg"
+  alt="An image of a directional post as the featured image for this article."
   caption={
     <>
-      Image source: <a href="https://unsplash.com/photos/waAAaeC9hns">Unsplash</a>
+      Image source: <a href="https://unsplash.com/photos/rzJKYpq2is4">Unsplash</a>
     </>
   }
 />
-
-***
-
-### Creating a Short URL Service Using Cloudflare Workers
-
-#### Deploy serverless code instantly across the globe
-
-![An image of a directional post as the featured image for this article.](https://cdn-images-1.medium.com/max/2560/1*jGyjke3GMqUQoIxknzn-Yg.jpeg)
-
-[Image source: Unsplash](https://unsplash.com/photos/rzJKYpq2is4)
 
 ### Introduction
 
@@ -104,7 +94,7 @@ In the repository I’m working on, I’ve updated the command to `wrangler kv:k
 
 Now, if you try to run the command `wrangler dev` you should see an error message that might look something like this:
 
-> Error: In order to preview a worker with KV namespaces, you must designate a preview\_id in your configuration file for each KV namespace \
+> Error: In order to preview a worker with KV namespaces, you must designate a preview_id in your configuration file for each KV namespace \
 > you’d like to preview.
 
 ![Screenshot showing the console output of the entered wrangler commands.](https://cdn-images-1.medium.com/max/800/1*fyYIgdq1T1kMKjppIfD7sg.png)
@@ -187,7 +177,7 @@ Head over to the Worker URL and test if the URL redirection works. We can still 
 
 ![GIF showing the redirection in action.](https://cdn-images-1.medium.com/max/800/1*YHmeK66PEc-RGyQSIFXtug.gif)
 
-***
+---
 
 ### What’s next?
 
@@ -223,16 +213,10 @@ If you’re building a full-fledge solution, you may also be looking at setting 
 
 Handdrawn diagram created by the author
 
-***
+---
 
 ### Source code
 
 If you’d like to see the full source code for this project, it’s available on [GitHub](https://github.com/ClydeDz/shorturl-cloudflare-workers). In the same repository, you’ll also find a [PowerShell script](https://github.com/ClydeDz/shorturl-cloudflare-workers/blob/main/cloudflare.ps1) that contains all the commands we’ve used above.
 
 That’s it. Thanks for reading.
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [January 27, 2022](https://medium.com/p/b3092d427250).
-
-[Canonical link](https://medium.com/@clydedz/creating-a-short-url-service-using-cloudflare-workers-b3092d427250)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.

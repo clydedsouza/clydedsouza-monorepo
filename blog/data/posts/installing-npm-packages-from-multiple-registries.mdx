@@ -7,28 +7,21 @@ tags: ['one', 'two']
 readingList: ['NPM library']
 draft: false
 summary: 'A step-by-step guide to solving a problem'
-images: ['/static/images/blog/powerautomate.jpg']
+images: ['/static/images/blog/containers.jpg']
 ---
 
 <InlineImage
-  src="/static/images/blog/powerautomate.jpg"
-  alt="Featured photo of a waterfall representing Microsoft Power Automate"
+  src="/static/images/blog/containers.jpg"
+  alt="An image of a ship carrying multiple shipping containers."
   caption={
     <>
-      Image source: <a href="https://unsplash.com/photos/waAAaeC9hns">Unsplash</a>
+      Image source:{' '}
+      <a href="https://unsplash.com/photos/blue-and-red-cargo-ship-on-sea-during-daytime-jOqJbvo1P9g">
+        Unsplash
+      </a>
     </>
   }
 />
-
----
-
-### Installing NPM Packages From Multiple Registries
-
-#### A step-by-step guide to solving a problem
-
-![An image of a ship carrying multiple shipping containers.](https://cdn-images-1.medium.com/max/800/1*9Dwd7FGqt82e-AI-xdHyaQ.jpeg)
-
-Image source: [Unsplash](https://unsplash.com/photos/blue-and-red-cargo-ship-on-sea-during-daytime-jOqJbvo1P9g)
 
 I recently had to publish an npm package to a custom registry and then from the consumer application, use this package from the custom registry and the remaining packages from another already configured registry. While doing this, I encountered an error. In this article, I’ll aim to recreate the problem and give you a couple of options to solve this, eventually recommending the solution that I’d go with.
 

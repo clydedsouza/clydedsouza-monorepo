@@ -4,33 +4,34 @@ subtitle: 'Understanding AI, machine learning, and the tools shaping our future'
 date: '2025-06-09'
 lastmod: '2025-06-09'
 tags: ['one', 'two']
-readingList: []
+readingList: ['Artificial Intelligence']
 draft: false
 summary: 'Understanding AI, machine learning, and the tools shaping our future'
-images: ['/static/images/blog/powerautomate.jpg']
+images: ['/static/images/blog/fundaai.jpg']
 ---
 
 <InlineImage
-  src="/static/images/blog/powerautomate.jpg"
-  alt="Featured photo of a waterfall representing Microsoft Power Automate"
+  src="/static/images/blog/fundaai.jpg"
+  alt="Featured photo of some books and alphabet blocks on a table"
   caption={
     <>
-      Image source: <a href="https://unsplash.com/photos/waAAaeC9hns">Unsplash</a>
+      Image source:{' '}
+      <a href="https://unsplash.com/photos/red-apple-fruit-on-four-pyle-books-OyCl7Y4y0Bk">
+        Unsplash
+      </a>
     </>
   }
 />
 
-***
-
-### A Friendly Guide to the AI Landscape for Engineers
-
-#### Understanding AI, machine learning, and the tools shaping our future
-
-![](https://cdn-images-1.medium.com/max/800/1*fn1JIUPpVrUjVeRL89NqAA.jpeg)
-
-Back to school for software engineers. Image source: [Unsplash](https://unsplash.com/photos/red-apple-fruit-on-four-pyle-books-OyCl7Y4y0Bk)
-
-In a world where apps can chat, compose images and even write code, Artificial Intelligence (AI) often feels like magic. Yet behind the headlines and buzzwords, AI is simply about getting computers to perform tasks that normally require human intelligence, such as understanding language, recognising images, or making decisions. It’s sometimes funny to think how we’ve trained AI in our likeness, which has also resulted in it reflecting human biases. Many of us have used voice assistants (Siri, Alexa) or tried AI chatbots (like ChatGPT) and wondered what AI is under the hood. I know I have, and I’m sure many of you reading this article might feel the same. This guide will walk you through the AI universe step by step, covering basics and real-world tools along the way. Join me as I learn about AI and follow my Medium profile for more articles on this topic.
+In a world where apps can chat, compose images and even write code, Artificial Intelligence (AI)
+often feels like magic. Yet behind the headlines and buzzwords, AI is simply about getting computers
+to perform tasks that normally require human intelligence, such as understanding language,
+recognising images, or making decisions. It’s sometimes funny to think how we’ve trained AI in our
+likeness, which has also resulted in it reflecting human biases. Many of us have used voice
+assistants (Siri, Alexa) or tried AI chatbots (like ChatGPT) and wondered what AI is under the hood.
+I know I have, and I’m sure many of you reading this article might feel the same. This guide will
+walk you through the AI universe step by step, covering basics and real-world tools along the way.
+Join me as I learn about AI and follow my Medium profile for more articles on this topic.
 
 ### What is AI? The big picture
 
@@ -46,9 +47,9 @@ To be useful, an AI system needs a way to learn from examples. That’s where Ma
 
 There are three main paradigms of ML:
 
-* **Supervised learning:** The model is trained on labelled data — that means each example comes with the correct answer. For instance, an email dataset labelled “spam” or “not spam” lets an algorithm learn to classify new emails. The model essentially learns a mapping from inputs to outputs. In other words, “given this input (an email’s text), the answer should be this label.” Supervised learning is everywhere: image classifiers, language translators, and financial forecasting. Whenever we have past data paired with correct answers, we can apply [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning).
-* **Unsupervised learning:** Here, the data has no labels. The algorithm tries to [find structure or patterns on its own](https://en.wikipedia.org/wiki/Unsupervised_learning). For example, giving a model thousands of customer records might let it cluster customers into groups with similar buying habits. Or an unsupervised model might compress images into simpler representations. This is useful for tasks like grouping, anomaly detection or pre-training models before fine-tuning. Essentially, unsupervised learning is about exploring data to discover hidden patterns without explicit answers.
-* **Reinforcement learning (RL):** Think of a game or a robot training itself. An *agent* interacts with an environment and learns to take actions that maximise a reward signal. For example, a chess engine learns by playing games (getting +1 for a win, –1 for a loss) and gradually improves its strategy. [DeepMind’s AlphaGo](https://deepmind.google/research/projects/alphago/) famously mastered the complex Chinese game Go and defeated a human champion years before anybody thought it was possible to do so. In robotics or recommendation engines, an AI might get rewards for completing tasks or for keeping users engaged. In reinforcement learning, the model figures out policies (action rules) through trial and error and long-term feedback.
+- **Supervised learning:** The model is trained on labelled data — that means each example comes with the correct answer. For instance, an email dataset labelled “spam” or “not spam” lets an algorithm learn to classify new emails. The model essentially learns a mapping from inputs to outputs. In other words, “given this input (an email’s text), the answer should be this label.” Supervised learning is everywhere: image classifiers, language translators, and financial forecasting. Whenever we have past data paired with correct answers, we can apply [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning).
+- **Unsupervised learning:** Here, the data has no labels. The algorithm tries to [find structure or patterns on its own](https://en.wikipedia.org/wiki/Unsupervised_learning). For example, giving a model thousands of customer records might let it cluster customers into groups with similar buying habits. Or an unsupervised model might compress images into simpler representations. This is useful for tasks like grouping, anomaly detection or pre-training models before fine-tuning. Essentially, unsupervised learning is about exploring data to discover hidden patterns without explicit answers.
+- **Reinforcement learning (RL):** Think of a game or a robot training itself. An _agent_ interacts with an environment and learns to take actions that maximise a reward signal. For example, a chess engine learns by playing games (getting +1 for a win, –1 for a loss) and gradually improves its strategy. [DeepMind’s AlphaGo](https://deepmind.google/research/projects/alphago/) famously mastered the complex Chinese game Go and defeated a human champion years before anybody thought it was possible to do so. In robotics or recommendation engines, an AI might get rewards for completing tasks or for keeping users engaged. In reinforcement learning, the model figures out policies (action rules) through trial and error and long-term feedback.
 
 Each of these learning methods suits different problems. Supervised learning excels when you have plenty of labelled examples. Unsupervised is useful when labelling is hard or when you want the model to discover structure (often used to pre-train language models). Reinforcement learning is key for dynamic decision-making problems (like games, robotics or autonomous driving).
 
@@ -107,14 +108,14 @@ Early adopters see MCP as key infrastructure for smarter AI agents. Companies li
 
 By now, you’ve seen that AI is behind a lot of modern tech. Here are some familiar categories and tools:
 
-* **Chatbots & assistants:** Apps like OpenAI’s ChatGPT, Google’s Gemini and Microsoft’s Copilot Chat let you ask questions or prompts in natural language and get human-like replies. Consumer voice assistants (Siri, Alexa, Google Assistant) also fall here: they use NLP models to understand voice commands and act on them. IBM notes that services like Siri and Alexa are classic examples of narrow AI. Essentially, these interfaces sit on top of large language models that handle the conversation.
-* **Coding helpers:** A big development is AI for software development. Microsoft’s GitHub Copilot autocompletes code or writes functions based on comments you write. It’s powered by OpenAI’s Codex model. Amazon CodeWhisperer (now Amazon Q Developer) does similar for AWS users. There are also AI code reviewers and documentation generators. AWS explains that models like Codex can generate code in Python, JavaScript, Ruby and more just from English descriptions. As a result, engineers can get boilerplate code or examples without writing every line manually.
-* **Image and video generation:** Tools like DALL·E 2, Midjourney and Stable Diffusion let you create images by typing text. Need a concept art of “a futuristic city at sunset in watercolour style”? The AI paints it. Many creators and designers use these to prototype ideas or produce graphics. Adobe Firefly introduces AI capabilities into the Adobe ecosystem that allow users to generatively fill images, correct images using AI, and even remove backgrounds. Popular image editing software, Canva, also introduced Magic AI features, which introduce AI capabilities into their suite. Some video generation/editing tools are emerging too, for example, apps that turn text into short clips.
-* **Voice and audio:** Beyond assistants, some tools generate or edit audio. For instance, OpenAI’s Sora can generate music, and ElevenLabs creates realistic speech from text. Even routine audio tasks (like removing background noise or transcribing speech) now use AI under the hood.
-* **Data and analytics:** Many backend services use AI. Netflix’s recommendations, Spotify’s song picks, or YouTube’s suggested videos all use ML to predict what you’ll like. In business, AI tools can analyse large datasets: spotting fraud, forecasting sales, detecting anomalies, or even generating plots from data. IBM notes that LLMs can even analyse data tables and describe trends via natural language APIs.
-* **Health & Science:** AI is also making waves in medicine and research. Deep learning can analyse medical images (X-rays, MRIs) to detect issues, and models like Google DeepMind’s AlphaFold predict 3D protein structures, accelerating drug discovery. These applications often combine AI with domain knowledge to tackle complex scientific problems.
-* **Robotics & autonomy:** Self-driving cars (Tesla, Waymo) use deep learning for vision (detecting lanes, pedestrians) and reinforcement learning for driving decisions. Factories use AI-driven robots to sort items or manage inventory. Even household robots (like Roomba) use simple AI to navigate. These systems combine sensors (cameras, lidar) with AI models to perceive their environment and decide actions.
-* **Agentic AI**: New task-oriented agents are also appearing. For instance, some AI assistants can autonomously perform complex workflows. Popular no-code app builder, Glide apps, has introduced [AI agents](https://join.glideapps.com/agentic-ai) into their suite of solutions, and it’s already looking pretty impressive.
+- **Chatbots & assistants:** Apps like OpenAI’s ChatGPT, Google’s Gemini and Microsoft’s Copilot Chat let you ask questions or prompts in natural language and get human-like replies. Consumer voice assistants (Siri, Alexa, Google Assistant) also fall here: they use NLP models to understand voice commands and act on them. IBM notes that services like Siri and Alexa are classic examples of narrow AI. Essentially, these interfaces sit on top of large language models that handle the conversation.
+- **Coding helpers:** A big development is AI for software development. Microsoft’s GitHub Copilot autocompletes code or writes functions based on comments you write. It’s powered by OpenAI’s Codex model. Amazon CodeWhisperer (now Amazon Q Developer) does similar for AWS users. There are also AI code reviewers and documentation generators. AWS explains that models like Codex can generate code in Python, JavaScript, Ruby and more just from English descriptions. As a result, engineers can get boilerplate code or examples without writing every line manually.
+- **Image and video generation:** Tools like DALL·E 2, Midjourney and Stable Diffusion let you create images by typing text. Need a concept art of “a futuristic city at sunset in watercolour style”? The AI paints it. Many creators and designers use these to prototype ideas or produce graphics. Adobe Firefly introduces AI capabilities into the Adobe ecosystem that allow users to generatively fill images, correct images using AI, and even remove backgrounds. Popular image editing software, Canva, also introduced Magic AI features, which introduce AI capabilities into their suite. Some video generation/editing tools are emerging too, for example, apps that turn text into short clips.
+- **Voice and audio:** Beyond assistants, some tools generate or edit audio. For instance, OpenAI’s Sora can generate music, and ElevenLabs creates realistic speech from text. Even routine audio tasks (like removing background noise or transcribing speech) now use AI under the hood.
+- **Data and analytics:** Many backend services use AI. Netflix’s recommendations, Spotify’s song picks, or YouTube’s suggested videos all use ML to predict what you’ll like. In business, AI tools can analyse large datasets: spotting fraud, forecasting sales, detecting anomalies, or even generating plots from data. IBM notes that LLMs can even analyse data tables and describe trends via natural language APIs.
+- **Health & Science:** AI is also making waves in medicine and research. Deep learning can analyse medical images (X-rays, MRIs) to detect issues, and models like Google DeepMind’s AlphaFold predict 3D protein structures, accelerating drug discovery. These applications often combine AI with domain knowledge to tackle complex scientific problems.
+- **Robotics & autonomy:** Self-driving cars (Tesla, Waymo) use deep learning for vision (detecting lanes, pedestrians) and reinforcement learning for driving decisions. Factories use AI-driven robots to sort items or manage inventory. Even household robots (like Roomba) use simple AI to navigate. These systems combine sensors (cameras, lidar) with AI models to perceive their environment and decide actions.
+- **Agentic AI**: New task-oriented agents are also appearing. For instance, some AI assistants can autonomously perform complex workflows. Popular no-code app builder, Glide apps, has introduced [AI agents](https://join.glideapps.com/agentic-ai) into their suite of solutions, and it’s already looking pretty impressive.
 
 This isn’t an exhaustive list, but it shows how AI is integrated into modern tools. Today, “AI as a feature” is common. In the [latest survey](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai), 78 per cent of respondents say their organisations use AI in at least one business function. As engineers, even if we don’t build LLMs from scratch, we’ll often use APIs and services that are built on them.
 
@@ -126,20 +127,14 @@ Using the right tool for the job. Image source: [Unsplash](https://unsplash.com
 
 Let’s sum up what we’ve covered about the AI landscape:
 
-* **AI is broad:** It means any computer system doing tasks that usually need intelligence. Today’s AI is mostly narrow, i.e. doing specific jobs. Human-level intelligence (AGI or artificial general intelligence) does not yet exist.
-* **Machine learning is the engine:** ML (especially deep learning) is how modern AI systems learn from data. Supervised learning uses labelled examples, unsupervised learning finds hidden patterns, and reinforcement learning learns by feedback.
-* **Neural networks:** Deep networks with many layers learn features automatically from raw data. They power vision, speech recognition, translation, and more by processing images, audio and text.
-* **Large language models & generative AI:** These models (like GPT, BERT, DALL·E) are trained on huge datasets and can generate text, images, or other media. LLMs are highly adaptable — one model can do many tasks.
-* **Real-world tools:** AI is everywhere now — chatbots, creative tools, coding assistants, recommendation systems, medical diagnostics, autonomous cars, agentic AI, and beyond. These often use ML/LLMs under the hood, even if we don’t see it. Learning the basics (neural nets, learning methods, key terms) helps us understand and use these tools.
+- **AI is broad:** It means any computer system doing tasks that usually need intelligence. Today’s AI is mostly narrow, i.e. doing specific jobs. Human-level intelligence (AGI or artificial general intelligence) does not yet exist.
+- **Machine learning is the engine:** ML (especially deep learning) is how modern AI systems learn from data. Supervised learning uses labelled examples, unsupervised learning finds hidden patterns, and reinforcement learning learns by feedback.
+- **Neural networks:** Deep networks with many layers learn features automatically from raw data. They power vision, speech recognition, translation, and more by processing images, audio and text.
+- **Large language models & generative AI:** These models (like GPT, BERT, DALL·E) are trained on huge datasets and can generate text, images, or other media. LLMs are highly adaptable — one model can do many tasks.
+- **Real-world tools:** AI is everywhere now — chatbots, creative tools, coding assistants, recommendation systems, medical diagnostics, autonomous cars, agentic AI, and beyond. These often use ML/LLMs under the hood, even if we don’t see it. Learning the basics (neural nets, learning methods, key terms) helps us understand and use these tools.
 
 I hope you’ve soaked in as much as you can about AI from this article. I’m learning quite a bit along with you, and I hope to continue learning and writing about AI. AI might be buzzword central, but at its heart, it’s built on solid concepts of data and algorithms — things we engineers can grasp.
 
 Please [subscribe](https://clydedz.medium.com/subscribe) and [follow my Medium profile](https://medium.com/@clydedz), [Clyde D'Souza](https://medium.com/u/c0460dbbd1d), for more articles on tech and engineering.
 
 That’s it! Thanks for reading.
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [June 9, 2025](https://medium.com/p/4282c0da0140).
-
-[Canonical link](https://medium.com/@clydedz/a-friendly-guide-to-the-ai-landscape-for-engineers-4282c0da0140)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.

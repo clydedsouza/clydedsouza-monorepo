@@ -7,28 +7,19 @@ tags: ['one', 'two']
 readingList: ['Chrome Extensions']
 draft: false
 summary: 'Share your work with millions of users'
-images: ['/static/images/blog/powerautomate.jpg']
+images: ['/static/images/blog/chromepsy.png']
 ---
 
 <InlineImage
-  src="/static/images/blog/powerautomate.jpg"
-  alt="Featured photo of a waterfall representing Microsoft Power Automate"
+  src="/static/images/blog/chromepsy.png"
+  alt="Google Chrome logo over an image from Unsplash."
   caption={
     <>
-      Image source: <a href="https://unsplash.com/photos/waAAaeC9hns">Unsplash</a>
+      Image source: Google Chrome logo over a background from{' '}
+      <a href="https://unsplash.com/photos/8Qpqs04ATRk">Unsplash</a>
     </>
   }
 />
-
-***
-
-### Build and Publish a Chrome Extension
-
-Share your work with millions of users
-
-![Google Chrome logo over an image from Unsplash.](https://cdn-images-1.medium.com/max/800/1*_INliYN0THLDRjsiZqkUXg.png)
-
-Source: [Google Chrome](https://www.google.com/chrome/) logo over an [image from Unsplash](https://unsplash.com/photos/8Qpqs04ATRk)
 
 ### Introduction
 
@@ -56,12 +47,12 @@ Like any other great product, Chrome, too, offers a set of APIs which allow an e
 
 A Chrome extension sits inside the boundaries of the Chrome browser. A Chrome extension supports a bunch of features that all sit inside its context, and from within the context of an extension, these features are able to interact with the Chrome browser using Chrome’s APIs.
 
-* **Service worker:** This is an event listener that sits in the background within the context of an extension. As an extension developer, you can configure your extension to behave a certain way when certain events are triggered. For example, [Google Meet Exit Page](https://chrome.google.com/webstore/detail/google-meet-exit-page/bjfoplibeabdkfmbanlocafjlbbimgai) redirects you to another webpage after you’ve clicked the **Leave call** button.
-* **Content script:** You can provide a JavaScript file as part of your extension that will be injected into certain web pages and will allow you to change elements in the DOM (explain). For example, [Amazon to Goodreads Navigator](https://chrome.google.com/webstore/detail/amazon-to-goodreads-navig/lobdefpehipabbpcefccfknigdeolkbb) adds a 1-click ‘View in Goodreads’ button on Amazon book pages to easily navigate from Amazon to the book's Goodreads page.
-* **Popup:** As an extension developer, you can choose to open a UI popup box when the extension’s icon (also called an **Action**) is clicked from the toolbar. You could use the popup UI to provide all of your extension’s functionality or use this space to allow users to configure certain settings. For example, [Retro Notes](https://chrome.google.com/webstore/detail/retro-notes/ofdbamhnppegjepbocckmnpcmfokhnnh) uses the popup UI to provide functionality for quickly taking retrospective notes.
-* **New tab/Bookmarks/History:** Chrome allows you as an extension developer to override the default Chrome pages for a new tab, the bookmarks page and the history page. An extension may only override one of the three, though. For example, [4–7–8 Breathing](https://chrome.google.com/webstore/detail/4-7-8-breathing/ihgllkloonfemjjcjcfbkmdlbdffkmnl) overrides Chrome’s new tab to provide a clean interface that guides you through the 4–7–8 breathing exercise.
-* **Omnibox:** Chrome’s address bar is also known as the Omnibox and you can configure your extension to listen for specific keywords typed into the Omnibox. Once you’ve detected that event, you could provide suggestions based on the value typed or perform an action on that value. For example, [DuckDuckGo Search](https://chrome.google.com/webstore/detail/duckduckgo-search-context/fepjgbgflmnaieiodmkkclhjfihdhoid) extends the Omnibox so that when a user types ‘DDG’ followed by a space in the address bar and then types their search query and hit the enter key, a search is performed on DuckDuckGo with the search terms entered.
-* **Options:** Chrome encourages extension developers to allow users to be able to customize the behaviour of an extension. One way of accessing the options page for an extension is to right-click the extension’s icon from the toolbar and click on **Options**. This should either open up an options popup modal or redirect you to a full-page options interface, depending on what the extension developer has configured. For example, [Jira Status Colours](https://chrome.google.com/webstore/detail/jira-status-colours/nglechghbeioejgliejidjlhbfiiinne) provides an options page to customize the colours of your Jira status labels.
+- **Service worker:** This is an event listener that sits in the background within the context of an extension. As an extension developer, you can configure your extension to behave a certain way when certain events are triggered. For example, [Google Meet Exit Page](https://chrome.google.com/webstore/detail/google-meet-exit-page/bjfoplibeabdkfmbanlocafjlbbimgai) redirects you to another webpage after you’ve clicked the **Leave call** button.
+- **Content script:** You can provide a JavaScript file as part of your extension that will be injected into certain web pages and will allow you to change elements in the DOM (explain). For example, [Amazon to Goodreads Navigator](https://chrome.google.com/webstore/detail/amazon-to-goodreads-navig/lobdefpehipabbpcefccfknigdeolkbb) adds a 1-click ‘View in Goodreads’ button on Amazon book pages to easily navigate from Amazon to the book's Goodreads page.
+- **Popup:** As an extension developer, you can choose to open a UI popup box when the extension’s icon (also called an **Action**) is clicked from the toolbar. You could use the popup UI to provide all of your extension’s functionality or use this space to allow users to configure certain settings. For example, [Retro Notes](https://chrome.google.com/webstore/detail/retro-notes/ofdbamhnppegjepbocckmnpcmfokhnnh) uses the popup UI to provide functionality for quickly taking retrospective notes.
+- **New tab/Bookmarks/History:** Chrome allows you as an extension developer to override the default Chrome pages for a new tab, the bookmarks page and the history page. An extension may only override one of the three, though. For example, [4–7–8 Breathing](https://chrome.google.com/webstore/detail/4-7-8-breathing/ihgllkloonfemjjcjcfbkmdlbdffkmnl) overrides Chrome’s new tab to provide a clean interface that guides you through the 4–7–8 breathing exercise.
+- **Omnibox:** Chrome’s address bar is also known as the Omnibox and you can configure your extension to listen for specific keywords typed into the Omnibox. Once you’ve detected that event, you could provide suggestions based on the value typed or perform an action on that value. For example, [DuckDuckGo Search](https://chrome.google.com/webstore/detail/duckduckgo-search-context/fepjgbgflmnaieiodmkkclhjfihdhoid) extends the Omnibox so that when a user types ‘DDG’ followed by a space in the address bar and then types their search query and hit the enter key, a search is performed on DuckDuckGo with the search terms entered.
+- **Options:** Chrome encourages extension developers to allow users to be able to customize the behaviour of an extension. One way of accessing the options page for an extension is to right-click the extension’s icon from the toolbar and click on **Options**. This should either open up an options popup modal or redirect you to a full-page options interface, depending on what the extension developer has configured. For example, [Jira Status Colours](https://chrome.google.com/webstore/detail/jira-status-colours/nglechghbeioejgliejidjlhbfiiinne) provides an options page to customize the colours of your Jira status labels.
 
 ![Different features of a Chrome extension.](https://cdn-images-1.medium.com/max/800/1*qRbHph364cgWK2DLh15hJQ.jpeg)
 
@@ -79,7 +70,7 @@ The complete reference to all properties in the manifest JSON file can be [found
 
 #### Overriding Chrome’s new tab
 
-Let’s update our manifest file and register this feature. We’ll add the following snippet to the manifest file. This assigns the `newtab.html` file as Chrome’s new tab. Also, you don’t have to name this file *newtab.&#x20;*&#x49;t could be named anything you like.
+Let’s update our manifest file and register this feature. We’ll add the following snippet to the manifest file. This assigns the `newtab.html` file as Chrome’s new tab. Also, you don’t have to name this file _newtab.&#x20;_&#x49;t could be named anything you like.
 
 #### Creating the HTML file
 
@@ -109,28 +100,28 @@ Click on the **+ New item** button to create your first extension. It will ask y
 
 While most of it is pretty self-explanatory, here are a few things to consider while filling up the extension information in the Developer Dashboard:
 
-* **Store listing:** For this page, you might require a bunch of images like an icon and screenshots. I’ve created [this Figma template](https://www.figma.com/community/file/1127061326249481158) to assist with this process.
+- **Store listing:** For this page, you might require a bunch of images like an icon and screenshots. I’ve created [this Figma template](https://www.figma.com/community/file/1127061326249481158) to assist with this process.
 
 ![Chrome Web Store Developer Dashboard store listing page.](https://cdn-images-1.medium.com/max/800/1*CjWaCIjS0uhgogVIWC_4bw.png)
 
-* **Privacy practices:** This page is where you justify if you’ve asked for specific permissions in the manifest file. For example, if you’ve asked for storage permissions, you might want to write a short blurb about how you intend to use that. On this page, you might also want to check a few boxes if your extension uses personal data in any way and also check the disclosure boxes.
+- **Privacy practices:** This page is where you justify if you’ve asked for specific permissions in the manifest file. For example, if you’ve asked for storage permissions, you might want to write a short blurb about how you intend to use that. On this page, you might also want to check a few boxes if your extension uses personal data in any way and also check the disclosure boxes.
 
 ![Chrome Web Store Developer Dashboard privacy practices page.](https://cdn-images-1.medium.com/max/800/1*v55J4dNZzZXKZWEc0OkcsQ.png)
 
-* **Preview:** When filling up the fields, if you’re unsure where and how they’ll be displayed on your extension page, click the three dots on the top-right of the screen and then click the **Preview** button. This will populate the information you’ve filled up so far and will show you a preview of what your extension page might look like.
+- **Preview:** When filling up the fields, if you’re unsure where and how they’ll be displayed on your extension page, click the three dots on the top-right of the screen and then click the **Preview** button. This will populate the information you’ve filled up so far and will show you a preview of what your extension page might look like.
 
 Once you’re happy with what you’ve filled up, click on the **Submit for review** button. Your extension will sit in review status for a few days before it gets published. You can then share your Chrome extension with your friends and family.
 
-***
+---
 
 ### A complex scenario
 
 The example above was super simple so it’s easy to understand the entire process, however, in real life, your extension’s code might look a bit more complex. For instance:
 
-* If you’re using multiple JavaScript files, you might want to bundle them together and minify them into a single JavaScript file. In this case, you wouldn’t want to include the source JavaScript files in the ZIP folder you publish to the Chrome Web Store.
-* If you’re using Sass for styling, you might need a preprocessor that converts them into a minified CSS file. In this case, you wouldn’t want to include the source Sass files in the ZIP folder you publish to the Chrome Web Store.
-* If you’re using React to develop the web application, you might want to include the appropriate build process that compiles it into the relevant output files. In this case, you wouldn’t want to have the React component files in the ZIP folder you publish to the Chrome Web Store.
-* If you’re writing unit tests, you wouldn’t want to include those files in the ZIP folder you publish to the Chrome Web Store.
+- If you’re using multiple JavaScript files, you might want to bundle them together and minify them into a single JavaScript file. In this case, you wouldn’t want to include the source JavaScript files in the ZIP folder you publish to the Chrome Web Store.
+- If you’re using Sass for styling, you might need a preprocessor that converts them into a minified CSS file. In this case, you wouldn’t want to include the source Sass files in the ZIP folder you publish to the Chrome Web Store.
+- If you’re using React to develop the web application, you might want to include the appropriate build process that compiles it into the relevant output files. In this case, you wouldn’t want to have the React component files in the ZIP folder you publish to the Chrome Web Store.
+- If you’re writing unit tests, you wouldn’t want to include those files in the ZIP folder you publish to the Chrome Web Store.
 
 ![Source folder and distribution folder separated by a webpack process.](https://cdn-images-1.medium.com/max/800/1*QZq7Nz9Zy_3lUiQsDAEq7g.jpeg)
 
@@ -156,16 +147,10 @@ For our example, to use bookmarks, you’d have to add the following code snippe
 
 Based on what permissions you declare in this file, you’ll need to also write up its intent in the Chrome Web Store Developer Dashboard.
 
-***
+---
 
 ### Wait, it’s not only Chrome
 
 You can also publish your Chrome extension to Microsoft Edge. In most cases, you might not need to make any changes, but it’s a good idea to go through the [port your extension page](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/developer-guide/port-chrome-extension). The complete guide to publishing a Microsoft Edge extension can be found [here](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/publish/publish-extension).
 
 That’s it! Thanks for reading.
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [October 23, 2022](https://medium.com/p/ab3d1a4740f6).
-
-[Canonical link](https://medium.com/@clydedz/build-and-publish-a-chrome-extension-ab3d1a4740f6)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.

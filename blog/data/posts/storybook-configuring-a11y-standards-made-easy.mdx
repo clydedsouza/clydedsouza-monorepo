@@ -7,28 +7,21 @@ tags: ['one', 'two']
 readingList: []
 draft: false
 summary: 'A guide to setting and customising accessibility standards in Storybook'
-images: ['/static/images/blog/powerautomate.jpg']
+images: ['/static/images/blog/storybook.png']
 ---
 
 <InlineImage
-  src="/static/images/blog/powerautomate.jpg"
+  src="/static/images/blog/storybook.png"
   alt="Featured photo of a waterfall representing Microsoft Power Automate"
   caption={
     <>
-      Image source: <a href="https://unsplash.com/photos/waAAaeC9hns">Unsplash</a>
+      Image source: Made using Storybook logo and accessibility logo on a background from{' '}
+      <a href="https://unsplash.com/photos/macbook-air-beside-gold-colored-study-lamp-and-spiral-books-MNd-Rka1o0Q">
+        Unsplash
+      </a>
     </>
   }
 />
-
-***
-
-### Storybook: Configuring A11y Standards Made Easy
-
-#### A guide to setting and customising accessibility standards in Storybook
-
-![](https://cdn-images-1.medium.com/max/800/1*uQy-w2cKm8B3GZV3PO2bKQ.png)
-
-Image source: Made using Figma with [Storybook’s logo](https://github.com/storybookjs/brand) and [accessibility logo](https://commons.wikimedia.org/wiki/File:Accessibility.svg) on a [background photo from Unsplash](https://unsplash.com/photos/macbook-air-beside-gold-colored-study-lamp-and-spiral-books-MNd-Rka1o0Q)
 
 ### Installing Storybook
 
@@ -42,7 +35,7 @@ npx storybook@latest init
 
 In the interactive command-line installation, you’ll be prompted a few questions which is pretty self-explanatory, and depending on your project, you could select the appropriate options. Essentially, the Storybook installer is trying to figure out what kind of project you have and what Storybook builder it must install for it to work with your project.
 
-For the purpose of this demo, I’ve selected “*react*” when prompted with “*Please choose a project type from the following list*” and “*Webpack 5 (with React)*” when prompted with “*We were not able to detect the right builder for your project. Please select one.*”
+For the purpose of this demo, I’ve selected “_react_” when prompted with “_Please choose a project type from the following list_” and “_Webpack 5 (with React)_” when prompted with “_We were not able to detect the right builder for your project. Please select one._”
 
 Once the installation is complete, it should automatically open up your browser and run Storybook. Usually, it’s a six-thousand-something port number that hosts Storybook.
 
@@ -50,7 +43,7 @@ Once the installation is complete, it should automatically open up your browser 
 
 Image courtesy of the author
 
-You’ll also find some example *stories* in the boilerplate generated in your project by Storybook, which you’re more than welcome to have a look around. The code for these example stories will be in the **stories** folder.
+You’ll also find some example _stories_ in the boilerplate generated in your project by Storybook, which you’re more than welcome to have a look around. The code for these example stories will be in the **stories** folder.
 
 ### Adding accessibility (A11y)
 
@@ -70,7 +63,7 @@ Now if you run Storybook using the command `npm run storybook`, you should see t
 
 Image courtesy of the author
 
-As you can see in the screenshot above (and hopefully, if you’re following this article, on your Storybook page as well), one accessibility check has failed that states “*Elements must meet minimum colour contrast ratio thresholds*” and as you might note in the description it specifically mentions WCAG 2 AA standard. These same acronyms can also be found in the tags (those acronyms written in rectangle boxes) below.
+As you can see in the screenshot above (and hopefully, if you’re following this article, on your Storybook page as well), one accessibility check has failed that states “_Elements must meet minimum colour contrast ratio thresholds_” and as you might note in the description it specifically mentions WCAG 2 AA standard. These same acronyms can also be found in the tags (those acronyms written in rectangle boxes) below.
 
 But what if your project uses a newer standard than WCAG 2?
 
@@ -92,9 +85,9 @@ Alright, circling back to the million-dollar question — what if your proje
 
 Jump into the `preview.ts` (or `preview.js` file if using JavaScript) and;
 
-* Add the required import statements from `@storybook/addon-a11y` and `axe-core`.
-* Create a list of enabled tags as a constant which we’ll use in the code snippet. This will allow us to set the accessibility standards against which we want Storybook to check our stories. This list will depend on what your team/organisation has set out to follow.
-* Next up, we’re transforming those tags into a Rule array and then supplying that into an A11yParameters config object.
+- Add the required import statements from `@storybook/addon-a11y` and `axe-core`.
+- Create a list of enabled tags as a constant which we’ll use in the code snippet. This will allow us to set the accessibility standards against which we want Storybook to check our stories. This list will depend on what your team/organisation has set out to follow.
+- Next up, we’re transforming those tags into a Rule array and then supplying that into an A11yParameters config object.
 
 ```
 import type { A11yParameters } from "@storybook/addon-a11y";
@@ -136,9 +129,3 @@ Image courtesy of the author
 If you’d like to clone the code and play around with it yourself, here is the [GitHub repository](https://github.com/ClydeDz/storybook-a11y-demo).
 
 That’s it! Thanks for reading.
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [November 24, 2024](https://medium.com/p/5c2ec65aa993).
-
-[Canonical link](https://medium.com/@clydedz/storybook-configuring-a11y-standards-made-easy-5c2ec65aa993)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.

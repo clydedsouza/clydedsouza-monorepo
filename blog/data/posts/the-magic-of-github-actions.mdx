@@ -7,28 +7,21 @@ tags: ['one', 'two']
 readingList: []
 draft: false
 summary: 'Publishing the same code base to two different npm registries'
-images: ['/static/images/blog/powerautomate.jpg']
+images: ['/static/images/blog/railpaths.jpg']
 ---
 
 <InlineImage
-  src="/static/images/blog/powerautomate.jpg"
-  alt="Featured photo of a waterfall representing Microsoft Power Automate"
+  src="/static/images/blog/railpaths.jpg"
+  alt="Featured photo of a rail road"
   caption={
     <>
-      Image source: <a href="https://unsplash.com/photos/waAAaeC9hns">Unsplash</a>
+      Image source:{' '}
+      <a href="https://unsplash.com/photos/brown-metal-train-rail-near-rocky-mountain-during-daytime-nShLC-WruxQ">
+        Unsplash
+      </a>
     </>
   }
 />
-
-***
-
-### The Magic of GitHub Actions
-
-#### Publishing the same code base to two different npm registries
-
-![](https://cdn-images-1.medium.com/max/800/1*GKB7p9vJPZz395m2OPCrrA.jpeg)
-
-Image source: [Unsplash](https://unsplash.com/photos/brown-metal-train-rail-near-rocky-mountain-during-daytime-nShLC-WruxQ)
 
 ### Introduction
 
@@ -46,24 +39,24 @@ The steps outlined in the code snippet below are responsible for checking out th
 steps:
   - name: Checkout code
     uses: actions/checkout@v3
-  
+
   - name: Install Node.js
     uses: actions/setup-node@v1
     with:
       node-version: 20.x
-  
+
   - name: Install dependencies
     run: npm ci
-  
+
   - name: Run lint
     run: npm run lint
-  
+
   - name: Run prettier
     run: npm run pretty
-  
+
   - name: Run tests
     run: npm run test
-  
+
   - name: Build package
     run: npm run build
 ```
@@ -75,19 +68,19 @@ These set of steps should be pretty standard if you’re working on multiple Typ
 Once the build steps are done, we primarily add two more steps to publish the npm package — one to the npm js registry and the other to the GitHub registry — which is shown in the code snippet below. The benefit of using GitHub Actions is that you don’t have to write all the commands yourself. We can use Actions from the GitHub marketplace that have been developed and published by other developers from the community, simply supply a few parameters, and voila!
 
 ```
-steps:  
+steps:
   - name: Publish package to npm
     id: publish
     uses: JS-DevTools/npm-publish@v2
     with:
       token: ${{ secrets.NPM_TOKEN }}
-  
+
   - name: Publish package to GitHub
     id: publishgithub
     uses: JS-DevTools/npm-publish@v2
     with:
       token: ${{ secrets.GITHUB_TOKEN }}
-      registry: 'https://npm.pkg.github.com' 
+      registry: 'https://npm.pkg.github.com'
 ```
 
 The [JS-DevTools/npm-publish](https://github.com/marketplace/actions/npm-publish) Action encapsulates all the underlying commands to publish the package not only to the npm js registry but also to other third-party registries that implement the CommonJS Package Registry specification.
@@ -151,9 +144,3 @@ Image courtesy of the author
 The full source code for the project used in this article can be found [here on GitHub](https://github.com/ClydeDz/horoscope-npm). If you have any questions, please feel free to comment down below.
 
 That’s it! Thanks for reading.
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [June 10, 2024](https://medium.com/p/a47d93394045).
-
-[Canonical link](https://medium.com/@clydedz/the-magic-of-github-actions-a47d93394045)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.
