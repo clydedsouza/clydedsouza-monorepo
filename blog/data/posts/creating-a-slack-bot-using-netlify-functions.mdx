@@ -129,7 +129,7 @@ If you’d like to compare your code changes for this step, head over to [this d
 
 Let’s see what our hello world function looks like locally. Run the command `netlify build` to compile your code and generate JavaScript files in the `.netlify/functions` folder.
 
-Once the build successfully completes, run the command `netlify dev` to start a local development server. Netlify assigned port 8888 to my application, so I’ll head over to <http://localhost:8888/.netlify/functions/slackbot> to view the output. You should see `Hello, World` printed in the browser.
+Once the build successfully completes, run the command `netlify dev` to start a local development server. Netlify assigned port 8888 to my application, so I’ll head over to http://localhost:8888/.netlify/functions/slackbot to view the output. You should see `Hello, World` printed in the browser.
 
 ![Screenshot showing how to test a Netlify Function locally.](https://cdn-images-1.medium.com/max/800/1*Jt5Cdu1solN52zvq52IRsA.png)
 
@@ -165,7 +165,7 @@ If you haven’t already, sign up with Slack for free, create a workspace and cr
 
 #### Creating an app
 
-Head over to <https://api.slack.com/apps> and click on the **Create an App** button.
+Head over to https://api.slack.com/apps and click on the **Create an App** button.
 
 ![Screenshot showing how to create an app in Slack.](https://cdn-images-1.medium.com/max/800/1*k6e5VMKzAWi6LqzQBLrP-g.png)
 
@@ -260,7 +260,7 @@ If you’d like to compare your code changes for this step, head over to [this d
 Head over to the Slack API settings page for your app. Then, from the left sidebar menu, click on **Event Subscriptions**. All the different actions that can be performed in Slack are categorized into various events. Our app can subscribe to one or more of these events, so when they happen, Slack will send our app a POST request with the event details enabling our app to handle this.
 
 Since this is your first time here, we’ll need to enable events by flicking the toggle **On** and then in the **Request URL** field, enter the URL of your Netlify function. The URL of my Netlify function is \
-<https://netlify-functions-slack-demo.netlify.app/.netlify/functions/slackbot> which is what I’ve entered in the screenshot below.
+https://netlify-functions-slack-demo.netlify.app/.netlify/functions/slackbot which is what I’ve entered in the screenshot below.
 
 ![Screenshot showing how to enable event subscriptions and add the request URL.](https://cdn-images-1.medium.com/max/800/1*ZcsKdUfqvL4j39BMSiebfw.png)
 
