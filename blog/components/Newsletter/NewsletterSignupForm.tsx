@@ -34,7 +34,7 @@ export const NewsletterSignupForm = ({ isFullWidth = false }: { isFullWidth?: bo
   if (isSignedUp) {
     return (
       <div
-        className={`bg-primary-500 relative isolate overflow-hidden py-8 sm:py-16 ${isFullWidth ? 'px-8 md:px-8 lg:py-16' : 'my-4 min-h-[331px] px-4 lg:py-4'}`}
+        className={`bg-primary-500 relative isolate overflow-hidden py-8 sm:py-16 ${isFullWidth ? 'px-8 md:px-8 lg:py-16' : 'min-h-[331px] px-4'}`}
       >
         <h2
           className={`${isFullWidth ? 'text-2xl font-bold md:text-3xl lg:text-4xl' : 'text-xl font-semibold'} tracking-tight text-white dark:text-slate-50`}
@@ -52,7 +52,7 @@ export const NewsletterSignupForm = ({ isFullWidth = false }: { isFullWidth?: bo
 
   return (
     <div
-      className={`bg-primary-500 relative isolate overflow-hidden py-8 sm:py-16 ${isFullWidth ? 'px-2 sm:px-6 lg:py-10' : 'my-5 px-4 lg:py-4'}`}
+      className={`bg-primary-500 relative isolate overflow-hidden py-8 sm:py-16 ${isFullWidth ? 'px-2 sm:px-6 lg:py-10' : 'px-4 lg:py-4'}`}
     >
       <div className="mx-auto max-w-7xl">
         <h2
