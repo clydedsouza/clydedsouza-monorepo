@@ -21,7 +21,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
           <dd>
             <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-y-8 xl:space-x-0">
               {authorDetails.map((author) => (
-                <>
+                <div key={author.name}>
                   <li className="mb-4 flex items-center space-x-2" key={author.name}>
                     {author.avatar && (
                       <Image
@@ -54,7 +54,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
                     <dt className="sr-only">Author bio</dt>
                     <dd className="text-sm text-gray-600 dark:text-gray-100">{author.bio}</dd>
                   </li>
-                  <li>
+                  <li key={'kofiauthor'}>
                     <dt className="sr-only">Kofi support button</dt>
                     <a href={author.kofi} target="_blank">
                       <img
@@ -66,7 +66,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
                       />
                     </a>
                   </li>
-                </>
+                </div>
               ))}
             </ul>
           </dd>

@@ -13,7 +13,15 @@ export const PostItemsNoLimit = ({ posts }: { posts: CoreContent<Blog>[] }) => {
           <div key={post.slug} className={'flex flex-col overflow-hidden'}>
             <Link className="hover:text-brand" href={`/posts/${post.slug}`}>
               <div className="relative aspect-[16/9] w-full">
-                <Image fill objectFit="cover" alt={''} src={post.images[0]} priority={true} />
+                <Image
+                  fill
+                  objectFit="cover"
+                  placeholder="blur"
+                  data-loaded="false"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mO8VQ8AAjkBW2DmN5EAAAAASUVORK5CYII="
+                  alt={''}
+                  src={post.images[0]}
+                />
               </div>
               <div className="flex flex-1 flex-col py-2">
                 <h3 className="text-2xl font-bold dark:text-slate-50">{post.title}</h3>

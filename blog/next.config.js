@@ -9,7 +9,7 @@ const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.youtube.com gist.github.com giscus.app analytics.umami.is https://pagead2.googlesyndication.com https://www.googletagservices.com https://googleads.g.doubleclick.net https://ep2.adtrafficquality.google; 
   style-src 'self' 'unsafe-inline' https://www.youtube.com gist.github.com https://fonts.googleapis.com https://pagead2.googlesyndication.com;
-  img-src * blob: data: https://pagead2.googlesyndication.com  https://googleads.g.doubleclick.net;
+  img-src * blob: data: https://pagead2.googlesyndication.com  https://googleads.g.doubleclick.net";
   media-src *.s3.amazonaws.com;
   connect-src *;
   font-src 'self';
@@ -81,6 +81,10 @@ module.exports = () => {
         {
           protocol: 'https',
           hostname: 'cdn-images-1.medium.com',
+        },
+        {
+          protocol: 'https',
+          hostname: 'files.clydedsouza.net',
         },
       ],
       unoptimized,

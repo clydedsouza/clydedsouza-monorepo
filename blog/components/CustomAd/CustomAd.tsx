@@ -16,7 +16,7 @@ const CUSTOM_ADS: ICustomAd = {
     alt: 'Mama, tell me a story',
   },
   MAMABOOKPAPERBACK: {
-    image: '/static/images/mtmas-paperback.jpg',
+    image: 'https://files.clydedsouza.net/portfolio/dotnetconf.png',
     url: 'https://mamatellmeastory.clydedsouza.net/',
     alt: 'Mama, tell me a story',
   },
@@ -46,6 +46,7 @@ export const CustomAd = ({ isRandom = true, adKey = 'MAMABOOKKINDLE' }: ICustomA
             alt={''}
             width={302}
             height={302}
+            blurDataURL=""
             className="mx-auto my-0 mt-0 mb-0 aspect-1/1 object-cover py-0"
           />
           <div className="mx-auto px-0 py-1 text-right text-xs font-medium text-black/50 no-underline">
