@@ -11,9 +11,7 @@ import Link from 'next/link'
 import { LayoutProps } from '../types/types'
 
 export const PostAside = ({ content, authorDetails, next, prev, children }: LayoutProps) => {
-  const { tags, path, readingList, title, summary } = content
-
-  const basePath = path.split('/')[0]
+  const { tags, readingList, title, summary } = content
 
   return (
     <aside>
@@ -76,13 +74,15 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
         <NewsletterSignupForm />
       </div>
 
-      <div className="hidden xl:block">
+      <div className="mt-6 hidden xl:block">
         <SocialShare title={title} summary={summary} />
       </div>
 
-      <VerticalAd adSlot="xyz" />
+      <div className="grid grid-cols-1 items-start">
+        <VerticalAd adSlot="xyz" />
+      </div>
 
-      <div className="my-6 grid grid-cols-2 items-start gap-x-8 xl:grid-cols-1 xl:gap-y-6">
+      <div className="my-6 grid grid-cols-2 items-start gap-x-8 xl:grid-cols-1 xl:gap-y-4">
         <div className="text-sm font-medium">
           {tags && tags.length > 0 && (
             <div>
@@ -121,7 +121,9 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
             <h2 className="mb-2 block text-xs font-bold tracking-wide text-gray-800 uppercase dark:text-gray-400">
               Next reads
             </h2>
-            <div className="grid grid-cols-2 items-start gap-x-8 xl:grid-cols-1 xl:gap-y-4">
+            <div
+              className={`grid ${(next && !prev) || (!next && prev) ? 'grid-cols-1' : 'grid-cols-2'} items-start gap-x-8 xl:grid-cols-1 xl:gap-y-4`}
+            >
               {next && next.path && (
                 <Link href={`/${next.path}`}>
                   <RecommendedPost {...next} />

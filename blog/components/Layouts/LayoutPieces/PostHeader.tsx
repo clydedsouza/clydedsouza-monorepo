@@ -1,3 +1,5 @@
+'use client'
+import { SocialShare } from '@/components/SocialShare/SocialShare'
 import siteMetadata from '@/data/siteMetadata'
 import { Blog } from 'contentlayer/generated'
 import { CoreContent } from 'pliny/utils/contentlayer'
@@ -30,6 +32,9 @@ export const PostHeader = ({ content }: { content: CoreContent<Blog> }) => {
           <h2 className="text-xl leading-10 font-medium tracking-tight text-slate-500 sm:text-2xl md:text-2xl dark:text-gray-100">
             {subtitle}
           </h2>
+        </div>
+        <div className="block md:hidden">
+          <SocialShare title={title} summary={subtitle} alignCenter />
         </div>
       </div>
     </header>

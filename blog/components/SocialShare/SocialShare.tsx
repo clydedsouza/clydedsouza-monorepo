@@ -16,7 +16,15 @@ import {
 } from 'next-share'
 import { useEffect, useState } from 'react'
 
-export const SocialShare = ({ title, summary }: { title: string; summary?: string }) => {
+export const SocialShare = ({
+  title,
+  summary,
+  alignCenter = false,
+}: {
+  title: string
+  summary?: string
+  alignCenter?: boolean
+}) => {
   const [pageUrl, setPageUrl] = useState('')
 
   useEffect(() => {
@@ -24,11 +32,11 @@ export const SocialShare = ({ title, summary }: { title: string; summary?: strin
   }, [window.location.href])
 
   return (
-    <div className="my-6">
+    <div className="my-2">
       <h2 className="mb-2 text-xs font-bold tracking-wide text-gray-800 uppercase dark:text-gray-400">
         Share this page
       </h2>
-      <div className="flex gap-1">
+      <div className={`flex ${alignCenter ? 'justify-center' : 'justify-left'} gap-1`}>
         <EmailShareButton url={pageUrl} subject={title} body={summary}>
           <EmailIcon size={32} round />
         </EmailShareButton>

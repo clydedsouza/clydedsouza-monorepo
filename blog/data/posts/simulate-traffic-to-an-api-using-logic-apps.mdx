@@ -7,28 +7,18 @@ tags: ['one', 'two']
 readingList: []
 draft: false
 summary: 'When your demo application has no real users'
-images: ['/static/images/blog/powerautomate.jpg']
+images: ['/static/images/blog/roads.jpg']
 ---
 
 <InlineImage
-  src="/static/images/blog/powerautomate.jpg"
-  alt="Featured photo of a waterfall representing Microsoft Power Automate"
+  src="/static/images/blog/roads.jpg"
+  alt="Cover image for this article show an aerial view of an intersection with traffic on road."
   caption={
     <>
-      Image source: <a href="https://unsplash.com/photos/waAAaeC9hns">Unsplash</a>
+      Image source: <a href="https://unsplash.com/photos/7nrsVjvALnA">Unsplash</a>
     </>
   }
 />
-
-***
-
-### Simulate Traffic to an API Using Logic Apps
-
-#### When your demo application has no real users
-
-![Cover image for this article show an aerial view of an intersection with traffic on road.](https://cdn-images-1.medium.com/max/2560/1*qSjvoMLKAfQdfspUezLX0A.jpeg)
-
-[Image source: Unsplash](https://unsplash.com/photos/7nrsVjvALnA)
 
 ### Introduction
 
@@ -50,10 +40,10 @@ I now needed to create sample traffic to each API endpoint in my demo .NET API,
 
 Pardon the interruption. Before we jump into how Logic Apps was used to solve the aforementioned problem, if you want to follow along, then here are a couple of things you’d need to have ready.
 
-* We’ll be using [Mocki](https://mocki.io/fake-json-api), a fake API tool, in this example. I’d highly recommend using this tool if you’re following along since the setup time is absolutely minimum. For the purpose of this article, I only intend to show the workings of a Logic App, so I don’t really need the actual Application Insights instance and the demo .NET API. Having said that, if you already have a sample API created and hosted in a publicly accessible location, feel free to use a couple of API endpoints from that application.
-* Since we’re using Azure Logic Apps, if you don’t already have one, please create a [free Azure account](https://azure.microsoft.com/).
+- We’ll be using [Mocki](https://mocki.io/fake-json-api), a fake API tool, in this example. I’d highly recommend using this tool if you’re following along since the setup time is absolutely minimum. For the purpose of this article, I only intend to show the workings of a Logic App, so I don’t really need the actual Application Insights instance and the demo .NET API. Having said that, if you already have a sample API created and hosted in a publicly accessible location, feel free to use a couple of API endpoints from that application.
+- Since we’re using Azure Logic Apps, if you don’t already have one, please create a [free Azure account](https://azure.microsoft.com/).
 
-***
+---
 
 ### Implementation steps
 
@@ -81,7 +71,7 @@ Give the Logic App a suitable name, choose a region, and for now disable log ana
 
 Azure should create a Logic App in the background and after a few minutes, you should be able to click on the resource and navigate into it. Since this is the first time you’re visiting this resource and nothing is configured yet, Azure will straightaway show you the Logic Apps **Designer** view to get you started.
 
-As outlined earlier, we want to automatically have requests fire to our API. This means that our Logic App will need to be *triggered* automatically and on a schedule. The trigger to select, in this case, would be **Recurrence**.
+As outlined earlier, we want to automatically have requests fire to our API. This means that our Logic App will need to be _triggered_ automatically and on a schedule. The trigger to select, in this case, would be **Recurrence**.
 
 ![Image showing what trigger to select for this Logic App.](https://cdn-images-1.medium.com/max/800/1*Kd1dZM9ZIUR1HR7IypGG2g.png)
 
@@ -165,7 +155,7 @@ Click on the **Overview** menu item from the left panel and then click on **Runs
 
 Image courtesy of the author
 
-***
+---
 
 ### What will your team appreciate?
 
@@ -220,9 +210,3 @@ Image courtesy of the author
 Save and run the trigger to test — everything should run as-is. If you click on **Code view**, you should be able to see how the parameter is configured (lines 11–16 in the code snippet below) and how it is used (line 5).
 
 That’s it. Thanks for reading!
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [October 11, 2021](https://medium.com/p/9842ac20fb78).
-
-[Canonical link](https://medium.com/@clydedz/simulate-traffic-to-an-api-using-logic-apps-9842ac20fb78)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.

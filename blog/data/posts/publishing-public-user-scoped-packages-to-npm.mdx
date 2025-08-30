@@ -7,28 +7,19 @@ tags: ['one', 'two']
 readingList: []
 draft: false
 summary: 'We’ll look at three options of which two works'
-images: ['/static/images/blog/powerautomate.jpg']
+images: ['/static/images/blog/telescope.jpg']
 ---
 
 <InlineImage
-  src="/static/images/blog/powerautomate.jpg"
-  alt="Featured photo of a waterfall representing Microsoft Power Automate"
+  src="/static/images/blog/telescope.jpg"
+  alt="Silhouette of a lady looking into a telescope"
   caption={
     <>
-      Image source: <a href="https://unsplash.com/photos/waAAaeC9hns">Unsplash</a>
+      Image source:{' '}
+      <a href="https://unsplash.com/photos/woman-near-tower-viewer-ovz3FAcxL7g">Unsplash</a>
     </>
   }
 />
-
-***
-
-### Publishing Public User-Scoped Packages to NPM
-
-#### We’ll look at three options of which two works
-
-![Silhouette of a lady looking into a telescope](https://cdn-images-1.medium.com/max/800/1*p6TCd7SbhR0Uim3-wRsSrg.jpeg)
-
-Image source: [Unsplash](https://unsplash.com/photos/woman-near-tower-viewer-ovz3FAcxL7g)
 
 ### Introduction
 
@@ -70,7 +61,7 @@ Image courtesy of the author
 This can be fixed by adding a line in the .npmignore file as shown below.
 
 ```
-.github/ 
+.github/
 ```
 
 We’re now ready to publish the package and we’ll use the command `npm publish` to do so. The output in the command line will contain the files that are being packaged and some metadata of the package that’s published. Unfortunately, we’re receiving an error message instead of a success. As captured in the screenshot below, the error message states “402 Payment Required” and that “you must sign up for private packages.”
@@ -86,7 +77,7 @@ To resolve this, let’s try explicitly setting the `private` flag to false to l
 ```
 {
   "name": "@clydedsouza/create-chrome-extension",
-  "version": "0.0.1", 
+  "version": "0.0.1",
   "private": false
 }
 ```
@@ -124,9 +115,3 @@ npm publish --access public
 The source code for the npm package used in this article can be found [here on GitHub](https://github.com/ClydeDz/create-chrome-extension-npm). If you have any questions, please feel free to comment down below.
 
 That’s it! Thanks for reading.
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [February 19, 2024](https://medium.com/p/a3dc74399457).
-
-[Canonical link](https://medium.com/@clydedz/publishing-public-user-scoped-packages-to-npm-a3dc74399457)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.
