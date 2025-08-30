@@ -1,14 +1,14 @@
 {
+  "Software Engineering": 3,
   "Artificial Intelligence": 1,
-  "Kiwi Experience": 2,
+  "Short stories": 3,
+  "Chrome Extensions": 2,
+  "Publishing a book": 5,
+  "Cloudflare": 4,
+  "Netlify": 2,
   "GitHub Actions": 8,
   "NPM library": 4,
-  "Software Engineering": 3,
-  "Publishing a book": 5,
   "TeamCity": 2,
-  "Chrome Extensions": 2,
-  "Cloudflare": 4,
-  "Unconditional love": 2,
-  "Short stories": 3,
-  "Netlify": 2
+  "Kiwi Experience": 2,
+  "Unconditional love": 2
 }
