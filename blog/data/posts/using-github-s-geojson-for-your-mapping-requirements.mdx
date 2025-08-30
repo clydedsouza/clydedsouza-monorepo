@@ -30,11 +30,11 @@ Before we get into the details of GeoJSON, I came across [this online tool](http
 
 As evident in the screenshot below, it not only allows you to plot a feature on a map but you can also configure the properties and metadata for the feature. Each feature has a set of distinct style properties that affect how the feature is displayed on the map. For example, a polygon area might have a fill colour but a point may not have the same.
 
-![An image of the properties tab selected on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*7NcXrEpKJlbXeatp9PfG_g.png)
+![An image of the properties tab selected on a GeoJSON rendered map.](/static/images/blog/contents/1_7NcXrEpKJlbXeatp9PfG_g.png)
 
 Clicking on the **Info** tab from the pop up will give you the area of the selected feature, which is pretty useful.
 
-![An image of the info tab selected on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*CXsAfNnumvIbrBTxFJwELg.png)
+![An image of the info tab selected on a GeoJSON rendered map.](/static/images/blog/contents/1_CXsAfNnumvIbrBTxFJwELg.png)
 
 ### Features
 
@@ -44,13 +44,13 @@ Plotting markers on the map is super easy. In the geometry block, just add the c
 
 The snippet above will produce a result like the following screenshot.
 
-![An image of a marker on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*SaoWrfwUsmhnIdwJ_8v_YA.png)
+![An image of a marker on a GeoJSON rendered map.](/static/images/blog/contents/1_SaoWrfwUsmhnIdwJ_8v_YA.png)
 
 You can use the properties block to specify some metadata for that marker. In the snippet below, the properties with the prefix `marker-` are Point specific. Depending on what type of feature you decide to plot on the map, you’ll have access to different built-in properties.
 
 Adding the various properties for this point not only gives it a different style but also adds metadata that will be displayed when you click on the point.
 
-![An image of a marker rendered on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*w6ZdnnTjfS6QzbeVvwYvtg.png)
+![An image of a marker rendered on a GeoJSON rendered map.](/static/images/blog/contents/1_w6ZdnnTjfS6QzbeVvwYvtg.png)
 
 #### Multiple points
 
@@ -58,7 +58,7 @@ If you’d like to display multiple points on a map, just duplicate the contents
 
 The snippet above will produce the following result.
 
-![An image of multiple points rendered on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*EKhFsrUk_BzKF_teH1NteA.png)
+![An image of multiple points rendered on a GeoJSON rendered map.](/static/images/blog/contents/1_EKhFsrUk_BzKF_teH1NteA.png)
 
 #### Line
 
@@ -66,7 +66,7 @@ For a line, you’ll need to supply two sets of coordinates and GitHub will conn
 
 The snippet above will produce the following output.
 
-![An image of a line rendered on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*LtMKnDmWqpIjD1uc9bBV8A.png)
+![An image of a line rendered on a GeoJSON rendered map.](/static/images/blog/contents/1_LtMKnDmWqpIjD1uc9bBV8A.png)
 
 #### Rectangle
 
@@ -74,7 +74,7 @@ To plot a rectangle, you’ll need to supply four sets of coordinates. Note, tha
 
 The above snippet produces the following result.
 
-![An image of a rectangle rendered on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*DJmxKBBKaG89KYfbaZ7Wpw.png)
+![An image of a rectangle rendered on a GeoJSON rendered map.](/static/images/blog/contents/1_DJmxKBBKaG89KYfbaZ7Wpw.png)
 
 #### Polygon
 
@@ -82,7 +82,7 @@ For a polygon, the code snippet looks very similar to that of a rectangle. The r
 
 The snippet above produces the following output.
 
-![An image of an polygon rendered on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*WCfesVthesBPjjgm0Z05Ag.png)
+![An image of an polygon rendered on a GeoJSON rendered map.](/static/images/blog/contents/1_WCfesVthesBPjjgm0Z05Ag.png)
 
 #### Rendering all features
 
@@ -90,7 +90,7 @@ You are not limited to rendering only a single type of feature. You can have a s
 
 This snippet produces the following output.
 
-![An image of all objects rendered on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*lP0a1rbXFsNQacHB_lKv7A.png)
+![An image of all objects rendered on a GeoJSON rendered map.](/static/images/blog/contents/1_lP0a1rbXFsNQacHB_lKv7A.png)
 
 ### Embedding the map on your website
 
@@ -114,7 +114,7 @@ Here is a [JSFiddle](https://jsfiddle.net/e85hanz4/) to demonstrate embedding a 
 
 The Ministry of Health New Zealand is using GitHub’s GeoJSON file to show all of the locations of interest on their [website](https://www.health.govt.nz/covid-19-novel-coronavirus/covid-19-health-advice-public/covid-19-information-close-contacts/covid-19-contact-tracing-locations-interest/covid-19-contact-tracing-locations-interest-map). Any updates to the underlying GeoJSON file will reflect immediately on the next page load. The GitHub repository that contains this information is located [here](https://github.com/minhealthnz/nz-covid-data).
 
-![An image of Ministry of Health NZ’s locations of interest rendered on a GeoJSON rendered map.](https://cdn-images-1.medium.com/max/800/1*cpVcQ0QQOy89lmuSS_t31A.png)
+![An image of Ministry of Health NZ’s locations of interest rendered on a GeoJSON rendered map.](/static/images/blog/contents/1_cpVcQ0QQOy89lmuSS_t31A.png)
 
 [Source](https://www.health.govt.nz/covid-19-novel-coronavirus/covid-19-health-advice-public/covid-19-information-close-contacts/covid-19-contact-tracing-locations-interest/covid-19-contact-tracing-locations-interest-map)
 

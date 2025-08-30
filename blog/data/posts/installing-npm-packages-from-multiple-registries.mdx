@@ -46,13 +46,13 @@ npm install package-a typescript
 
 Instead of downloading the packages from the respective sources, it has given back an error. It cannot find typescript in the super-duper-packages-horse npm feed.
 
-![](https://cdn-images-1.medium.com/max/800/1*ZyuTksakWnh9tSrI45AuWw.png)
+![](/static/images/blog/contents/1_ZyuTksakWnh9tSrI45AuWw.png)
 
 Image courtesy of the author
 
 This is expected because super-duper-packages-horse is my custom npm feed and I don’t have a copy of the typescript package in there. You would’ve thought, it should’ve picked up package-a from my custom feed and typescript from npm js, but it didn’t. How to solve this?
 
-![](https://cdn-images-1.medium.com/max/800/1*kaBNIJrVWzQR8n1W5rc_Lg.png)
+![](/static/images/blog/contents/1_kaBNIJrVWzQR8n1W5rc_Lg.png)
 
 Image courtesy of the author
 
@@ -73,13 +73,13 @@ registry=https://registry.npmjs.org/
 
 I’m back at the terminal window of my consumer project trying to install the dependencies. And while this time it hasn’t complained about typescript not being there, it is complaining about package-b, which is a dependency of package-a. Interesting!
 
-![](https://cdn-images-1.medium.com/max/800/1*Qzg6sColo2zdVtGwK4W9VA.png)
+![](/static/images/blog/contents/1_Qzg6sColo2zdVtGwK4W9VA.png)
 
 Image courtesy of the author
 
 So far we’ve only managed to fix the directly dependent package-a, but since the indirectly dependent package-b is also fetched from the custom feed, we’d also need to republish package-b as a scoped package and then import that into package-a and finally, import the updated version of package-a into our consumer.
 
-![](https://cdn-images-1.medium.com/max/800/1*klFf6h3hniyef0p4vMAb-Q.png)
+![](/static/images/blog/contents/1_klFf6h3hniyef0p4vMAb-Q.png)
 
 Image courtesy of the author
 
@@ -91,7 +91,7 @@ In summary, when we associate a scope with the registry, the packages that are i
 
 Now, if you try npm install in the consumer, it should work without any issues. If you clone the repository onto a new device and run npm install, it should also work without any issues.
 
-![](https://cdn-images-1.medium.com/max/800/1*LzPIk2bMm6jo14g2aG8WaQ.png)
+![](/static/images/blog/contents/1_LzPIk2bMm6jo14g2aG8WaQ.png)
 
 Image courtesy of the author
 
@@ -133,7 +133,7 @@ I’d recommend using option 1 because it results in a better developer experien
 
 What’s interesting is that if you go into the package-lock.json file, you’ll notice that the registry URL is stored against the individual npm package. This enables a command like npm install or npm ci to work without running into any issues when running a fresh installation because it first reads the package-lock.json file and thus knows where to fetch the packages from.
 
-![](https://cdn-images-1.medium.com/max/800/1*ebpOOtYTF3kYcxQNGTXJmA.png)
+![](/static/images/blog/contents/1_ebpOOtYTF3kYcxQNGTXJmA.png)
 
 Image courtesy of the author
 

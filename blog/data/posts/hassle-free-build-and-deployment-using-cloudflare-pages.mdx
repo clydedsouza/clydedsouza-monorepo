@@ -51,27 +51,27 @@ If you’re downloading a copy of the code, run the command `npm install` to ins
 
 Let’s start by heading over to [pages.cloudflare.com](https://pages.cloudflare.com/) and click on the **Get Started** button. You’ll need to sign up with Cloudflare if you don’t already have an account.
 
-![Screenshot of the Cloudflare Pages website.](https://cdn-images-1.medium.com/max/800/1*v-RgQYtI3D6Ct8Xt6iqyIg.png)
+![Screenshot of the Cloudflare Pages website.](/static/images/blog/contents/1_v-RgQYtI3D6Ct8Xt6iqyIg.png)
 
 Once you’re redirected to the dashboard, find and click on **Pages** which should be located at the bottom-right of the screen.
 
-![Screenshot of the Cloudflare dashboard and an arrow pointing towards Cloudflare Pages option.](https://cdn-images-1.medium.com/max/800/1*mjCPQBaPpRYjOQRL4njKHg.png)
+![Screenshot of the Cloudflare dashboard and an arrow pointing towards Cloudflare Pages option.](/static/images/blog/contents/1_mjCPQBaPpRYjOQRL4njKHg.png)
 
 We’ll now create a new project by clicking on the **Create a project** button. Think of this as a virtual container that will host your website settings.
 
-![An arrow pointing to the Create a project button in Cloudflare Pages.](https://cdn-images-1.medium.com/max/800/1*Ws6a7o4ql6sXjI1HXowUCg.png)
+![An arrow pointing to the Create a project button in Cloudflare Pages.](/static/images/blog/contents/1_Ws6a7o4ql6sXjI1HXowUCg.png)
 
 Let’s now connect our GitHub repository with this project. Click on the **Connect GitHub account** button.
 
-![An arrow pointing to the Connect Github account button in the Cloudflare Pages portal.](https://cdn-images-1.medium.com/max/800/1*qp0rHoiidlz-eLt2IQIy2A.png)
+![An arrow pointing to the Connect Github account button in the Cloudflare Pages portal.](/static/images/blog/contents/1_qp0rHoiidlz-eLt2IQIy2A.png)
 
 This will redirect you to a page where you’ll be able to select the repositories and grant the required permissions. I’ve specifically selected my demo GitHub repository since I only want to limit the scope of these permissions to one repository. Next, click on the **Install & Authorize** button.
 
-![An image showing how to install and authorize Cloudflare Pages with GitHub.](https://cdn-images-1.medium.com/max/800/1*Ajn_UWa6N7AHL3YNa9iuBw.png)
+![An image showing how to install and authorize Cloudflare Pages with GitHub.](/static/images/blog/contents/1_Ajn_UWa6N7AHL3YNa9iuBw.png)
 
 Now, you’ll be redirected back to Cloudflare and see your GitHub username in the **GitHub account** field. If you’ve selected multiple GitHub repositories during the authorization process earlier, you’ll see them in this list here. From this list, you’ll need to select a repository and then click on the **Begin setup** button.
 
-![An image showing what to click when creating a new project in Cloudflare Pages and connecting with GitHub.](https://cdn-images-1.medium.com/max/800/1*cpuiRQL-jRoiiQ-0aNG9cw.png)
+![An image showing what to click when creating a new project in Cloudflare Pages and connecting with GitHub.](/static/images/blog/contents/1_cpuiRQL-jRoiiQ-0aNG9cw.png)
 
 Awesome, we’ve now connected our GitHub repository with Cloudflare Pages — now let’s set things up.
 
@@ -81,31 +81,31 @@ We now have to set up which branch we need to build, what type of application we
 
 The value in the **Project name** field is what will appear in the URL of your website, that is if you’re not using a custom domain. The **Production branch** is what Cloudflare Pages will watch for changes and deploy to the production environment. It defaults to the main branch but you can choose any other branch if you like.
 
-![An images showing the project configuration in Cloudflare Pages.](https://cdn-images-1.medium.com/max/800/1*BTSluBDTBPRvA0H_bb12Bg.png)
+![An images showing the project configuration in Cloudflare Pages.](/static/images/blog/contents/1_BTSluBDTBPRvA0H_bb12Bg.png)
 
 Under the **Build settings** section, we’ll start by selecting the **Framework preset**. Think of this as a pre-built build setting that instructs Cloudflare Pages how to process your website. We’ll select the **Create React App** option since that’s the boilerplate app we used to create the demo app, but if you’re using a Jekyll site, for example, you’d need to select that option instead.
 
 After you’ve made that selection, you’ll notice that the **Build command** and **Build output directory** fields will get populated with the appropriate settings.
 
-![An image of the build settings in Cloudflare Pages.](https://cdn-images-1.medium.com/max/800/1*9KMY5ca6BGr5RlvPmLayHg.png)
+![An image of the build settings in Cloudflare Pages.](/static/images/blog/contents/1_9KMY5ca6BGr5RlvPmLayHg.png)
 
 If your source code is in a subdirectory, you would need to set that under the **Root directory** section.
 
 The **Environment variables** section allows you to add environment variables. We’ll take a look at this later in this document so we’ll leave this blank for now.
 
-![An image showing how to add environment variables in Cloudflare Pages.](https://cdn-images-1.medium.com/max/800/1*26-AdDaddOz5Zok-XbF7YQ.png)
+![An image showing how to add environment variables in Cloudflare Pages.](/static/images/blog/contents/1_26-AdDaddOz5Zok-XbF7YQ.png)
 
 Finally, click on the **Save and Deploy** button. Immediately, you’ll see a screen informing you about the deployment details like this screenshot below:
 
-![An image show the deployment details in Cloudflare Pages.](https://cdn-images-1.medium.com/max/800/1*n_pJAFJbSY8P6Gml9C-wVQ.png)
+![An image show the deployment details in Cloudflare Pages.](/static/images/blog/contents/1_n_pJAFJbSY8P6Gml9C-wVQ.png)
 
 Once the deployment is completed, you’ll get a URL that’s unique to that specific deployment.
 
-![An showing the deployment details in Cloudflare Pages after a succesfull deployment.](https://cdn-images-1.medium.com/max/800/1*FuojzCXK8IelA4XbQSQE0w.png)
+![An showing the deployment details in Cloudflare Pages after a succesfull deployment.](/static/images/blog/contents/1_FuojzCXK8IelA4XbQSQE0w.png)
 
 If you click on that link, you’ll see the React app deployed and live on the internet!
 
-![A screenshot of the React app.](https://cdn-images-1.medium.com/max/800/1*AqX3b0IrdBLhKpoAZEbbDw.png)
+![A screenshot of the React app.](/static/images/blog/contents/1_AqX3b0IrdBLhKpoAZEbbDw.png)
 
 If you remove the random number from the beginning and retain the rest, like this: [cloudflare-pages-demo.pages.dev](https://cloudflare-pages-demo.pages.dev/), for example, that’ll be your permanent URL.
 
@@ -113,19 +113,19 @@ If you remove the random number from the beginning and retain the rest, like thi
 
 Let’s [update the text](https://github.com/ClydeDz/cloudflare-pages-demo/commit/c3e302e2de44ff99c02f7b478084d82ff9f984b9) to “Update # 2” and push the changes to the main branch in GitHub. This will automatically trigger a Cloudflare Pages build and if you view the [commit history](https://github.com/ClydeDz/cloudflare-pages-demo/commits/main), your latest commit will have an orange dot and will look something like this:
 
-![An showing the Cloudflare Pages build and deploy notification in GitHub.](https://cdn-images-1.medium.com/max/800/1*U8xPeHNX7FT3fCoxhQYG_w.png)
+![An showing the Cloudflare Pages build and deploy notification in GitHub.](/static/images/blog/contents/1_U8xPeHNX7FT3fCoxhQYG_w.png)
 
 Once the build is successful, that orange dot will change to a green tick indicating everything went well and it will look something like this:
 
-![An showing the Cloudflare Pages build and deploy notification in GitHub.](https://cdn-images-1.medium.com/max/800/1*ZO08AF2k6vKgv_szrW7OXA.png)
+![An showing the Cloudflare Pages build and deploy notification in GitHub.](/static/images/blog/contents/1_ZO08AF2k6vKgv_szrW7OXA.png)
 
 Now, let’s head over to the permanent URL of the app [cloudflare-pages-demo.pages.dev](https://cloudflare-pages-demo.pages.dev/) and confirm that we’re seeing the updated text.
 
-![A screenshot of the demo React app.](https://cdn-images-1.medium.com/max/800/1*D4LsiiyKWZkZeBUpuDYT9w.png)
+![A screenshot of the demo React app.](/static/images/blog/contents/1_D4LsiiyKWZkZeBUpuDYT9w.png)
 
 If you head over to the **Deployments** tab in Cloudflare Pages, you should see a history of all deployments along with their URL’s, if you need to revisit them.
 
-![An image showing a list of deployments in Cloudflare Pages.](https://cdn-images-1.medium.com/max/800/1*rWtBSR-oPOjdiB52VhiF2A.png)
+![An image showing a list of deployments in Cloudflare Pages.](/static/images/blog/contents/1_rWtBSR-oPOjdiB52VhiF2A.png)
 
 ### Branch deployments
 
@@ -133,11 +133,11 @@ Cloudflare Pages support infinite staging deployments. This means that Cloudflar
 
 Let’s create a new branch. Feel free to name it whatever you like — I’ve called mine update-3.
 
-![An image showing the creation of a new branch in GitHub using the GitHub Desktop app.](https://cdn-images-1.medium.com/max/800/1*Tt3mDlDm0mbykVriBMyK9w.png)
+![An image showing the creation of a new branch in GitHub using the GitHub Desktop app.](/static/images/blog/contents/1_Tt3mDlDm0mbykVriBMyK9w.png)
 
 Next, we’ll update the text to “Update # 3” and publish the branch to GitHub. This will trigger a Cloudflare Pages build and deployment. If you head over to the **Deployments** tab, you should a new entry in the table. This time, the **Environment** is set t&#x6F;**&#x20;Preview** and the **Source** has picked up the new branch name.
 
-![An image showing a list of all deployments in Cloudflare Pages.](https://cdn-images-1.medium.com/max/800/1*j31MK9hkoYD-Z7ynnKkC5A.png)
+![An image showing a list of all deployments in Cloudflare Pages.](/static/images/blog/contents/1_j31MK9hkoYD-Z7ynnKkC5A.png)
 
 Once the deployment is complete, head over to that URL and confirm that the content has been updated. Now, if you head over to the permanent URL, you can verify that it doesn’t show the latest text update, as expected.
 
@@ -145,15 +145,15 @@ Once the deployment is complete, head over to that URL and confirm that the cont
 
 I’ve gone ahead and updated the text to “Update # 3.1” and have pushed the code changes to branch update-3. I’ve then opened a [pull request](https://github.com/ClydeDz/cloudflare-pages-demo/pull/1) in GitHub to merge my changes from update-3 to the main branch.
 
-![An image showing the pull request details in GitHub.](https://cdn-images-1.medium.com/max/800/1*g_RGE8TnZe4xiMUQFPI1QA.png)
+![An image showing the pull request details in GitHub.](/static/images/blog/contents/1_g_RGE8TnZe4xiMUQFPI1QA.png)
 
 Once I open this pull request, the Cloudflare Pages bot automatically adds a comment with the build and deployment status just like we saw previously.
 
-![An image showing the Cloudflare Pages comment in the pull request.](https://cdn-images-1.medium.com/max/800/1*cWiZe2vf3oMrTuUNaDOwSQ.png)
+![An image showing the Cloudflare Pages comment in the pull request.](/static/images/blog/contents/1_cWiZe2vf3oMrTuUNaDOwSQ.png)
 
 Once complete, it updates the comment to mark the status as successful and adds the preview URL so we can test our changes manually before merging code.
 
-![An image showing the Cloudflare Pages comment in the pull request.](https://cdn-images-1.medium.com/max/800/1*JvBwbXmUp8XAjPqA2sCM8w.png)
+![An image showing the Cloudflare Pages comment in the pull request.](/static/images/blog/contents/1_JvBwbXmUp8XAjPqA2sCM8w.png)
 
 ### Environment variables
 
@@ -161,17 +161,17 @@ Cloudflare Pages allows you to add two sets of environment variables — one
 
 Let’s create a new branch, open up the `App.js` file and append `{process.env.REACT_APP_CUSTOM_MESSAGE}` to our existing update message. We’ll then create a `.env` file and add an environment variable called `REACT_APP_CUSTOM_MESSAGE` and give it a suitable message. I’ve given it the value of “Local environment” so I can troubleshoot which environment variable value is being picked up. Don’t push these changes to GitHub yet.
 
-![A screenshot of the code changes made to add an environment variable.](https://cdn-images-1.medium.com/max/800/1*3OVaL6yuJ3bpOgEQ5TNR9w.png)
+![A screenshot of the code changes made to add an environment variable.](/static/images/blog/contents/1_3OVaL6yuJ3bpOgEQ5TNR9w.png)
 
 Now let’s jump back to Cloudflare Pages and add the variable `REACT_APP_CUSTOM_MESSAGE` in the **Production** section with the value “Production environment” and a variable of the same name in the **Preview section&#x20;**&#x77;ith the value “Preview environment”. This screen is available if you click on the **Settings** tab and then click on the **Environment variables** menu item from the left sidebar.
 
-![A screenshot from Cloudflare Pages showing where to add environment variables.](https://cdn-images-1.medium.com/max/800/1*Us-k35aK77xuTOqpQlo_1A.png)
+![A screenshot from Cloudflare Pages showing where to add environment variables.](/static/images/blog/contents/1_Us-k35aK77xuTOqpQlo_1A.png)
 
 Now commit your code changes and push the changes to GitHub. If you’ve got the `.gitignore` file correctly set up, the `.env` file will be excluded — and that’s okay. Open a pull request and grab the unique URL generated by Cloudflare. Then, merge the code changes to the main branch.
 
 After Cloudflare Pages has completed a fresh deployment, open up the unique URL you saved earlier of the preview environment in one browser tab and the production environment in another browser tab. Notice that the app is correctly picking up the right environment variable value and displaying it.
 
-![A screenshot of the React app in two different environments.](https://cdn-images-1.medium.com/max/800/1*8hlGVX45IqVSqrv4p6e8JA.png)
+![A screenshot of the React app in two different environments.](/static/images/blog/contents/1_8hlGVX45IqVSqrv4p6e8JA.png)
 
 ### Summary
 

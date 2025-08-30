@@ -47,7 +47,7 @@ When you enable GitHub actions, GitHub installs a GitHub App on your repository.
 
 When the action runs for the latest commit to the repository, it fails at the Publish package to GitHub step. If we look at the logs, we’ll notice a 403 Forbidden error message. But why is that the case? Shouldn’t the GITHUB_TOKEN have done the job?
 
-![](https://cdn-images-1.medium.com/max/800/1*VKyk0zvlqholefiuLsktFQ.png)
+![](/static/images/blog/contents/1_VKyk0zvlqholefiuLsktFQ.png)
 
 Image courtesy of the author
 
@@ -55,13 +55,13 @@ Image courtesy of the author
 
 By default, the GITHUB_TOKEN only has restricted access. If we head over to our GitHub repository → Settings → Actions → General → And scroll down to Workflow permissions, we’ll see that it’s currently set to Read repository contents and package permissions. This means that it cannot write packages to our repository and since we’re trying to publish an npm package, it fails with a 403 Forbidden error.
 
-![](https://cdn-images-1.medium.com/max/800/1*7qC7Dmo49CEPqAi6GZUDcA.png)
+![](/static/images/blog/contents/1_7qC7Dmo49CEPqAi6GZUDcA.png)
 
 Image courtesy of the author
 
 Let’s update this permission to Read and write permissions and then click the Save button. We’ll then re-run the failed GitHub action. This time it will succeed. Hooray!
 
-![](https://cdn-images-1.medium.com/max/800/1*AxWXHRKMiemrN-Frzx2dxw.png)
+![](/static/images/blog/contents/1_AxWXHRKMiemrN-Frzx2dxw.png)
 
 Image courtesy of the author
 

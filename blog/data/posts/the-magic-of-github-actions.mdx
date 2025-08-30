@@ -97,7 +97,7 @@ Now that we’re done writing the GitHub Action workflow file, it’s time to ru
 
 But wait, if we take a look at the logs, we see that while the publishing to npm step has succeeded, the publish to GitHub step has failed. Why is that?
 
-![](https://cdn-images-1.medium.com/max/800/1*UJA9r3YnOPGKjJK7oluEjg.png)
+![](/static/images/blog/contents/1_UJA9r3YnOPGKjJK7oluEjg.png)
 
 Image courtesy of the author
 
@@ -137,7 +137,7 @@ steps:
 
 This doesn’t create a new file but just overwrites the existing package.json file in the workflow working directory. It doesn’t commit the updated file to the git repository either. When the next step to publish the package to GitHub is executed, it uses this updated package.json file with the correct scope. Now when I run the Action again, it passes and publishes the package to the GitHub registry successfully.
 
-![](https://cdn-images-1.medium.com/max/800/1*Tiik_hoDDP1S3q3lt8Lj2w.png)
+![](/static/images/blog/contents/1_Tiik_hoDDP1S3q3lt8Lj2w.png)
 
 Image courtesy of the author
 

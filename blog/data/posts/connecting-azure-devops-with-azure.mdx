@@ -31,7 +31,7 @@ Let’s start by creating a new service connection in Azure DevOps. Head to the 
 
 Select **Azure Resource Manager** from the options listed and then select **Service principal (manual)**. You should see something like this.
 
-![Image showing Azure service connection configuration form](https://cdn-images-1.medium.com/max/800/1*Q5QSSjTjcwPOdkaY2izAEg.gif)
+![Image showing Azure service connection configuration form](/static/images/blog/contents/1_Q5QSSjTjcwPOdkaY2izAEg.gif)
 
 Now, let’s start by filing out this form. It’s a lengthy one, so I’ve split it into three sections to make it easier to understand.
 
@@ -39,43 +39,43 @@ Now, let’s start by filing out this form. It’s a lengthy one, so I’ve spli
 
 Assuming the default **Environment** and **Scope Level** is what you’re after, you would only require to set the **Subscription ID** and **Subscription Name&#x20;**&#x69;n most cases.
 
-![Image showing Azure service connection subscription details](https://cdn-images-1.medium.com/max/800/1*yiprYt6GRRnqvzcwTCDcDw.png)
+![Image showing Azure service connection subscription details](/static/images/blog/contents/1_yiprYt6GRRnqvzcwTCDcDw.png)
 
 To get these values, head to [portal.azure.com](https://portal.azure.com/) and search for **Subscriptions**. Click the subscription that you want to connect Azure DevOps to. You should see the **Subscription ID** and **Subscription Name** in the **Overview** panel, as highlighted below.
 
-![Image show Azure portal subscription details](https://cdn-images-1.medium.com/max/800/1*N4sezJdxwQLVPEeIk5_wqA.png)
+![Image show Azure portal subscription details](/static/images/blog/contents/1_N4sezJdxwQLVPEeIk5_wqA.png)
 
 ### Section #2: Authentication
 
 Next, we need to fill out the service principal information. Think of this as entering the credentials of a virtual entity that exists in your Azure portal and has access to the Azure resources, so that Azure DevOps can have the same access as well.
 
-![Image showing Azure service connection authentication section](https://cdn-images-1.medium.com/max/800/1*zH4RnUk_XB7bFm5BIdHrWg.png)
+![Image showing Azure service connection authentication section](/static/images/blog/contents/1_zH4RnUk_XB7bFm5BIdHrWg.png)
 
 #### Service Principal ID and Tenant ID
 
 To get the credentials of this virtual entity, we would need to first create one. To do so, go to [portal.azure.com](https://portal.azure.com/) and search for **Active Directory**. From the left blade, select **App registrations**. Then click **New registration** to open up a another blade.
 
-![Image showing steps to register a new app in Azure](https://cdn-images-1.medium.com/max/800/1*NybGUnjbF246E8BptgcNvg.png)
+![Image showing steps to register a new app in Azure](/static/images/blog/contents/1_NybGUnjbF246E8BptgcNvg.png)
 
 Give this app a meaningful name so that you know what it’s used for. By default, you would select the single tenant option from the **Support account types** section. Click **Register**.
 
-![Image showing steps to register an app in Azure](https://cdn-images-1.medium.com/max/800/1*YN7hMZl9hQb9ixXac5UgKg.png)
+![Image showing steps to register an app in Azure](/static/images/blog/contents/1_YN7hMZl9hQb9ixXac5UgKg.png)
 
 Now, from the **Overview** section, copy the **Application (client) ID** and paste it into the **Service Principal ID** input box. Copy the **Directory (tenant) ID** and copy it into the **Tenant ID** input box.
 
-![Image showing how to get the application ID and directory ID](https://cdn-images-1.medium.com/max/800/1*1wCEvKUOkcdKqyURw9wcwQ.png)
+![Image showing how to get the application ID and directory ID](/static/images/blog/contents/1_1wCEvKUOkcdKqyURw9wcwQ.png)
 
 #### Service principal key
 
 Now we need to generate this entity’s password, or secret, in this case, to be more precise. While still in the app you’ve just created, click on **Certificates & secrets** from the left blade. Add a **New client secret**. Give it a meaningful description and expiry and then click **Add**. Copy the value (hint: you won’t be able to see this value again) and paste it into the **Service principal key** input.
 
-![Image showing how to generate a new client secret](https://cdn-images-1.medium.com/max/800/1*37uh2FFdsasyQKMwkdtd5Q.gif)
+![Image showing how to generate a new client secret](/static/images/blog/contents/1_37uh2FFdsasyQKMwkdtd5Q.gif)
 
 #### Verification
 
 Okay, let’s test if Azure DevOps can make the connection to Azure and has all the right levels of permission it requires. Click the **Verify** button to test this out.
 
-![Image showing the result of validating the connection from Azure DevOps to Azure](https://cdn-images-1.medium.com/max/800/1*hcJE2Fx0JDrwGGSiCY5eaA.png)
+![Image showing the result of validating the connection from Azure DevOps to Azure](/static/images/blog/contents/1_hcJE2Fx0JDrwGGSiCY5eaA.png)
 
 If you’ve followed everything so far, you would see an error message, similar to the one highlighted below. Hmm, we did add all the details correctly, then what must have gone wrong?
 
@@ -89,17 +89,17 @@ Fair enough.
 
 To resolve this, let’s head back to the subscription and click on **Access control (IAM)**. Click on **Add** and then select **Add role assignment**. We’ll assign the entity a **Contributor** role. Search for the entity, i.e., the app you’ve registered earlier and then hit the **Save** button.
 
-![Image showing how to add the app as a contributor in Azure](https://cdn-images-1.medium.com/max/800/1*NJdeBroHhMI8oPFRUsFxfg.png)
+![Image showing how to add the app as a contributor in Azure](/static/images/blog/contents/1_NJdeBroHhMI8oPFRUsFxfg.png)
 
 After it has successfully added the app as a contributor to the subscription, go back to the **New Azure service connection** blade in Azure DevOps and test the verification again. This time, it should succeed.
 
-![Image showing the result of re-validating the connection from Azure DevOps to Azure](https://cdn-images-1.medium.com/max/800/1*cTyUywjY_kUgmS5sRA9GxA.png)
+![Image showing the result of re-validating the connection from Azure DevOps to Azure](/static/images/blog/contents/1_cTyUywjY_kUgmS5sRA9GxA.png)
 
 ### Section #3: General details
 
 Give this connection a meaningful name. This name will appear in the list of Azure subscriptions in your release pipeline, so you want to ensure that your release pipeline contributors know exactly what this service connection is for.
 
-![Image showing basic details for the Azure service connection](https://cdn-images-1.medium.com/max/800/1*C_thap0WL25iSTSXg5_Lsw.png)
+![Image showing basic details for the Azure service connection](/static/images/blog/contents/1_C_thap0WL25iSTSXg5_Lsw.png)
 
 After you’ve entered all the details, hit the **Verify and save** button.
 
@@ -107,7 +107,7 @@ After you’ve entered all the details, hit the **Verify and save** button.
 
 In the release pipeline, your contributors will see the newly created connection in the list of Azure subscriptions. Clicking that will give them access to the subscription you’ve created this connection for.
 
-![Image showing where the Azure service connection is used](https://cdn-images-1.medium.com/max/800/1*9RCdygdIVaRSmmWVvilRMg.png)
+![Image showing where the Azure service connection is used](/static/images/blog/contents/1_9RCdygdIVaRSmmWVvilRMg.png)
 
 ### Summary
 
@@ -127,7 +127,7 @@ Thanks for reading. Give it a clap 👏 (tip: you can clap up to 50 times!) and 
 
 ---
 
-![Download ‘Mama, tell me a story’ from Amazon](https://cdn-images-1.medium.com/max/800/0*Ouw0aqoWyKMvlcdx.png)
+![Download ‘Mama, tell me a story’ from Amazon](/static/images/blog/contents/0_Ouw0aqoWyKMvlcdx.png)
 
 Download ‘Mama, tell me a story’ from [Amazon](http://bit.ly/MamaTellMeAStory)
 

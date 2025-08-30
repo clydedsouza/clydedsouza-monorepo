@@ -35,7 +35,7 @@ You’ll need a sample React app if you’re following along. Feel free to fork[
 
 You may also need to create a personal access token in GitHub and have that value handy so that your TeamCity pipeline can connect to the GitHub repository if your GitHub repository isn’t accessible without a password. Head over to the [personal access tokens page](https://github.com/settings/personal-access-tokens/new) on GitHub, fill up the metadata, select a repository that you want to link with this token, and then finally, under the **Repository permissions** section, select **Read and write** permissions for **Commit statuses** and **Contents**. You can always fine-tune this later.
 
-![](https://cdn-images-1.medium.com/max/800/1*XbKOxmwnwhYg98eqE8ufvA.png)
+![](/static/images/blog/contents/1_XbKOxmwnwhYg98eqE8ufvA.png)
 
 #### Azure configurations
 
@@ -53,11 +53,11 @@ Finally, we’ll need to create a service principal which will allow us to use c
 
 Running the command will return the credentials. Save the `clientId`, `clientSecret` and `tenantId` which we’ll save for future use.
 
-![Output of the command line.](https://cdn-images-1.medium.com/max/800/1*lYmB0XmCDjUZyehd8VYflA.png)
+![Output of the command line.](/static/images/blog/contents/1_lYmB0XmCDjUZyehd8VYflA.png)
 
 If you need the tenant name, you can get that straightaway from the URL. It’ll be in the format `@example.onmicrosoft.com`.
 
-![](https://cdn-images-1.medium.com/max/800/1*DkmbiS3az1HDEavWfhb5PQ.png)
+![](/static/images/blog/contents/1_DkmbiS3az1HDEavWfhb5PQ.png)
 
 ---
 
@@ -67,15 +67,15 @@ If you need the tenant name, you can get that straightaway from the URL. It’ll
 
 Head over to the **Projects** navigation tab in TeamCity and click on the **New project** button located on the top-right of the screen.
 
-![Creating a new project in TeamCity.](https://cdn-images-1.medium.com/max/800/1*vuDJFiDEvqgMSTJdQLoXLA.png)
+![Creating a new project in TeamCity.](/static/images/blog/contents/1_vuDJFiDEvqgMSTJdQLoXLA.png)
 
 In the **Create Project** screen, enter the required details in the respective fields. Usually, you would create a project under the root project. However, if hierarchically organized, it makes sense to place this project under another existing project and select a different one from the **Parent project** dropdown. Here, the **Password/access token** is the personal access token you would’ve created earlier. If it’s a public repository, you may not require a password/access token. Click on the **Proceed** button once everything has been entered.
 
-![Creating a new project in TeamCity — configuration required to be saved.](https://cdn-images-1.medium.com/max/800/1*3P2CqRG0mTwRb0BpC45F0w.png)
+![Creating a new project in TeamCity — configuration required to be saved.](/static/images/blog/contents/1_3P2CqRG0mTwRb0BpC45F0w.png)
 
 If the connection to GitHub was successful, you’ll see a success message with a few other fields to configure the branch specifications. We’ll leave this as the default for now and click on the **Proceed** button.
 
-![](https://cdn-images-1.medium.com/max/800/1*D7LjqXFyleB3DVsoOzQc_w.png)
+![](/static/images/blog/contents/1_D7LjqXFyleB3DVsoOzQc_w.png)
 
 #### Build configuration
 
@@ -83,7 +83,7 @@ Now that we’ve created a project, we’ll need to configure the actual steps t
 
 Click on the configure **build steps manually** link from the **Build Steps** page.
 
-![](https://cdn-images-1.medium.com/max/800/1*lNLK5ioZD0f4dBcnh-2nCg.png)
+![](/static/images/blog/contents/1_lNLK5ioZD0f4dBcnh-2nCg.png)
 
 #### Build step #1: Install packages
 
@@ -91,7 +91,7 @@ We want to first install the required npm packages for the project, similar to w
 
 In the **Custom script** section, we’ll enter `npm ci`. Running this command should install the required npm packages. In the **Step name** field, you can provide a descriptive name for this step as this text is what will appear in the UI later. Finally, click on the **Save** button to save this step.
 
-![](https://cdn-images-1.medium.com/max/800/1*XzGtn59G-5Kzbqu3f1pYHQ.png)
+![](/static/images/blog/contents/1_XzGtn59G-5Kzbqu3f1pYHQ.png)
 
 Similarly, let’s add two more build steps.
 
@@ -107,19 +107,19 @@ Repeat the steps again to add another command line build step and this time, wri
 
 Now that we have the required three steps, let’s go to the **General Settings** page and set the **Artifact paths** to the `build` folder. This is because the `npm run build` step configured above generates the output files in the `build` folder and we want our build configuration to expose the generated files as build artifacts so that the deployment configuration can use them ahead.
 
-![](https://cdn-images-1.medium.com/max/800/1*X2NTHM9JTF8o4CRPo7OVnw.png)
+![](/static/images/blog/contents/1_X2NTHM9JTF8o4CRPo7OVnw.png)
 
 Click on the **Save** button and then click on the **Run** button to test the build configuration. This will execute all three build steps we configured above.
 
-![](https://cdn-images-1.medium.com/max/800/1*BZ34jkOVFRW6Jl9MrZjNbw.png)
+![](/static/images/blog/contents/1_BZ34jkOVFRW6Jl9MrZjNbw.png)
 
 If you click into a build that’s completed, and then click on the **Build Log** tab, you should see the logs generated from each build step and even the other entry and exit logs.
 
-![](https://cdn-images-1.medium.com/max/800/1*dQJXkMPqhySOEjTBLQMSyg.png)
+![](/static/images/blog/contents/1_dQJXkMPqhySOEjTBLQMSyg.png)
 
 If you click on the **Artifacts** tab, you should see the generated website files. This confirms that our build configuration has run successfully.
 
-![](https://cdn-images-1.medium.com/max/800/1*g5jruvyc_9uIeqZ3Q0c-Fg.png)
+![](/static/images/blog/contents/1_g5jruvyc_9uIeqZ3Q0c-Fg.png)
 
 #### Optimizing the build configuration
 
@@ -127,7 +127,7 @@ If we click on the **Triggers** page and then click on the **Edit** link against
 
 To enable this behavior, we’ll check both boxes in the **Per-checkin Triggering** section and then click on **Save**.
 
-![](https://cdn-images-1.medium.com/max/800/1*63IoNkCQUBfIGxIZaVwEKw.png)
+![](/static/images/blog/contents/1_63IoNkCQUBfIGxIZaVwEKw.png)
 
 #### Notifying GitHub
 
@@ -135,21 +135,21 @@ Next, we’ll add a step so that TeamCity notifies GitHub of the outcome of the 
 
 In the modal that pops up, select the **Pull Requests** build feature from the dropdown. **VCS Root** will be the same GitHub repository we configured earlier so the access token will also be the same that needs to be entered here. Click on **Save** to save these changes.
 
-![](https://cdn-images-1.medium.com/max/800/1*2vVeYw8zhaj8GEjTbacUlQ.png)
+![](/static/images/blog/contents/1_2vVeYw8zhaj8GEjTbacUlQ.png)
 
 Similarly, repeat the steps but this time, select the **Commit status publisher** build feature, enter the access token, and then click on **Save** to add this configuration to the mix.
 
-![](https://cdn-images-1.medium.com/max/800/1*NjpohLUoxCuYT1nOkTQnIg.png)
+![](/static/images/blog/contents/1_NjpohLUoxCuYT1nOkTQnIg.png)
 
 If you now run the build configuration once again by clicking on the **Run** button as we did earlier, and then upon a successful build, head over to GitHub, you should see an update from TeamCity in the pull request and also in the commit history.
 
-![](https://cdn-images-1.medium.com/max/800/1*4N9qLg94LdLCF9wOIsxElQ.png)
+![](/static/images/blog/contents/1_4N9qLg94LdLCF9wOIsxElQ.png)
 
 #### Deployment configuration
 
 Let’s head back to TeamCity and click on the **New build configuration** button to add the deployment step.
 
-![](https://cdn-images-1.medium.com/max/800/1*hbr8t1e8rNF3Kr8inn0TNw.png)
+![](/static/images/blog/contents/1_hbr8t1e8rNF3Kr8inn0TNw.png)
 
 The build configuration page is quite similar to the one we did earlier and so are the values for the parent project, GitHub URL, GitHub username, and access token. The difference would be the **Build configuration name** which we’ll set to **Deploy**.
 
@@ -157,35 +157,35 @@ The build configuration page is quite similar to the one we did earlier and so a
 
 From the **General Settings** page, we’ll configure the Build configuration type to **Deployment**.
 
-![](https://cdn-images-1.medium.com/max/800/1*YaJfzdShjG9ikUgB2w_Fkw.png)
+![](/static/images/blog/contents/1_YaJfzdShjG9ikUgB2w_Fkw.png)
 
 #### What triggers this deployment?
 
 From the **Triggers** page, we’ll delete the default **VCS Trigger** by clicking the dropdown beside it and then the **Delete** button from the popup. The reason is that we don’t want a code check-in to trigger the deployment steps. Instead, we want a successful build to trigger it.
 
-![](https://cdn-images-1.medium.com/max/800/1*2uN65RLRZT5ShIsszDO61A.png)
+![](/static/images/blog/contents/1_2uN65RLRZT5ShIsszDO61A.png)
 
 While still on the **Triggers** page, we’ll click on the **Add new trigger** button, and then from the **Finish Build Trigger&#x20;**&#x6D;odal, we’ll ensure that the checkbox is checked to trigger the configuration after a successful build only and the dependent build configuration is selected as **Build**, which is what we configured and tested earlier in this article. We’ll also leave the branch filters as-is to `main`. Click on the **Save** button to save these changes.
 
-![](https://cdn-images-1.medium.com/max/800/1*5MW8j0sitZsN0iKSAvipkw.png)
+![](/static/images/blog/contents/1_5MW8j0sitZsN0iKSAvipkw.png)
 
 From the **Dependencies** page, let’s click on the **Add new snapshot dependency** button.
 
-![](https://cdn-images-1.medium.com/max/800/1*3ZMWOPiFdw2KfS_1lzDvQw.png)
+![](/static/images/blog/contents/1_3ZMWOPiFdw2KfS_1lzDvQw.png)
 
 Our deploy configuration is dependent on the **Build** configuration, so let’s select that. The remaining settings should already be defaulted to what you see in the screenshot below. Click on the **Save&#x20;**&#x62;utton to save these changes.
 
-![](https://cdn-images-1.medium.com/max/800/1*jhjqLS7V5aSLSq2rSoAMBg.png)
+![](/static/images/blog/contents/1_jhjqLS7V5aSLSq2rSoAMBg.png)
 
 #### Artifact dependency
 
 While still on the **Dependencies** page, click on the **Add new artifact dependency** button.
 
-![](https://cdn-images-1.medium.com/max/800/1*DpJl5t1eHcYfVHevA-gRzg.png)
+![](/static/images/blog/contents/1_DpJl5t1eHcYfVHevA-gRzg.png)
 
 From the **Add new artifact dependency** modal, we’ll ensure that we depend on the **Build** configuration, and in the **Artifact rules&#x20;**&#x74;extbox, we’ll enter `**/*.*=>target` which translates to copying the files found in the artifacts folder of the build configuration into the target folder in our current deploy configuration. Checking the **Clean destination paths before downloading artifacts** checkbox ensures that no old files exist on file. Click on the **Save&#x20;**&#x62;utton to save these changes.
 
-![](https://cdn-images-1.medium.com/max/800/1*xd9KpOnyXRYeka7pqBjYOw.png)
+![](/static/images/blog/contents/1_xd9KpOnyXRYeka7pqBjYOw.png)
 
 > **Hold up! What’s the difference between finish build trigger v/s snapshot dependency v/s artifact dependency?**
 
@@ -199,11 +199,11 @@ From the **Add new artifact dependency** modal, we’ll ensure that we depend on
 
 From the **Parameters** page, click on the **Add new parameter** button and then from the modal, let’s type the parameter name as `env.AZURE_CREDENTIALS` and in the **Value** field, type the client secret we saved earlier. Click on **Save**.
 
-![](https://cdn-images-1.medium.com/max/800/1*iSgEX5Eyrr-5k_z6z2SbZg.png)
+![](/static/images/blog/contents/1_iSgEX5Eyrr-5k_z6z2SbZg.png)
 
 Since this is a secret password, we can click on the **Edit** button against the **Spec** field and ensure that the **Type** is set to **Password** and the **Read-only** checkbox is checked.
 
-![](https://cdn-images-1.medium.com/max/800/1*4hTSJkkXgePOyd2JmrUQ-A.png)
+![](/static/images/blog/contents/1_4hTSJkkXgePOyd2JmrUQ-A.png)
 
 #### Build steps
 
@@ -211,7 +211,7 @@ Now it’s time to add the actual steps that the deploy configuration will execu
 
 Let’s repeat the steps we did in the build configuration and add three command line build steps. We do this by clicking on the **Build Steps** page and then clicking the **Add build step** button.
 
-![](https://cdn-images-1.medium.com/max/800/1*vOzkLHRqy3sHn2qpUnV1_A.png)
+![](/static/images/blog/contents/1_vOzkLHRqy3sHn2qpUnV1_A.png)
 
 #### Deploy step #1: Log in to Azure
 
@@ -229,25 +229,25 @@ Tidy up and log out of Azure using the command `az logout`.
 
 Click on the **Deploy** button to execute the deploy configuration.
 
-![](https://cdn-images-1.medium.com/max/800/1*sK_GWzhIGNBCmIGQZz-zMw.png)
+![](/static/images/blog/contents/1_sK_GWzhIGNBCmIGQZz-zMw.png)
 
 You can have a look at the **Build Log** tab to see if the steps have been executed correctly.
 
-![](https://cdn-images-1.medium.com/max/800/1*ogBuWXNZ0y5FEvZMhZP1Uw.png)
+![](/static/images/blog/contents/1_ogBuWXNZ0y5FEvZMhZP1Uw.png)
 
 Once the deployment is complete, you can head over to the Azure storage account website URL to confirm that the website has been deployed successfully.
 
-![](https://cdn-images-1.medium.com/max/800/1*KMaOKaZHM-iZAv17BuKdVw.png)
+![](/static/images/blog/contents/1_KMaOKaZHM-iZAv17BuKdVw.png)
 
 #### Viewing the build chain
 
 Back in TeamCity, if you click on the project name from the sidebar, then from **More** options if you click on **Build Chains**, TeamCity will redirect you to another page.
 
-![](https://cdn-images-1.medium.com/max/800/1*5KX7phk3hfL3z85nwDSdGA.png)
+![](/static/images/blog/contents/1_5KX7phk3hfL3z85nwDSdGA.png)
 
 Here, you can visually see the two configurations chained together and once they’re running, you’ll be able to also visually see which steps they’re at and if one configuration is waiting for the other. If you click on the green play button on each configuration tile, you’ll be able to execute that step specifically. This is particularly useful in terms of a rollback if you need to execute a step again to redeploy a previously deployed version of the website. Finally, if something goes wrong, you’ll also be able to see them turning red and be able to click on the step to investigate the issue.
 
-![](https://cdn-images-1.medium.com/max/800/1*JHD8eo-L3Ar4wkXfOZcioA.png)
+![](/static/images/blog/contents/1_JHD8eo-L3Ar4wkXfOZcioA.png)
 
 ### Conclusion
 

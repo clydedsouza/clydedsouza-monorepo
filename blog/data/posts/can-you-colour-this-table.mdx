@@ -29,7 +29,7 @@ I recently came across a unique problem whose solution relied solely on CSS. I t
 
 I’m going to recreate the scenario — I need to re-skin the tables on a website and the given requirements tell me that the background colour of the table header must be yellow, and the table rows will be the alternating background colour of wheat and plum. Below is a picture of what the table can look like.
 
-![Image showing the accepted outputs for the tables](https://cdn-images-1.medium.com/max/800/1*Y38uXZt5W0qMVULd3PJORg.png)
+![Image showing the accepted outputs for the tables](/static/images/blog/contents/1_Y38uXZt5W0qMVULd3PJORg.png)
 
 Accepted outputs for the tables
 
@@ -50,7 +50,7 @@ The challenge is:
 
 If you’d like to follow along and learn, feel free to fork this [JSFiddle](https://jsfiddle.net/o9jwtmsn/) for the table with `<thead>` and `<tbody>` and this [JSFiddle](https://jsfiddle.net/84qkvu3g/) for the table with only a `<tbody>`. Here’s how you would fork and create your copy of a JSFiddle.
 
-![Image showing how to fork a fiddle](https://cdn-images-1.medium.com/max/800/1*oBAnpwfnefr2yINjPmVOiA.png)
+![Image showing how to fork a fiddle](/static/images/blog/contents/1_oBAnpwfnefr2yINjPmVOiA.png)
 
 Forking a JSFiddle creates your copy of the original
 
@@ -76,7 +76,7 @@ tr:nth-child(odd) {
 
 This produces the following output for both tables.
 
-![Image showing both tables after adding alternate background colour](https://cdn-images-1.medium.com/max/800/1*sXLuA3BjlVUIohw2XZE-rg.png)
+![Image showing both tables after adding alternate background colour](/static/images/blog/contents/1_sXLuA3BjlVUIohw2XZE-rg.png)
 
 Both tables after adding an alternate background colour
 
@@ -97,7 +97,7 @@ thead tr:first-of-type {
 
 The selector `tbody tr:first-of-type` targets the first `<tr>` element nested inside a `<tbody>` element. And the selector `thead tr:first-of-type` targets the first `<tr>` element inside a `<thead>` element. This produces the below output.
 
-![Image showing both tables after round 1 of adding a yellow table header](https://cdn-images-1.medium.com/max/800/1*5N6ReDUBZfxxF3a3Ij70cw.png)
+![Image showing both tables after round 1 of adding a yellow table header](/static/images/blog/contents/1_5N6ReDUBZfxxF3a3Ij70cw.png)
 
 Both tables after round 1 of adding a yellow table header
 
@@ -123,7 +123,7 @@ tbody tr:first-of-type {
 
 And indeed, it did change. This is what both the tables look like now. 😅
 
-![Image showing both tables after round 2 of adding a yellow table header](https://cdn-images-1.medium.com/max/800/1*vee0G-Hr-4qK7qENDDxsBA.png)
+![Image showing both tables after round 2 of adding a yellow table header](/static/images/blog/contents/1_vee0G-Hr-4qK7qENDDxsBA.png)
 
 Both tables after round 2 of adding a yellow table header
 
@@ -143,7 +143,7 @@ The `+` sign in a CSS selector is used to represent an adjacent sibling. This me
 
 This produces the following output. Hey, this is what we expected our outcome to look like, didn’t we? Great work! 😄
 
-![Image showing both tables after round 3 of adding a yellow table header](https://cdn-images-1.medium.com/max/800/1*S-aakFAiGDxJu7IGLbPdMg.png)
+![Image showing both tables after round 3 of adding a yellow table header](/static/images/blog/contents/1_S-aakFAiGDxJu7IGLbPdMg.png)
 
 Both tables after round 3 of adding a yellow table header
 

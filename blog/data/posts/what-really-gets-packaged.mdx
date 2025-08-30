@@ -36,7 +36,7 @@ To explicitly specify which files you’d like to be included in the npm package
 
 In fact, the `LICENSE` file, `package.json` file and `README.md` files (among a few other files) are included by default — so you can choose to not include that in the files field if you want, too. You can run the command `npm publish --dry-run` to confirm what files will be packaged.
 
-![Image showing what files are packaged using scenario 1.](https://cdn-images-1.medium.com/max/800/1*YaFPrEbiPyJNdVpWy5aJ9Q.png)
+![Image showing what files are packaged using scenario 1.](/static/images/blog/contents/1_YaFPrEbiPyJNdVpWy5aJ9Q.png)
 
 In this scenario, the files field in the `package.json` file takes precedence over the `.gitignore` file. That is why even though the dist folder is in the `.gitignore` file, it is included in the npm package because we explicitly included it in the files field.
 
@@ -44,7 +44,7 @@ In this scenario, the files field in the `package.json` file takes precedence ov
 
 If you decide to remove the files field from the `package.json` file and try running the command `npm publish --dry-run` to see what files will be packed, you’ll be amazed to find out that almost every other file will be included that’s not part of the `.gitignore` file. This happens because when you omit the files field, it will set the default value of the files field to `[“*”]`, which means it will include all files.
 
-![Image showing what files are packaged using scenario 2.](https://cdn-images-1.medium.com/max/800/1*cSZ8W5jiReoIQmH8bgiG3Q.png)
+![Image showing what files are packaged using scenario 2.](/static/images/blog/contents/1_cSZ8W5jiReoIQmH8bgiG3Q.png)
 
 Therefore, in this scenario, the `.gitignore` file acts as an exclusion list only and anything that’s not part of this file will be included in the npm package.
 
@@ -59,7 +59,7 @@ To mitigate this, we can create a new file called `.npmignore` and list the fil
 
 Now, if we run the command `npm publish --dry-run` again, we’ll find that our output looks similar to when we used the files field in the `package.json` file.
 
-![Image showing what files are packaged using scenario 3.](https://cdn-images-1.medium.com/max/800/1*qV2q1P1BQJxJBAvM_LPtuQ.png)
+![Image showing what files are packaged using scenario 3.](/static/images/blog/contents/1_qV2q1P1BQJxJBAvM_LPtuQ.png)
 
 Therefore, in this scenario, since the `.npmignore` file is found, the contents of the `.gitignore` file are ignored.
 

@@ -35,7 +35,7 @@ npx create-react-app <project directory> --template typescript
 
 At this point, your project directory should look something like the screenshot below. I haven’t added or modified anything — these are the files and folders that get generated out-of-the-box when we run the `npx` command stated above. I just made sure it works locally by running the command `npm run start` and that’s about it.
 
-![Screenshot of the project directory after completing step 1 of this article.](https://cdn-images-1.medium.com/max/800/1*c6AsfWCMC-5uANCLBZXqDg.png)
+![Screenshot of the project directory after completing step 1 of this article.](/static/images/blog/contents/1_c6AsfWCMC-5uANCLBZXqDg.png)
 
 I’ve pushed these changes to my [GitHub repository](https://github.com/ClydeDz/create-react-app-ghpages-demo) and if you’re following along, you can do the same, too. [This](https://github.com/ClydeDz/create-react-app-ghpages-demo/tree/step-1) is what my repository looked like at this stage if you want to compare.
 
@@ -56,11 +56,11 @@ A quick note on `${{ secrets.GITHUB_TOKEN }} `— GitHub automatically creat
 
 If you’re following along, commit this file to your repository. Immediately, you’ll notice that GitHub Pages will now build based on what you have in your workflow file. If you head over to the Actions tab in GitHub, you’ll see your workflow being executed and hopefully, after some time, marked as successful. Feel free to click around in the UI and explore this area of your GitHub repository.
 
-![Screenshot of GitHub Actions UI featuring a successful workflow run.](https://cdn-images-1.medium.com/max/800/1*kHWQ5K54ZtRuHveK6LHPZQ.png)
+![Screenshot of GitHub Actions UI featuring a successful workflow run.](/static/images/blog/contents/1_kHWQ5K54ZtRuHveK6LHPZQ.png)
 
 Given that the status shows up as successful, this action would have also created a new branch called `gh-pages` and would have deployed the production-ready code in there.
 
-![Screenshot of the gh-pages branch of the GitHub repository.](https://cdn-images-1.medium.com/max/800/1*mVszntQwIxruxEc8f1WO4Q.png)
+![Screenshot of the gh-pages branch of the GitHub repository.](/static/images/blog/contents/1_mVszntQwIxruxEc8f1WO4Q.png)
 
 Easy as, isn’t it?
 
@@ -70,11 +70,11 @@ Now that we have our build files placed in a different branch, let’s go ahead 
 
 Here, we’re going to configure where our website contents are located. Since our build files get pushed to the `gh-pages` branch, let’s choose that from the dropdown. Click on the **Save** button. The page will refresh and when you scroll back down to this section, you’ll see a URL. Click on that URL to see the website.
 
-![Screenshot showing how to enable GitHub Pages.](https://cdn-images-1.medium.com/max/800/1*bb8oLbOoLvTSy9vWS9dGVQ.png)
+![Screenshot showing how to enable GitHub Pages.](/static/images/blog/contents/1_bb8oLbOoLvTSy9vWS9dGVQ.png)
 
 Wait, what happened? I can’t see the React app output, can you?
 
-![Screenshot showing the demo website with an empty screen and error messages in the console.](https://cdn-images-1.medium.com/max/1200/1*pdrhN-O9vYXHK4heNYxgHQ.png)
+![Screenshot showing the demo website with an empty screen and error messages in the console.](/static/images/blog/contents/1_pdrhN-O9vYXHK4heNYxgHQ.png)
 
 You may see an empty screen and if you open up the console, you’ll see a bunch of errors.
 
@@ -104,7 +104,7 @@ After making this change, push it to GitHub. This will trigger a build and deplo
 
 Give it a minute or two and then visit the website again. You should now see your React app up and running. Hooray!
 
-![Screenshot showing the demo website.](https://cdn-images-1.medium.com/max/800/1*BIgZyEBdo6AndYQ17APTew.png)
+![Screenshot showing the demo website.](/static/images/blog/contents/1_BIgZyEBdo6AndYQ17APTew.png)
 
 ### #4 Adding React Router
 
@@ -125,7 +125,7 @@ If you run the command `npm run start`, you’ll be able to observe a very odd b
 
 Commit these changes to GitHub anyway (you may also have to update your unit tests). After a successful deployment, you should be able to replicate this behavior online as well. This is obviously not ideal.
 
-![GIF showing the observed error after adding navigation.](https://cdn-images-1.medium.com/max/800/1*yFdoJ72WUHHi02HmKOcROQ.gif)
+![GIF showing the observed error after adding navigation.](/static/images/blog/contents/1_yFdoJ72WUHHi02HmKOcROQ.gif)
 
 ### #5 Resolving errors with routing
 

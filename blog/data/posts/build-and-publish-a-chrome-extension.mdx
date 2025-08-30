@@ -29,7 +29,7 @@ Chrome extensions are programs you can install on your Chrome browser to customi
 
 Let’s have a look at how the various components fit together.
 
-![Chrome and Chrome extension high-level architecture.](https://cdn-images-1.medium.com/max/800/1*2eaGkVfRT2GfjhnRV8GyaA.jpeg)
+![Chrome and Chrome extension high-level architecture.](/static/images/blog/contents/1_2eaGkVfRT2GfjhnRV8GyaA.jpeg)
 
 #### Chrome browser
 
@@ -54,7 +54,7 @@ A Chrome extension sits inside the boundaries of the Chrome browser. A Chrome ex
 - **Omnibox:** Chrome’s address bar is also known as the Omnibox and you can configure your extension to listen for specific keywords typed into the Omnibox. Once you’ve detected that event, you could provide suggestions based on the value typed or perform an action on that value. For example, [DuckDuckGo Search](https://chrome.google.com/webstore/detail/duckduckgo-search-context/fepjgbgflmnaieiodmkkclhjfihdhoid) extends the Omnibox so that when a user types ‘DDG’ followed by a space in the address bar and then types their search query and hit the enter key, a search is performed on DuckDuckGo with the search terms entered.
 - **Options:** Chrome encourages extension developers to allow users to be able to customize the behaviour of an extension. One way of accessing the options page for an extension is to right-click the extension’s icon from the toolbar and click on **Options**. This should either open up an options popup modal or redirect you to a full-page options interface, depending on what the extension developer has configured. For example, [Jira Status Colours](https://chrome.google.com/webstore/detail/jira-status-colours/nglechghbeioejgliejidjlhbfiiinne) provides an options page to customize the colours of your Jira status labels.
 
-![Different features of a Chrome extension.](https://cdn-images-1.medium.com/max/800/1*qRbHph364cgWK2DLh15hJQ.jpeg)
+![Different features of a Chrome extension.](/static/images/blog/contents/1_qRbHph364cgWK2DLh15hJQ.jpeg)
 
 ### In action: Overriding Chrome’s new tab
 
@@ -86,7 +86,7 @@ As of now, we’ve developed a very simple extension that should override Chrome
 
 First, we need to enable **Developer mode** in Chrome by heading to the Chrome extensions page `chrome://extensions/`. Now, click on the **Load unpacked** button and browse to the extension’s root directory where your code exists. Then click on **Select folder** to load and install your extension.
 
-![Loading a Chrome extension locally for development-testing.](https://cdn-images-1.medium.com/max/800/1*479pUrPcvRB3kt-l2nC9nA.png)
+![Loading a Chrome extension locally for development-testing.](/static/images/blog/contents/1_479pUrPcvRB3kt-l2nC9nA.png)
 
 Now, if you click on the new tab, you should see your HTML page. Ta-da!
 
@@ -102,11 +102,11 @@ While most of it is pretty self-explanatory, here are a few things to consider w
 
 - **Store listing:** For this page, you might require a bunch of images like an icon and screenshots. I’ve created [this Figma template](https://www.figma.com/community/file/1127061326249481158) to assist with this process.
 
-![Chrome Web Store Developer Dashboard store listing page.](https://cdn-images-1.medium.com/max/800/1*CjWaCIjS0uhgogVIWC_4bw.png)
+![Chrome Web Store Developer Dashboard store listing page.](/static/images/blog/contents/1_CjWaCIjS0uhgogVIWC_4bw.png)
 
 - **Privacy practices:** This page is where you justify if you’ve asked for specific permissions in the manifest file. For example, if you’ve asked for storage permissions, you might want to write a short blurb about how you intend to use that. On this page, you might also want to check a few boxes if your extension uses personal data in any way and also check the disclosure boxes.
 
-![Chrome Web Store Developer Dashboard privacy practices page.](https://cdn-images-1.medium.com/max/800/1*v55J4dNZzZXKZWEc0OkcsQ.png)
+![Chrome Web Store Developer Dashboard privacy practices page.](/static/images/blog/contents/1_v55J4dNZzZXKZWEc0OkcsQ.png)
 
 - **Preview:** When filling up the fields, if you’re unsure where and how they’ll be displayed on your extension page, click the three dots on the top-right of the screen and then click the **Preview** button. This will populate the information you’ve filled up so far and will show you a preview of what your extension page might look like.
 
@@ -123,7 +123,7 @@ The example above was super simple so it’s easy to understand the entire proce
 - If you’re using React to develop the web application, you might want to include the appropriate build process that compiles it into the relevant output files. In this case, you wouldn’t want to have the React component files in the ZIP folder you publish to the Chrome Web Store.
 - If you’re writing unit tests, you wouldn’t want to include those files in the ZIP folder you publish to the Chrome Web Store.
 
-![Source folder and distribution folder separated by a webpack process.](https://cdn-images-1.medium.com/max/800/1*QZq7Nz9Zy_3lUiQsDAEq7g.jpeg)
+![Source folder and distribution folder separated by a webpack process.](/static/images/blog/contents/1_QZq7Nz9Zy_3lUiQsDAEq7g.jpeg)
 
 Webpack can be used as one option to solve part of the problem. Webpack helps bundle and minify these JavaScript files, compiles and minifies Sass files, and you can also copy files across to the right directory using Webpack. A typical build would look like running a single command `npm run build` which will produce the output in a folder, e.g. `dist`. This folder is the extension’s code that you’d want to ZIP and publish to the Chrome Web Store.
 

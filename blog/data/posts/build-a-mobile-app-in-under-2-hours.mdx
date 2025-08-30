@@ -33,7 +33,7 @@ However, this time I didn’t want to take the regular approach to writing some 
 
 In this article we’ll look at how I built an app in under 2 hours using [OutSystems](https://medium.com/u/185dc50f4629).
 
-![GIF showing OutSystems IDE taken from www.outsystems.com](https://cdn-images-1.medium.com/max/800/1*nInnjfNVdUx0lbfA84K3iQ.gif)
+![GIF showing OutSystems IDE taken from www.outsystems.com](/static/images/blog/contents/1_nInnjfNVdUx0lbfA84K3iQ.gif)
 
 GIF showing [OutSystems](https://www.outsystems.com/) IDE taken from [www.outsystems.com](https://www.outsystems.com/)
 
@@ -57,7 +57,7 @@ Wait, what now? Low-code?
 
 First, let’s head to [www.outsystems.com](https://www.outsystems.com/) and sign-up for a free account. You’ll be asked to choose a URL for your cloud environment and set a password.
 
-![Image showing the OutSystems account creation process.](https://cdn-images-1.medium.com/max/800/1*rc0VllRl8__4jFgyu2BQxA.png)
+![Image showing the OutSystems account creation process.](/static/images/blog/contents/1_rc0VllRl8__4jFgyu2BQxA.png)
 
 Once you proceed ahead, you will see a link to download the IDE which you definitely want to do. In case you missed that step, you can download it from [here](https://www.outsystems.com/downloads/). Visit the OutSystems [home page](https://www.outsystems.com/home/) to know when your cloud environment is ready to use.
 
@@ -65,11 +65,11 @@ Once you proceed ahead, you will see a link to download the IDE which you defini
 
 Open up the IDE, sign-in to your cloud environment and you should immediately see the **New Application** button. Clicking on that opens a popup where you choose the type of app you’re going to build. We’ll select **Phone App** and hit next. In the next screen, we’ll give the app a suitable name, optionally a description, the color scheme and the app’s icon — these details can be edited anytime in the future, so don’t stress about it too much!
 
-![GIF showing the New Application screens presented to the user in OutSystems.](https://cdn-images-1.medium.com/max/800/1*dG4fA4HO_hOLvmx1JTIF4A.gif)
+![GIF showing the New Application screens presented to the user in OutSystems.](/static/images/blog/contents/1_dG4fA4HO_hOLvmx1JTIF4A.gif)
 
 We’ll create our fist **Phone App** module. Give it a suitable and hit the **Create Module** button. Double-click on that to open the module and start building the app.
 
-![GIF showing how you would create a new module in OutSystems.](https://cdn-images-1.medium.com/max/800/1*1Ez58PDGaRq2Hlv8_Ebiww.gif)
+![GIF showing how you would create a new module in OutSystems.](/static/images/blog/contents/1_1Ez58PDGaRq2Hlv8_Ebiww.gif)
 
 #### Adding a Screen
 
@@ -80,7 +80,7 @@ Now that we’ve created a module, let’s start by adding a **Screen**. Follow 
 3. Select an **Empty** template and give it a suitable name. I’ve named it Calculator for this demo.
 4. Click **Create Screen**.
 
-![GIF showing how to create a screen in OutSystems.](https://cdn-images-1.medium.com/max/800/1*KXYXYsFb7U5_Xul0z9wdDQ.gif)
+![GIF showing how to create a screen in OutSystems.](/static/images/blog/contents/1_KXYXYsFb7U5_Xul0z9wdDQ.gif)
 
 #### Adding UI elements
 
@@ -92,13 +92,13 @@ We want to get the user to input the quantity of the product he/she is buying an
 4. Similarly, let’s add another **Label** for “Price” and another **Input** field associated with a new **Variable** called **Price**.
 5. Finally, a **Button** to calculate the price per 100 g of the product, and an **Expression** field to display the output.
 
-![GIF showing how to add UI elements to the screen in OutSystems.](https://cdn-images-1.medium.com/max/800/1*MC02GzGfJ-VN-g_GfP-VdA.gif)
+![GIF showing how to add UI elements to the screen in OutSystems.](/static/images/blog/contents/1_MC02GzGfJ-VN-g_GfP-VdA.gif)
 
 Your screen should look something like the picture below (barring the arrows, of course). Both the input boxes are associated with a variable. This means, the values typed into these boxes can be retrieved by calling these variables.
 
 But wait, what are these errors?
 
-![Image showing the link between text fields and variables in OutSystems.](https://cdn-images-1.medium.com/max/800/1*UTASEjQ3AH3nLdfCtLyeSw.png)
+![Image showing the link between text fields and variables in OutSystems.](/static/images/blog/contents/1_UTASEjQ3AH3nLdfCtLyeSw.png)
 
 #### Resolving errors
 
@@ -106,13 +106,13 @@ You would’ve noticed a red border around the **Button** and **Expression** fie
 
 The **Expression** field needs to be associated with a value. Let’s create a new **Local Variable** called **Total**, set the **Data Type** to **Decimal**. We’ll then click the **Expression** field and set the **Value** to the **Total** variable.
 
-![GIF showing how to resolve errors in OutSystems.](https://cdn-images-1.medium.com/max/800/1*d67w1pAxYLkxO8fN-0bINQ.gif)
+![GIF showing how to resolve errors in OutSystems.](/static/images/blog/contents/1_d67w1pAxYLkxO8fN-0bINQ.gif)
 
 Now for the button — let’s first click the text and rename it to “Calculate”. Now click the button itself, and from the bottom right properties, scroll down to the **On Click** event. You’ll notice a red border indicating an error.
 
 Let’s click the dropdown and add a **New Client Action**. This will be our calculate method.
 
-![GIF showing the new client action process in OutSystems.](https://cdn-images-1.medium.com/max/800/1*MuDQUe4Jry0VUInOcM5-6A.gif)
+![GIF showing the new client action process in OutSystems.](/static/images/blog/contents/1_MuDQUe4Jry0VUInOcM5-6A.gif)
 
 #### Update Client Action
 
@@ -121,7 +121,7 @@ Let’s click the dropdown and add a **New Client Action**. This will be our cal
 3. Now, from the bottom right properties, under **Assignments** section, let’s set the **Variable** to **Total**.
 4. And for the **Value**, let’s open up the **Expression Editor**. In there, paste the formula`(100 / Quantity) * Price`. Here, **Quantity** and **Price** reference the local variables we created earlier. The outcome of the formula will automatically be assigned to the **Total** variable since we assigned that in step #3.
 
-![GIF showing the use of a formula in a client action in OutSystems.](https://cdn-images-1.medium.com/max/800/1*TxP_WMHIH-yoyxQZIOslrQ.gif)
+![GIF showing the use of a formula in a client action in OutSystems.](/static/images/blog/contents/1_TxP_WMHIH-yoyxQZIOslrQ.gif)
 
 ---
 
@@ -131,7 +131,7 @@ OutSystems offers a **1-Click Publish** feature to make the process of deploying
 
 You can then click on the arrow icon (on the same button) to open it in the browser and see it live in action.
 
-![GIF showing the 1-click publish process in OutSystems.](https://cdn-images-1.medium.com/max/800/1*YfmRdZ9ArenNyFiz72Ip4g.gif)
+![GIF showing the 1-click publish process in OutSystems.](/static/images/blog/contents/1_YfmRdZ9ArenNyFiz72Ip4g.gif)
 
 #### Wait, what’s this login?
 
@@ -139,15 +139,15 @@ After being redirected to the browser, you’ll see a login screen. You can ente
 
 Don’t worry, there’s a solution…
 
-![Image of the login screen when you first publish your app using OutSystems.](https://cdn-images-1.medium.com/max/800/1*yifS2T_Anu8NAiwhfMT-vw.png)
+![Image of the login screen when you first publish your app using OutSystems.](/static/images/blog/contents/1_yifS2T_Anu8NAiwhfMT-vw.png)
 
 Let’s head back to the OutSystems Service Studio. Click the **Calculator** screen under **MainFlow** in the right panel. From the properties box, check the **Anonymous** box. This will remove the login screen from your app. Republish the app using the **1-Click Publish** method for the changes to take effect.
 
-![Image showing how to make your app anonymous in OutSystems.](https://cdn-images-1.medium.com/max/800/1*34y9qJ97EjTayWkVhr47yQ.png)
+![Image showing how to make your app anonymous in OutSystems.](/static/images/blog/contents/1_34y9qJ97EjTayWkVhr47yQ.png)
 
 Now when you view the app in the browser, you’ll see a loading screen and then dive straight into your app. Enter the quantity, price and hit the **Calculate** button — the price per 100 g is shown besides the button.
 
-![GIF showing the demo app built using OutSystems in action.](https://cdn-images-1.medium.com/max/800/1*O9eQ4kS8efWfxUTPSdxtRQ.gif)
+![GIF showing the demo app built using OutSystems in action.](/static/images/blog/contents/1_O9eQ4kS8efWfxUTPSdxtRQ.gif)
 
 #### Exporting into a native app
 
@@ -159,11 +159,11 @@ You can export this app into a native Android or iOS app from the OutSystems Ser
 4. You can leave the **App identifier** as is.
 5. Click the **Generate App** button. After a while, you’ll get a QR code and a link. If you open the link in a browser, you’ll get a download page, and clicking the **Get for Android** button will start a download of the `.apk` file.
 
-![GIF showing how to export the OutSystems app to native Android.](https://cdn-images-1.medium.com/max/800/1*P_MYZqHkvSgqA9MlKElngQ.gif)
+![GIF showing how to export the OutSystems app to native Android.](/static/images/blog/contents/1_P_MYZqHkvSgqA9MlKElngQ.gif)
 
 I’ve downloaded the `.apk` file and have installed it on my mobile. Here’s a quick video of how it works.
 
-![GIF showing the app in action on a mobile phone. App built using OutSystems.](https://cdn-images-1.medium.com/max/800/1*bVYHNTwJIK0Ifd6Z6zjO8w.gif)
+![GIF showing the app in action on a mobile phone. App built using OutSystems.](/static/images/blog/contents/1_bVYHNTwJIK0Ifd6Z6zjO8w.gif)
 
 #### Download my demo
 
@@ -178,7 +178,7 @@ Since I’m on the free version of OutSystems, my development environment goes t
 
 While the example above is pretty simple, how does the app handle floating point precision results? In this case, not very well. You may want to have only two decimal points in the final cost.
 
-![GIF showing what happens when you use precision point values as inputs to the demo app.](https://cdn-images-1.medium.com/max/800/1*7vYlKnSHFnLldfHd_50stg.gif)
+![GIF showing what happens when you use precision point values as inputs to the demo app.](/static/images/blog/contents/1_7vYlKnSHFnLldfHd_50stg.gif)
 
 Good news! There’s a solution to that. Let’s take a look.
 
@@ -187,13 +187,13 @@ Good news! There’s a solution to that. Let’s take a look.
 3. From the properties, we’ll click on the dropdown and select **Expression Editor**.
 4. This will open a popup. Replace **Total** with `FormatCurrency(Total, “$”, 2, “.”, “,”) + “ /100g”`.
 
-![GIF showing how to fix the precision point error in OutSystems.](https://cdn-images-1.medium.com/max/800/1*a59-kPZyjAfv5wmTXFg56g.gif)
+![GIF showing how to fix the precision point error in OutSystems.](/static/images/blog/contents/1_a59-kPZyjAfv5wmTXFg56g.gif)
 
 `FormatCurrency` is a built-in function offered by OutSystems. It builds a text output from the parameters provided. In this example, it will prefix the output text that it gets from the **Total** variable with a “$” symbol. It displays a decimal point using a period (.) and thousands, if any, will be separated by a comma (,). The third parameter (in this case: 2) specifies the number of decimal digit after the decimal point. The output of `FormatCurrency` is concatenated with a “ /100g” to give the final result. More such functions can be found on their [technical documentation page](https://success.outsystems.com/Documentation/11/Reference/OutSystems_Language/Logic/Built-in_Functions/Format#FormatCurrency).
 
 After republishing the app, we now have our desired result.
 
-![GIF showing what the app looks like after handling precision points in inputs.](https://cdn-images-1.medium.com/max/800/1*INUHb2ua6tS77ifdlmxwqA.gif)
+![GIF showing what the app looks like after handling precision points in inputs.](/static/images/blog/contents/1_INUHb2ua6tS77ifdlmxwqA.gif)
 
 ---
 

@@ -42,19 +42,19 @@ For brevity, I’ll omit the steps of creating a package, but if you’d like to
 
 In the integrated terminal of VS Code, we’ll type in `npm login` to first log in to the npm js registry. We’ll be redirected to the browser window where we’ll complete the login and once we’re back to the terminal, we should be sweet.
 
-![](https://cdn-images-1.medium.com/max/800/1*u47cyr50agRczK_Py0Z69A.png)
+![](/static/images/blog/contents/1_u47cyr50agRczK_Py0Z69A.png)
 
 Image courtesy of the author
 
 We’ll then run `npm publish --dry-run` to simulate the actual publish command and see what files will be packaged up. This is a good time to review the output and make changes where necessary. It has warned me about the incorrect entries for the `bin` and `repository.url` fields, both of which are easy fixes — I have to rename the `bin` field value to remove the scope from the name of the command and have to update the repository URL to prefix `git+` to the GitHub URL and suffix it with `.git`.
 
-![](https://cdn-images-1.medium.com/max/800/1*SeKNGK0FZlanu8H7QZzoQA.png)
+![](/static/images/blog/contents/1_SeKNGK0FZlanu8H7QZzoQA.png)
 
 Image courtesy of the author
 
 As we can see in the screenshot below, the files from the .github folder are being included which is unnecessary.
 
-![](https://cdn-images-1.medium.com/max/800/1*OGXxS8FNN_p5bVN-WFPy3A.png)
+![](/static/images/blog/contents/1_OGXxS8FNN_p5bVN-WFPy3A.png)
 
 Image courtesy of the author
 
@@ -66,7 +66,7 @@ This can be fixed by adding a line in the .npmignore file as shown below.
 
 We’re now ready to publish the package and we’ll use the command `npm publish` to do so. The output in the command line will contain the files that are being packaged and some metadata of the package that’s published. Unfortunately, we’re receiving an error message instead of a success. As captured in the screenshot below, the error message states “402 Payment Required” and that “you must sign up for private packages.”
 
-![](https://cdn-images-1.medium.com/max/800/1*zb80MW1poPsFb5cpF7gGQg.png)
+![](/static/images/blog/contents/1_zb80MW1poPsFb5cpF7gGQg.png)
 
 Image courtesy of the author
 
@@ -84,7 +84,7 @@ To resolve this, let’s try explicitly setting the `private` flag to false to l
 
 Unfortunately, when we try to publish after this update, we still see the same error. So clearly setting the private value didn’t do the trick. Let’s remove that from our package.json file and try something else.
 
-![](https://cdn-images-1.medium.com/max/800/1*yhgZemCog9lCkIPCvhD-lw.png)
+![](/static/images/blog/contents/1_yhgZemCog9lCkIPCvhD-lw.png)
 
 Image courtesy of the author
 
@@ -102,7 +102,7 @@ In the same [docs page](https://docs.npmjs.com/cli/v10/configuring-npm/package-j
 
 Now when we try to publish the package, it works correctly. Since we’ve supplied the access value in the `publishConfig` object, it also prints “with public access” in the command line info message output, as seen in the screenshot below.
 
-![](https://cdn-images-1.medium.com/max/800/1*KxHYC8vNiwC5F0EnB0PgQQ.png)
+![](/static/images/blog/contents/1_KxHYC8vNiwC5F0EnB0PgQQ.png)
 
 Image courtesy of the author
 

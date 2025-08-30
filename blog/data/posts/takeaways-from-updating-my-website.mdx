@@ -24,7 +24,7 @@ images: ['/static/images/blog/updatewebsite.png']
 
 Earlier this month, I released a major update to [my website](https://clydedsouza.net/) that I had been working on for many months. This update was packed with a lot of technical changes like rewriting and redesigning my website, adding an API to host my portfolio information, adding multiple other microsites and a lot more. This article aims to unpack all of these technical changes and hopes to inspire other minds that might read this.
 
-![High-level architecture diagram of the website www.clydedsouza.net](https://cdn-images-1.medium.com/max/1200/1*Gn9Yk2_wltrGFhWphDdSeQ.jpeg)
+![High-level architecture diagram of the website www.clydedsouza.net](/static/images/blog/contents/1_Gn9Yk2_wltrGFhWphDdSeQ.jpeg)
 
 High-level architecture diagram of the website
 
@@ -34,31 +34,31 @@ High-level architecture diagram of the website
 
 One of the drawbacks of my old website’s design was that all my work needed to fit under a single Projects tab. With the list of projects increasing year-on-year, this screen grew very large needing to scroll a lot to get to the bottom of the list. The screen also didn’t have any filters or a search box to get a refined view of the list. To fix this, the new website design includes navigation tabs on top of the screen which allows me to broadly classify my portfolio into four categories — projects, speaking, teaching and books. Each of these screens also includes a search box to quickly refine the list of projects and a toggle to show inactive projects — these include projects that are not maintained and might not function 100% as a result of various factors.
 
-![Image showing the difference between old and new website navigation.](https://cdn-images-1.medium.com/max/800/1*ro7N61plBlqnsWIIXf5jAg.gif)
+![Image showing the difference between old and new website navigation.](/static/images/blog/contents/1_ro7N61plBlqnsWIIXf5jAg.gif)
 
 New — categorized navigation and searchable results. Old — simple navigation without a search box.
 
 I’ve also included a Highlights section in the home screen which allows me to feature certain projects. I tried to do that in the old website using a card but that just felt limiting.
 
-![GIF showing the comparision for the highlights section in the old website versus the new website.](https://cdn-images-1.medium.com/max/800/1*wM43xkQpPhOko1xwZILszg.gif)
+![GIF showing the comparision for the highlights section in the old website versus the new website.](/static/images/blog/contents/1_wM43xkQpPhOko1xwZILszg.gif)
 
 New — a highlights section on the homepage allowing me to pin selected projects. Old — a single card in the home screen highlighting a specific project.
 
 I’ve also added a call to action in the sidebar for subtly drawing user’s attention — like in-app advertisements but not in-your-face. On a mobile screen, this section is moved to the footer of the website with a slightly different background colour than the rest of the website.
 
-![GIF showing the call to action section in desktop and mobile devices.](https://cdn-images-1.medium.com/max/800/1*ytaeG3dQ25M3bAOV-l7ypQ.gif)
+![GIF showing the call to action section in desktop and mobile devices.](/static/images/blog/contents/1_ytaeG3dQ25M3bAOV-l7ypQ.gif)
 
 GIF showing the call to action section in desktop and mobile devices.
 
 The old website included a Facebook Messenger button in the bottom-right corner of the screen as a way for visitors to quickly message me. However, I noticed that messages would not appear in my inbox but instead go to the Message Requests screen which I would never check. Also, it was probably not the best idea and it also doesn’t look too professional to get visitors to message me directly on Facebook. So, for version 2.0, I’ve used [Tawk.to](https://www.tawk.to/) which is a real-time live chat software. They provide a JavaScript code snippet that [I need to add into my website](https://github.com/clydedsouza/clydedsouza.github.io/blob/v2.0.0/index.html#L177-L187) and, lo and behold, I have a live chat feature enabled on my website. Tawk.to provides a nice dashboard where I can reply to all incoming messages even when I’m not online when a visitor messages me.
 
-![Image show the difference between two real-time messaging icons in the website.](https://cdn-images-1.medium.com/max/800/1*CiM3u-jbaMcxd1yPgYw8cw.gif)
+![Image show the difference between two real-time messaging icons in the website.](/static/images/blog/contents/1_CiM3u-jbaMcxd1yPgYw8cw.gif)
 
 New — a Tawk.to chat icon in the bottom-right of the screen. Old — a Facebook Messenger icon in the bottom-right of the screen.
 
 I’ve also moved away from [Material Design](https://material.io/design) as it was time for a visual refresh and have also moved away from [Material design icons](https://materialdesignicons.com/) since they [stopped providing brand icons](http://dev.materialdesignicons.com/roadmap/brand-icons). The design of the website is inspired by [Gitfolio](https://imfunniee.github.io/gitfolio/) and for the icons used on the website, I’ve gone with [Font Awesome](https://fontawesome.com/). The colour scheme, however, remains the same as I wanted to retain brand familiarity for returning visitors.
 
-![GIF showing the new website design versus the old website design](https://cdn-images-1.medium.com/max/1200/1*bdwZm7B-Z9bSIW6av4oYdA.gif)
+![GIF showing the new website design versus the old website design](/static/images/blog/contents/1_bdwZm7B-Z9bSIW6av4oYdA.gif)
 
 GIF showing the new website design versus the old website design.
 
@@ -82,7 +82,7 @@ In version 1.0 of my website, I was using a single JSON file to store informatio
 
 So for version 2.0, I moved my project information into its own [GitHub repository](https://github.com/clydedsouza/clydedsouza-web-api/settings) and I started using Markdown files to store information about my projects. The idea was to have one Markdown file for each project — the meta-information will be stored as [Front Matter](https://jekyllrb.com/docs/front-matter/) and below that, I have the opportunity to add more details around each project which I can then show on a project details page — the latter part isn’t live yet but is on the roadmap.
 
-![High-level diagram outlining the process of adding a portfolio item to consuming that data via the API](https://cdn-images-1.medium.com/max/1200/1*RudtGed0a6byblO9MVm6VA.jpeg)
+![High-level diagram outlining the process of adding a portfolio item to consuming that data via the API](/static/images/blog/contents/1_RudtGed0a6byblO9MVm6VA.jpeg)
 
 High-level diagram outlining the process of adding a portfolio item to consuming that data via the API
 
@@ -100,7 +100,7 @@ The PowerShell script linked above uses a couple of helper scripts. These helper
 
 I’ve also connected this GitHub repository with [Forestry.io](https://forestry.io/) which acts as a headless CMS for my Markdown content. Forestry presents a neat UI to update my project information. I’ve also created a [Front Matter Template](https://forestry.io/docs/settings/front-matter-templates/) out of my existing project pages which allows me to easily add new project files via Forestry and get it to automatically add the same Front Matter structure to each project file.
 
-![Image showing what editing project content in Forestry looks like.](https://cdn-images-1.medium.com/max/800/1*CnztzRkGsOouflW3f1NFZQ.png)
+![Image showing what editing project content in Forestry looks like.](/static/images/blog/contents/1_CnztzRkGsOouflW3f1NFZQ.png)
 
 Here’s what editing project content in Forestry looks like.
 
@@ -122,7 +122,7 @@ I was originally hosting static files like images, CSS and JavaScript files in t
 
 I’ve created a build pipeline that gets triggered when a change is made to any of the folders that contain these static files. You can read more about using Path filters to trigger your build pipeline [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&tabs=classic#path-filters). The build pipeline archives the contents and makes the ZIP file ready for the release pipeline. I’m using the same [GitHub Pages Publish](https://marketplace.visualstudio.com/items?itemName=AccidentalFish.githubpages-publish) marketplace extension to commit these files to the main branch of the GitHub repository from my release pipeline.
 
-![High-level diagram outlining the process of adding an image/CSS/JavaScript file to consuming that file.](https://cdn-images-1.medium.com/max/1200/1*RBLl-mgMVqtckbQCWwxzkA.jpeg)
+![High-level diagram outlining the process of adding an image/CSS/JavaScript file to consuming that file.](/static/images/blog/contents/1_RBLl-mgMVqtckbQCWwxzkA.jpeg)
 
 High-level diagram outlining the process of adding an image/CSS/JavaScript file to consuming that file.
 

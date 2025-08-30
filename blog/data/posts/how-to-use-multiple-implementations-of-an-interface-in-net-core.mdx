@@ -40,13 +40,13 @@ And in the `Program.cs` file, we’ll register our dependencies.
 
 When we run this console app, it prints the message from the concrete implementation.
 
-![](https://cdn-images-1.medium.com/max/800/1*a8-Vf6GYtOGAXmJcDKs7NA.png)
+![](/static/images/blog/contents/1_a8-Vf6GYtOGAXmJcDKs7NA.png)
 
 Image courtesy of the author
 
 If I add a breakpoint, it’s evident that the registration of the dependency in the service container is done correctly and the injection of the dependency into the constructor of the class where it’s used is also done correctly. The .NET framework will also take care of disposing of the injected dependency when it’s no longer needed.
 
-![](https://cdn-images-1.medium.com/max/800/1*oHNb6zT0apqkmmTeJ1FYhQ.png)
+![](/static/images/blog/contents/1_oHNb6zT0apqkmmTeJ1FYhQ.png)
 
 Image courtesy of the author
 
@@ -62,13 +62,13 @@ Don’t forget to register this dependency with the service container in the `Pr
 
 When we actually run the console app, you’ll see duplicate messages printed on the console. This is because the last dependency in the constructor list in the `App` class is what overrides all dependencies of the type `IAnimals`.
 
-![](https://cdn-images-1.medium.com/max/800/1*TYI592ADYKX4RflPM4f6Sw.png)
+![](/static/images/blog/contents/1_TYI592ADYKX4RflPM4f6Sw.png)
 
 Image courtesy of the author
 
 If we put a breakpoint in the constructor, we can see that both `domestic` and `wild` have the same implementation `Wild` injected into it.
 
-![](https://cdn-images-1.medium.com/max/800/1*GYbDfpcAtSlxJf9yOZ3WZg.png)
+![](/static/images/blog/contents/1_GYbDfpcAtSlxJf9yOZ3WZg.png)
 
 Image courtesy of the author
 
@@ -80,13 +80,13 @@ To resolve this issue, we’ll replace the individually added dependencies with 
 
 If you put a breakpoint and visualize the animals list in the code snippet, you’ll see both concrete implementations in the list.
 
-![](https://cdn-images-1.medium.com/max/800/1*K5qYimozZtHF8JzBpxjM9Q.png)
+![](/static/images/blog/contents/1_K5qYimozZtHF8JzBpxjM9Q.png)
 
 Image courtesy of the author
 
 So technically, if all you wanted was to print a message from both implementations without worrying about the order, then this would be okay. As pictured below, both messages are printed, although before the messages from the `Run` method is executed.
 
-![](https://cdn-images-1.medium.com/max/800/1*fCDTXvhrJnqDb_kZ4lbdWA.png)
+![](/static/images/blog/contents/1_fCDTXvhrJnqDb_kZ4lbdWA.png)
 
 Image courtesy of the author
 
@@ -102,13 +102,13 @@ The [IServiceCollection](https://learn.microsoft.com/en-us/dotnet/api/microsoft.
 
 Because we’re assigning each resolved service into its own variable, we can now independently use that to perform functions with it, like printing the messages from these concrete classes in the right places of the console app. But wait, when I run the application, I get a null reference exception!
 
-![](https://cdn-images-1.medium.com/max/800/1*pPIEYHCyVl2MvRgqGjfTdw.png)
+![](/static/images/blog/contents/1_pPIEYHCyVl2MvRgqGjfTdw.png)
 
 Image courtesy of the author
 
 If I add a breakpoint to the constructor, you can see that although the `animals` list has both concrete implementations injected into it, the assigned variables `_domestic` and `_wild` is still null. This means that the service provider’s `GetService` method isn’t doing its magic.
 
-![](https://cdn-images-1.medium.com/max/800/1*srCkkM1fjZpdLCCd1Bfhsw.png)
+![](/static/images/blog/contents/1_srCkkM1fjZpdLCCd1Bfhsw.png)
 
 Image courtesy of the author
 
@@ -116,13 +116,13 @@ What did we miss? Ah, we did not individually register these services in the ser
 
 Now if I run the application with the breakpoints, I can verify that the assignments have worked correctly.
 
-![](https://cdn-images-1.medium.com/max/800/1*Xyv78ykoGjdL_YXn9EXsFA.png)
+![](/static/images/blog/contents/1_Xyv78ykoGjdL_YXn9EXsFA.png)
 
 Image courtesy of the author
 
 And the output in the console application is printed correctly, too!
 
-![](https://cdn-images-1.medium.com/max/800/1*8OhQIsW5jwWKnzDJUkNC9w.png)
+![](/static/images/blog/contents/1_8OhQIsW5jwWKnzDJUkNC9w.png)
 
 Image courtesy of the author
 
@@ -142,7 +142,7 @@ In a real scenario, though, if you’re using dynamic service registration, it�
 
 Anyway, running our console application now gives us the console output we were expecting, so yay!
 
-![](https://cdn-images-1.medium.com/max/800/1*uHKZm0N10P2i9_CXkND9LA.png)
+![](/static/images/blog/contents/1_uHKZm0N10P2i9_CXkND9LA.png)
 
 Image courtesy of the author
 

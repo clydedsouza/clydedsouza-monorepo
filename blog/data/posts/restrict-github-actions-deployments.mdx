@@ -49,13 +49,13 @@ Let’s scale this down to a simple GitHub Action that can be triggered manually
 
 I have a _main_ branch and a _test_ branch in my repository. From the **Actions** page, I can manually trigger the workflow to run from the _test_ branch, as seen in the screenshot below.
 
-![](https://cdn-images-1.medium.com/max/800/1*-yQpVSdXwpy6vukEAFg62g.png)
+![](/static/images/blog/contents/1_-yQpVSdXwpy6vukEAFg62g.png)
 
 Image courtesy of the author
 
 As we’d expect, the workflow executes all the way through, thus reproducing the problem scenario where code can be deployed from a non-main branch.
 
-![](https://cdn-images-1.medium.com/max/800/1*iPd8jKL-8yj388kETKKzAg.png)
+![](/static/images/blog/contents/1_iPd8jKL-8yj388kETKKzAg.png)
 
 Image courtesy of the author
 
@@ -63,7 +63,7 @@ Image courtesy of the author
 
 We’ll start by clicking on the GitHub repository **Settings** and then click on **Environments** and then add a new environment called _production_.
 
-![](https://cdn-images-1.medium.com/max/800/1*XZJI7Wv6iPGuDrmiWWYZtg.png)
+![](/static/images/blog/contents/1_XZJI7Wv6iPGuDrmiWWYZtg.png)
 
 Image courtesy of the author
 
@@ -71,13 +71,13 @@ After the environment is created in GitHub, we should be able to click on the en
 
 In the **Deployment branches and tags** section, we’ll click on **Selected branches and tags** and then click on the **Add deployment branch or tag rule** button.
 
-![](https://cdn-images-1.medium.com/max/800/1*PA2FdXOWdjutxNHLumX0-w.png)
+![](/static/images/blog/contents/1_PA2FdXOWdjutxNHLumX0-w.png)
 
 Image courtesy of the author
 
 In the pop-up, specify the branch name you want to whitelist, in other words, the branch which should be allowed to deploy to production from, and then click on the **Add rule** button. For this article, I’ve added the branch _main_ to this list. Don’t forget to also click the **Save protection rules** button.
 
-![](https://cdn-images-1.medium.com/max/800/1*MLFHxNJ4v1rjm5u0Oz1cOA.png)
+![](/static/images/blog/contents/1_MLFHxNJ4v1rjm5u0Oz1cOA.png)
 
 Image courtesy of the author
 
@@ -96,7 +96,7 @@ Let’s try to manually trigger the workflow from the _test_ branch now.
 
 As you can see from the screenshot below, the job has failed because it didn’t meet the environment protection rules. Hooray!
 
-![](https://cdn-images-1.medium.com/max/800/1*7SyHSAMXNDCl83B2_sNHgQ.png)
+![](/static/images/blog/contents/1_7SyHSAMXNDCl83B2_sNHgQ.png)
 
 Image courtesy of the author
 

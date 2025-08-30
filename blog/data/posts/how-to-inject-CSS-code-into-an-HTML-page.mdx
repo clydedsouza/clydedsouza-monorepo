@@ -69,7 +69,7 @@ Let’s take a look at how we might achieve this.
 
 First, let’s start with what files I have at the moment.
 
-![Screenshot of the source code directory with a few folders blurred out.](https://cdn-images-1.medium.com/max/800/1*zOSrXl3ly7qzb6xoIVXq-A.png)
+![Screenshot of the source code directory with a few folders blurred out.](/static/images/blog/contents/1_zOSrXl3ly7qzb6xoIVXq-A.png)
 
 The `src` (source) folder has a simple ‘Hello World’ `index.html` file. I’m using Sass to add some styling to the page. Don’t worry about the blurred out files, we’ll reveal them as and when we implement our solution.
 
@@ -86,7 +86,7 @@ Here’s a quick summary of what these packages are and how we’ll be using the
 - [gulp-inject](https://www.npmjs.com/package/gulp-inject) is a plugin to inject stylesheets and javascript references into the HTML file. This will allow us to add a placeholder in the HTML and then automatically inject the link tags that reference the CSS files into it.
 - [gulp-replace](https://www.npmjs.com/package/gulp-replace) is a string replace plugin for gulp. This will enable us to replace the dynamically added link tag with its minified CSS contents.
 
-![GIF of a cartoon expressing the word Gulp.](https://cdn-images-1.medium.com/max/800/1*zQg5dZc9IV-IZr8h96RMsA.gif)
+![GIF of a cartoon expressing the word Gulp.](/static/images/blog/contents/1_zQg5dZc9IV-IZr8h96RMsA.gif)
 
 GIF [source](https://giphy.com/gifs/season-3-the-simpsons-3x11-l2Jee1D2ScXZPraus)
 
@@ -94,7 +94,7 @@ GIF [source](https://giphy.com/gifs/season-3-the-simpsons-3x11-l2Jee1D2ScXZPraus
 
 To execute tasks using Gulp, you need to define them in a file named `gulpfile.js`. Let’s create a file in the root directory and in the following sections of this guide, we’ll look at what needs to be added to this file and why.
 
-![Screenshot of the source code directory with a few folders blurred out.](https://cdn-images-1.medium.com/max/800/1*hXFFpnFLTHnRsYE7mEM6og.png)
+![Screenshot of the source code directory with a few folders blurred out.](/static/images/blog/contents/1_hXFFpnFLTHnRsYE7mEM6og.png)
 
 #### Compiling Sass to CSS: gulp-sass
 
@@ -106,7 +106,7 @@ We’ve named this task compile-sass and given it the source folder where all Sa
 
 Now, your solution should look something like this.
 
-![Screenshot of the source code directory with a few folders blurred out.](https://cdn-images-1.medium.com/max/800/1*aT9u7BGAq2d0wQNUJOIsMA.png)
+![Screenshot of the source code directory with a few folders blurred out.](/static/images/blog/contents/1_aT9u7BGAq2d0wQNUJOIsMA.png)
 
 #### Inserting a link tag: gulp-inject
 
@@ -120,7 +120,7 @@ We’ll name this task add-styles, give it the HTML file that needs to be update
 
 Run the command `gulp add-styles` to see the magic happen. You would now see a dist folder and inside that, an `index.html` file.
 
-![Screenshot of the source code directory.](https://cdn-images-1.medium.com/max/800/1*SFrrHu6XcXNkZc2vJOXGag.png)
+![Screenshot of the source code directory.](/static/images/blog/contents/1_SFrrHu6XcXNkZc2vJOXGag.png)
 
 The `index.html` file might look something like this.
 
