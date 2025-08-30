@@ -70,11 +70,11 @@ In your `action.yml` file, ensure that you have a suitable name and description 
 
 The icon and color from the branding section appear to the left of the action name and description in the search results and also on the action’s marketplace page, so please choose wisely. The icons can only be one from [this list](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#exhaustive-list-of-all-currently-supported-icons) and the color can only be one from [this list](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#brandingcolor). If you’re publishing an action from an organization account, I believe this icon can be updated to a custom image, but sadly not from a personal account. The full metadata syntax can be [found here](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#about-yaml-syntax-for-github-actions).
 
-![](/static/images/blog/contents/1_PUX6mkOn_FqiayHPQq8M0Q.png)
+![](/static/posts/1_PUX6mkOn_FqiayHPQq8M0Q.png)
 
 You might’ve also noticed badges appearing in the action search results. This is available to only those who have published an action under a verified organizational GitHub account. Further information about this can be obtained [here](https://docs.github.com/en/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-marketplace-badges#for-github-actions).
 
-![](/static/images/blog/contents/1_yKYv2JWSg5P7sH5Xv9PrrA.png)
+![](/static/posts/1_yKYv2JWSg5P7sH5Xv9PrrA.png)
 
 ### Accepting inputs
 
@@ -104,7 +104,7 @@ The third and final step is to execute the CLI tool. As per [their documentation
 
 Even before you publish your action to the GitHub marketplace, you can test your action from another repository very easily. Create a new repository with a `main.yml` workflow file (you can name this YAML file whatever you like) under the `.github/workflows` folder and if you need any supporting files to be able to test out your action, include that in the repository too. Since my action compresses images, I’ve included a `public` folder with some large images of all formats. This is what my test repository looks like.
 
-![](/static/images/blog/contents/1_bErSgweAm6AqPxMcA7yOew.png)
+![](/static/posts/1_bErSgweAm6AqPxMcA7yOew.png)
 
 Image courtesy of the author
 
@@ -130,13 +130,13 @@ And finally, we’ll need to make these compressed images available outside of t
 
 To run the workflow, click on **Actions&#x20;**&#x74;ab in your test repository, find and click the workflow from the left sidebar and then click on the **Run workflow** dropdown. Here you can select your branch and then click on the green **Run workflow** button.
 
-![](/static/images/blog/contents/1_KNqjSsnLiIPwsBnhF1npjQ.png)
+![](/static/posts/1_KNqjSsnLiIPwsBnhF1npjQ.png)
 
 Image courtesy of the author
 
 This will trigger the workflow and run all the steps you’ve written above. Once it's complete, click on the successful run and then scroll down to see the generated artifacts. Click on the artifact to download the ZIP file.
 
-![](/static/images/blog/contents/1_MfCIQt-dxmxYH-lSJuxL0Q.png)
+![](/static/posts/1_MfCIQt-dxmxYH-lSJuxL0Q.png)
 
 Image courtesy of the author
 
@@ -148,19 +148,19 @@ Once you’re happy with how the custom action turned out, it’s time to publis
 
 Let’s head into the repository and click on the **Draft a release** button that appears on the page.
 
-![](/static/images/blog/contents/1_T2eE1k27IFQVAq_RIvIwBA.png)
+![](/static/posts/1_T2eE1k27IFQVAq_RIvIwBA.png)
 
 Image courtesy of the author
 
 On the releases page, you’ll need to accept the developer agreement before proceeding ahead. In the **Release Action** section, click the **Publish this Action to the GitHub Marketplace** checkbox.
 
-![](/static/images/blog/contents/1_14UfzPXF0IG5KU1JTRJjDg.png)
+![](/static/posts/1_14UfzPXF0IG5KU1JTRJjDg.png)
 
 Image courtesy of the author
 
 Once you check that box, GitHub will validate if the requirements are met. Additionally, you’ll need to set the category and optionally, another category.
 
-![](/static/images/blog/contents/1_H3pafxFcEhYmqlTFPIZWkw.png)
+![](/static/posts/1_H3pafxFcEhYmqlTFPIZWkw.png)
 
 Image courtesy of the author
 
@@ -170,19 +170,19 @@ Once you’re satisfied, click on the **Publish release** button. You might need
 
 On the releases page, you’ll notice a **Marketplace link** which will take you to your GitHub actions page.
 
-![](/static/images/blog/contents/1_BRWNXIflX9ztrX_7oXsQbw.png)
+![](/static/posts/1_BRWNXIflX9ztrX_7oXsQbw.png)
 
 Image courtesy of the author
 
 As you can see, the contents of the readme get displayed on the actions page. If you click on the green **Use latest version** button located towards the top-right of the screen, GitHub should give you a snippet that consumers can copy into their workflow file. The screenshot below is from the action I recently published called [Compress Images](https://github.com/marketplace/actions/compress-images).
 
-![](/static/images/blog/contents/1_Lg68JYnsQAw3ai_CyZmGSA.png)
+![](/static/posts/1_Lg68JYnsQAw3ai_CyZmGSA.png)
 
 Image courtesy of the author
 
 Back on the repository page, the **Draft a release** button gets swapped with **View on Marketplace** encouraging users to use this action.
 
-![](/static/images/blog/contents/1_7G4WGsZ8Uw844n3mt73GPA.png)
+![](/static/posts/1_7G4WGsZ8Uw844n3mt73GPA.png)
 
 Image courtesy of the author
 

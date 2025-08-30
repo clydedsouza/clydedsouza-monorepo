@@ -118,7 +118,7 @@ describe("<Button>", () => {
 
 After executing the unit tests, we see that it passes with green colours!
 
-![](/static/images/blog/contents/1_hhUYzQt9XKjrd-vrY3KdOg.png)
+![](/static/posts/1_hhUYzQt9XKjrd-vrY3KdOg.png)
 
 Image courtesy of the author
 
@@ -152,7 +152,7 @@ it("should have no a11y violations", async () => {
 
 When I execute the tests, the accessibility test fails.
 
-![](/static/images/blog/contents/1_Dc_qzFMLJ3C34JZpYJezyw.png)
+![](/static/posts/1_Dc_qzFMLJ3C34JZpYJezyw.png)
 
 Image courtesy of the author
 
@@ -167,13 +167,13 @@ expect.extend(toHaveNoViolations);
 
 Now when we execute the tests, it passes.
 
-![](/static/images/blog/contents/1_R8GDlVkJaKhXCtGCD7_NRw.png)
+![](/static/posts/1_R8GDlVkJaKhXCtGCD7_NRw.png)
 
 Image courtesy of the author
 
 If we intentionally supply empty text to the button like this `render(<Button label={""} />)` and then execute the tests again, we can see that the jest test fails with the error message informing us to fix the accessibility issue.
 
-![](/static/images/blog/contents/1_WmZu0E7Qbqw2e2MmS7sj7g.png)
+![](/static/posts/1_WmZu0E7Qbqw2e2MmS7sj7g.png)
 
 Image courtesy of the author
 

@@ -29,7 +29,7 @@ I recently had to develop a distributable NPM package that depended on a third-p
 
 Throughout this article, I’ve recreated the required npm packages enough to be able to demonstrate the problem and solution. A visual representation of the recreated artifacts and what originals they map to is illustrated in the diagram below, for your reference.
 
-![A visual representation of the recreated artifacts and what originals they map to is illustrated in the diagram below, for your reference.](/static/images/blog/contents/1_Rk0PnB5SPMAVo7dHmPjpKQ.png)
+![A visual representation of the recreated artifacts and what originals they map to is illustrated in the diagram below, for your reference.](/static/posts/1_Rk0PnB5SPMAVo7dHmPjpKQ.png)
 
 Image courtesy of the author
 
@@ -54,7 +54,7 @@ export const sayHello = (props: IPackageA) => {
 
 However, we seem to be getting a compile-time error because the project cannot find a declaration file for module package-b.
 
-![](/static/images/blog/contents/1_jD7WGXsXpqRR5iGOl_r9kQ.png)
+![](/static/posts/1_jD7WGXsXpqRR5iGOl_r9kQ.png)
 
 Image courtesy of the author
 
@@ -74,7 +74,7 @@ export interface IPackageB {
 
 In terms of how it is published, aside from the primary package-b, this package-b has the types file published as a separate package prefixed with the scope `@types`. Since this is a recreation, I’ve tried to emulate how the external dependency was published in the real scenario. This setup is quite common. For example, jQuery’s package can be found on [npm js](https://www.npmjs.com/package/jquery), but if you’re using TypeScript, then you’d also want to install the [@types package](https://www.npmjs.com/package/@types/jquery) which contains the TypeScript declaration file.
 
-![](/static/images/blog/contents/1_F5KI42rA7uIyW3VfxVVJ1Q.png)
+![](/static/posts/1_F5KI42rA7uIyW3VfxVVJ1Q.png)
 
 Image courtesy of the author
 
@@ -101,13 +101,13 @@ sayHello(props)
 
 But wait, what’s this? When consumed, `propertyTwo`which was the one extended from package-b, isn’t recognized.
 
-![](/static/images/blog/contents/1_vyqRjU68Dxx-jRK-VbNI2w.png)
+![](/static/posts/1_vyqRjU68Dxx-jRK-VbNI2w.png)
 
 Image courtesy of the author
 
 In VS Code, if I click on the `IPackageA` interface, I can peek into package-a’s code that’s located in the node_modules folder and we see an error again. This seems to be the same error we encountered earlier along with the same suggested solution. But when we fixed this issue while developing package-a, why is this complaining again?
 
-![](/static/images/blog/contents/1_PpI7jZEFXZrfr-BaiwWb8A.png)
+![](/static/posts/1_PpI7jZEFXZrfr-BaiwWb8A.png)
 
 Image courtesy of the author
 
@@ -141,13 +141,13 @@ To resolve this, we’ll move @types/package-b to the dependencies section in th
 
 Now, when our consumer application installs the latest version of package-a, you’ll notice that the error has gone away.
 
-![](/static/images/blog/contents/1_b6zj5__MEaVFyePyz4XBkg.png)
+![](/static/posts/1_b6zj5__MEaVFyePyz4XBkg.png)
 
 Image courtesy of the author
 
 And if you peek into what node_modules have been installed in the consumer application, you’ll notice that the dependent types package @types/package-b now exists.
 
-![](/static/images/blog/contents/1_SCar3yIzFB5A2B2uUzF3HQ.png)
+![](/static/posts/1_SCar3yIzFB5A2B2uUzF3HQ.png)
 
 Image courtesy of the author
 

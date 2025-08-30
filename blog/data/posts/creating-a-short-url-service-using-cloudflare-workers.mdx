@@ -32,17 +32,17 @@ Have you ever used a short URL service like bitly or something similar and wonde
 
 Visit [cloudflare.com](https://cloudflare.com/) and sign up for a free account. Once you’ve verified your email address and gotten access to your dashboard, you may see a message to add a site — you don’t need to add a site, just skip to the dashboard page and click on **Workers**.
 
-![Screenshot showing how to access Cloudflare Workers.](/static/images/blog/contents/1_l5vratkH9Ls6vBw7gUyg_w.png)
+![Screenshot showing how to access Cloudflare Workers.](/static/posts/1_l5vratkH9Ls6vBw7gUyg_w.png)
 
 Since this is your first time using Cloudflare Workers, you’ll be asked to set up a subdomain. This subdomain name is unique to you and will identify all Workers deployed to your account. Enter a suitable subdomain and then click on **Set up** to proceed to the next step.
 
-![Screenshot showing how to configure a subdomain for Cloudflare Workers.](/static/images/blog/contents/1_UX8yzI1rPWIC2JUFjPihFQ.png)
+![Screenshot showing how to configure a subdomain for Cloudflare Workers.](/static/posts/1_UX8yzI1rPWIC2JUFjPihFQ.png)
 
 In the next step, we’ll continue with the free plan since we're going to use this for learning purposes only. In the final step, verify your email and then you’re good to go.
 
 From the Workers dashboard page, you won’t see any Workers listed because we haven’t created any. For now, just copy the **Account ID** which should be visible in the right panel.
 
-![Screenshot showing how to get the account ID from Cloudflare.](/static/images/blog/contents/1_fac3j6pJ7ivpLo0y5vMyHg.png)
+![Screenshot showing how to get the account ID from Cloudflare.](/static/posts/1_fac3j6pJ7ivpLo0y5vMyHg.png)
 
 ### Step #2: Set up your development environment
 
@@ -56,13 +56,13 @@ This should open Cloudflare in the browser and you might require to authorize Wr
 
 In a local folder, run the command `wrangler generate shorturl https://github.com/cloudflare/worker-template` to generate some code based on a template from Cloudflare’s [GitHub repository](https://github.com/cloudflare/worker-template).
 
-![Screenshot showing the console output of the entered wrangler commands.](/static/images/blog/contents/1_X_nQAkFFOE6r5VR4t3hdVA.png)
+![Screenshot showing the console output of the entered wrangler commands.](/static/posts/1_X_nQAkFFOE6r5VR4t3hdVA.png)
 
 As instructed in the console output, we need to update the `wrangler.toml` file and add the account ID to that. As per [this comment](https://github.com/cloudflare/wrangler/issues/209#issuecomment-541654484), it’s ok to commit the `wrangler.toml` file to source control. The information contained in this file is not sensitive.
 
 Finally, if you run the command `wrangler dev`, you should see the following output.
 
-![Screenshot showing the Worker in action locally.](/static/images/blog/contents/1_gV1OJWEoMxWjjxqIorEwsA.png)
+![Screenshot showing the Worker in action locally.](/static/posts/1_gV1OJWEoMxWjjxqIorEwsA.png)
 
 ### Step #4: Get a short URL and redirect
 
@@ -80,7 +80,7 @@ Rather than storing a static list of the keys and the corresponding websites it 
 
 Let’s start by running the command `wrangler kv:namespace create “SHORTURLS”` where `SHORTURLS` is the name I used for my KV namespace. This commands prints a message in the console that instructs to add the KV configuration to the `wrangler.toml` file.
 
-![Screenshot showing the console output of the entered wrangler commands.](/static/images/blog/contents/1_g_EX-IiZwPppI7nZ-AuL6A.png)
+![Screenshot showing the console output of the entered wrangler commands.](/static/posts/1_g_EX-IiZwPppI7nZ-AuL6A.png)
 
 ### Step #7: Seeding the KV storage
 
@@ -97,7 +97,7 @@ Now, if you try to run the command `wrangler dev` you should see an error messag
 > Error: In order to preview a worker with KV namespaces, you must designate a preview_id in your configuration file for each KV namespace \
 > you’d like to preview.
 
-![Screenshot showing the console output of the entered wrangler commands.](/static/images/blog/contents/1_fyYIgdq1T1kMKjppIfD7sg.png)
+![Screenshot showing the console output of the entered wrangler commands.](/static/posts/1_fyYIgdq1T1kMKjppIfD7sg.png)
 
 After reading [this useful GitHub answer](https://github.com/cloudflare/wrangler/issues/1458#issuecomment-671465444), it became clear that all we needed was a preview environment. When we created the namespace earlier, it was associated with your production environment. So, when you test it out using `wrangler dev`, it doesn’t let you manipulate your production KV storage from your development environment.
 
@@ -105,7 +105,7 @@ After reading [this useful GitHub answer](https://github.com/cloudflare/wrangler
 
 To fix this, we’ll need to repeat the KV creation steps exactly as before, but this time we’ll add the argument `--preview` indicating that we need a preview, i.e. development instance created.
 
-![Screenshot showing the console output of the entered wrangler commands.](/static/images/blog/contents/1_X0Y7qIFeesMrK5ZgEr_HGg.png)
+![Screenshot showing the console output of the entered wrangler commands.](/static/posts/1_X0Y7qIFeesMrK5ZgEr_HGg.png)
 
 Because we entered the same KV namespace name, notice how the primary `id` is still the same original one, and in addition to that, we’ve been assigned a `preview_id`.
 
@@ -121,7 +121,7 @@ We’ll now update the `getRedirectURL()` method to use our KV namespace to get 
 
 Finally, let’s run the application locally to test it out. As you can see in the GIF below, it now works as expected.
 
-![GIF showing the redirection in action.](/static/images/blog/contents/1_BWD9UbqD9m_K4gjQWvcIpQ.gif)
+![GIF showing the redirection in action.](/static/posts/1_BWD9UbqD9m_K4gjQWvcIpQ.gif)
 
 ### Step #10: Automating deployments
 
@@ -145,37 +145,37 @@ We’re using the `workingDirectory` keyword to set the working directory of our
 
 Navigate to the [API Tokens page](https://dash.cloudflare.com/profile/api-tokens) in Cloudflare and then click on the **Create Token** button.
 
-![Screenshot showing how to create a new API token.](/static/images/blog/contents/1_uHucyp-XXEn32Rqvqfhm0g.png)
+![Screenshot showing how to create a new API token.](/static/posts/1_uHucyp-XXEn32Rqvqfhm0g.png)
 
 From the API token templates page, we’ll click on the **Use template** button beside the **Edit Cloudflare Workers** line item.
 
-![Screenshot showing how to use an existing template to create an API token.](/static/images/blog/contents/1_4U7ZaLs4jxiN8oTsWbnUfQ.png)
+![Screenshot showing how to use an existing template to create an API token.](/static/posts/1_4U7ZaLs4jxiN8oTsWbnUfQ.png)
 
 On the next page, from the **Account resources** and **Zone resources** dropdowns, select your account (the email address should show up in these dropdowns) from the dropdown. If you are a user of multiple Cloudflare accounts, you’ll need to be careful to select the right account.
 
 Continue to the summary, then click on the **Create Token** button. Copy the token and save it securely.
 
-![Screenshot showing how to create a token in Cloudflare.](/static/images/blog/contents/1_F6E6VF-kO35iqU9rC98DCg.png)
+![Screenshot showing how to create a token in Cloudflare.](/static/posts/1_F6E6VF-kO35iqU9rC98DCg.png)
 
 #### Add secret in GitHub
 
 Since we’ve used the variable `CF_API_TOKEN` in the Workflow file, let’s add a secret of the same name in GitHub. Click on **Settings**, then click on **Secrets** and then **New secret**. Type the secret variable name `CF_API_TOKEN` and in the **Value** field, enter the Cloudflare API token we generated earlier. Click on **Add secret** button to save these changes.
 
-![Screenshot showing how to add a secret in GitHub.](/static/images/blog/contents/1_aBbi8J8rKopUZWBPw3A3Bw.png)
+![Screenshot showing how to add a secret in GitHub.](/static/posts/1_aBbi8J8rKopUZWBPw3A3Bw.png)
 
 ### Step #11: Final checks
 
 Now that we’ve got all the items in place, don’t forget to commit and push the changes to your Workflow file. If everything has been set up well, you should see a successful run in the **Actions** tab in GitHub.
 
-![Screenshot of the GitHub Actions tab.](/static/images/blog/contents/1_y69YYHGn9fnNC6m3hgdQmw.png)
+![Screenshot of the GitHub Actions tab.](/static/posts/1_y69YYHGn9fnNC6m3hgdQmw.png)
 
 Now, if you head over to the Workers page in your Cloudflare account, you should see the Worker you just deployed pop up on the screen.
 
-![Image showing how to see the Worker in the Cloudflare dashboard.](/static/images/blog/contents/1_y7ffTi0BLi-TPSJ6ha9jPA.png)
+![Image showing how to see the Worker in the Cloudflare dashboard.](/static/posts/1_y7ffTi0BLi-TPSJ6ha9jPA.png)
 
 Head over to the Worker URL and test if the URL redirection works. We can still test the `<URL of your Worker>/twitter` short URL since we seeded that data earlier.
 
-![GIF showing the redirection in action.](/static/images/blog/contents/1_YHmeK66PEc-RGyQSIFXtug.gif)
+![GIF showing the redirection in action.](/static/posts/1_YHmeK66PEc-RGyQSIFXtug.gif)
 
 ---
 
@@ -189,7 +189,7 @@ We didn’t look at writing unit tests and setting up test coverage for brevity.
 
 In the article above, we only looked at a Worker that redirects us to the destination URL after we supply it with a short URL. If you’re trying to create a full-fledged short URL service, you’d also want to create one that allows us to create a new short URL mapping that will act as the backend, and potentially a microservice that will help post analytics for every hit on the short URL and also fetch these analytics back.
 
-![Diagram showing how multiple Workers come together to form a complete solution.](/static/images/blog/contents/1_YC-pmfE9i4QZI3qw_HumJQ.png)
+![Diagram showing how multiple Workers come together to form a complete solution.](/static/posts/1_YC-pmfE9i4QZI3qw_HumJQ.png)
 
 Handdrawn diagram created by the author
 
@@ -197,7 +197,7 @@ Handdrawn diagram created by the author
 
 You don’t have to create different Git repositories to host each Cloudflare Worker. You can create a monorepo for all your Workers and have subfolders with contents for each Worker. This works great if you’re sharing code between different workers, so you don’t end up repeating it.
 
-![Diagram showing how to host multiple workers in the same repository.](/static/images/blog/contents/1_t6vUl_1ITc5D_P3GpKRS3w.png)
+![Diagram showing how to host multiple workers in the same repository.](/static/posts/1_t6vUl_1ITc5D_P3GpKRS3w.png)
 
 Handdrawn diagram created by the author
 
@@ -209,7 +209,7 @@ We’ve also written all our JavaScript code in a single file which isn’t idea
 
 If you’re building a full-fledge solution, you may also be looking at setting up a custom domain name for your Workers — this is indeed possible and your final solution might look something like the diagram below, using bit.ly as the domain name for reference.
 
-![High-level architecture diagram showing all components involved in a full-fledged short URL service.](/static/images/blog/contents/1*cxAr7Kz9jvQZe2y0BxMAEQ.png)
+![High-level architecture diagram showing all components involved in a full-fledged short URL service.](/static/posts/1*cxAr7Kz9jvQZe2y0BxMAEQ.png)
 
 Handdrawn diagram created by the author
 

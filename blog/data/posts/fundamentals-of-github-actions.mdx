@@ -45,7 +45,7 @@ While we’re on the topic of naming, the `name` keyword in the YAML file is use
 
 Although this keyword is optional, I would recommend adding it in for better readability since this value appears in GitHub Actions UI.
 
-![](/static/images/blog/contents/1_xFgE9BH58lB992uqjCb_DA.png)
+![](/static/posts/1_xFgE9BH58lB992uqjCb_DA.png)
 
 ### Triggers and GitHub events
 
@@ -67,12 +67,12 @@ Every job is uniquely identified with a job key. This key becomes the keyword th
 
 - `name`: The display name for this job. This display name shows up in the GitHub Actions UI as shown below. Although this property is optional, I would highly recommend using this for better readability.
 
-![](/static/images/blog/contents/1_SVMUpZf3v2ZhRfwqeYmCPA.png)
+![](/static/posts/1_SVMUpZf3v2ZhRfwqeYmCPA.png)
 
 - `runs-on`: A required keyword defining the type (Windows/Ubuntu/Mac) of machine this job runs on. If you stick with the default options, you’re selecting a [GitHub-hosted runner](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners). These are virtual machines hosted by GitHub in Azure and come with pre-installed software to be able to run your workflow. If you’d like to use your own runner, you can select a [self-hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow).
 - `needs`: Jobs run in parallel by default. If you’d like to run them serially, you can supply a previous jobs key to this keyword. Once you run the entire workflow, GitHub Actions will create a dependency diagram similar to the screenshot below.
 
-![](/static/images/blog/contents/1_iGBfhuGBhndub1FeNx4Scg.png)
+![](/static/posts/1_iGBfhuGBhndub1FeNx4Scg.png)
 
 - `if`: You can conditionally run this job by supplying a condition here. If this condition evaluates to true, the job will run otherwise it won’t.
 
@@ -82,7 +82,7 @@ Steps allow us to flesh out what this job should really do.
 
 - `name`: Just like the job name, this keyword is optional but I’d highly recommend using this because it provides better readability. Without specifying a step name, GitHub Actions will automatically assign a name based on your task.
 
-![](/static/images/blog/contents/1_phJ2A6g635suVVtlI5V3MA.png)
+![](/static/posts/1_phJ2A6g635suVVtlI5V3MA.png)
 
 Every step above uses the name keyword to describe what it’s meant to do.
 
@@ -117,7 +117,7 @@ The above code snippet shows how you’d use this action. The `uses` property te
 
 After a successful build, you should see the generated artifact in the GitHub Actions UI.
 
-![](/static/images/blog/contents/1_HExuSd9u5GODQe5Or3o_Ig.png)
+![](/static/posts/1_HExuSd9u5GODQe5Or3o_Ig.png)
 
 Notice that it has the name you specified in the YAML above. If you click on that, it will download a ZIP file containing the artifacts you’ve just uploaded.
 

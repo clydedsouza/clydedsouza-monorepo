@@ -32,11 +32,11 @@ All humour aside, this article is meant for novelty purposes only. I’m hoping 
 
 Hopefully, if you are reading this, you might already have a Twitch account. If not, it’s fairly straightforward to sign up. After you’ve logged in, click on your profile on the top-right of the screen to bring up a dropdown. From the dropdown, click on **Video Producer**.
 
-![Finding Video Producer from Twitch settings.](/static/images/blog/contents/1_g6fPTMzyh8WgiR2jFNlO4A.png)
+![Finding Video Producer from Twitch settings.](/static/posts/1_g6fPTMzyh8WgiR2jFNlO4A.png)
 
 This should redirect you to the **Creator Dashboard**. Click on **Stream Manager** from the left panel and then click on **Edit Stream Info** from the right panel.
 
-![Editing stream info in Twitch’s creator dashboard.](/static/images/blog/contents/1_3b-TrvvWd0PKXuon0eq6EQ.png)
+![Editing stream info in Twitch’s creator dashboard.](/static/posts/1_3b-TrvvWd0PKXuon0eq6EQ.png)
 
 From the **Edit Stream Info** pop up, enter the details of your live stream like the title of your video, the category this live video belongs under, suitable tags, etc. Once complete, click **Done** to save the changes.
 
@@ -46,15 +46,15 @@ Now, we want to get the stream key from Twitch. A stream key is a unique key tha
 
 To get the stream key, click on your profile from the top-right and from the dropdown, select **Settings**.
 
-![Finding settings menu in Twitch.](/static/images/blog/contents/1_fmGUqGTHToCGr5Es9SEBUg.png)
+![Finding settings menu in Twitch.](/static/posts/1_fmGUqGTHToCGr5Es9SEBUg.png)
 
 Now, click on **Channel and Videos**.
 
-![Clicking on channel and videos menu item in Twitch.](/static/images/blog/contents/1_4Muk5-mPRLk-tWn3pJA_Sg.png)
+![Clicking on channel and videos menu item in Twitch.](/static/posts/1_4Muk5-mPRLk-tWn3pJA_Sg.png)
 
 This should redirect you to a page with your stream key at the very top of the page, something similar to the screenshot below. Click on the **Copy** button to save your key.
 
-![Copying the stream key from Twitch.](/static/images/blog/contents/1_wpENUx3vPvTpsMlIX2bvhA.png)
+![Copying the stream key from Twitch.](/static/posts/1_wpENUx3vPvTpsMlIX2bvhA.png)
 
 ### Step 3: Installing FFmpeg
 
@@ -62,33 +62,33 @@ Head over to [FFmpeg’s website](https://ffmpeg.org/download.html) — ther
 
 For Windows users, the website has a link to https://www.gyan.dev/ffmpeg/builds/. Scroll down on this page to the release section and download the essentials ZIP file.
 
-![Downloading the essentials FFmpeg build.](/static/images/blog/contents/1_xqt-D6LNVngX_R5POg8PVQ.png)
+![Downloading the essentials FFmpeg build.](/static/posts/1_xqt-D6LNVngX_R5POg8PVQ.png)
 
 Unzip the file and click to check its contents. The folder should contain a bin folder and inside that, there should be an application file called FFmpeg. Copy this folder path — we’ll need it for our next step.
 
-![Validating that FFmpeg exists in the bin folder.](/static/images/blog/contents/1_5O5hYrjaUK7-R6YalTOOPg.png)
+![Validating that FFmpeg exists in the bin folder.](/static/posts/1_5O5hYrjaUK7-R6YalTOOPg.png)
 
 Alright — great work so far, a few more steps to go.
 
 Next, we want to make this FFmpeg application available across our PC. To do so, click on Windows and search for _environment variables_. You should see something like **Edit the system environment variables** — click on that.
 
-![Editing system environment variables.](/static/images/blog/contents/1_xhLRrq5l5Y8RZuKpidvO9w.png)
+![Editing system environment variables.](/static/posts/1_xhLRrq5l5Y8RZuKpidvO9w.png)
 
 Then, from the **System Properties&#x20;**&#x77;indow, click on the **Environment Variables…** button at the bottom.
 
-![Clicking on environment variables button from System Properties.](/static/images/blog/contents/1_0LVDA4SBqDMO-uMdqyUOVw.png)
+![Clicking on environment variables button from System Properties.](/static/posts/1_0LVDA4SBqDMO-uMdqyUOVw.png)
 
 From the **Environment Variables** screen, double-click on **Path**.
 
-![Adding FFmpeg application’s path to environment variables.](/static/images/blog/contents/1_cCJNmzNrYShmWz1UWenbtA.png)
+![Adding FFmpeg application’s path to environment variables.](/static/posts/1_cCJNmzNrYShmWz1UWenbtA.png)
 
 From the **Edit environment variable** screen, click on the last empty line and paste the path to the bin folder we copied earlier. Click on **OK** to save the changes.
 
-![Adding FFmpeg’s executable path to environment variables.](/static/images/blog/contents/1_xn3prNiFqET6veMJ33uzBg.png)
+![Adding FFmpeg’s executable path to environment variables.](/static/posts/1_xn3prNiFqET6veMJ33uzBg.png)
 
 To test everything has been set up correctly, open up command prompt and type in the command `ffmpeg -version`. This command should print some information about this tool on the screen similar to the following screenshot.
 
-![Testing FFmpeg command.](/static/images/blog/contents/1_r1JilO0wSvB0aEYP5I6OrA.png)
+![Testing FFmpeg command.](/static/posts/1_r1JilO0wSvB0aEYP5I6OrA.png)
 
 If you see an error message like `‘ffmpeg’ is not recognized as an internal or external command, operable program or batch file` as the output of the command, then you’ve not set up the environment variables correctly. If that’s the case, please revisit the section above.
 
@@ -102,7 +102,7 @@ ffmpeg -re -i VideoToUpload.mp4 -c copy -f flv rtmp://live-fra.twitch.tv/app/{ke
 
 But before you execute the command, check out these [Twitch ingest recommendations](https://stream.twitch.tv/ingests/). This tool tells you which servers are the closest to you and which one should be best for streaming your video to.
 
-![List of Twitch ingest endpoints.](/static/images/blog/contents/1_tbvwqpoh9nYbTyJh93HgFg.png)
+![List of Twitch ingest endpoints.](/static/posts/1_tbvwqpoh9nYbTyJh93HgFg.png)
 
 Basically, the `live-fra` in the URL above stands for the Twitch server in Frankfurt, Germany. For a better quality upload, you would want to stream your video to the server closest to your location. So, if you are based in Germany, then `live-fra` might be best for you. But since I’m based in Auckland, New Zealand, the website tells me that the closest server is in Sydney, Australia.
 
@@ -118,15 +118,15 @@ Replace `{stream_key}` with the key we copied from the steps earlier.
 
 A shortcut to open up the command prompt in the folder you’re in is to type `cmd` in file explorer’s address bar and hit enter.
 
-![Opening command prompt via the file explorer.](/static/images/blog/contents/1_5G0jTD3PYRdrpSMMnpTzTg.gif)
+![Opening command prompt via the file explorer.](/static/posts/1_5G0jTD3PYRdrpSMMnpTzTg.gif)
 
 Now, type the command as mentioned in step 4. Here’s an example of the command I used.
 
-![Command to execute to live-stream your video.](/static/images/blog/contents/1_H79BC1oYEL4vpiiHaTS_Nw.png)
+![Command to execute to live-stream your video.](/static/posts/1_H79BC1oYEL4vpiiHaTS_Nw.png)
 
 Hit enter and you should see some progress. And in just a few moments, the live video should start playing in Twitch.
 
-![Progress of the command after executing.](/static/images/blog/contents/1_9j8IeQ1ZB13e-YcGtqmbBA.png)
+![Progress of the command after executing.](/static/posts/1_9j8IeQ1ZB13e-YcGtqmbBA.png)
 
 ### Important:
 

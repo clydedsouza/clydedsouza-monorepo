@@ -33,7 +33,7 @@ I understand that this a lengthy how-to guide, so let me give you a quick rundow
 
 To give you a high-level overview of how all the components fit together and interact with each other, here is a high-level design diagram.
 
-![High-level design diagram outlining how all the components interact with each other.](/static/images/blog/contents/1_dJWWf9zXEQCz1BYB2I0GhA.png)
+![High-level design diagram outlining how all the components interact with each other.](/static/posts/1_dJWWf9zXEQCz1BYB2I0GhA.png)
 
 Image courtesy of the author
 
@@ -55,31 +55,31 @@ Execute the command `npm install` to install all node dependencies. Don’t worr
 
 Next, we’ll sign up with Netlify and create a new site from a Git repo. Once you’ve created your team, head over to the team dashboard and click the button **New site from Git**.
 
-![Screenshot showing how to create a new site in Netlify from a git repo.](/static/images/blog/contents/1_A5IhUGb17M6u8wzxRY3brA.png)
+![Screenshot showing how to create a new site in Netlify from a git repo.](/static/posts/1_A5IhUGb17M6u8wzxRY3brA.png)
 
 Image courtesy of the author
 
 This will show you a three-step wizard to creating a site. Step one is to connect Netlify with your GitHub repository, i.e, the repository you created earlier after forking the template. Netlify will automatically build and deploy your site contents when you commit changes to the main branch of this repo.
 
-![Screenshot showing how to connect GitHub with Netlify.](/static/images/blog/contents/1_X5TUyJ6GD1IUOYFhwjXxrg.png)
+![Screenshot showing how to connect GitHub with Netlify.](/static/posts/1_X5TUyJ6GD1IUOYFhwjXxrg.png)
 
 Image courtesy of the author
 
 If this pops up a GitHub login page, enter your username and password to proceed. You should now see an **Install Netlify** screen along with your GitHub username.
 
-![Screenshot showing how to install Netlify in GitHub.](/static/images/blog/contents/1_wfOyWLrWnCp9h-ca6Ja2ew.png)
+![Screenshot showing how to install Netlify in GitHub.](/static/posts/1_wfOyWLrWnCp9h-ca6Ja2ew.png)
 
 Image courtesy of the author
 
 If you select that, you should get the next screen which allows you to either give Netlify access to all repositories or you could manually grant access to only certain repositories. Either way, ensure that your forked repository has access. For this article, I’m going to select **All repositories** and then click on the **Install** button to install Netlify.
 
-![Screenshot showing how to install Netlify in GitHub.](/static/images/blog/contents/1_orF_skLkhctOvk4E2nyYnA.png)
+![Screenshot showing how to install Netlify in GitHub.](/static/posts/1_orF_skLkhctOvk4E2nyYnA.png)
 
 Image courtesy of the author
 
 You’ll now be redirected back to Netlify where you can pick the repository that you want to create a site from. I’m going to select my demo repository [**ClydeDz/netlify-functions-slack-demo**](https://github.com/ClydeDz/netlify-functions-slack-demo).
 
-![Screenshot showing how to connect GitHub with Netlify and pick a repository to sync with Netlify.](/static/images/blog/contents/1_FSGtWGEJMyPyAW6Prm8IVg.png)
+![Screenshot showing how to connect GitHub with Netlify and pick a repository to sync with Netlify.](/static/posts/1_FSGtWGEJMyPyAW6Prm8IVg.png)
 
 Image courtesy of the author
 
@@ -91,13 +91,13 @@ By default, Netlify will create a random site name for you in order to make it u
 
 However, if you do want to rename this, head over to **Site settings** in Netlify and from the **Site details** section, click on the **Change site name** button.
 
-![Screenshot showing how to update the site name in Netlify.](/static/images/blog/contents/1_HFlTfJYsa0JrnzABmyjPVw.png)
+![Screenshot showing how to update the site name in Netlify.](/static/posts/1_HFlTfJYsa0JrnzABmyjPVw.png)
 
 Image courtesy of the author
 
 Enter your new site name in the pop-up and click on the **Save** button.
 
-![Screenshot showing how to update the site name in Netlify.](/static/images/blog/contents/1_NWkku41v_il6eoN4E_GeUw.png)
+![Screenshot showing how to update the site name in Netlify.](/static/posts/1_NWkku41v_il6eoN4E_GeUw.png)
 
 Image courtesy of the author
 
@@ -111,7 +111,7 @@ The [Netlify Dev CLI](https://www.netlify.com/products/dev/) is a command-line t
 
 The next step you need to do is to link the code sitting on your local device with the Netlify site you just created. To do this, type in the command `netlify link`. This will start an interactive session in the terminal and you’ll be presented with a choice on how you’d like to create this link. The simplest way is to select **Use current git remote origin**. Since you’ve already pulled your code repository down to your local machine, and since Netlify already is already connected to this repository’s remote origin, Netlify will easily establish the link for you. In simple words, if A=B and B=C, then A=C.
 
-![Screenshot showing how to link a local code repository with Netlify](/static/images/blog/contents/1_jxZQpRQ6OYTrk5dy5Ka8LQ.png)
+![Screenshot showing how to link a local code repository with Netlify](/static/posts/1_jxZQpRQ6OYTrk5dy5Ka8LQ.png)
 
 Image courtesy of the author
 
@@ -131,7 +131,7 @@ Let’s see what our hello world function looks like locally. Run the command `n
 
 Once the build successfully completes, run the command `netlify dev` to start a local development server. Netlify assigned port 8888 to my application, so I’ll head over to http://localhost:8888/.netlify/functions/slackbot to view the output. You should see `Hello, World` printed in the browser.
 
-![Screenshot showing how to test a Netlify Function locally.](/static/images/blog/contents/1_Jt5Cdu1solN52zvq52IRsA.png)
+![Screenshot showing how to test a Netlify Function locally.](/static/posts/1_Jt5Cdu1solN52zvq52IRsA.png)
 
 Image courtesy of the author
 
@@ -141,13 +141,13 @@ Image courtesy of the author
 
 Congratulations on running your first Netlify Function locally! Let’s commit this change and push it to GitHub. Within moments, you should see Netlify building your code and also publishing this to your Netlify site.
 
-![Screenshot showing the Netlify site build history.](/static/images/blog/contents/1_u1gnlExfd-GHiorTapt97w.png)
+![Screenshot showing the Netlify site build history.](/static/posts/1_u1gnlExfd-GHiorTapt97w.png)
 
 Image courtesy of the author
 
 Now, instead of localhost:8888, use the Netlify site URL to view your function in the browser. You can grab your Netlify site URL from the **Site overview** tab in Netlify. Once again, you should see `Hello, World` printed in the browser.
 
-![Screenshot showing how to test a Netlify Function on the web.](/static/images/blog/contents/1_cFniHY0uhcsR7LsXZhyNig.png)
+![Screenshot showing how to test a Netlify Function on the web.](/static/posts/1_cFniHY0uhcsR7LsXZhyNig.png)
 
 Image courtesy of the author
 
@@ -167,7 +167,7 @@ If you haven’t already, sign up with Slack for free, create a workspace and cr
 
 Head over to https://api.slack.com/apps and click on the **Create an App** button.
 
-![Screenshot showing how to create an app in Slack.](/static/images/blog/contents/1_k6e5VMKzAWi6LqzQBLrP-g.png)
+![Screenshot showing how to create an app in Slack.](/static/posts/1_k6e5VMKzAWi6LqzQBLrP-g.png)
 
 Image courtesy of the author
 
@@ -179,13 +179,13 @@ By default, a Slack app cannot perform any read or write functionality. To add c
 
 From this section, click on the **Add an OAuth Scope** button and from the list of scopes, select `chat:write`. We can always come back and add more scopes, so let’s start small for now. Your changes will get saved automatically.
 
-![Screenshot showing how to add an OAuth scope to your Slack app.](/static/images/blog/contents/1_G41M2tnxpzGEzwPO1RGHnA.png)
+![Screenshot showing how to add an OAuth scope to your Slack app.](/static/posts/1_G41M2tnxpzGEzwPO1RGHnA.png)
 
 Image courtesy of the author
 
 Now, let’s scroll back up to the **OAuth Tokens for Your Workspace** section and click on the **Install to Workspace** button. You might need to accept the permissions you’re being asked to grant and proceed to the next screen.
 
-![Screenshot showing how to install the Slack app in your workspace and get your bot token.](/static/images/blog/contents/1_k4GTW0YqpG9ao1K5T4PQ1Q.png)
+![Screenshot showing how to install the Slack app in your workspace and get your bot token.](/static/posts/1_k4GTW0YqpG9ao1K5T4PQ1Q.png)
 
 Image courtesy of the author
 
@@ -195,7 +195,7 @@ You’ll now get a **Bot User OAuth Token** after installing this app. Please co
 
 Click on the **Basic Information** tab from the left sidebar menu and scroll down to the **Signing Secret** field. Click on the **Show** button and then copy and save this value.
 
-![Screenshot showing how to get the signing secret value.](/static/images/blog/contents/1_lKOxwKapIu5AiChCHvAaNQ.png)
+![Screenshot showing how to get the signing secret value.](/static/posts/1_lKOxwKapIu5AiChCHvAaNQ.png)
 
 Image courtesy of the author
 
@@ -205,7 +205,7 @@ Head over to your code and create a `.env` file in the root directory. This fil
 
 In this file, add the signing secret and bot token using the format `key=value`. You can name the key whatever you like but if you’re following along, name it as per the screenshot below.
 
-![Screenshot showing how to add the bot token and signing secret value in the env file of your app.](/static/images/blog/contents/1_6YeJzWaqbltJmGITP4TX_A.png)
+![Screenshot showing how to add the bot token and signing secret value in the env file of your app.](/static/posts/1_6YeJzWaqbltJmGITP4TX_A.png)
 
 Image courtesy of the author
 
@@ -217,7 +217,7 @@ Like the code snippet above, import the dotenv package at the start of `slackbot
 
 Since the `.env` file isn’t added to source control, we’ll need to add the same environment variables to Netlify so that the function can access these values. In Netlify, head over to **Site settings** from the navigation menu, then select **Build & deploy** and then from the sub-menu, select **Environment**.
 
-![Screenshot showing how to add environment variables in Netlify.](/static/images/blog/contents/1_YADT_bldPiu4w4TmICmVtg.png)
+![Screenshot showing how to add environment variables in Netlify.](/static/posts/1_YADT_bldPiu4w4TmICmVtg.png)
 
 Image courtesy of the author
 
@@ -262,7 +262,7 @@ Head over to the Slack API settings page for your app. Then, from the left sideb
 Since this is your first time here, we’ll need to enable events by flicking the toggle **On** and then in the **Request URL** field, enter the URL of your Netlify function. The URL of my Netlify function is \
 https://netlify-functions-slack-demo.netlify.app/.netlify/functions/slackbot which is what I’ve entered in the screenshot below.
 
-![Screenshot showing how to enable event subscriptions and add the request URL.](/static/images/blog/contents/1_ZcsKdUfqvL4j39BMSiebfw.png)
+![Screenshot showing how to enable event subscriptions and add the request URL.](/static/posts/1_ZcsKdUfqvL4j39BMSiebfw.png)
 
 Image courtesy of the author
 
@@ -270,7 +270,7 @@ Immediately, when you enter this URL, Slack will send a `url_verification` paylo
 
 While we’re here, let’s subscribe to one event. Expand the **Subscribe to bot events** section and then click on the **Add Bot User Event** button to search for and then add **message.channels**.
 
-![Screenshot showing how to subscribe to bot events.](/static/images/blog/contents/1_JjXS6W6UspfJUUEsJqncsA.png)
+![Screenshot showing how to subscribe to bot events.](/static/posts/1_JjXS6W6UspfJUUEsJqncsA.png)
 
 Image courtesy of the author
 
@@ -300,7 +300,7 @@ Commit your changes and push them to GitHub so it gets automatically built and d
 
 It’s time to now test the functionality out in a Slack channel. Add the Demo app to your Slack channel. This is important because your app wouldn’t have access to read the messages posted in a channel that the app isn’t part of. Immediately after posting a message in the channel, your function should receive a payload from Slack and respond with a message.
 
-![Screenshot showing the demo Slack app in action.](/static/images/blog/contents/1_uR30gk6xOOX7hK_PUVDXUg.png)
+![Screenshot showing the demo Slack app in action.](/static/posts/1_uR30gk6xOOX7hK_PUVDXUg.png)
 
 Image courtesy of the author
 
@@ -316,7 +316,7 @@ For the sake of brevity, I won’t go into the details of getting your Slack app
 
 Head over to the Slack API settings page for your app and select **Slash Commands** from the left sidebar menu. From the screen presented, click on the **Create New Command** button.
 
-![Screenshot showing how to create a new slash command in Slack.](/static/images/blog/contents/1_KSnKMXrlFMB55QTDMd8Xzw.png)
+![Screenshot showing how to create a new slash command in Slack.](/static/posts/1_KSnKMXrlFMB55QTDMd8Xzw.png)
 
 Image courtesy of the author
 
@@ -326,7 +326,7 @@ From the **Create New Command** screen, enter the command name which should be p
 
 We’ll leave the **Escape channels, users, and links sent to your app** checkbox unchecked since our slash command doesn’t need user ids and channel ids at this stage, so a plain text unescaped string is fine.
 
-![Screenshot showing how to create a new slash command in Slack.](/static/images/blog/contents/1_XawsiXDpk5Ksjz4Bw1zvXQ.png)
+![Screenshot showing how to create a new slash command in Slack.](/static/posts/1_XawsiXDpk5Ksjz4Bw1zvXQ.png)
 
 Image courtesy of the author
 
@@ -348,7 +348,7 @@ Commit your changes and push them up to GitHub. After a successful build and dep
 
 In your Slack channel, use the lightning bolt icon to bring up a pop-up and then search for your command name. Once the command name is entered in the input box, hit enter.
 
-![Screenshot showing how to test the slash command in Slack.](/static/images/blog/contents/1_M-4FakQ_pVdu-AJigztRIQ.png)
+![Screenshot showing how to test the slash command in Slack.](/static/posts/1_M-4FakQ_pVdu-AJigztRIQ.png)
 
 Image courtesy of the author
 
@@ -398,7 +398,7 @@ Commit all your changes and push them up to your GitHub repository. After a succ
 
 It’s time to test the slash command once again. This time, you should get a reply back from the app and this message will only be visible to you.
 
-![Screenshot showing the demo Slack app in action.](/static/images/blog/contents/1_OZ9AvbT9na62azw7nqzG4g.png)
+![Screenshot showing the demo Slack app in action.](/static/posts/1_OZ9AvbT9na62azw7nqzG4g.png)
 
 Image courtesy of the author
 
@@ -426,7 +426,7 @@ You would notice that I’ve moved the `slackbot.ts` file into a folder named `f
 
 Since, by default, Netlify will serve functions only from the `netlify/functions` folder, it will now only expose `slackbot.js` keeping `utils.js` and `constants.js` under the hood. The diagram below visually illustrates this process.
 
-![Screenshot illustrating the directory change in the cleaned-up version of the source code.](/static/images/blog/contents/1_4zJo1mveRxgzSHlR0UArTA.png)
+![Screenshot illustrating the directory change in the cleaned-up version of the source code.](/static/posts/1_4zJo1mveRxgzSHlR0UArTA.png)
 
 Image courtesy of the author
 

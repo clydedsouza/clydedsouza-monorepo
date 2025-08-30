@@ -43,17 +43,17 @@ The big question for everyone starting out with WordPress.
 
 Let’s start by searching for WordPress in Azure’s global search located at the top of the screen. From the **Marketplace** section, select **WordPress**.
 
-![Selecting WordPress from the Azure Marketplace](/static/images/blog/contents/1_rI810HalROgYn3N8R7gHUg.png)
+![Selecting WordPress from the Azure Marketplace](/static/posts/1_rI810HalROgYn3N8R7gHUg.png)
 
 Click on the **Create** button to proceed to the next screen where you’ll enter all the details.
 
 We’ll give it a suitable **App name**. This app name will also become our website URL, so choose wisely! Next, select the Azure **Subscription** you want this resource to be charged to. Immediately after that, we’ll select the **Resource Group** — this allows us to logically organise our resources.
 
-![Configuring an App Service in Azure](/static/images/blog/contents/1_QFFcs72I5JCbTjWYiXKpnw.png)
+![Configuring an App Service in Azure](/static/posts/1_QFFcs72I5JCbTjWYiXKpnw.png)
 
 From the **Database Provider** dropdown, we’ll select **MySQL In App**. There are a few other options in there — all of which are just different ways you can create the database for this WordPress site.
 
-![Selecting MySQL In App from the list of database providers in Azure](/static/images/blog/contents/1_kjHAGU5xuf84zNCi7kKoCw.png)
+![Selecting MySQL In App from the list of database providers in Azure](/static/posts/1_kjHAGU5xuf84zNCi7kKoCw.png)
 
 MySQL In App runs a local MySQL instance with your app and shares resources from the App Service plan. There is no extra cost for this database. You cannot access the database using external tools like Workbench or MySQL CLI. Apps using MySQL In App are not intended for production environments, and they will not scale beyond a single instance. Read more about the limitations in [this official blog post](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/).
 
@@ -69,33 +69,33 @@ Now, head over to the App Service you just created and click on **Browse&#x20;**
 
 The first thing you would see is the WordPress installation page. Let’s start by selecting the language and then click on **Continue**.
 
-![Selecting your WordPress language during installation](/static/images/blog/contents/1_ydD_cPGkavKqwWQqHuEHag.png)
+![Selecting your WordPress language during installation](/static/posts/1_ydD_cPGkavKqwWQqHuEHag.png)
 
 Then in the installation page, enter your site information. Securely store the username and password as that would be the admin’s credentials for the site. You can then log in using these credentials and create accounts for your team if required.
 
-![Configuring site information in WordPress during installation](/static/images/blog/contents/1_6ei558MzF9Ai2Xdw8s9GIg.png)
+![Configuring site information in WordPress during installation](/static/posts/1_6ei558MzF9Ai2Xdw8s9GIg.png)
 
 Click on the **Install WordPress** button to begin the famous 5-minute WordPress installation.
 
-![Image of successful WordPress installation](/static/images/blog/contents/1_772FiBlVp57io4kdR9Gbbg.png)
+![Image of successful WordPress installation](/static/posts/1_772FiBlVp57io4kdR9Gbbg.png)
 
 Click on the **Log In** button to head over to the login screen.
 
-![Login to WordPress](/static/images/blog/contents/1_2n9cz7J9ajpe2PRE2roR9g.png)
+![Login to WordPress](/static/posts/1_2n9cz7J9ajpe2PRE2roR9g.png)
 
 Enter your username and password and then click on **Log In** to head over to your WordPress dashboard. It should look something like the following screenshot. Hooray!
 
-![Image of WordPress dashboard](/static/images/blog/contents/1_LIDCmPUv4Bt8IT_iVz1zKg.png)
+![Image of WordPress dashboard](/static/posts/1_LIDCmPUv4Bt8IT_iVz1zKg.png)
 
 ### Accessing MySQL via phpMyAdmin
 
 For those who have used MySQL in the past, you would be hoping to see the phpMyAdmin portal to manage your database. In this scenario, search for and select **MySQL In App&#x20;**&#x6F;ption from the left menu list and then select **Manage** from the screen that opens.
 
-![Image showing how to access phpMyAdmin portal](/static/images/blog/contents/1_WBrHf8anBei-aYHhJbh2QA.png)
+![Image showing how to access phpMyAdmin portal](/static/posts/1_WBrHf8anBei-aYHhJbh2QA.png)
 
 phpMyAdmin comes installed and Azure should automatically take care of the login for you and redirect you to the phpMyAdmin portal.
 
-![Image of phpMyAdmin portal](/static/images/blog/contents/1_H9ZSuSU80cFyrVYuNIyD4w.png)
+![Image of phpMyAdmin portal](/static/posts/1_H9ZSuSU80cFyrVYuNIyD4w.png)
 
 Have fun customizing your WordPress website. Feel free to leave a link of your website in the comments and I’d love to check it out.
 

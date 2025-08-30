@@ -36,7 +36,7 @@ In your project folder type in the command `npm init -y`. This will create an em
 
 You would also want to create a `README.md` file to write up an overview of your npm package, a `LICENSE` file which will contain the appropriate license text, and a `.gitignore` file which will tell Git what files and folders should not be source-controlled. We’ll also create a `src` folder which will contain all of our source code.
 
-![Image of source code directory.](/static/images/blog/contents/1_glIaPPkmBzmXlKWHs8AM1g.png)
+![Image of source code directory.](/static/posts/1_glIaPPkmBzmXlKWHs8AM1g.png)
 
 #### Adding some code
 
@@ -56,7 +56,7 @@ Now, update the scripts section of the `package.json` file to add a build script
 
 To compile, execute the command `npm run build`. You should see a folder named dist being created with the compiled JavaScript file and a corresponding TypeScript definition file.
 
-![Image of the dist folder with compiled files in it.](/static/images/blog/contents/1_P9sHtBNJvkfKk7gKlO8gQA.png)
+![Image of the dist folder with compiled files in it.](/static/posts/1_P9sHtBNJvkfKk7gKlO8gQA.png)
 
 ---
 
@@ -76,7 +76,7 @@ Then update the test script in the scripts section of the `package.json` file to
 
 Run `npm test` to execute these tests and confirm all unit tests are passing.
 
-![Image of all unit tests passing.](/static/images/blog/contents/1_3TuIbTnJsFF716Il2HhCLw.png)
+![Image of all unit tests passing.](/static/posts/1_3TuIbTnJsFF716Il2HhCLw.png)
 
 #### Test coverage
 
@@ -88,7 +88,7 @@ Update the scripts section in the `package.json` file with the command to execut
 
 Finally, we’ll run the command `npm run coverage` to see this in action.
 
-![Image of test coverage summary report.](/static/images/blog/contents/1_5oirZp9M6kxHb85XNwh60g.png)
+![Image of test coverage summary report.](/static/posts/1_5oirZp9M6kxHb85XNwh60g.png)
 
 ---
 
@@ -106,7 +106,7 @@ Add the required commands to lint the TypeScript files in the scripts section of
 
 Execute `npm run lint` to perform the lint operation. To test, remove the whitespace between numbers and brackets and execute the command again — you should get an error.
 
-![Image of a function highlighting the whitespace to remove so ESLint can be tested.](/static/images/blog/contents/1_FCba-GGzGlthx3S0TUPE0w.png)
+![Image of a function highlighting the whitespace to remove so ESLint can be tested.](/static/posts/1_FCba-GGzGlthx3S0TUPE0w.png)
 
 You can add or remove rules as you see fit for your project. Full list of rules can be found [here](https://eslint.org/docs/rules/).
 
@@ -118,31 +118,31 @@ I have my source code in GitHub, so I’ll quickly walk you through how you migh
 
 Head over to [sonarcloud.io](https://sonarcloud.io/) and click on **GitHub** to hook your repository.
 
-![Screenshot of SonarCloud’s home page.](/static/images/blog/contents/1_RaHozMw9-nlB0qbY4KRWdg.png)
+![Screenshot of SonarCloud’s home page.](/static/posts/1_RaHozMw9-nlB0qbY4KRWdg.png)
 
 You may be asked to log in and authorize SonarCloud app in GitHub — grant the required permissions when asked. Once you head over to your SonarCloud projects dashboard page, click on the ‘**+**’ icon and then from the dropdown, select **”analyze new project”**.
 
-![Screenshot of SonarCloud projects home page and arrows pointing the buttons to click.](/static/images/blog/contents/1_Z8p_nSdIRhWi64BQcn6_Yw.png)
+![Screenshot of SonarCloud projects home page and arrows pointing the buttons to click.](/static/posts/1_Z8p_nSdIRhWi64BQcn6_Yw.png)
 
 Search for your repository, check the box beside it, and then click on the **Set Up**.
 
-![Image showing the steps to add a GitHub repository to SonarCloud.](/static/images/blog/contents/1_PuKpNRcfqW5RP-AvsYgVHw.png)
+![Image showing the steps to add a GitHub repository to SonarCloud.](/static/posts/1_PuKpNRcfqW5RP-AvsYgVHw.png)
 
 SonarCloud will start analyzing your project and show you the first analysis report.
 
-![Screenshot of SonarCloud analyzing the source code for the first time.](/static/images/blog/contents/1_6wNMM2eCYpPnDxsCcM5M3w.png)
+![Screenshot of SonarCloud analyzing the source code for the first time.](/static/posts/1_6wNMM2eCYpPnDxsCcM5M3w.png)
 
 Before wrapping things up with SonarCloud, there’s one additional thing you’d require to do before you can get a quality gate from SonarCloud. Click on **Administration&#x20;**&#x61;nd from the dropdown, select **New Code**. Then, select the **Previous version** from the list of options. This means that the quality gate will be computed every time new code is checked in and all the metrics will focus on what has just changed.
 
-![Image showing the steps to set new code definition in SonarCloud.](/static/images/blog/contents/1_BZjOwI4RtXBGy2wzYN4mrg.png)
+![Image showing the steps to set new code definition in SonarCloud.](/static/posts/1_BZjOwI4RtXBGy2wzYN4mrg.png)
 
 What’s awesome about SonarCloud is that it triggers an analysis on every new pull request and adds a comment on your GitHub pull request with a summary about the analysis.
 
-![Screenshot of a SonarCloud quality gate comment in a GitHub pull request.](/static/images/blog/contents/1_yJqWMM25PzycSqv0_KxjOg.png)
+![Screenshot of a SonarCloud quality gate comment in a GitHub pull request.](/static/posts/1_yJqWMM25PzycSqv0_KxjOg.png)
 
 If you head over to the **Overview** tab in SonarCloud, you can see various metrics, and should one of those tiles need your attention, you can click on it to find out more and make the required code changes.
 
-![Screenshot of SonarCloud’s overview tab.](/static/images/blog/contents/1_6dBuZKsb0a4F7yLAg6nB-g.png)
+![Screenshot of SonarCloud’s overview tab.](/static/posts/1_6dBuZKsb0a4F7yLAg6nB-g.png)
 
 ---
 
@@ -177,13 +177,13 @@ We’ll be publishing our npm package to [npmjs.com](https://www.npmjs.com/signu
 
 Head over to [npmjs.com](https://www.npmjs.com/signup) and sign up for a new account if you don’t have one already. Next, open up a terminal in Visual Studio Code, and type in the command `npm adduser`. Then, enter the username, password, and email address associated with your account.
 
-![Screenshot showing npm adduser command in action.](/static/images/blog/contents/1_OLbRAq7afwNuPwB-C7u0ww.png)
+![Screenshot showing npm adduser command in action.](/static/posts/1_OLbRAq7afwNuPwB-C7u0ww.png)
 
 #### Getting help
 
 At any given time, should you require help with any of the commands, just type the command followed by `-help`.
 
-![Screenshot showing how to get help for a command in npm.](/static/images/blog/contents/1_WzlVuSE84a7k_We_c9gJhA.png)
+![Screenshot showing how to get help for a command in npm.](/static/posts/1_WzlVuSE84a7k_We_c9gJhA.png)
 
 #### Confirm log in
 
@@ -193,19 +193,19 @@ To confirm that you are logged in to npm using CLI, type in the command `npm who
 
 To check what files will be packaged into your npm package, we can use the command `npm publish --dry-run`. Running this **_will not_** publish your npm package.
 
-![Screenshot showing npm dry-run command in action.](/static/images/blog/contents/1_Ctcy9EteMNQbJIkjhctTVw.png)
+![Screenshot showing npm dry-run command in action.](/static/posts/1_Ctcy9EteMNQbJIkjhctTVw.png)
 
 #### Publish!
 
 Finally, when you’re ready to publish your npm package, type in the command `npm publish`. This will publish your npm package and within minutes, you should also get a confirmation email.
 
-![Screenshot showing npm publish command in action.](/static/images/blog/contents/1_bQB1HxaE0XmyBOgY8cQY7g.png)
+![Screenshot showing npm publish command in action.](/static/posts/1_bQB1HxaE0XmyBOgY8cQY7g.png)
 
 #### Package page on npmjs.com
 
 Once published, you should be able to view your npm package page. Here are a couple of points highlighted.
 
-![Screenshot of the demo npm package’s public page.](/static/images/blog/contents/1_Jih4daKTE6z2iTHd1OLVpA.png)
+![Screenshot of the demo npm package’s public page.](/static/posts/1_Jih4daKTE6z2iTHd1OLVpA.png)
 
 1. **Readme:** The contents of the readme file will appear on your npm package page. Markdown is supported, so get creative!
 2. **Keywords:** The keywords/tags you enter in your package.json file will also appear on your npm package page.

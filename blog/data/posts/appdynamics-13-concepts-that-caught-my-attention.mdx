@@ -33,7 +33,7 @@ AppDynamics is an Application Performance Monitoring (APM) solution offering you
 
 Gartner’s Magic Quadrant 2019 report for APM puts [AppDynamics as a market leader](https://www.gartner.com/en/documents/3904665/magic-quadrant-for-application-performance-monitoring). Gartner defines APM suites as one or more software components that facilitate application monitoring to meet three main functional dimensions: Digital experience monitoring (DEM), Application discovery, tracing and diagnostics (ADTD), and Artificial intelligence for IT operations (AIOps).
 
-![Application Flow Map view from AppDynamics](/static/images/blog/contents/1_lRl5F-dUAdSKXuWB93HZwg.png)
+![Application Flow Map view from AppDynamics](/static/posts/1_lRl5F-dUAdSKXuWB93HZwg.png)
 
 Application Flow Map view from [AppDynamics](appdynamics.com/product/application-performance-management)
 
@@ -49,7 +49,7 @@ Finally, [Business iQ](https://www.appdynamics.com/product/business-iq) is an of
 
 Let’s quickly take a look at AppDynamics’ on-premise platform architecture before we look at the 13 concepts that caught my attention.
 
-![AppDynamics on-premise platform architecture](/static/images/blog/contents/1_Z0RrMldOd7P99ofKqTmbBA.png)
+![AppDynamics on-premise platform architecture](/static/posts/1_Z0RrMldOd7P99ofKqTmbBA.png)
 
 Courtesy of [AppDynamics](https://www.appdynamics.com/). For more downloadable PDFs, [click here](https://docs.appdynamics.com/4.5.x/pdfs).
 
@@ -113,13 +113,13 @@ While working with multiple teams to implement AppDynamics, you might find yours
 
 To restrict the use of license units, AppDynamics provides you with License rules. You can create a rule and allocate _n_ number of license units across all the available types for that team.
 
-![Add license rule dialog box](/static/images/blog/contents/1_kHX1jMMb6_V-Z-pjBLR0Vg.png)
+![Add license rule dialog box](/static/posts/1_kHX1jMMb6_V-Z-pjBLR0Vg.png)
 
 Add license rule dialog box
 
 After creating the rule, you will see it in the list along with its own access key. You can now distribute this access key to the team instead of giving the default one.
 
-![List of license rules](/static/images/blog/contents/1_zJCxH6FaJCMtVB0WU2BtIQ.png)
+![List of license rules](/static/posts/1_zJCxH6FaJCMtVB0WU2BtIQ.png)
 
 List of license rules
 
@@ -133,7 +133,7 @@ Note: It is not recommended to change anything in here except if instructed in t
 
 In a high availability (HA) scenario, it is recommended that the traffic to the Controller be directed at the reverse proxy/load balancer rather than directly at the controller. So, should the primary Controller go down, the load balancer can direct all Agent communication to the secondary Controller instead. The proxy can monitor the status of the Controller using this address `http://<Your Controller URL:port number>/rest/serverstatus` which returns an HTTP 503 Service Unavailable response to GET requests, and an XML response with `<available>false</available>` for a passive/down node.
 
-![Example of the XML returned from the Controller’s monitor endpoint](/static/images/blog/contents/1_fxBlUqbip8_fD9fv593mew.png)
+![Example of the XML returned from the Controller’s monitor endpoint](/static/posts/1_fxBlUqbip8_fD9fv593mew.png)
 
 Example of the XML returned from the Controller’s monitor endpoint
 
@@ -143,7 +143,7 @@ Note: HA is only available if you’re Controller’s are set up on Linux machin
 
 If the Enterprise Console experiences a downtime, the Controller will not be impacted. However, if the primary Controller (in a high availability scenario) and Enterprise Console is down at the same time, it wouldn’t auto failover to the secondary Controller because, by default, in the 4.5.x release the ‘Enable auto failover’ is auto enabled (as pictured below) in the Enterprise Console — which means it is the Enterprise Console’s responsibility to monitor the Controller’s and initiate an auto failover when necessary.
 
-![By default, in the 4.5.x release the Enable auto failover is auto enabled](/static/images/blog/contents/1_C4QaKvklwNZFE3FSsN3UEw.png)
+![By default, in the 4.5.x release the Enable auto failover is auto enabled](/static/posts/1_C4QaKvklwNZFE3FSsN3UEw.png)
 
 By default, in the 4.5.x release the Enable auto failover is auto enabled
 
@@ -167,7 +167,7 @@ SELECT transactionName, userExperience, responseTime FROM transactions WHERE res
 
 This gives me all the business transactions with a response time greater than 200ms along with the User Experience (UX). The UX is calculated by AppDyanmics by comparing the response time with the baseline it has maintained.
 
-![Image of ADQL query results](/static/images/blog/contents/1_toCYDAEU0N49OyNkqgeuGw.png)
+![Image of ADQL query results](/static/posts/1_toCYDAEU0N49OyNkqgeuGw.png)
 
 You can use ADQL to visualize this data as a graph in a widget, and then add this widget to your dashboard. For a full ADQL reference, refer to [this page](https://docs.appdynamics.com/display/PRO45/ADQL+Reference).
 
@@ -215,7 +215,7 @@ Please see this article https://shopztream.confluence.com/wiki/actions/slow-chec
 
 Extensions, as the name suggests, extend the functionality of AppDynamics so it can be used with an even larger set of technologies. You either build your own Extension or use one that’s available on the [AppDynamics Exchange site](https://www.appdynamics.com/community/exchange/). Note, if the Extension is _AppDynamics supported_ then you can open a support case with the AppDynamics support team, but if it’s _Author supported_ then you can’t.
 
-![Image of a couple of AppDynamics Extensions](/static/images/blog/contents/1_SuzSsxC3cASMDyqY1niNCg.png)
+![Image of a couple of AppDynamics Extensions](/static/posts/1_SuzSsxC3cASMDyqY1niNCg.png)
 
 ### Where to get started?
 

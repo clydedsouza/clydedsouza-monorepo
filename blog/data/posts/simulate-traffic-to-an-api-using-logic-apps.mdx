@@ -55,13 +55,13 @@ We’ll be taking advantage of this automated workflow feature from Logic Apps t
 
 Log in to Azure, then click on the menu from the top left corner. Next, click on **Create a resource**, then search for Logic App and click on it. From this screen, click on the **Create** button.
 
-![Image showing the create resource page of a Logic App.](/static/images/blog/contents/1_hNQ-44NN3EKt2deu1_Mv3A.png)
+![Image showing the create resource page of a Logic App.](/static/posts/1_hNQ-44NN3EKt2deu1_Mv3A.png)
 
 Image courtesy of the author
 
 Select the appropriate **Subscription** from the dropdown and either select or create a new **Resource Group**. Then from the next section, select **Type** as **Consumption**. Under the consumption plan, you pay for each execution instead of a fixed price per hour. The first 4,000 actions are free, and since our Logic App will fall under this limit, we should be able to run this Logic App essentially for free. Read more about the pricing plans for Logic Apps [here](https://azure.microsoft.com/en-gb/pricing/details/logic-apps/).
 
-![Image showing the fields that needs to be populated to create a Logic App.](/static/images/blog/contents/1_ZivaWUanD1y4XliaxegjGg.png)
+![Image showing the fields that needs to be populated to create a Logic App.](/static/posts/1_ZivaWUanD1y4XliaxegjGg.png)
 
 Image courtesy of the author
 
@@ -73,7 +73,7 @@ Azure should create a Logic App in the background and after a few minutes, you s
 
 As outlined earlier, we want to automatically have requests fire to our API. This means that our Logic App will need to be _triggered_ automatically and on a schedule. The trigger to select, in this case, would be **Recurrence**.
 
-![Image showing what trigger to select for this Logic App.](/static/images/blog/contents/1_Kd1dZM9ZIUR1HR7IypGG2g.png)
+![Image showing what trigger to select for this Logic App.](/static/posts/1_Kd1dZM9ZIUR1HR7IypGG2g.png)
 
 Image courtesy of the author
 
@@ -81,13 +81,13 @@ Let’s begin with running the Logic App once daily at 8:01 AM and 8:01 PM. We c
 
 If you click on the **Recurrence** step, you should be able to set **Interval** as **1**, **Frequency** as **Day**, and then from the **Add new parameter** dropdown, check the **Start time**, **At these hours**, and **At these minutes** checkboxes.
 
-![Image showing how to configure the trigger for this Logic App.](/static/images/blog/contents/1_IDNSKLuUe5BiCTdD4Ue6yg.png)
+![Image showing how to configure the trigger for this Logic App.](/static/posts/1_IDNSKLuUe5BiCTdD4Ue6yg.png)
 
 Image courtesy of the author
 
 From the **At these hours** dropdown, select **8** and **20** (8 PM in 24hr format). Next, from the **At these minutes** textbox, type **01** which signifies the first minute of the hour. In the **Preview** pane, you should see this schedule printed in words to confirm your selection. That’s all the configuration you’d require for the trigger.
 
-![Image showing what the trigger should look like for this Logic App.](/static/images/blog/contents/1_Mhm5OSPF5vA6o8vuIRE_aA.png)
+![Image showing what the trigger should look like for this Logic App.](/static/posts/1_Mhm5OSPF5vA6o8vuIRE_aA.png)
 
 Image courtesy of the author
 
@@ -95,19 +95,19 @@ Image courtesy of the author
 
 Click on the **+ New step** button to add a new step after this Logic App gets triggered. We want to send an API request to our API endpoint, so let’s select **HTTP** from the pool of connectors and actions.
 
-![Image showing how to select the HTTP action for our Logic App.](/static/images/blog/contents/1_tCDO9X00l1cs22R6St-YOg.png)
+![Image showing how to select the HTTP action for our Logic App.](/static/posts/1_tCDO9X00l1cs22R6St-YOg.png)
 
 Image courtesy of the author
 
 From the configuration options for **HTTP**, select the **Method** as **GET** and enter the API URL endpoint in the **URI** field. I’ve entered the [mock API URL](https://mocki.io/v1/a3996bc1-0f57-4548-8d37-f44e5414ea09) that I’m working with for this article, in the screenshot below.
 
-![Image showing how to configure the HTTP action for our Logic App.](/static/images/blog/contents/1_eanqy4a4X4W8eRTvJ7clUg.png)
+![Image showing how to configure the HTTP action for our Logic App.](/static/posts/1_eanqy4a4X4W8eRTvJ7clUg.png)
 
 Image courtesy of the author
 
 Don’t forget to hit the **Save** button regularly to save your progress.
 
-![Image showing how to save a Logic App.](/static/images/blog/contents/1_OsxVaM40-nnP4L2PpOqrvw.png)
+![Image showing how to save a Logic App.](/static/posts/1_OsxVaM40-nnP4L2PpOqrvw.png)
 
 Image courtesy of the author
 
@@ -115,13 +115,13 @@ Image courtesy of the author
 
 To see if your Logic App is configured correctly, hit the **Run Trigger** button. This will run the entire workflow right away and is a useful approach to test your Logic App rather than waiting for the actual trigger to kick in.
 
-![Image showing how to test run the Logic App.](/static/images/blog/contents/1_1xyqh21B0ODoNVP-i27dYg.png)
+![Image showing how to test run the Logic App.](/static/posts/1_1xyqh21B0ODoNVP-i27dYg.png)
 
 Image courtesy of the author
 
 In a few moments, you should see the designer panel update with green checks appear beside each step. Clicking on the step should provide you with more detail and you should also be able to see the response returned from the API endpoint.
 
-![Image showing the output after a test run of our Logic App.](/static/images/blog/contents/1_sq0b11M-5FG7SiC_pktU1g.png)
+![Image showing the output after a test run of our Logic App.](/static/posts/1_sq0b11M-5FG7SiC_pktU1g.png)
 
 Image courtesy of the author
 
@@ -129,19 +129,19 @@ Image courtesy of the author
 
 As outlined at the beginning of the article, we want to send API requests to multiple API endpoints on a recurring schedule. Let’s start by clicking the plus icon after Recurrence. If you click on the **+ New step**, it will create a step after the **HTTP** step instead, which isn’t what we want.
 
-![Image showing how to add another step in our Logic App.](/static/images/blog/contents/1_bhKfhcuMNYx7vNIHNF_6ZQ.png)
+![Image showing how to add another step in our Logic App.](/static/posts/1_bhKfhcuMNYx7vNIHNF_6ZQ.png)
 
 Image courtesy of the author
 
 Now, from the options, select **Add a parallel branch**. If you click on **Add an action**, it will add a step in between **Recurrence** and **HTTP**, again, which isn’t what we want.
 
-![Image showing how to add a parallel step in our Logic App.](/static/images/blog/contents/1_h_xWy9KDti5R7_6P70y4EQ.png)
+![Image showing how to add a parallel step in our Logic App.](/static/posts/1_h_xWy9KDti5R7_6P70y4EQ.png)
 
 Image courtesy of the author
 
 Select another **HTTP** action and repeat the same steps to configure this HTTP step as we did earlier, except this time, enter the second API endpoint in the **URI** field. Finally, it should something like the screenshot below.
 
-![Image showing what the final Logic App would look like.](/static/images/blog/contents/1_WKeSPP_EMQvttdI2Yx6y6g.png)
+![Image showing what the final Logic App would look like.](/static/posts/1_WKeSPP_EMQvttdI2Yx6y6g.png)
 
 Image courtesy of the author
 
@@ -151,7 +151,7 @@ Save your changes and then test it to ensure it works as expected.
 
 Click on the **Overview** menu item from the left panel and then click on **Runs history**. This will show you a list of items along with the status of each run. If you click on an individual row, you should be able to see more details.
 
-![Image showing how to monitor our Logic App.](/static/images/blog/contents/1_xkXiFrIIuavZuffvnMfWfw.png)
+![Image showing how to monitor our Logic App.](/static/posts/1_xkXiFrIIuavZuffvnMfWfw.png)
 
 Image courtesy of the author
 
@@ -165,13 +165,13 @@ If you have a look at the visual designer now, you would see that it’s labelle
 
 Click on the three dots, and then click on **Rename**. This will make the label editable, so you should be able to rename it as you see fit.
 
-![Image showing how to rename a step in the Logic App.](/static/images/blog/contents/1_fB8-teRkSXlxVwP65qTuxQ.png)
+![Image showing how to rename a step in the Logic App.](/static/posts/1_fB8-teRkSXlxVwP65qTuxQ.png)
 
 Image courtesy of the author
 
 Don’t forget to save all the changes once done. After I renamed all the steps, my demo Logic App looks like the screenshot below.
 
-![Image showing what a well named Logic App would look like.](/static/images/blog/contents/1_EwB-j380KYVoZS3asIY97Q.png)
+![Image showing what a well named Logic App would look like.](/static/posts/1_EwB-j380KYVoZS3asIY97Q.png)
 
 Image courtesy of the author
 
@@ -181,7 +181,7 @@ By default, you should always see the **Designer** view. This provides a visual 
 
 To speed up the process, click on the **Code view** button to see the code behind the Logic App. If you know the syntax, it’s much faster to type it out.
 
-![Image showing how to access the code view in a Logic App.](/static/images/blog/contents/1_5WZQCMdngRXxyFsXERMtMA.png)
+![Image showing how to access the code view in a Logic App.](/static/posts/1_5WZQCMdngRXxyFsXERMtMA.png)
 
 Image courtesy of the author
 
@@ -191,19 +191,19 @@ In our example, we already added two API endpoints from the **Designer** and now
 
 If you think you’re going to use the same values every time, consider using parameters. To add a parameter, click on **Parameters** from the header and then click on **Add Parameter**.
 
-![Image showing how to add a parameter in the Logic App.](/static/images/blog/contents/1_a_QS89GXvKcgIWsIK7aA-g.png)
+![Image showing how to add a parameter in the Logic App.](/static/posts/1_a_QS89GXvKcgIWsIK7aA-g.png)
 
 Image courtesy of the author
 
 Enter the name of the parameter and give it a default value — it’s called default value because we can change the value for the parameter at runtime. In this example, however, we’ll look at only using the default value of the parameter. You don’t need to click on **Add Parameter** again as that’s for adding another parameter.
 
-![Image showing how to configure a parameter in a Logic App.](/static/images/blog/contents/1_ILkFuXymB4Y3PgoUNZRGeQ.png)
+![Image showing how to configure a parameter in a Logic App.](/static/posts/1_ILkFuXymB4Y3PgoUNZRGeQ.png)
 
 Image courtesy of the author
 
 To use this parameter, click on the **HTTP** step. Now, let’s replace the base URL part with the parameter we just added. If the **Dynamic content** modal doesn’t automatically popup, you can click on the **Add dynamic content** link to bring this modal and you should then see this parameter in the list.
 
-![Image showing how to use a parameter in a step in the Logic App.](/static/images/blog/contents/1_FnvZCiAnA6lSAOWrs4j_-Q.png)
+![Image showing how to use a parameter in a step in the Logic App.](/static/posts/1_FnvZCiAnA6lSAOWrs4j_-Q.png)
 
 Image courtesy of the author
 

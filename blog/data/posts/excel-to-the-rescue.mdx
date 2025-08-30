@@ -30,7 +30,7 @@ I’ve been in this situation too many times where I’ve had to go creative wit
 
 Imagine you have been given a huge list of data in Excel that needs to be entered into the database. Imagine something like the picture below but only hundreds of records more than this.
 
-![Sample Excel list of data](/static/images/blog/contents/1_rFt5Wk0c9TfhTNRj7po9CQ.png)
+![Sample Excel list of data](/static/posts/1_rFt5Wk0c9TfhTNRj7po9CQ.png)
 
 You would think, if it was a single record, you could have written a SQL statement like this:
 
@@ -59,11 +59,11 @@ However, since this is a huge list, we should look at simplifying the creation o
 
 We’ll make use of Excel’s formula to create the bulk insert script. Let’s click on the cell D2 and add this formula into it: `="('"&A2&"','"&B2&"','"&C2&"'),"`. This formula is just a concatenation of strings and cell values together using the ampersand sign (&). So, if the formula was `=A2&" "&B2`, it would result in `Aaren Reid`, in this example.
 
-![Image of the formula applied in the cell D2 of the Excel file](/static/images/blog/contents/1_nDLf8_9CaxXpDVRff7SXEA.png)
+![Image of the formula applied in the cell D2 of the Excel file](/static/posts/1_nDLf8_9CaxXpDVRff7SXEA.png)
 
 Now, place your cursor on the lower right corner of the cell until the cursor changes to a plus icon. Once it does, hold and drag the green box down to the last row in your Excel spreadsheet. The GIF below explains this visually.
 
-![GIF showing how to apply the formula and drag it down for all records](/static/images/blog/contents/1_raAmZDxoVCaB6tPNl0CW_Q.gif)
+![GIF showing how to apply the formula and drag it down for all records](/static/posts/1_raAmZDxoVCaB6tPNl0CW_Q.gif)
 
 With all the values in column D selected, copy them. Open up your SQL client and paste all the values below the `VALUES` keyword.
 
@@ -71,11 +71,11 @@ With all the values in column D selected, copy them. Open up your SQL client and
 
 The last line will have a comma (,) appended — remove the comma. Finally, run the query.
 
-![Image of the SQL statement in HeidiSQL with steps annotated](/static/images/blog/contents/1_7ASFX-ymrxMgfQJokIytvw.png)
+![Image of the SQL statement in HeidiSQL with steps annotated](/static/posts/1_7ASFX-ymrxMgfQJokIytvw.png)
 
 Click the **Data** tab to see all the values inserted into the table.
 
-![Image of the data contained in the table and viewed using HeidiSQL](/static/images/blog/contents/1_V8HY3nlUGOEgigoHTrM8-g.png)
+![Image of the data contained in the table and viewed using HeidiSQL](/static/posts/1_V8HY3nlUGOEgigoHTrM8-g.png)
 
 > Tip: You may be limited to a maximum of 1000 rows per insert statement as documented [here](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms187905%28v=sql.105%29?redirectedfrom=MSDN). But now that you know how to use Excel formulas, you can also add the `INSERT` part of the SQL statement into your formula if you have more than 1000 records to be inserted.
 

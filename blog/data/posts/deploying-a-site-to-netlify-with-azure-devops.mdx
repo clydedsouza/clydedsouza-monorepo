@@ -49,13 +49,13 @@ Stick around for a cool bonus section at the end of this article!
 
 Let’s click on the + icon to add a new task, and search for Netlify. You should see [this task from the Marketplace](https://marketplace.visualstudio.com/items?itemName=aliencube.netlify-cli-extensions) by [Aliencube](https://twitter.com/aliencubecom). Click on the “install” button to install this extension.
 
-![Image showing how to add Netlify task into the release pipeline.](/static/images/blog/contents/1_ZyjoJDmsKgq4e7BYdlHyzg.png)
+![Image showing how to add Netlify task into the release pipeline.](/static/posts/1_ZyjoJDmsKgq4e7BYdlHyzg.png)
 
 In the background, the tasks in this extension run [Netlify-CLI](https://cli.netlify.com/) commands so if you prefer to run commands yourself then you don’t need to install this extension. However, if you like a user interface, then this extension is for you. For those interested, I’ll write down what commands are being used for each step below.
 
 After you’ve installed this extension, the first task that you need to add is **Install Netlify CLI**. You don’t need to update anything in this task. However, if you’d like to change the display name, feel free to do so.
 
-![Image of the Install Netlify task from the Netlify Azure DevOps extension.](/static/images/blog/contents/1_lt21VrxH4qjtDBbd61XJDA.png)
+![Image of the Install Netlify task from the Netlify Azure DevOps extension.](/static/posts/1_lt21VrxH4qjtDBbd61XJDA.png)
 
 In the background, this task runs the following command. Basically, it installs the Netlify-CLI utility on the agent.
 
@@ -65,7 +65,7 @@ C:\windows\system32\cmd.exe /D /S /C ""C:\Program Files\nodejs\npm.cmd" install 
 
 Finally, add the **Deploy Website** task from this extension. You will need a few details here so please bear with me.
 
-![Image of the Deploy Website task from the Netlify Azure DevOps extension.](/static/images/blog/contents/1_N8c9IVoRrT3TwYbWRhb24Q.png)
+![Image of the Deploy Website task from the Netlify Azure DevOps extension.](/static/posts/1_N8c9IVoRrT3TwYbWRhb24Q.png)
 
 For the **Authentication Token**, create a new release variable. I’ve called this PAT (standing for “Personal Access Token”). We’ll get this value from Netlify later but you can leave the value empty for now. I’d recommend that you change this variable type to secret by clicking on the padlock icon. Next, you will create another variable for the Site ID. We’ll get this value from Netlify as well, so leave this value empty for now.
 
@@ -85,7 +85,7 @@ In this section, we’ll focus on Netlify and get some important information fro
 
 If you don’t have an account with Netlify already then head over to [Netlify](https://www.netlify.com/) and create a free account. Your dashboard page might look something like the screenshot below if you’ve never used Netlify before.
 
-![Image showing Netlify dashboard](/static/images/blog/contents/1_3Lwe9MWcb2at4pfDdCSAtA.png)
+![Image showing Netlify dashboard](/static/posts/1_3Lwe9MWcb2at4pfDdCSAtA.png)
 
 If you click on the “New site from Git” button, you’ll notice that we have only three options available — GitHub, GitLab, and BitBucket — and that there is no other option to create an empty site. So we’re going to have to use the command line.
 
@@ -93,29 +93,29 @@ If you click on the “New site from Git” button, you’ll notice that we have
 
 [Netlify-CLI](https://cli.netlify.com/) provides the user with different commands to be able to interact with their Netlify account. To install Netlify-CLI on your PC, open up a command prompt and type in `npm install netlify-cli -g`.
 
-![Image showing a command prompt to install the Netlify-CLI utility.](/static/images/blog/contents/1_dctoqeU9UqtpiWC9lcAohg.png)
+![Image showing a command prompt to install the Netlify-CLI utility.](/static/posts/1_dctoqeU9UqtpiWC9lcAohg.png)
 
 Next, we’ll log in to our Netlify account via the CLI. Type in the command `netlify login`.
 
-![Image showing a command prompt using the Netlify login command.](/static/images/blog/contents/1_hTlkopNl0J7f6hWsu04Bqw.png)
+![Image showing a command prompt using the Netlify login command.](/static/posts/1_hTlkopNl0J7f6hWsu04Bqw.png)
 
 This will open up a browser window with an **Authorize Application** prompt. Click on **Authorize** to allow the CLI to access your account. You can always revoke this access in the future if needed by visiting the [Authorized application page](https://app.netlify.com/user/applications#authorized-applications) in Netlify settings.
 
-![Image showing the authorize application prompt by Netlify.](/static/images/blog/contents/1_PoBVVtGyRpQOxfsFVm36Zw.png)
+![Image showing the authorize application prompt by Netlify.](/static/posts/1_PoBVVtGyRpQOxfsFVm36Zw.png)
 
 Now that you’re logged in, you’ll be able to create an empty site in Netlify. To create a site, type the following command `netlify sites:create --name <NAME OF THE WEBSITE>`. Replace \<NAME OF THE WEBSITE> with the actual name you’d like to give this site. It will ask you which team you’d like this site to exist in. In this example, I belong to only one team so I selected that and hit enter. Learn more about this command [here](https://cli.netlify.com/commands/sites#sitescreate).
 
-![Image showing the command to create a new empty site in Netlify.](/static/images/blog/contents/1_B_hTgi0SstvgR8-NuNu1JA.png)
+![Image showing the command to create a new empty site in Netlify.](/static/posts/1_B_hTgi0SstvgR8-NuNu1JA.png)
 
 Please make a note of the site ID from the response of this command. Don’t worry if you can’t copy the site ID from the command prompt as you can also retrieve the site ID by heading over to the **Settings** tab of your site in Netlify. Under **Site information**, you should see a field called **API ID** with a numeric value — that’s your site ID.
 
-![Image showing how to capture the site ID from Netlify.](/static/images/blog/contents/1_QwT-I6Mrdj0LCIbBTCTbxw.png)
+![Image showing how to capture the site ID from Netlify.](/static/posts/1_QwT-I6Mrdj0LCIbBTCTbxw.png)
 
 #### **Fetching the personal access token**
 
 Alright, next up we require a personal access token. In Netlify, click on your user avatar on the top right of the screen and select **User settings**. Then, from the **Applications&#x20;**&#x74;ab, select **OAuth** and then from the **Personal access tokens&#x20;**&#x73;ection click on “**New access token”**.
 
-![](/static/images/blog/contents/1_nI303WVwcc8Y2pP7uEXFoQ.png)
+![](/static/posts/1_nI303WVwcc8Y2pP7uEXFoQ.png)
 
 Enter a suitable description for this token so that you know where this token is going to be used and then click on **Generate token**. Copy the generated token and save it along with your site ID you copied previously.
 
@@ -129,13 +129,13 @@ Onto the final step. Now we need to update our release variable in Azure DevOps 
 
 Now let’s head back to the release variables in Azure DevOps. Here, we’ll populate the contents of the **SiteID&#x20;**&#x76;ariable with the site ID value that we captured earlier. We’ll do the same for the **PAT** variable. Your release variables should look something like this:
 
-![Image showing the release variables in Azure DevOps.](/static/images/blog/contents/1_QFAfHMgrtdncV9J_mBkorA.png)
+![Image showing the release variables in Azure DevOps.](/static/posts/1_QFAfHMgrtdncV9J_mBkorA.png)
 
 #### **Give it a go!**
 
 Now, create a new release and watch the magic happen. This is what my demo website looks like once deployed:
 
-![Image showing the demo website.](/static/images/blog/contents/1_MzTjEnoaYM05tHFq0NfPzA.png)
+![Image showing the demo website.](/static/posts/1_MzTjEnoaYM05tHFq0NfPzA.png)
 
 If you’d like to check out the resources I used in this demo, here are the links:
 
@@ -150,11 +150,11 @@ If you’re using this as a test environment, you certainly wouldn’t want sear
 
 To inject code into your website, head over to Netlify and click on **Settings**. Then, from the **Build & deploy** menu item, select **Post-processing**.
 
-![Image showing how to inject a snippet in Netlify.](/static/images/blog/contents/1_xKQbHWnBfHhLpjqqVAwb_w.png)
+![Image showing how to inject a snippet in Netlify.](/static/posts/1_xKQbHWnBfHhLpjqqVAwb_w.png)
 
 From the **Snippet injection** section, click on the **Add snippet** button. From the dropdown, select **Insert before \</head>**. Give the script a suitable name and then in the HTML textbox, enter the code `<meta name=”robots” content=”noindex”>`. Click on sav&#x65;**&#x20;**&#x74;o preserve these changes.
 
-![Image showing a snippet to disallow search engines from crawling the website.](/static/images/blog/contents/1_L3o1lrbFuPV6YvHJU-n-zQ.png)
+![Image showing a snippet to disallow search engines from crawling the website.](/static/posts/1_L3o1lrbFuPV6YvHJU-n-zQ.png)
 
 Reload your website, view the source code and you should see this `<meta>` tag automatically injected into the website.
 

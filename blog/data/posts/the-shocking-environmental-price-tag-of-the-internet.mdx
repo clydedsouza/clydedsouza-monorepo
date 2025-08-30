@@ -61,7 +61,7 @@ There are several tools available to help us calculate the carbon emissions of a
 
 For those interested, [this interactive activity](https://learninglab.gitlabpages.inria.fr/mooc-impacts-num/mooc-impacts-num-ressources/Partie3/Activites/Capsule_Partie3_2_Mesurer/indexEn.html#globalResult) produced by [Benjamin Ninassi](https://www.linkedin.com/in/bninassi/) is a fun way to learn and test your knowledge about the general weight of different elements on a web page.
 
-![](/static/images/blog/contents/1_ecPQ_mpHyMLYWrg9B_Z3lg.png)
+![](/static/posts/1_ecPQ_mpHyMLYWrg9B_Z3lg.png)
 
 Source: [Activity](https://learninglab.gitlabpages.inria.fr/mooc-impacts-num/mooc-impacts-num-ressources/Partie3/Activites/Capsule_Partie3_2_Mesurer/indexEn.html#globalResult) produced by [Benjamin Ninassi](https://www.linkedin.com/in/bninassi/)
 
@@ -69,25 +69,25 @@ Looping back to carbon calculators, for this article, we’ll evaluate the carbo
 
 I’m starting with [Website Carbon Calculator](https://www.websitecarbon.com/website/trees-org/) which gives trees.org an F grade since it is dirtier than 88% of all web pages globally. Their grading system is based on the Digital Carbon Rating System developed through the Sustainable Web Design collaboration, as [outlined here](https://www.websitecarbon.com/introducing-the-website-carbon-rating-system/). This calculator estimates about 1.83 g of CO₂ is produced with every page visit, which is quite significant, especially for a website that promotes sustainability.
 
-![](/static/images/blog/contents/1_iCUG-_Z7kltHqFcQwL-HTQ.png)
+![](/static/posts/1_iCUG-_Z7kltHqFcQwL-HTQ.png)
 
 Source: Screenshot courtesy of the author extracted from the [websitecarbon](https://www.websitecarbon.com/website/trees-org/) test result.
 
 [Ecograder](https://ecograder.com/report/yP0LqOa46YAyJ3Hgf7kwF9DR) also put trees.org on a similar scale rating it a grade E with an estimate of 2.57 g of carbon dioxide produced with every page load.
 
-![](/static/images/blog/contents/1_8qrHZCGq_LbQAOreMx1pyA.png)
+![](/static/posts/1_8qrHZCGq_LbQAOreMx1pyA.png)
 
 Source: Screenshot courtesy of the author extracted from the [ecograder](https://ecograder.com/report/yP0LqOa46YAyJ3Hgf7kwF9DR) test result.
 
 Scrolling further down in Ecograder, you should a breakdown of what categories produced the associated carbon. As you can see in the screenshot below, scripts seem to be quite large in file size and thus also contribute most towards this high carbon emission score.
 
-![](/static/images/blog/contents/1_lFvk5d6YSSP1-671IgIAVg.png)
+![](/static/posts/1_lFvk5d6YSSP1-671IgIAVg.png)
 
 Source: Screenshot courtesy of the author extracted from the [ecograder](https://ecograder.com/report/yP0LqOa46YAyJ3Hgf7kwF9DR) test result.
 
 There’s another interesting tool that focuses on images specifically. It’s called [Image Carbon](https://www.imagecarbon.com/sites/trees.org) and running the same site through this tool informs me that about 15% CO₂ could be reduced by optimizing the images. Scrolling down the page shows you the difference between a JPG and the optimized AVIF image file format and the carbon footprint difference between the two.
 
-![](/static/images/blog/contents/1_ZZBqnmZHEJFxLt0uz_PbQg.png)
+![](/static/posts/1_ZZBqnmZHEJFxLt0uz_PbQg.png)
 
 Source: Screenshot courtesy of the author extracted from the [imagecarbon](https://www.imagecarbon.com/sites/trees.org) test result.
 
@@ -95,7 +95,7 @@ Source: Screenshot courtesy of the author extracted from the [imagecarbon](https
 
 While the above are cloud-based tools, there’s also [SiteSpeed](https://www.sitespeed.io/documentation/sitespeed.io/sustainable/) which can be [installed via Docker](https://www.sitespeed.io/documentation/sitespeed.io/installation/). Although this tool is primarily used for page speed insight, they have a sustainable web plugin that provides insight into how much CO₂ is emitted.
 
-![](/static/images/blog/contents/1_FJkaAABfxDqPqgySGKbzoQ.png)
+![](/static/posts/1_FJkaAABfxDqPqgySGKbzoQ.png)
 
 Source: Screenshot courtesy of the author extracted from the [sitespeed](https://www.sitespeed.io/documentation/sitespeed.io/sustainable/) test result.
 
@@ -107,7 +107,7 @@ Under the hood, most of these tools use a JavaScript library called [CO2.js](htt
 
 The Green Web Foundation has also [built a tool](https://www.thegreenwebfoundation.org/green-web-check/) that allows you to check if a website is hosted by a green provider.
 
-![](/static/images/blog/contents/1_57IhqL1IABmI66qwYCy1WQ.png)
+![](/static/posts/1_57IhqL1IABmI66qwYCy1WQ.png)
 
 Source: Screenshot courtesy of the author extracted from the [thegreenwebfoundation](https://www.thegreenwebfoundation.org/green-web-check/?url=https%3A%2F%2Ftrees.org) test result.
 
@@ -133,13 +133,13 @@ Consuming web content on different types of devices requires varied levels of en
 
 The carbon intensity of electricity production also varies across the world. Countries that get a large share of their electricity from low-carbon sources will have a lower carbon intensity.
 
-![](/static/images/blog/contents/1_BL5fbH9rZ0mdjiUjwwozEQ.png)
+![](/static/posts/1_BL5fbH9rZ0mdjiUjwwozEQ.png)
 
 Source: https://ourworldindata.org/grapher/carbon-intensity-electricity
 
 And because of this, the calculation model shouldn’t assume a constant value for carbon intensity. A user accessing a website from India will effectively produce more carbon emissions in comparison with a user accessing the same website from France because France sources most of its electricity from low-carbon sources.
 
-![](/static/images/blog/contents/1_JBnvVN0cayihtfwmDSvfaw.png)
+![](/static/posts/1_JBnvVN0cayihtfwmDSvfaw.png)
 
 Source: https://ourworldindata.org/grapher/electricity-prod-source-stacked?time=earliest..2022&country=FRA~IND
 
@@ -163,19 +163,19 @@ The big players in technology have already jumped on the sustainability bandwago
 
 Microsoft has been carbon neutral since 2012 and [announced](https://blogs.microsoft.com/blog/2020/01/16/microsoft-will-be-carbon-negative-by-2030/) that by 2030 it will be carbon negative, and by 2050 it will remove from the environment all the carbon the company has emitted either directly or by electrical consumption since it was founded in 1975.
 
-![](/static/images/blog/contents/1_aErKvCyyh4lksYmDTzREbQ.png)
+![](/static/posts/1_aErKvCyyh4lksYmDTzREbQ.png)
 
 Source: https://news.microsoft.com/wp-content/uploads/prod/sites/42/2023/05/2022-Environmental-Sustainability-Report.pdf
 
 In 2022, 90% of the electricity consumed by Amazon was attributable to renewable energy sources. [AWS is on a path](https://sustainability.aboutamazon.com/products-services/the-cloud?energyType=true) to powering its operations with 100% renewable energy by 2025, as part of its commitment to reaching net-zero carbon emissions by 2040.
 
-![](/static/images/blog/contents/1_Y-_1KZ7F_d4TU2YZflMxqw.png)
+![](/static/posts/1_Y-_1KZ7F_d4TU2YZflMxqw.png)
 
 Source: https://sustainability.aboutamazon.com/carbon-reduction-aws.pdf
 
 Google, on the other hand, has been carbon neutral since 2007 and [as of 2020](https://blog.google/outreach-initiatives/sustainability/our-third-decade-climate-action-realizing-carbon-free-future/), has eliminated their entire operational emissions since they were founded by purchasing high-quality carbon offsets making their net carbon footprint zero. By 2030 Google is aiming to run its business on carbon-free energy everywhere, at all times.
 
-![](/static/images/blog/contents/1_K6L02oHBYU98Ne2bF8lpLw.png)
+![](/static/posts/1_K6L02oHBYU98Ne2bF8lpLw.png)
 
 Source: https://www.gstatic.com/gumdrop/sustainability/google-2023-environmental-report.pdf
 
@@ -221,7 +221,7 @@ The other issue is the integrity of these carbon credits. Crediting agencies are
 
 Even though only [60% of the world’s population was online](https://ourworldindata.org/internet) in 2020, that’s still a massive 4.70 billion users! It now provides an endless list of services including communication, education, entertainment and a lot more.
 
-![](/static/images/blog/contents/1_yQ32OvS4kw4rDCj6qpSgEg.png)
+![](/static/posts/1_yQ32OvS4kw4rDCj6qpSgEg.png)
 
 Source: https://ourworldindata.org/grapher/number-of-internet-users
 
@@ -229,7 +229,7 @@ As [this article](https://www.internetworldstats.com/emarketing.htm) states, the
 
 If you wanted to use the internet in the past, you needed to buy a computer or pay an internet cafe to use it for a while. This meant that not everyone could afford to access the internet let alone have an online presence. With the introduction of affordable mobile devices, access to the internet has been democratized. The rise of social media has also resulted in a significant [uptake of the internet](https://ourworldindata.org/rise-of-social-media). With more content being produced and consumed each day, there’s an ever-growing demand to host, store and deliver them from the platforms to the end users, thus only increasing electricity consumption. It’s already projected that by 2025, we’ll be generating about 181 zettabytes of data!
 
-![](/static/images/blog/contents/1_mwUBq9v77C7KKu3e3t0T1g.png)
+![](/static/posts/1_mwUBq9v77C7KKu3e3t0T1g.png)
 
 Source: https://explodingtopics.com/blog/data-generated-per-day
 

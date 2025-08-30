@@ -9,7 +9,9 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky"
+    "prepare": "husky",
+    "optimize:post-images": "imagemin public/static/posts --out-dir=public/static/posts --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4",
+    "optimize:site-images": "imagemin public/static/images --out-dir=public/static/images --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4"
   },
   "dependencies": {
     "@headlessui/react": "2.2.0",
@@ -66,6 +68,10 @@
     "follow-redirects": "^1.15.11",
     "globals": "^15.12.0",
     "husky": "^9.0.0",
+    "imagemin-cli": "^8.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
     "lint-staged": "^13.0.0",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
