@@ -3,10 +3,9 @@ title: 'Storybook: Configuring A11y Standards Made Easy'
 subtitle: 'A guide to setting and customising accessibility standards in Storybook'
 date: '2024-11-24'
 lastmod: '2024-11-24'
-tags: ['one', 'two']
+tags: ['Storybook', 'Accessibility', 'WCAG', 'A11y', 'Wcag Guidelines']
 readingList: []
 draft: false
-summary: 'A guide to setting and customising accessibility standards in Storybook'
 images: ['/static/images/blog/storybook.png']
 ---
 
@@ -25,49 +24,49 @@ images: ['/static/images/blog/storybook.png']
 
 ### Installing Storybook
 
-Let’s start with installing Storybook. I’m doing this on a brand new repo without project files to keep the repo lightweight and show.
+Let's start with installing Storybook. I'm doing this on a brand new repo without project files to keep the repo lightweight and show.
 
-To install Storybook, you’ll need to run this command in your root project directory.
+To install Storybook, you'll need to run this command in your root project directory.
 
-```
+```shell
 npx storybook@latest init
 ```
 
-In the interactive command-line installation, you’ll be prompted a few questions which is pretty self-explanatory, and depending on your project, you could select the appropriate options. Essentially, the Storybook installer is trying to figure out what kind of project you have and what Storybook builder it must install for it to work with your project.
+In the interactive command-line installation, you'll be prompted a few questions which is pretty self-explanatory, and depending on your project, you could select the appropriate options. Essentially, the Storybook installer is trying to figure out what kind of project you have and what Storybook builder it must install for it to work with your project.
 
-For the purpose of this demo, I’ve selected “_react_” when prompted with “_Please choose a project type from the following list_” and “_Webpack 5 (with React)_” when prompted with “_We were not able to detect the right builder for your project. Please select one._”
+For the purpose of this demo, I've selected “_react_” when prompted with “_Please choose a project type from the following list_” and “_Webpack 5 (with React)_” when prompted with “_We were not able to detect the right builder for your project. Please select one._”
 
-Once the installation is complete, it should automatically open up your browser and run Storybook. Usually, it’s a six-thousand-something port number that hosts Storybook.
+Once the installation is complete, it should automatically open up your browser and run Storybook. Usually, it's a six-thousand-something port number that hosts Storybook.
 
 ![](/static/posts/1_HafeIyv6ZaVWsMN3E2H3KA.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-You’ll also find some example _stories_ in the boilerplate generated in your project by Storybook, which you’re more than welcome to have a look around. The code for these example stories will be in the **stories** folder.
+You'll also find some example _stories_ in the boilerplate generated in your project by Storybook, which you're more than welcome to have a look around. The code for these example stories will be in the **stories** folder.
 
 ### Adding accessibility (A11y)
 
-Okay, so you’ve Storybook installed and configured but did you know that you could also integrate some accessibility checks within each story of the storybook? Let’s see how we configure this.
+Okay, so you've Storybook installed and configured but did you know that you could also integrate some accessibility checks within each story of the storybook? Let's see how we configure this.
 
 Storybook has an add-on that we can install using the command below.
 
-```
+```shell
 npm i @storybook/addon-a11y -D
 ```
 
-Next, you’ll need to add the accessibility add-on to the `main.ts` (or `main.js` if using JavaScript) file located in the `.storybook` folder as shown in the code snippet below.
+Next, you'll need to add the accessibility add-on to the `main.ts` (or `main.js` if using JavaScript) file located in the `.storybook` folder as shown in the code snippet below.
 
 Now if you run Storybook using the command `npm run storybook`, you should see the **Accessibility** tab and if you click on it, it might show you what needs to be fixed to meet the accessibility standards in the **Violations** tab, and what checks have already passed in the **Passes** tab.
 
 ![](/static/posts/1_cu4QpHD9OPOZHj1CDf3K0g.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-As you can see in the screenshot above (and hopefully, if you’re following this article, on your Storybook page as well), one accessibility check has failed that states “_Elements must meet minimum colour contrast ratio thresholds_” and as you might note in the description it specifically mentions WCAG 2 AA standard. These same acronyms can also be found in the tags (those acronyms written in rectangle boxes) below.
+As you can see in the screenshot above (and hopefully, if you're following this article, on your Storybook page as well), one accessibility check has failed that states “_Elements must meet minimum colour contrast ratio thresholds_” and as you might note in the description it specifically mentions WCAG 2 AA standard. These same acronyms can also be found in the tags (those acronyms written in rectangle boxes) below.
 
 But what if your project uses a newer standard than WCAG 2?
 
-### But wait, what’s WCAG?
+### But wait, what's WCAG?
 
 WCAG stands for Web Content Accessibility Guidelines developed by the World Wide Web Consortium (W3C) under the Web Accessibility Initiative (WAI). These are the technical standards designed to make the internet accessible to everyone, including people with disabilities.
 
@@ -77,39 +76,39 @@ WCAG also categorises conformance to accessibility into three levels — A, 
 
 Each version of WCAG is backwards compatible, in other words, WCAG 2.1 builds on top of WCAG 2.0 and so on and so forth. Similarly, Each conformance level of WCAG includes the success criteria from the previous level.
 
-WCAG is an interesting subject and probably requires a completely separate article to cover the depths, so for now, I’ll leave you with their [official documentation site](https://accessible.org/web-content-accessibility-guidelines/) for further reading.
+WCAG is an interesting subject and probably requires a completely separate article to cover the depths, so for now, I'll leave you with their [official documentation site](https://accessible.org/web-content-accessibility-guidelines/) for further reading.
 
-### Setting up custom a11y standard checks
+### Setting up custom a11y standard checks
 
-Alright, circling back to the million-dollar question — what if your project uses a newer standard than WCAG 2 AA? Let’s look at configuring Storybook to use a certain level of accessibility checks.
+Alright, circling back to the million-dollar question — what if your project uses a newer standard than WCAG 2 AA? Let's look at configuring Storybook to use a certain level of accessibility checks.
 
 Jump into the `preview.ts` (or `preview.js` file if using JavaScript) and;
 
 - Add the required import statements from `@storybook/addon-a11y` and `axe-core`.
-- Create a list of enabled tags as a constant which we’ll use in the code snippet. This will allow us to set the accessibility standards against which we want Storybook to check our stories. This list will depend on what your team/organisation has set out to follow.
-- Next up, we’re transforming those tags into a Rule array and then supplying that into an A11yParameters config object.
+- Create a list of enabled tags as a constant which we'll use in the code snippet. This will allow us to set the accessibility standards against which we want Storybook to check our stories. This list will depend on what your team/organisation has set out to follow.
+- Next up, we're transforming those tags into a Rule array and then supplying that into an A11yParameters config object.
 
-```
-import type { A11yParameters } from "@storybook/addon-a11y";
-import { Rule, getRules } from "axe-core";
+```ts
+import type { A11yParameters } from '@storybook/addon-a11y'
+import { Rule, getRules } from 'axe-core'
 
-const enabledTags = ["wcag2aa", "wcag22aa", "best-practice"];
+const enabledTags = ['wcag2aa', 'wcag22aa', 'best-practice']
 
 const enabledRules: Rule[] = getRules(enabledTags).map((ruleMetadata) => ({
   id: ruleMetadata.ruleId,
   enabled: true,
-}));
+}))
 
 const a11y: A11yParameters = {
   config: {
     rules: enabledRules,
   },
-};
+}
 ```
 
-In the preview object towards the bottom, where you should already have some lines of code, we’ll just need to add the `a11y` constant into the `parameters` object.
+In the preview object towards the bottom, where you should already have some lines of code, we'll just need to add the `a11y` constant into the `parameters` object.
 
-```
+```ts
 
 const preview: Preview = {
   ...
@@ -120,12 +119,12 @@ const preview: Preview = {
 };
 ```
 
-Now, run Storybook and see the output. Depending on what tags you’ve enabled, you might even see more or less rules in the **Accessibility** tab. For instance, for the same button, it now shows as **3 Passes** (compared to the previous 2 Passes) and if I click into the newly added check, it shows me the **wcag22aa** tag.
+Now, run Storybook and see the output. Depending on what tags you've enabled, you might even see more or less rules in the **Accessibility** tab. For instance, for the same button, it now shows as **3 Passes** (compared to the previous 2 Passes) and if I click into the newly added check, it shows me the **wcag22aa** tag.
 
 ![](/static/posts/1_Q2kLDcO5qlb_1XvRAeVpcg.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-If you’d like to clone the code and play around with it yourself, here is the [GitHub repository](https://github.com/ClydeDz/storybook-a11y-demo).
+If you'd like to clone the code and play around with it yourself, here is the [GitHub repository](https://github.com/ClydeDz/storybook-a11y-demo).
 
-That’s it! Thanks for reading.
+That's it! Thanks for reading.

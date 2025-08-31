@@ -26,7 +26,7 @@ I originally came across [this StackOverflow question](https://stackoverflow.com
 
 ### Problem
 
-Let’s revisit the problem before we dive into the solution. We want to replace the link tag in the HTML file with the CSS contents of the file that the link tag refers to. So, for instance, if the HTML contained the following line of code:
+Let's revisit the problem before we dive into the solution. We want to replace the link tag in the HTML file with the CSS contents of the file that the link tag refers to. So, for instance, if the HTML contained the following line of code:
 
 ```
 <link rel="stylesheet" href="style.css">
@@ -40,15 +40,15 @@ It should be replaced with this:
 </style>
 ```
 
-#### When is this helpful?
+#### When is this helpful?
 
-You might ask, “What’s the point of this?”
+You might ask, “What's the point of this?”
 
-Good question! This is useful if you have a single web page that needs to load real quick. Because the web page is not requesting any additional files, it’s able to render the page faster. I’ve personally seen a single web page being used as an [offline/maintenance page](https://docs.microsoft.com/en-us/aspnet/web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy#adding-an-app_offline-file-to-a-web-application-project) or as a stand-in page (e.g. [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/custom-error)/[AWS CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html)) when the main website is unreachable due to something unexpected.
+Good question! This is useful if you have a single web page that needs to load real quick. Because the web page is not requesting any additional files, it's able to render the page faster. I've personally seen a single web page being used as an [offline/maintenance page](https://docs.microsoft.com/en-us/aspnet/web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy#adding-an-app_offline-file-to-a-web-application-project) or as a stand-in page (e.g. [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/custom-error)/[AWS CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html)) when the main website is unreachable due to something unexpected.
 
-#### Expanding the problem a bit
+#### Expanding the problem a bit
 
-Okay, back to the problem statement. Why not take this a step further? Instead of assuming we have CSS files, let’s assume we’re writing CSS using Sass and that needs to be compiled into CSS before placing it into the HTML.
+Okay, back to the problem statement. Why not take this a step further? Instead of assuming we have CSS files, let's assume we're writing CSS using Sass and that needs to be compiled into CSS before placing it into the HTML.
 
 Next, instead of manually adding link tags to reference the CSS file like this:
 
@@ -63,25 +63,25 @@ Why not make it a bit more dynamic? How about we only add CSS placeholders, i.e.
 <!-- endinject -->
 ```
 
-Let’s take a look at how we might achieve this.
+Let's take a look at how we might achieve this.
 
 ### Solution
 
-First, let’s start with what files I have at the moment.
+First, let's start with what files I have at the moment.
 
 ![Screenshot of the source code directory with a few folders blurred out.](/static/posts/1_zOSrXl3ly7qzb6xoIVXq-A.png)
 
-The `src` (source) folder has a simple ‘Hello World’ `index.html` file. I’m using Sass to add some styling to the page. Don’t worry about the blurred out files, we’ll reveal them as and when we implement our solution.
+The `src` (source) folder has a simple ‘Hello World' `index.html` file. I'm using Sass to add some styling to the page. Don't worry about the blurred out files, we'll reveal them as and when we implement our solution.
 
-We’ll be using an npm based solution, so let’s install the following [npm](https://www.npmjs.com/) packages.
+We'll be using an npm based solution, so let's install the following [npm](https://www.npmjs.com/) packages.
 
 ```
 npm i gulp gulp-sass gulp-inject gulp-replace --save-dev
 ```
 
-Here’s a quick summary of what these packages are and how we’ll be using them:
+Here's a quick summary of what these packages are and how we'll be using them:
 
-- [gulp](https://www.npmjs.com/package/gulp) is a toolkit that helps you automate painful or time-consuming tasks in your development workflow. We’ll be using a few gulp plugins to solve our problem, so before that, we’d require to install the main gulp package.
+- [gulp](https://www.npmjs.com/package/gulp) is a toolkit that helps you automate painful or time-consuming tasks in your development workflow. We'll be using a few gulp plugins to solve our problem, so before that, we'd require to install the main gulp package.
 - [gulp-sass](https://www.npmjs.com/package/gulp-sass) is a Sass plugin for gulp that compiles Sass/SCSS files into CSS.
 - [gulp-inject](https://www.npmjs.com/package/gulp-inject) is a plugin to inject stylesheets and javascript references into the HTML file. This will allow us to add a placeholder in the HTML and then automatically inject the link tags that reference the CSS files into it.
 - [gulp-replace](https://www.npmjs.com/package/gulp-replace) is a string replace plugin for gulp. This will enable us to replace the dynamically added link tag with its minified CSS contents.
@@ -90,19 +90,19 @@ Here’s a quick summary of what these packages are and how we’ll be using the
 
 GIF [source](https://giphy.com/gifs/season-3-the-simpsons-3x11-l2Jee1D2ScXZPraus)
 
-#### The entry point: A gulp file
+#### The entry point: A gulp file
 
-To execute tasks using Gulp, you need to define them in a file named `gulpfile.js`. Let’s create a file in the root directory and in the following sections of this guide, we’ll look at what needs to be added to this file and why.
+To execute tasks using Gulp, you need to define them in a file named `gulpfile.js`. Let's create a file in the root directory and in the following sections of this guide, we'll look at what needs to be added to this file and why.
 
 ![Screenshot of the source code directory with a few folders blurred out.](/static/posts/1_hXFFpnFLTHnRsYE7mEM6og.png)
 
 #### Compiling Sass to CSS: gulp-sass
 
-Now, to compile Sass files into CSS, let’s add the following into the `gulpfile.js`.
+Now, to compile Sass files into CSS, let's add the following into the `gulpfile.js`.
 
 If you need to compare, the complete gulpfile.js can be [found here](https://github.com/ClydeDz/gulp-demo/blob/master/gulpfile.js).
 
-We’ve named this task compile-sass and given it the source folder where all Sass/SCSS files exist. We’ve then invoked the Sass function to compile the files in a compressed, i.e. minified format, and finally specified the destination folder where the CSS files will be dropped into. Run the command `gulp compile-sass` to execute this task.
+We've named this task compile-sass and given it the source folder where all Sass/SCSS files exist. We've then invoked the Sass function to compile the files in a compressed, i.e. minified format, and finally specified the destination folder where the CSS files will be dropped into. Run the command `gulp compile-sass` to execute this task.
 
 Now, your solution should look something like this.
 
@@ -110,13 +110,13 @@ Now, your solution should look something like this.
 
 #### Inserting a link tag: gulp-inject
 
-To dynamically link the CSS file in the HTML file, we’ll be using gulp-inject. First, we need to add placeholders into the HTML file.
+To dynamically link the CSS file in the HTML file, we'll be using gulp-inject. First, we need to add placeholders into the HTML file.
 
-Let’s introduce gulp-inject into the `gulpfile.js` file. We’ll add another require statement at the top, and a new task at the bottom.
+Let's introduce gulp-inject into the `gulpfile.js` file. We'll add another require statement at the top, and a new task at the bottom.
 
 If you need to compare, the complete gulpfile.js can be [found here](https://github.com/ClydeDz/gulp-demo/blob/master/gulpfile.js).
 
-We’ll name this task add-styles, give it the HTML file that needs to be updated, give it the folder where the CSS files exist, then inject the HTML file with the source file(s), and finally provide the destination folder where the modified `index.html` needs to be placed.
+We'll name this task add-styles, give it the HTML file that needs to be updated, give it the folder where the CSS files exist, then inject the HTML file with the source file(s), and finally provide the destination folder where the modified `index.html` needs to be placed.
 
 Run the command `gulp add-styles` to see the magic happen. You would now see a dist folder and inside that, an `index.html` file.
 
@@ -128,15 +128,15 @@ The `index.html` file might look something like this.
 
 #### Replacing the link tag with its CSS: gulp-replace
 
-Now that we have the link tags added, we can read the contents of this file and inject the contents into the HTML file replacing the link tag. Let’s add the below snippet into the `gulpfile.js` file.
+Now that we have the link tags added, we can read the contents of this file and inject the contents into the HTML file replacing the link tag. Let's add the below snippet into the `gulpfile.js` file.
 
 If you need to compare, the complete gulpfile.js can be [found here](https://github.com/ClydeDz/gulp-demo/blob/master/gulpfile.js).
 
-We’re creating a third gulp task called inject-styles that takes the HTML file as the input. It then finds the entire link tag from the HTML file and replaces it with the contents of the CSS file that the link tag referenced. These contents are placed inside a style tag. The function `getCSSFilename()` is used to extract the CSS filename from the link tag. We’re dropping the modified HTML file back into the `dist` folder at the end of it all.
+We're creating a third gulp task called inject-styles that takes the HTML file as the input. It then finds the entire link tag from the HTML file and replaces it with the contents of the CSS file that the link tag referenced. These contents are placed inside a style tag. The function `getCSSFilename()` is used to extract the CSS filename from the link tag. We're dropping the modified HTML file back into the `dist` folder at the end of it all.
 
 Run the command `gulp inject-styles` and witness the action. The final HTML file in the dist folder would look something like this.
 
-#### Optional: Running all tasks with a single command
+#### Optional: Running all tasks with a single command
 
 Instead of running three commands to execute three different gulp tasks, why not execute it sequentially using a single command? Append the following line into the `gulpfile.js` file.
 
@@ -150,4 +150,4 @@ You can then run a single command `gulp build` and it will execute all three tas
 
 The source code for this guide can be found in [my GitHub repository](https://github.com/ClydeDz/gulp-demo).
 
-That’s it! Thanks for reading.
+That's it! Thanks for reading.

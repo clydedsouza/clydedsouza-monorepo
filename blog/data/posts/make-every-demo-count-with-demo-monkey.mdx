@@ -20,25 +20,25 @@ images: ['/static/images/blog/monkey.jpg']
   }
 />
 
-### What is Demo Monkey?
+### What is Demo Monkey?
 
 Demo Monkey allows you to customize your web application into a perfectly tailored demo according to your customers. You can provide replacement values as required and Demo Monkey will take your generic demo application and make it a personalised experience for your audience.
 
-For instance, you could create a very generic e-commerce website and with the help of Demo Monkey, you could convert this generic e-commerce website into a nice e-commerce website based on the target audience you’re demoing to.
+For instance, you could create a very generic e-commerce website and with the help of Demo Monkey, you could convert this generic e-commerce website into a nice e-commerce website based on the target audience you're demoing to.
 
-This helps save a lot of time because now you don’t have to recreate and deploy the site every time you need a new demo. Instead, all you have to do is customize the required variables and just repurpose the same site with slight variations.
+This helps save a lot of time because now you don't have to recreate and deploy the site every time you need a new demo. Instead, all you have to do is customize the required variables and just repurpose the same site with slight variations.
 
-### Installation and setup
+### Installation and setup
 
-Install Demo Monkey from the [Chrome Web Store](https://chrome.google.com/webstore/detail/demomonkey/jgbhioialphpgjgofopnplfibkeehgjd?hl=en). Right-click the extension’s icon and click on **Options** to open the Demo Monkey portal.
+Install Demo Monkey from the [Chrome Web Store](https://chrome.google.com/webstore/detail/demomonkey/jgbhioialphpgjgofopnplfibkeehgjd?hl=en). Right-click the extension's icon and click on **Options** to open the Demo Monkey portal.
 
 ![Click on options to open the Demo Monkey portal.](/static/posts/1_Xk1yaY17Q-yBic7El3Ndrw.png)
 
-You might need to enable access to all sites for Demo Monkey’s extension to work. From this page, click on **Click here** from the banner to enable. Then, from the pop-up, click on **Allow**.
+You might need to enable access to all sites for Demo Monkey's extension to work. From this page, click on **Click here** from the banner to enable. Then, from the pop-up, click on **Allow**.
 
 ![Grant permissions for Demo Monkey to access all sites.](/static/posts/1_yzc8sponx1PSf2Lo-Yuurw.png)
 
-Find and click on the **Example** script (1) from the portal. You can rename this file and clean up its contents from the **Configuration** tab to suit your needs and/or follow along with this article. This script is disabled by default and for it to work, you’d need to toggle it on (2). Every time you make changes, you’d need to hit the Save button (3) for your changes to take effect.
+Find and click on the **Example** script (1) from the portal. You can rename this file and clean up its contents from the **Configuration** tab to suit your needs and/or follow along with this article. This script is disabled by default and for it to work, you'd need to toggle it on (2). Every time you make changes, you'd need to hit the Save button (3) for your changes to take effect.
 
 ![Image showing how to update the default script.](/static/posts/1_b-oMRBo4NQBf9GPZnQefzA.png)
 
@@ -46,7 +46,7 @@ Find and click on the **Example** script (1) from the portal. You can rename thi
 
 ### Structure
 
-A file can optionally contain section tags which help make your script a bit more readable. You can name these section tags as per your requirement. An example of this in use might look something like the snippet below. Here, we’ve used `[Options]` to indicate this section will contain options and `[Application]` to indicate this section will contain the required scripts to update the application and throughout this article, we’ll be using this convention.
+A file can optionally contain section tags which help make your script a bit more readable. You can name these section tags as per your requirement. An example of this in use might look something like the snippet below. Here, we've used `[Options]` to indicate this section will contain options and `[Application]` to indicate this section will contain the required scripts to update the application and throughout this article, we'll be using this convention.
 
 ```
 [Options]
@@ -64,7 +64,7 @@ The complete usage guide is [available here](https://github.com/svrnm/DemoMonkey
 
 ### Site configuration
 
-To begin with, you may want to include your website URL in the include array so Demo Monkey can be enabled on it. Your Demo Monkey script won’t work if you don’t include your website URL here.
+To begin with, you may want to include your website URL in the include array so Demo Monkey can be enabled on it. Your Demo Monkey script won't work if you don't include your website URL here.
 
 ```
 [Options]
@@ -75,7 +75,7 @@ To begin with, you may want to include your website URL in the include array so 
 
 ### Text updates
 
-To simply update the displayed text on your site, write the original text on the left followed by an equal symbol and then on the right side, enter the text you’d like to be displayed instead. You can use this same format to replace an email address, too.
+To simply update the displayed text on your site, write the original text on the left followed by an equal symbol and then on the right side, enter the text you'd like to be displayed instead. You can use this same format to replace an email address, too.
 
 ```
 [Application]
@@ -87,22 +87,22 @@ The screenshot below shows the before and after versions of the website.
 
 ![Before and after image for this change.](/static/posts/1_jVF9Juku11dolzqMlnTfSw.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
-While the above snippet is a blanket solution, if you’d like to be more specific, you could use the `replace` function. The first value in this function is the original text that’s displayed on the site, the second value is the website URL, and the third value is the class name of the element that wraps the original text. The right side of the function is the new content that you want to be displayed on the site instead.
+While the above snippet is a blanket solution, if you'd like to be more specific, you could use the `replace` function. The first value in this function is the original text that's displayed on the site, the second value is the website URL, and the third value is the class name of the element that wraps the original text. The right side of the function is the new content that you want to be displayed on the site instead.
 
 ```
 [Application]
 !replace(Developer content, api.html, .developers) = Monkey content
 ```
 
-You’ll notice that every function is prefixed with an exclamation mark.
+You'll notice that every function is prefixed with an exclamation mark.
 
 ![Before and after image for this change.](/static/posts/1_sHilDzAeMOvjzg5S8Anjew.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
-We can take this a little step further and instead of replacing a simple text for another plain text, you can also replace it with some custom HTML. We’ll use the `overwriteHTML` function for this where we specify the site page as the first value followed by the class name which has our previous content. On the right side of the equal symbol, you can specify the new HTML content to be rendered.
+We can take this a little step further and instead of replacing a simple text for another plain text, you can also replace it with some custom HTML. We'll use the `overwriteHTML` function for this where we specify the site page as the first value followed by the class name which has our previous content. On the right side of the equal symbol, you can specify the new HTML content to be rendered.
 
 ```
 [Application]
@@ -110,7 +110,7 @@ $html=<b><u>Most welcome</u></b>
 !overwriteHTML(index.html, .welcome) = $html
 ```
 
-Instead of directly entering the values, we’ve used a variable called `$html`. This is quite handy if you need to replace multiple places with the same value, in which case, you could define your variables right at the top and then use that variable across the script. The above snippet could also be written like this.
+Instead of directly entering the values, we've used a variable called `$html`. This is quite handy if you need to replace multiple places with the same value, in which case, you could define your variables right at the top and then use that variable across the script. The above snippet could also be written like this.
 
 ```
 [Application]
@@ -119,9 +119,9 @@ Instead of directly entering the values, we’ve used a variable called `$html`.
 
 ![Before and after image for this change.](/static/posts/1_0L62-sLjPsgZHkGLFI8GEw.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
-We can also update the style of a block of text. To do so, we’ll use the style function. For the first value, we’ll specify the text that needs to be stylised and for the second value, we’ll specify what style we need to update. The right side of the equal symbol is the new style value. In the snippet below, we’re colouring the text “Privacy page” red.
+We can also update the style of a block of text. To do so, we'll use the style function. For the first value, we'll specify the text that needs to be stylised and for the second value, we'll specify what style we need to update. The right side of the equal symbol is the new style value. In the snippet below, we're colouring the text “Privacy page” red.
 
 ```
 [Application]
@@ -130,7 +130,7 @@ We can also update the style of a block of text. To do so, we’ll use the style
 
 ![Before and after image for this change.](/static/posts/1_vl2_6qUKUb2BSaCA42NLKw.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
 ---
 
@@ -145,7 +145,7 @@ We can replace an image with another one by using the `replaceImage` function. T
 
 ![Before and after image for this change.](/static/posts/1_AhCy8Otg2TAtBodp3FTn-w.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
 You can also recolour the existing image by using the `recolorImage` function. The first value is the source URL of the existing image and on the right side of the equal symbol is the RGB value you want to be applied.
 
@@ -156,7 +156,7 @@ You can also recolour the existing image by using the `recolorImage` function. T
 
 ![Before and after image for this change.](/static/posts/1_4EKZCQNnPtAjOgAzIKAv6Q.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
 ---
 
@@ -169,32 +169,32 @@ We can also replace an attribute of an HTML tag using the `replaceAttribute `fun
 !replaceAttribute(index.html, href) = api.html
 ```
 
-Apologies if it’s not clear in the screenshot below, but on the left, I’ve highlighted the bit in the URL which originally has `index.html` and then on the right, after applying the script, I can see the bit in the URL has been updated to `api.html`.
+Apologies if it's not clear in the screenshot below, but on the left, I've highlighted the bit in the URL which originally has `index.html` and then on the right, after applying the script, I can see the bit in the URL has been updated to `api.html`.
 
 ![Before and after image for this change.](/static/posts/1_TFgug6qBC24mW9xueZVlVA.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
 ---
 
-### Full content updates
+### Full content updates
 
-#### Overwrite an existing page
+#### Overwrite an existing page
 
-You can also replace the entire contents of the webpage with the contents of another webpage. We’ll do that using the `overwritePage` function. We specify the webpage as the first value to the function, we could specify the CSS selector as the second value of the function similar to the `overwriteHTML` function but for this function, we’ll leave this empty, and to the right side of the equal symbol, we’ll specify the URL of the webpage we want to show here instead.
+You can also replace the entire contents of the webpage with the contents of another webpage. We'll do that using the `overwritePage` function. We specify the webpage as the first value to the function, we could specify the CSS selector as the second value of the function similar to the `overwriteHTML` function but for this function, we'll leave this empty, and to the right side of the equal symbol, we'll specify the URL of the webpage we want to show here instead.
 
 ```
 [Application]
 !overwritePage(index.html, '') = api.html
 ```
 
-In the screenshot below, you can see that we’ve replaced the original contents (left) of the `index.html` page with the contents from the API page.
+In the screenshot below, you can see that we've replaced the original contents (left) of the `index.html` page with the contents from the API page.
 
 ![Before and after image for this change.](/static/posts/1_80ZwNZDckUCUVi40Vs4v0g.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
-#### Redirect to another page
+#### Redirect to another page
 
 We can use the `redirectUrl` function to automatically redirect one webpage to another webpage. The value we need to pass to the function is the webpage we need to apply the redirect on. The right side of the equal symbol is the destination URL we need to redirect the user to.
 
@@ -206,17 +206,17 @@ The GIF below shows what it looks like in working.
 
 ![GIF showing this change in action.](/static/posts/1_t4hCEOGV_WcoliwU9DxelQ.gif)
 
-GIF showing this change in action
+GIF showing this change in action
 
 ---
 
 ### Manipulating URLs
 
-If there’s a need, we can block specific URLs or requests (like an API call) from happening. This would mean that when the application tries to make this request, it will fail and hopefully the application will gracefully handle it.
+If there's a need, we can block specific URLs or requests (like an API call) from happening. This would mean that when the application tries to make this request, it will fail and hopefully the application will gracefully handle it.
 
-So, what does this look like in our script? In my demo application, clicking on the **Load API content** button on [this page](https://clydedz.github.io/demomonkey-demosite/api.html) makes a call to an external API endpoint and loads a joke on the screen. We’ll manipulate requests to this API endpoint.
+So, what does this look like in our script? In my demo application, clicking on the **Load API content** button on [this page](https://clydedz.github.io/demomonkey-demosite/api.html) makes a call to an external API endpoint and loads a joke on the screen. We'll manipulate requests to this API endpoint.
 
-First, we need to include this API URL in the `[Options]` section. Next, under the `[Application]` section, we’ll use the `blockUrl` function where the value to the function is the API URL that you want to block.
+First, we need to include this API URL in the `[Options]` section. Next, under the `[Application]` section, we'll use the `blockUrl` function where the value to the function is the API URL that you want to block.
 
 ```
 [Options]
@@ -241,7 +241,7 @@ Now you can come back to your script, make the required updates and hit save. Th
 
 ![Before and after image for this change.](/static/posts/1_1tcOYAFkkasomuQmmLNOiA.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
 Similar to block URL, we can use `delayUrl` function to add some delay to the response of the API. The value of the function is the URL of the API you want to add some delay to and on the right side of the equal symbol is the delay amount in seconds.
 
@@ -257,9 +257,9 @@ If you reload the page and see the network traffic, you should see the request b
 
 ### Miscellaneous
 
-#### Hide an element
+#### Hide an element
 
-You can also hide elements from your screen. In this example, we’ll remove the logout button using the `hide` function. The first value is the text on screen, the second value is the number of parent elements in the DOM, the third value is the CSS class name and the final value is the webpage.
+You can also hide elements from your screen. In this example, we'll remove the logout button using the `hide` function. The first value is the text on screen, the second value is the number of parent elements in the DOM, the third value is the CSS class name and the final value is the webpage.
 
 ```
 [Application]
@@ -268,11 +268,11 @@ You can also hide elements from your screen. In this example, we’ll remove the
 
 ![Before and after image for this change.](/static/posts/1_byc4ZiQioIJf6FYrcQewEw.png)
 
-Before (left) and after (right)
+Before (left) and after (right)
 
 #### Adding JavaScript
 
-We can also inject JavaScript into your webpage using the `addScript` function. To the right side of the equal symbol, we can supply some JavaScript. In the example below, we’ve inserted code to show a popup alert.
+We can also inject JavaScript into your webpage using the `addScript` function. To the right side of the equal symbol, we can supply some JavaScript. In the example below, we've inserted code to show a popup alert.
 
 ```
 !addScript() = alert('hello')
@@ -282,7 +282,7 @@ We can also inject JavaScript into your webpage using the `addScript` function. 
 
 #### Comments
 
-You can add inline comments using either a hash symbol `#` or a semicolon `;`.
+You can add inline comments using either a hash symbol `#` or a semicolon `;`.
 
 ```
 # This is a comment.
@@ -293,6 +293,6 @@ You can add inline comments using either a hash symbol `#` or a semicolon `;`.
 
 ### Source code
 
-The demo website used in this article and the complete Demo Monkey script are available in [this GitHub repository](https://github.com/ClydeDz/demomonkey-demosite). If you’ve made use of Demo Monkey, I’d love to hear from you in the comments. If you’ve found this article helpful, also drop a comment.
+The demo website used in this article and the complete Demo Monkey script are available in [this GitHub repository](https://github.com/ClydeDz/demomonkey-demosite). If you've made use of Demo Monkey, I'd love to hear from you in the comments. If you've found this article helpful, also drop a comment.
 
-That’s it! Thanks for reading.
+That's it! Thanks for reading.

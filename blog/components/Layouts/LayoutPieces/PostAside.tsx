@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { LayoutProps } from '../types/types'
 
 export const PostAside = ({ content, authorDetails, next, prev, children }: LayoutProps) => {
-  const { tags, readingList, title, summary } = content
+  const { tags, readingList, title, subtitle } = content
 
   return (
     <aside>
@@ -75,7 +75,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
       </div>
 
       <div className="mt-6 hidden xl:block">
-        <SocialShare title={title} summary={summary} />
+        <SocialShare title={title} summary={subtitle} />
       </div>
 
       <div className="grid grid-cols-1 items-start">

@@ -12,7 +12,7 @@ images: ['/static/images/blog/ghaspa.png']
 
 <InlineImage
   src="/static/images/blog/ghaspa.png"
-  alt="Featured image of this article showing GitHub’s logo, GitHub Actions logo, React’s logo, and Azure Storage’s logo."
+  alt="Featured image of this article showing GitHub's logo, GitHub Actions logo, React's logo, and Azure Storage's logo."
   caption={
     <>
       Image source: Created by author using logos of GitHub, GitHub Actions, React and Azure
@@ -23,54 +23,54 @@ images: ['/static/images/blog/ghaspa.png']
 
 ### Introduction
 
-I’ve been fascinated with [GitHub Actions](https://docs.github.com/en/actions) as I really like the idea of having the build and deployment configuration closely knit with the repository itself. I also like the use of YAML to define the entire workflow. I recently covered how to deploy an app to GitHub Pages itself, but then I thought to myself how would I deploy an app externally, let’s say to an [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/), for example? This article aims at answering this question.
+I've been fascinated with [GitHub Actions](https://docs.github.com/en/actions) as I really like the idea of having the build and deployment configuration closely knit with the repository itself. I also like the use of YAML to define the entire workflow. I recently covered how to deploy an app to GitHub Pages itself, but then I thought to myself how would I deploy an app externally, let's say to an [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/), for example? This article aims at answering this question.
 
-At a high level, we’ll cover the following in this article:
+At a high level, we'll cover the following in this article:
 
-1. **The starting point:** We’ll create a sample React app and push these changes to a GitHub repository so that we have something to experiment with.
+1. **The starting point:** We'll create a sample React app and push these changes to a GitHub repository so that we have something to experiment with.
 2. **Build pipeline:** Since we have a boilerplate React app checked in already, we can very quickly create a build pipeline using GitHub Actions and package the built app as a build artefact.
-3. **Creating Azure blob storage:** Next up, it’s time to create some resources in Azure. We won’t deploy anything to these resources yet, though.
-4. **Service principal account and credentials:** Since we’re not deploying our code directly via the Azure portal, but instead, via the command line, we’ll need to create a service principal account so that we can use its credentials to log in via the Azure CLI and upload our code to the storage account.
-5. **Deploy pipeline:** Similar to the build pipeline created earlier, in this step, we’ll create a new workflow file to deploy the build artefacts to our Azure storage account.
-6. **Test it out:** We’ll look at the different ways we can test this process end-to-end and confirm that our code has been successfully deployed to the storage account.
+3. **Creating Azure blob storage:** Next up, it's time to create some resources in Azure. We won't deploy anything to these resources yet, though.
+4. **Service principal account and credentials:** Since we're not deploying our code directly via the Azure portal, but instead, via the command line, we'll need to create a service principal account so that we can use its credentials to log in via the Azure CLI and upload our code to the storage account.
+5. **Deploy pipeline:** Similar to the build pipeline created earlier, in this step, we'll create a new workflow file to deploy the build artefacts to our Azure storage account.
+6. **Test it out:** We'll look at the different ways we can test this process end-to-end and confirm that our code has been successfully deployed to the storage account.
 
-### #1 The starting point
+### #1 The starting point
 
-Let’s start with a common base. We’ll begin by creating a React app using the [Create React App](https://create-react-app.dev/) utility and also add the code to a GitHub repository. I’ve used the following command to generate a sample React app.
+Let's start with a common base. We'll begin by creating a React app using the [Create React App](https://create-react-app.dev/) utility and also add the code to a GitHub repository. I've used the following command to generate a sample React app.
 
 ```
 npx create-react-app <project directory> --template typescript
 ```
 
-I haven’t added or modified anything — these are the files and folders that get generated out-of-the-box when we run the `npx` command stated above. I just made sure it works locally by running the command `npm run start` and that’s about it.
+I haven't added or modified anything — these are the files and folders that get generated out-of-the-box when we run the `npx` command stated above. I just made sure it works locally by running the command `npm run start` and that's about it.
 
-I’ve pushed these changes to my [GitHub repository](https://github.com/ClydeDz/create-react-app-azure-storage-demo) and if you’re following along, you can do the same, too. [This](https://github.com/ClydeDz/create-react-app-azure-storage-demo/tree/28031b3b8abbe403b9844be3d4a64114d402c31a) is what my repository looked like at this stage if you want to compare.
+I've pushed these changes to my [GitHub repository](https://github.com/ClydeDz/create-react-app-azure-storage-demo) and if you're following along, you can do the same, too. [This](https://github.com/ClydeDz/create-react-app-azure-storage-demo/tree/28031b3b8abbe403b9844be3d4a64114d402c31a) is what my repository looked like at this stage if you want to compare.
 
-### #2 Build pipeline
+### #2 Build pipeline
 
-The next step is to build our React app using GitHub Actions. In the `.github/workflow` folder, create a `build-site.yml` file and copy the contents from the following YAML file.
+The next step is to build our React app using GitHub Actions. In the `.github/workflow` folder, create a `build-site.yml` file and copy the contents from the following YAML file.
 
-This YAML file is generally divided into three sections. We start off by setting a friendly name in the `name` keyword. In this case, it’s set to _Build site_. This name appears in the GitHub Actions UI so it’s a good practice to give this a descriptive name especially if you’re going to have multiple workflow files in your repository.
+This YAML file is generally divided into three sections. We start off by setting a friendly name in the `name` keyword. In this case, it's set to _Build site_. This name appears in the GitHub Actions UI so it's a good practice to give this a descriptive name especially if you're going to have multiple workflow files in your repository.
 
-The `on` keyword and its code block describe how this workflow is triggered. In the example above, we’re setting the workflow to be triggered when code is pushed to the main branch or a pull request is created with the main branch as the target branch.
+The `on` keyword and its code block describe how this workflow is triggered. In the example above, we're setting the workflow to be triggered when code is pushed to the main branch or a pull request is created with the main branch as the target branch.
 
-The `jobs` keyword and its code block list the steps to be performed when this workflow is triggered. We’re essentially running multiple commands to install Node, install the required npm packages, build the site and run the unit tests. The final step uses a [GitHub Action from the marketplace](https://github.com/marketplace/actions/upload-a-build-artifact) to upload the generated site files from the build folder into a ZIP file called `production-files`.
+The `jobs` keyword and its code block list the steps to be performed when this workflow is triggered. We're essentially running multiple commands to install Node, install the required npm packages, build the site and run the unit tests. The final step uses a [GitHub Action from the marketplace](https://github.com/marketplace/actions/upload-a-build-artifact) to upload the generated site files from the build folder into a ZIP file called `production-files`.
 
-### #3 Creating an Azure blob storage
+### #3 Creating an Azure blob storage
 
-We’ll be using Azure’s command-line tool to create a storage account. First, if you haven’t already, please [sign up to Azure](https://azure.microsoft.com/en-us/free/search/). Next, let’s download the Azure CLI from [this page](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli). Then, run the `az version` command to verify the tool is installed.
+We'll be using Azure's command-line tool to create a storage account. First, if you haven't already, please [sign up to Azure](https://azure.microsoft.com/en-us/free/search/). Next, let's download the Azure CLI from [this page](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli). Then, run the `az version` command to verify the tool is installed.
 
 ![Screenshot showing the output of an Azure CLI command.](/static/posts/1_KGRXU4fHdE0Pn9kB53di1g.png)
 
-> **Tip:** You can now write your Azure command-line snippets into a `.azcli` file. If you’re using VS Code, I would highly recommend you to use the [Azure CLI Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli). This extension combined with the `.azcli` file provides IntelliSense for commands and their arguments, support to highlight a command from the `.azcli` file and run it in the terminal, and heaps of other features. Have a look at my `.azcli` file [here](https://github.com/ClydeDz/create-react-app-azure-storage-demo/blob/main/.azure/script.azcli).
+> **Tip:** You can now write your Azure command-line snippets into a `.azcli` file. If you're using VS Code, I would highly recommend you to use the [Azure CLI Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli). This extension combined with the `.azcli` file provides IntelliSense for commands and their arguments, support to highlight a command from the `.azcli` file and run it in the terminal, and heaps of other features. Have a look at my `.azcli` file [here](https://github.com/ClydeDz/create-react-app-azure-storage-demo/blob/main/.azure/script.azcli).
 
-For us to interact with Azure, we’ll need to first log in to Azure via the CLI. Run the command `az login` to log in to your account. This will open the authentication page in the browser where you can enter your username and password. After successfully logging in, you should see a confirmation message that you can close the browser. This command will also print a list of subscriptions you have access to. Copy the subscription id from this JSON output — we’ll need this value later.
+For us to interact with Azure, we'll need to first log in to Azure via the CLI. Run the command `az login` to log in to your account. This will open the authentication page in the browser where you can enter your username and password. After successfully logging in, you should see a confirmation message that you can close the browser. This command will also print a list of subscriptions you have access to. Copy the subscription id from this JSON output — we'll need this value later.
 
 ![Screenshot showing the output of an Azure CLI command.](/static/posts/1_XvDsvmJZRZ3eOgnlCdbYZg.png)
 
 > Optionally, running the command `az account list` will also print a list of subscriptions you have access to.
 
-Let’s now create a resource group in this subscription. A resource group is a container for logically related Azure resources. Run the following command to create a resource group.
+Let's now create a resource group in this subscription. A resource group is a container for logically related Azure resources. Run the following command to create a resource group.
 
 ```
 az group create -l westus -n <RESOURCE GROUP NAME> --subscription <ID>
@@ -80,7 +80,7 @@ Replace `<RESOURCE GROUP NAME>` with a suitable name and `<ID>` with the subscri
 
 ![Screenshot showing the output of an Azure CLI command.](/static/posts/1_JY3VVZAgOXpvsnIHw3z5Lw.png)
 
-Now, we’ll create an Azure storage account by running the following command. Replace `<STORAGE ACCOUNT NAME>` with a globally unique storage account name, and `<RESOURCE GROUP NAME>` with the resource group name you just created before.
+Now, we'll create an Azure storage account by running the following command. Replace `<STORAGE ACCOUNT NAME>` with a globally unique storage account name, and `<RESOURCE GROUP NAME>` with the resource group name you just created before.
 
 ```
 az storage account create -n <STORAGE ACCOUNT NAME> -g <RESOURCE GROUP NAME> -l westus --sku Standard_LRS
@@ -90,7 +90,7 @@ This command will also print a JSON output confirming the resource creation.
 
 ![Screenshot showing the output of an Azure CLI command.](/static/posts/1_s_fdhrTMJYEN_C2oEXAO9g.png)
 
-While the storage account has been created, it would not support a static website out of the box — we’ll need to manually enable this. Head over to the Azure portal, click the storage account you just created, then click on the **Static website** menu item, then from the screen, click the **Enabled** toggle and save your changes. Optionally, you can also do this via a command line.
+While the storage account has been created, it would not support a static website out of the box — we'll need to manually enable this. Head over to the Azure portal, click the storage account you just created, then click on the **Static website** menu item, then from the screen, click the **Enabled** toggle and save your changes. Optionally, you can also do this via a command line.
 
 ![Screenshot showing how to enable static site on a storage account via the Azure portal.](/static/posts/1_h1KtkgEVDjLub9GtT6k83g.png)
 
@@ -106,37 +106,37 @@ Either way, you should see the static website is enabled and a primary endpoint,
 
 ### #4 Service principal account and credentials
 
-We’ll now need to create a service principal in Azure so that we can log in via the command line to deploy our React app to the storage account. Run the following command to create a log in.
+We'll now need to create a service principal in Azure so that we can log in via the command line to deploy our React app to the storage account. Run the following command to create a log in.
 
 ```
 az ad sp create-for-rbac --name "<UNIQUE NAME>" --sdk-auth --role contributor --scopes /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>
 ```
 
-Replace `<UNIQUE NAME>` with a suitable name for the service principal account, and `<SUBSCRIPTION ID>` and `<RESOURCE GROUP NAME>` as appropriate. Copy the JSON output that would’ve been printed on your console after you run the above command — we’ll need these details in the next step.
+Replace `<UNIQUE NAME>` with a suitable name for the service principal account, and `<SUBSCRIPTION ID>` and `<RESOURCE GROUP NAME>` as appropriate. Copy the JSON output that would've been printed on your console after you run the above command — we'll need these details in the next step.
 
 ![Screenshot showing the output of an Azure CLI command.](/static/posts/1_jp8V-JZVNbnfrPMQaOH7Cg.png)
 
-#### Adding these credentials to GitHub
+#### Adding these credentials to GitHub
 
-We’ll need to add the JSON credentials you copied above to our GitHub repository in order for us to use the Azure login command in the GitHub workflow file. Click on **Settings**, then click on **Secrets** from the left sidebar menu and then click on the **New repository secret** button.
+We'll need to add the JSON credentials you copied above to our GitHub repository in order for us to use the Azure login command in the GitHub workflow file. Click on **Settings**, then click on **Secrets** from the left sidebar menu and then click on the **New repository secret** button.
 
 ![Screenshot showing how to add a secret to the GitHub repository.](/static/posts/1_EAtjRMXaBgLpoIo7va1gBQ.png)
 
 Enter `AZURE_CREDENTIALS` in the **Name** field. You can rename this as long as you remember to rename the reference while using this secret in the workflow file. In the **Value** field, copy the JSON you copied earlier. Finally, click the **Add secret** button.
 
-### #5 Deploy pipeline
+### #5 Deploy pipeline
 
-Now that we’ve got the resources created in Azure and have got a login ready, it’s time to deploy our code to the storage account.
+Now that we've got the resources created in Azure and have got a login ready, it's time to deploy our code to the storage account.
 
-Let’s create a file named `deploy-site.yml` in the `.github/workflows` directory and copy the contents from the YAML file below.
+Let's create a file named `deploy-site.yml` in the `.github/workflows` directory and copy the contents from the YAML file below.
 
 This workflow file is divided into three sections. The `name` keyword sets a friendly name for this workflow.
 
-The `on` keyword and its code block define how this workflow is triggered. In this case, we’re wanting to trigger this workflow when a workflow named _Build site_ is complete and only if the _Build site_ workflow was triggered on the main branch.
+The `on` keyword and its code block define how this workflow is triggered. In this case, we're wanting to trigger this workflow when a workflow named _Build site_ is complete and only if the _Build site_ workflow was triggered on the main branch.
 
-The `jobs` keyword and its code block define the steps that need to run as part of this workflow. We have a single job named _Deploy._ The if condition states that this job should only run if the dependent workflow was successful. We use the Azure CLI commands to log in to the Azure account using the service principal credentials created earlier. We’re then uploading the artefacts to the `$web` folder of the blob storage account and finally, we’re logging out of Azure.
+The `jobs` keyword and its code block define the steps that need to run as part of this workflow. We have a single job named _Deploy._ The if condition states that this job should only run if the dependent workflow was successful. We use the Azure CLI commands to log in to the Azure account using the service principal credentials created earlier. We're then uploading the artefacts to the `$web` folder of the blob storage account and finally, we're logging out of Azure.
 
-### #6 Test it out
+### #6 Test it out
 
 Make an update to your site content and push your changes to GitHub. This will trigger the build workflow and once that is successful, it will trigger the deploy workflow.
 
@@ -144,11 +144,11 @@ If you head over to Azure and click on the storage account you created, then cli
 
 ![Screenshot showing the $web folder in the storage account.](/static/posts/1_wzVK3QVvnvn1emneH-EukA.png)
 
-Open up the URL of your static site in the browser to confirm your React app has loaded. You should’ve got this URL when you enabled the static site on the storage account. It should be of the format `<storage account name>.z22.web.core.windows.net`.
+Open up the URL of your static site in the browser to confirm your React app has loaded. You should've got this URL when you enabled the static site on the storage account. It should be of the format `<storage account name>.z22.web.core.windows.net`.
 
 ![Screenshot showing the static site up and running.](/static/posts/1_IEw5tViqDDfBxKDSWVPKCw.png)
 
-If you create a new branch, make some more code changes and then create a pull request to merge the changes back to the main branch, you’ll notice that the build workflow would’ve run but not the deploy workflow. Once you merge your changes into the main branch, both the build and deploy workflows will run and an updated version of your app will be deployed to the storage account.
+If you create a new branch, make some more code changes and then create a pull request to merge the changes back to the main branch, you'll notice that the build workflow would've run but not the deploy workflow. Once you merge your changes into the main branch, both the build and deploy workflows will run and an updated version of your app will be deployed to the storage account.
 
 ### Resources
 
@@ -156,4 +156,4 @@ If you create a new branch, make some more code changes and then create a pull r
 - [Build workflow file](https://gist.github.com/ClydeDz/81e5594a4c337398f6ca2b5c67f9ed26)
 - [Deploy workflow file](https://gist.github.com/ClydeDz/bd7506f79e35f6f38092b8206bb7c7e3)
 
-That’s it! Thanks for reading.
+That's it! Thanks for reading.

@@ -21,19 +21,19 @@ images: ['/static/images/blog/crareactjest.png']
   }
 />
 
-The [Create React App](https://create-react-app.dev/) template comes with a lot of boilerplate code that should get you up and running with a simple [React](https://reactjs.org/) app in no time. You can then build on top of that and make it as swanky as you’d like.
+The [Create React App](https://create-react-app.dev/) template comes with a lot of boilerplate code that should get you up and running with a simple [React](https://reactjs.org/) app in no time. You can then build on top of that and make it as swanky as you'd like.
 
-If you open up the package.json file, you’ll see a few scripts you can run.
+If you open up the package.json file, you'll see a few scripts you can run.
 
-Create React App uses [Jest](https://jestjs.io/) as its test runner. Executing `npm run test` will run the unit tests that come pre-built with the app. I’ve added a few more tests to my demo app, so here’s my output after running the tests.
+Create React App uses [Jest](https://jestjs.io/) as its test runner. Executing `npm run test` will run the unit tests that come pre-built with the app. I've added a few more tests to my demo app, so here's my output after running the tests.
 
 ![Screenshot of all unit tests passing](/static/posts/1_ZAB8IxqcPFRvV1Ag5XBgIw.png)
 
 ### How to use this in your build pipeline?
 
-This is great — all the tests run and you also see the output in the console. However, when you run these tests in a continuous integration (CI) pipeline, you’d want a way to publish these test results so they can be visualized and analyzed easily. Every DevOps tool comes with its own UI baked into the product to visualize your test results and generate a report and for it to do so, it would expect to read the test results from an XML file produced by a test reporter. At the moment, we only print our test results to the console, but no such XML file is produced. Then how do we accomplish this task?
+This is great — all the tests run and you also see the output in the console. However, when you run these tests in a continuous integration (CI) pipeline, you'd want a way to publish these test results so they can be visualized and analyzed easily. Every DevOps tool comes with its own UI baked into the product to visualize your test results and generate a report and for it to do so, it would expect to read the test results from an XML file produced by a test reporter. At the moment, we only print our test results to the console, but no such XML file is produced. Then how do we accomplish this task?
 
-First, let’s install the npm package [jest-junit](https://www.npmjs.com/package/jest-junit). This is a test reporter for jest tests and is capable of producing an XML file that would contain the test results. We’ll then add a new script to your package.json file like the snippet below.
+First, let's install the npm package [jest-junit](https://www.npmjs.com/package/jest-junit). This is a test reporter for jest tests and is capable of producing an XML file that would contain the test results. We'll then add a new script to your package.json file like the snippet below.
 
 ```
 "test:ci": "npm run test -- --testResultsProcessor=\"jest-junit\""
@@ -43,11 +43,11 @@ This executes the same `npm run test` command but adds `--testResultsProcessor=�
 
 ![Screenshot of what a junit.xml file looks like](/static/posts/1_bX9dCRj-JN3s-zt-rNU1tw.png)
 
-You don’t need to commit this file to your code repository. The build pipeline will produce this file and then in the next step, you can supply this file to the task that will publish the test results.
+You don't need to commit this file to your code repository. The build pipeline will produce this file and then in the next step, you can supply this file to the task that will publish the test results.
 
-### Bonus: Adding code coverage
+### Bonus: Adding code coverage
 
-If you’d also like to produce a code coverage result, simply supply the additional arguments `--coverage --ci` and see the magic happen.
+If you'd also like to produce a code coverage result, simply supply the additional arguments `--coverage --ci` and see the magic happen.
 
 ```
 "test:ci": "npm run test -- --coverage --ci --testResultsProcessor=\"jest-junit\" --watchAll=false"
@@ -63,4 +63,4 @@ Your code coverage results are also produced in the coverage folder like the scr
 
 These files can then be supplied to the task that will publish code coverage results to your DevOps tool of choice.
 
-That’s it. Thanks for reading!
+That's it. Thanks for reading!

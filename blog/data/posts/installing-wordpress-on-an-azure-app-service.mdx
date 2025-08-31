@@ -23,43 +23,43 @@ images: ['/static/images/blog/wordpressazure.png']
 
 ### Introduction
 
-While [creating WordPress content](https://www.youtube.com/playlist?list=PLYhCXsaf5ba_hutBtc9evla1p9Cz6wkRC) for my YouTube channel, I relied on using my Azure experience to host a WordPress website. This works out great because with just a few clicks and at no extra cost, I can spin up a WordPress website very easily, and once I’ve completed recording my video content, I can delete all the resources. In this article, I’ll give you a quick introduction on WordPress and then I’ll explain the process of installing WordPress on an Azure App Service.
+While [creating WordPress content](https://www.youtube.com/playlist?list=PLYhCXsaf5ba_hutBtc9evla1p9Cz6wkRC) for my YouTube channel, I relied on using my Azure experience to host a WordPress website. This works out great because with just a few clicks and at no extra cost, I can spin up a WordPress website very easily, and once I've completed recording my video content, I can delete all the resources. In this article, I'll give you a quick introduction on WordPress and then I'll explain the process of installing WordPress on an Azure App Service.
 
-### Wait, what’s WordPress?
+### Wait, what's WordPress?
 
 [WordPress](https://wordpress.org/) is a very popular CMS software that you can use to easily create websites. You can create a whole range of websites right from a simple personal portfolio to a complex learning management system.
 
-Being a Content Management System (CMS), WordPress allows you to create, modify and delete content without making any code changes. Using plugins, it also allows you to add or remove functionality on-the-go. With so many themes readily available with a lot of customization options, creating a well-designed website isn’t too far out of reach.
+Being a Content Management System (CMS), WordPress allows you to create, modify and delete content without making any code changes. Using plugins, it also allows you to add or remove functionality on-the-go. With so many themes readily available with a lot of customization options, creating a well-designed website isn't too far out of reach.
 
 ### WordPress.org or WordPress.com?
 
 The big question for everyone starting out with WordPress.
 
-[WordPress.org](https://wordpress.org/) is the open-source software that provides you with the CMS functionality. It’s the underlying engine that you can install on a supported [hosting platform](https://wordpress.org/hosting/).
+[WordPress.org](https://wordpress.org/) is the open-source software that provides you with the CMS functionality. It's the underlying engine that you can install on a supported [hosting platform](https://wordpress.org/hosting/).
 
-[WordPres.com](https://wordpress.com/), on the other hand, is a blogging website that’s built on top of the WordPress engine. It’s a [Software as a Service (SaaS)](https://en.wikipedia.org/wiki/Software_as_a_service) — which means that for a monthly cost, they take care of installing WordPress, hosting your website, ensuring that your website is always up and running and taking regular backups— all you need to do is just click a few buttons to sign up and off you go!
+[WordPres.com](https://wordpress.com/), on the other hand, is a blogging website that's built on top of the WordPress engine. It's a [Software as a Service (SaaS)](https://en.wikipedia.org/wiki/Software_as_a_service) — which means that for a monthly cost, they take care of installing WordPress, hosting your website, ensuring that your website is always up and running and taking regular backups— all you need to do is just click a few buttons to sign up and off you go!
 
-### Let’s begin
+### Let's begin
 
-Let’s start by searching for WordPress in Azure’s global search located at the top of the screen. From the **Marketplace** section, select **WordPress**.
+Let's start by searching for WordPress in Azure's global search located at the top of the screen. From the **Marketplace** section, select **WordPress**.
 
 ![Selecting WordPress from the Azure Marketplace](/static/posts/1_rI810HalROgYn3N8R7gHUg.png)
 
-Click on the **Create** button to proceed to the next screen where you’ll enter all the details.
+Click on the **Create** button to proceed to the next screen where you'll enter all the details.
 
-We’ll give it a suitable **App name**. This app name will also become our website URL, so choose wisely! Next, select the Azure **Subscription** you want this resource to be charged to. Immediately after that, we’ll select the **Resource Group** — this allows us to logically organise our resources.
+We'll give it a suitable **App name**. This app name will also become our website URL, so choose wisely! Next, select the Azure **Subscription** you want this resource to be charged to. Immediately after that, we'll select the **Resource Group** — this allows us to logically organise our resources.
 
 ![Configuring an App Service in Azure](/static/posts/1_QFFcs72I5JCbTjWYiXKpnw.png)
 
-From the **Database Provider** dropdown, we’ll select **MySQL In App**. There are a few other options in there — all of which are just different ways you can create the database for this WordPress site.
+From the **Database Provider** dropdown, we'll select **MySQL In App**. There are a few other options in there — all of which are just different ways you can create the database for this WordPress site.
 
 ![Selecting MySQL In App from the list of database providers in Azure](/static/posts/1_kjHAGU5xuf84zNCi7kKoCw.png)
 
 MySQL In App runs a local MySQL instance with your app and shares resources from the App Service plan. There is no extra cost for this database. You cannot access the database using external tools like Workbench or MySQL CLI. Apps using MySQL In App are not intended for production environments, and they will not scale beyond a single instance. Read more about the limitations in [this official blog post](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/).
 
-Now, let’s select **App Service plan/Location** to choose either an existing **App Service plan** or create a new one. This decides how much you’ll be paying for the App Service itself. If you’re following along, you can select a free tier as well.
+Now, let's select **App Service plan/Location** to choose either an existing **App Service plan** or create a new one. This decides how much you'll be paying for the App Service itself. If you're following along, you can select a free tier as well.
 
-Finally, select **Application Insights** and enable it so you can configure an Application Insights resource or disable it if you don’t require Application Insights right now. Don’t worry, you can always connect your App Service with an Application Insights resource later should you change your mind.
+Finally, select **Application Insights** and enable it so you can configure an Application Insights resource or disable it if you don't require Application Insights right now. Don't worry, you can always connect your App Service with an Application Insights resource later should you change your mind.
 
 After entering all the details, click on **Create**. This will spin up your resources and in a few moments, you would be able to access it in the Azure portal.
 
@@ -67,11 +67,11 @@ After entering all the details, click on **Create**. This will spin up your reso
 
 Now, head over to the App Service you just created and click on **Browse&#x20;**&#x73;o you can head over to the website in a different browser tab. Note the URL — it contains your App Service name.
 
-The first thing you would see is the WordPress installation page. Let’s start by selecting the language and then click on **Continue**.
+The first thing you would see is the WordPress installation page. Let's start by selecting the language and then click on **Continue**.
 
 ![Selecting your WordPress language during installation](/static/posts/1_ydD_cPGkavKqwWQqHuEHag.png)
 
-Then in the installation page, enter your site information. Securely store the username and password as that would be the admin’s credentials for the site. You can then log in using these credentials and create accounts for your team if required.
+Then in the installation page, enter your site information. Securely store the username and password as that would be the admin's credentials for the site. You can then log in using these credentials and create accounts for your team if required.
 
 ![Configuring site information in WordPress during installation](/static/posts/1_6ei558MzF9Ai2Xdw8s9GIg.png)
 
@@ -97,6 +97,6 @@ phpMyAdmin comes installed and Azure should automatically take care of the login
 
 ![Image of phpMyAdmin portal](/static/posts/1_H9ZSuSU80cFyrVYuNIyD4w.png)
 
-Have fun customizing your WordPress website. Feel free to leave a link of your website in the comments and I’d love to check it out.
+Have fun customizing your WordPress website. Feel free to leave a link of your website in the comments and I'd love to check it out.
 
-That’s it. Thanks for reading!
+That's it. Thanks for reading!

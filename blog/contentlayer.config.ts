@@ -144,7 +144,7 @@ export const Blog = defineDocumentType(() => ({
         headline: doc.title,
         datePublished: doc.date,
         dateModified: doc.lastmod || doc.date,
-        description: doc.summary,
+        description: doc.subtitle,
         image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
         url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
       }),

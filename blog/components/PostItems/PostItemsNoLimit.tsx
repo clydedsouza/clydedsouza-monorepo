@@ -26,7 +26,7 @@ export const PostItemsNoLimit = ({ posts }: { posts: CoreContent<Blog>[] }) => {
               <div className="flex flex-1 flex-col py-2">
                 <h3 className="text-2xl font-bold dark:text-slate-50">{post.title}</h3>
                 <p className="my-1 max-h-100 text-base font-medium text-ellipsis text-gray-600 text-slate-600 dark:text-slate-100">
-                  {post.summary}
+                  {post.subtitle}
                 </p>
                 <div className="my-1 max-w-3xl text-sm text-gray-500 dark:text-slate-200">
                   {post.readingTime.text}

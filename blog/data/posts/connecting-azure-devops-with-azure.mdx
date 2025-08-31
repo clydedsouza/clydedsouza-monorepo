@@ -23,21 +23,21 @@ images: ['/static/images/blog/azure.png']
 
 ### Introduction
 
-I recently had to set up a new Azure service connection in Azure DevOps and I couldn’t use the default authentication method because I wasn’t the owner of the Azure subscription. I had to, therefore, use the service principal route to get everything connected. I’ve recreated the scenario and have highlighted the steps in this article.
+I recently had to set up a new Azure service connection in Azure DevOps and I couldn't use the default authentication method because I wasn't the owner of the Azure subscription. I had to, therefore, use the service principal route to get everything connected. I've recreated the scenario and have highlighted the steps in this article.
 
 ### Creating a new service connection
 
-Let’s start by creating a new service connection in Azure DevOps. Head to the service connections page using the URL `https://dev.azure.com/<Organisation>/<Project>/_settings/adminservices`. Replace \<Organisation> and \<Project> with the appropriate values.
+Let's start by creating a new service connection in Azure DevOps. Head to the service connections page using the URL `https://dev.azure.com/<Organisation>/<Project>/_settings/adminservices`. Replace \<Organisation> and \<Project> with the appropriate values.
 
 Select **Azure Resource Manager** from the options listed and then select **Service principal (manual)**. You should see something like this.
 
 ![Image showing Azure service connection configuration form](/static/posts/1_Q5QSSjTjcwPOdkaY2izAEg.gif)
 
-Now, let’s start by filing out this form. It’s a lengthy one, so I’ve split it into three sections to make it easier to understand.
+Now, let's start by filing out this form. It's a lengthy one, so I've split it into three sections to make it easier to understand.
 
 ### Section #1: Subscription
 
-Assuming the default **Environment** and **Scope Level** is what you’re after, you would only require to set the **Subscription ID** and **Subscription Name&#x20;**&#x69;n most cases.
+Assuming the default **Environment** and **Scope Level** is what you're after, you would only require to set the **Subscription ID** and **Subscription Name&#x20;**&#x69;n most cases.
 
 ![Image showing Azure service connection subscription details](/static/posts/1_yiprYt6GRRnqvzcwTCDcDw.png)
 
@@ -51,13 +51,13 @@ Next, we need to fill out the service principal information. Think of this as en
 
 ![Image showing Azure service connection authentication section](/static/posts/1_zH4RnUk_XB7bFm5BIdHrWg.png)
 
-#### Service Principal ID and Tenant ID
+#### Service Principal ID and Tenant ID
 
 To get the credentials of this virtual entity, we would need to first create one. To do so, go to [portal.azure.com](https://portal.azure.com/) and search for **Active Directory**. From the left blade, select **App registrations**. Then click **New registration** to open up a another blade.
 
 ![Image showing steps to register a new app in Azure](/static/posts/1_NybGUnjbF246E8BptgcNvg.png)
 
-Give this app a meaningful name so that you know what it’s used for. By default, you would select the single tenant option from the **Support account types** section. Click **Register**.
+Give this app a meaningful name so that you know what it's used for. By default, you would select the single tenant option from the **Support account types** section. Click **Register**.
 
 ![Image showing steps to register an app in Azure](/static/posts/1_YN7hMZl9hQb9ixXac5UgKg.png)
 
@@ -67,27 +67,27 @@ Now, from the **Overview** section, copy the **Application (client) ID** and pas
 
 #### Service principal key
 
-Now we need to generate this entity’s password, or secret, in this case, to be more precise. While still in the app you’ve just created, click on **Certificates & secrets** from the left blade. Add a **New client secret**. Give it a meaningful description and expiry and then click **Add**. Copy the value (hint: you won’t be able to see this value again) and paste it into the **Service principal key** input.
+Now we need to generate this entity's password, or secret, in this case, to be more precise. While still in the app you've just created, click on **Certificates & secrets** from the left blade. Add a **New client secret**. Give it a meaningful description and expiry and then click **Add**. Copy the value (hint: you won't be able to see this value again) and paste it into the **Service principal key** input.
 
 ![Image showing how to generate a new client secret](/static/posts/1_37uh2FFdsasyQKMwkdtd5Q.gif)
 
 #### Verification
 
-Okay, let’s test if Azure DevOps can make the connection to Azure and has all the right levels of permission it requires. Click the **Verify** button to test this out.
+Okay, let's test if Azure DevOps can make the connection to Azure and has all the right levels of permission it requires. Click the **Verify** button to test this out.
 
 ![Image showing the result of validating the connection from Azure DevOps to Azure](/static/posts/1_hcJE2Fx0JDrwGGSiCY5eaA.png)
 
-If you’ve followed everything so far, you would see an error message, similar to the one highlighted below. Hmm, we did add all the details correctly, then what must have gone wrong?
+If you've followed everything so far, you would see an error message, similar to the one highlighted below. Hmm, we did add all the details correctly, then what must have gone wrong?
 
 ```
 Failed to query service connection API: 'https://management.azure.com/subscriptions/*****?api-version=2016-06-01'. Status Code: 'Forbidden', Response from server: '{"error":{"code":"AuthorizationFailed","message":"The client '*****' with object id '*****' does not have authorization to perform action 'Microsoft.Resources/subscriptions/read' over scope '/subscriptions/*****' or the scope is invalid. If access was recently granted, please refresh your credentials."}}'
 ```
 
-If you read the entire message, it tells you that it was trying to query the subscription but it failed to even perform a read operation. This tells me that the app/entity doesn’t actually have access to the Azure subscription.
+If you read the entire message, it tells you that it was trying to query the subscription but it failed to even perform a read operation. This tells me that the app/entity doesn't actually have access to the Azure subscription.
 
 Fair enough.
 
-To resolve this, let’s head back to the subscription and click on **Access control (IAM)**. Click on **Add** and then select **Add role assignment**. We’ll assign the entity a **Contributor** role. Search for the entity, i.e., the app you’ve registered earlier and then hit the **Save** button.
+To resolve this, let's head back to the subscription and click on **Access control (IAM)**. Click on **Add** and then select **Add role assignment**. We'll assign the entity a **Contributor** role. Search for the entity, i.e., the app you've registered earlier and then hit the **Save** button.
 
 ![Image showing how to add the app as a contributor in Azure](/static/posts/1_NJdeBroHhMI8oPFRUsFxfg.png)
 
@@ -95,17 +95,17 @@ After it has successfully added the app as a contributor to the subscription, go
 
 ![Image showing the result of re-validating the connection from Azure DevOps to Azure](/static/posts/1_cTyUywjY_kUgmS5sRA9GxA.png)
 
-### Section #3: General details
+### Section #3: General details
 
 Give this connection a meaningful name. This name will appear in the list of Azure subscriptions in your release pipeline, so you want to ensure that your release pipeline contributors know exactly what this service connection is for.
 
 ![Image showing basic details for the Azure service connection](/static/posts/1_C_thap0WL25iSTSXg5_Lsw.png)
 
-After you’ve entered all the details, hit the **Verify and save** button.
+After you've entered all the details, hit the **Verify and save** button.
 
 ### Consuming this service connection
 
-In the release pipeline, your contributors will see the newly created connection in the list of Azure subscriptions. Clicking that will give them access to the subscription you’ve created this connection for.
+In the release pipeline, your contributors will see the newly created connection in the list of Azure subscriptions. Clicking that will give them access to the subscription you've created this connection for.
 
 ![Image showing where the Azure service connection is used](/static/posts/1_9RCdygdIVaRSmmWVvilRMg.png)
 
@@ -116,19 +116,19 @@ Alright, time for a quick recap —
 1. We started off with a quick introduction to what this article contained. We then dived into creating a new service connection using Azure Resource Manager using the service principal approach.
 2. We had to enter quite a few details, so we split that into three sections to make it easier to understand.
 3. Section #1 was about subscription. We looked at from where we would get the subscription ID and subscription name.
-4. Section #2 was about authentication. Here, we registered a new app and then added the app’s client ID and secret into the form. We also added the tenant ID. We also tried to verify the connection and encountered an error.
+4. Section #2 was about authentication. Here, we registered a new app and then added the app's client ID and secret into the form. We also added the tenant ID. We also tried to verify the connection and encountered an error.
 5. To resolve the error, we added the app as a contributor to the Azure subscription. Re-verification of the connection was successful.
 6. Lastly, section #3 was about general details. We entered a meaningful name for this connection since this name will appear in the release pipeline. To save the connection, we clicked on the **Verify and save** button.
 7. From a consumption point of view, we seen that the newly created service connection shows up in the list of Azure subscriptions. Your release contributors can use that to be able to deploy applications in that particular subscription.
 
-That’s it!
+That's it!
 
 Thanks for reading. Give it a clap 👏 (tip: you can clap up to 50 times!) and share it with your network 🙏
 
 ---
 
-![Download ‘Mama, tell me a story’ from Amazon](/static/posts/0_Ouw0aqoWyKMvlcdx.png)
+![Download ‘Mama, tell me a story' from Amazon](/static/posts/0_Ouw0aqoWyKMvlcdx.png)
 
-Download ‘Mama, tell me a story’ from [Amazon](http://bit.ly/MamaTellMeAStory)
+Download ‘Mama, tell me a story' from [Amazon](http://bit.ly/MamaTellMeAStory)
 
-I’ve written a children’s bedtime story book titled ‘Mama, tell me a story’. Download my book from [Amazon](http://bit.ly/MamaTellMeAStory) today. 🙂
+I've written a children's bedtime story book titled ‘Mama, tell me a story'. Download my book from [Amazon](http://bit.ly/MamaTellMeAStory) today. 🙂

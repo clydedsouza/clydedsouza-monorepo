@@ -3,10 +3,9 @@ title: 'Restrict GitHub Actions Deployments'
 subtitle: 'Protection rules to the rescue'
 date: '2025-01-21'
 lastmod: '2025-01-21'
-tags: ['one', 'two']
+tags: ['Github', 'Github Actions', 'CICD', 'Workflow', 'Workflow Automation']
 readingList: ['GitHub Actions']
 draft: false
-summary: 'Protection rules to the rescue'
 images: ['/static/images/blog/lockchains.jpg']
 ---
 
@@ -25,13 +24,13 @@ images: ['/static/images/blog/lockchains.jpg']
 
 ### Introduction
 
-Let’s imagine that you’ve set up your project in GitHub and you’ve also got your build and deploy pipeline configured and working using GitHub Actions — well done!
+Let's imagine that you've set up your project in GitHub and you've also got your build and deploy pipeline configured and working using GitHub Actions — well done!
 
-You’ve given your team a quick shareback on how you did it and the team is now upskilled in using this workflow. A couple of weeks go by, and your team is starting to feel comfortable but then someone in the team decides to take a shortcut.
+You've given your team a quick shareback on how you did it and the team is now upskilled in using this workflow. A couple of weeks go by, and your team is starting to feel comfortable but then someone in the team decides to take a shortcut.
 
 They create a branch called _feature-x_ and update the workflow trigger such that commits from this _feature-x_ branch go all the way to production. Disaster!
 
-```
+```yml
 on:
   push:
     branches:
@@ -39,73 +38,73 @@ on:
       - 'feature-x' # They added this line. Disaster!
 ```
 
-They’ve managed to push changes from a branch by working around the system. It wouldn’t look good on their resume, but they probably don’t care.
+They've managed to push changes from a branch by working around the system. It wouldn't look good on their resume, but they probably don't care.
 
-So, how might we secure the system so that such a blunder doesn’t happen? Let’s take a look.
+So, how might we secure the system so that such a blunder doesn't happen? Let's take a look.
 
-### Reproducing the problem
+### Reproducing the problem
 
-Let’s scale this down to a simple GitHub Action that can be triggered manually. As you can see, the build and deploy steps just print a console message.
+Let's scale this down to a simple GitHub Action that can be triggered manually. As you can see, the build and deploy steps just print a console message.
 
 I have a _main_ branch and a _test_ branch in my repository. From the **Actions** page, I can manually trigger the workflow to run from the _test_ branch, as seen in the screenshot below.
 
 ![](/static/posts/1_-yQpVSdXwpy6vukEAFg62g.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-As we’d expect, the workflow executes all the way through, thus reproducing the problem scenario where code can be deployed from a non-main branch.
+As we'd expect, the workflow executes all the way through, thus reproducing the problem scenario where code can be deployed from a non-main branch.
 
 ![](/static/posts/1_iPd8jKL-8yj388kETKKzAg.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
 ### Solution
 
-We’ll start by clicking on the GitHub repository **Settings** and then click on **Environments** and then add a new environment called _production_.
+We'll start by clicking on the GitHub repository **Settings** and then click on **Environments** and then add a new environment called _production_.
 
 ![](/static/posts/1_XZJI7Wv6iPGuDrmiWWYZtg.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
 After the environment is created in GitHub, we should be able to click on the environment and edit the environment settings.
 
-In the **Deployment branches and tags** section, we’ll click on **Selected branches and tags** and then click on the **Add deployment branch or tag rule** button.
+In the **Deployment branches and tags** section, we'll click on **Selected branches and tags** and then click on the **Add deployment branch or tag rule** button.
 
 ![](/static/posts/1_PA2FdXOWdjutxNHLumX0-w.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-In the pop-up, specify the branch name you want to whitelist, in other words, the branch which should be allowed to deploy to production from, and then click on the **Add rule** button. For this article, I’ve added the branch _main_ to this list. Don’t forget to also click the **Save protection rules** button.
+In the pop-up, specify the branch name you want to whitelist, in other words, the branch which should be allowed to deploy to production from, and then click on the **Add rule** button. For this article, I've added the branch _main_ to this list. Don't forget to also click the **Save protection rules** button.
 
 ![](/static/posts/1_MLFHxNJ4v1rjm5u0Oz1cOA.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-We’ll also add the _environment_ key to the _deploy_ job, as per the code snippet below. The remainder of the workflow file remains as above. Let’s set the environment name the same as what we created earlier, i.e. _production_. If you have multiple deployment jobs per environment, then you could repeat the process for all of them and name them appropriately.
+We'll also add the _environment_ key to the _deploy_ job, as per the code snippet below. The remainder of the workflow file remains as above. Let's set the environment name the same as what we created earlier, i.e. _production_. If you have multiple deployment jobs per environment, then you could repeat the process for all of them and name them appropriately.
 
-```
+```yml
 deploy:
   environment: production
   needs: build
   runs-on: ubuntu-latest
 ```
 
-### Testing the solution
+### Testing the solution
 
-Let’s try to manually trigger the workflow from the _test_ branch now.
+Let's try to manually trigger the workflow from the _test_ branch now.
 
-As you can see from the screenshot below, the job has failed because it didn’t meet the environment protection rules. Hooray!
+As you can see from the screenshot below, the job has failed because it didn't meet the environment protection rules. Hooray!
 
 ![](/static/posts/1_7SyHSAMXNDCl83B2_sNHgQ.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-### Somethings to consider
+### Somethings to consider
 
-If it doesn’t meet the environment protection rules, it fails the job, as seen above. While this is functionally what you want, it could also trigger any SLOs or alerts you might’ve set up for failures. If you have set something up, ensure that you cater to this scenario.
+If it doesn't meet the environment protection rules, it fails the job, as seen above. While this is functionally what you want, it could also trigger any SLOs or alerts you might've set up for failures. If you have set something up, ensure that you cater to this scenario.
 
-This solution relies on setting the `environment: production` tag to the _deploy_ job. This is part of the workflow code and unfortunately, in the _test_ or _feature-x_ branch, someone can either remove this line of code or update this to an environment tag which doesn’t have the protection rules.
+This solution relies on setting the `environment: production` tag to the _deploy_ job. This is part of the workflow code and unfortunately, in the _test_ or _feature-x_ branch, someone can either remove this line of code or update this to an environment tag which doesn't have the protection rules.
 
 The environment protection rules page in GitHub is available for all repository owners. So, if everyone in the team has this role, then anyone can come to this page and just remove the protection rules, making all this effort go to waste.
 
-That’s it! Thanks for reading.
+That's it! Thanks for reading.

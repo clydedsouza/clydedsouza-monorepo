@@ -3,10 +3,9 @@ title: 'Installing NPM Packages From Multiple Registries'
 subtitle: 'A step-by-step guide to solving a problem'
 date: '2024-01-01'
 lastmod: '2024-01-01'
-tags: ['one', 'two']
+tags: ['NPM', 'Npm Package', 'Web Development', 'Node', 'Nodejs']
 readingList: ['NPM library']
 draft: false
-summary: 'A step-by-step guide to solving a problem'
 images: ['/static/images/blog/containers.jpg']
 ---
 
@@ -23,24 +22,24 @@ images: ['/static/images/blog/containers.jpg']
   }
 />
 
-I recently had to publish an npm package to a custom registry and then from the consumer application, use this package from the custom registry and the remaining packages from another already configured registry. While doing this, I encountered an error. In this article, I’ll aim to recreate the problem and give you a couple of options to solve this, eventually recommending the solution that I’d go with.
+I recently had to publish an npm package to a custom registry and then from the consumer application, use this package from the custom registry and the remaining packages from another already configured registry. While doing this, I encountered an error. In this article, I'll aim to recreate the problem and give you a couple of options to solve this, eventually recommending the solution that I'd go with.
 
-### Recreating the problem
+### Recreating the problem
 
-I’ve created a demo npm feed using [MyGet](https://www.myget.org/) and have published a couple of packages upstream. npm talks to a registry website that implements the [CommonJS Package Registry specification](https://wiki.commonjs.org/wiki/Packages/Registry) for reading package info, which means that you can configure npm to use any compatible registry you like, and even run your registry.
+I've created a demo npm feed using [MyGet](https://www.myget.org/) and have published a couple of packages upstream. npm talks to a registry website that implements the [CommonJS Package Registry specification](https://wiki.commonjs.org/wiki/Packages/Registry) for reading package info, which means that you can configure npm to use any compatible registry you like, and even run your registry.
 
-For the brevity of this article, I’ll omit the steps to create and publish npm packages and will solely focus on the problem and its solution. All the code used for this article can be found in [this GitHub repository](https://github.com/ClydeDz/npm-package-dependency-and-namespaces). The folders package-a and package-b are two custom npm packages pushed to the MyGet feed. The consumer folder has the code for the consumer application.
+For the brevity of this article, I'll omit the steps to create and publish npm packages and will solely focus on the problem and its solution. All the code used for this article can be found in [this GitHub repository](https://github.com/ClydeDz/npm-package-dependency-and-namespaces). The folders package-a and package-b are two custom npm packages pushed to the MyGet feed. The consumer folder has the code for the consumer application.
 
-Now, how do we install package-a into the consumer application? First, I read about adding the registry URL to the .npmrc file, so I did that. I have the default npm js registry URL and my custom feed URL. npm is configured to use the npm public registry at https://registry.npmjs.org by default, but I’ve explicitly written it out here for clarity on what’s happening in this recreation of the problem.
+Now, how do we install package-a into the consumer application? First, I read about adding the registry URL to the .npmrc file, so I did that. I have the default npm js registry URL and my custom feed URL. npm is configured to use the npm public registry at https://registry.npmjs.org by default, but I've explicitly written it out here for clarity on what's happening in this recreation of the problem.
 
 ```
 registry=https://registry.npmjs.org/
 registry=https://www.myget.org/F/super-duper-packages-horse/npm/
 ```
 
-Next, I’ve then typed in the npm install command to install the required packages, and hit enter.
+Next, I've then typed in the npm install command to install the required packages, and hit enter.
 
-```
+```shell
 npm install package-a typescript
 ```
 
@@ -48,40 +47,40 @@ Instead of downloading the packages from the respective sources, it has given ba
 
 ![](/static/posts/1_ZyuTksakWnh9tSrI45AuWw.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-This is expected because super-duper-packages-horse is my custom npm feed and I don’t have a copy of the typescript package in there. You would’ve thought, it should’ve picked up package-a from my custom feed and typescript from npm js, but it didn’t. How to solve this?
+This is expected because super-duper-packages-horse is my custom npm feed and I don't have a copy of the typescript package in there. You would've thought, it should've picked up package-a from my custom feed and typescript from npm js, but it didn't. How to solve this?
 
 ![](/static/posts/1_kaBNIJrVWzQR8n1W5rc_Lg.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-### Option 1: Creating scoped packages
+### Option 1: Creating scoped packages
 
-To fix this, we’ll have to publish our custom packages to our feed as scoped packages. Scopes are a way of grouping related packages together. So, instead of publishing the package `package-a`, we’ll publish it as `@super-duper-packages-horse/package-a`.
+To fix this, we'll have to publish our custom packages to our feed as scoped packages. Scopes are a way of grouping related packages together. So, instead of publishing the package `package-a`, we'll publish it as `@super-duper-packages-horse/package-a`.
 
 A snippet from package.json file of package-a
 
-Usually, for the scope you’d choose your user or your organization. In this example, I’ve used `@super-duper-packages-horse` as a reference to the name of my custom feed itself.
+Usually, for the scope you'd choose your user or your organization. In this example, I've used `@super-duper-packages-horse` as a reference to the name of my custom feed itself.
 
-We’ll also update the .npmrc file to explicitly tell it which packages to install from the npm js registry and which ones to install from the custom feed. We do this by prefixing the registry entry with the scope of the package followed by a colon. The registry URL used is determined by the scope of the package. If no scope is specified, the default registry is used, which is supplied by the registry config parameter.
+We'll also update the .npmrc file to explicitly tell it which packages to install from the npm js registry and which ones to install from the custom feed. We do this by prefixing the registry entry with the scope of the package followed by a colon. The registry URL used is determined by the scope of the package. If no scope is specified, the default registry is used, which is supplied by the registry config parameter.
 
 ```
 registry=https://registry.npmjs.org/
 @super-duper-packages-horse:registry=https://www.myget.org/F/super-duper-packages-horse/npm/
 ```
 
-I’m back at the terminal window of my consumer project trying to install the dependencies. And while this time it hasn’t complained about typescript not being there, it is complaining about package-b, which is a dependency of package-a. Interesting!
+I'm back at the terminal window of my consumer project trying to install the dependencies. And while this time it hasn't complained about typescript not being there, it is complaining about package-b, which is a dependency of package-a. Interesting!
 
 ![](/static/posts/1_Qzg6sColo2zdVtGwK4W9VA.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-So far we’ve only managed to fix the directly dependent package-a, but since the indirectly dependent package-b is also fetched from the custom feed, we’d also need to republish package-b as a scoped package and then import that into package-a and finally, import the updated version of package-a into our consumer.
+So far we've only managed to fix the directly dependent package-a, but since the indirectly dependent package-b is also fetched from the custom feed, we'd also need to republish package-b as a scoped package and then import that into package-a and finally, import the updated version of package-a into our consumer.
 
 ![](/static/posts/1_klFf6h3hniyef0p4vMAb-Q.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
 In summary, when we associate a scope with the registry, the packages that are intended to be installed from that registry source must be scoped with the same scope.
 
@@ -93,59 +92,56 @@ Now, if you try npm install in the consumer, it should work without any issues. 
 
 ![](/static/posts/1_LzPIk2bMm6jo14g2aG8WaQ.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-### Option 2: Install with registry URL
+### Option 2: Install with registry URL
 
-The second way to solve this problem is to separate the npm install commands into two groups — one for the packages that come from our custom feed and the other for the ones that come from npm js — and for both these install commands, we’ll supply the respective registry URL as a command line argument so npm knows where to install these packages from.
+The second way to solve this problem is to separate the npm install commands into two groups — one for the packages that come from our custom feed and the other for the ones that come from npm js — and for both these install commands, we'll supply the respective registry URL as a command line argument so npm knows where to install these packages from.
 
-```
+```shell
 > npm install typescript --registry=https://registry.npmjs.org/
 
 > npm install package-a --registry=https://www.myget.org/F/super-duper-packages-horse/npm/
 ```
 
-This will install the packages correctly without any errors. If you clone the repository onto a new device and run npm install, it should also work without any issues. Note, in this option we didn’t scope our packages. This option will work without a .npmrc file in the project.
+This will install the packages correctly without any errors. If you clone the repository onto a new device and run npm install, it should also work without any issues. Note, in this option we didn't scope our packages. This option will work without a .npmrc file in the project.
 
-If you don’t want to type in the entire registry URL every time you install something, you could write a wrapper using npm scripts.
+If you don't want to type in the entire registry URL every time you install something, you could write a wrapper using npm scripts.
 
-Save the npm install command along with the registry URL as a custom npm script. You’ll need to write one for each registry source.
+Save the npm install command along with the registry URL as a custom npm script. You'll need to write one for each registry source.
 
-```
+```json
 "scripts": {
-    "install:npm": "npm install --registry=https://registry.npmjs.org/",
-    "install:custom": "npm install --registry=https://www.myget.org/F/super-duper-packages-horse/npm/"
+  "install:npm": "npm install --registry=https://registry.npmjs.org/",
+  "install:custom": "npm install --registry=https://www.myget.org/F/super-duper-packages-horse/npm/"
 },
 ```
 
-Then, when you want to install a package, you’ll need to invoke the respective script and supply the package name as the additional argument to this script. The resultant command that gets executed is what you’d had to originally type in.
+Then, when you want to install a package, you'll need to invoke the respective script and supply the package name as the additional argument to this script. The resultant command that gets executed is what you'd had to originally type in.
 
-```
+```shell
 npm run install:npm -- react
-
-# The above gets converted to:
-# > npm install --registry=https://registry.npmjs.org/ react
 ```
 
-### Which option is better?
+The above gets converted to:
 
-I’d recommend using option 1 because it results in a better developer experience over option 2.
+```shell
+npm install --registry=https://registry.npmjs.org/ react
+```
 
-What’s interesting is that if you go into the package-lock.json file, you’ll notice that the registry URL is stored against the individual npm package. This enables a command like npm install or npm ci to work without running into any issues when running a fresh installation because it first reads the package-lock.json file and thus knows where to fetch the packages from.
+### Which option is better?
+
+I'd recommend using option 1 because it results in a better developer experience over option 2.
+
+What's interesting is that if you go into the package-lock.json file, you'll notice that the registry URL is stored against the individual npm package. This enables a command like npm install or npm ci to work without running into any issues when running a fresh installation because it first reads the package-lock.json file and thus knows where to fetch the packages from.
 
 ![](/static/posts/1_ebpOOtYTF3kYcxQNGTXJmA.png)
 
-Image courtesy of the author
+Image courtesy of the author
 
-Both options result in this update being made to the package-lock.json file, but option 1 is primarily driven by the .npmrc file while option 2 is driven by what’s in the package-lock.json file. This effectively means that —
+Both options result in this update being made to the package-lock.json file, but option 1 is primarily driven by the .npmrc file while option 2 is driven by what's in the package-lock.json file. This effectively means that —
 
-- When installing additional packages in the future using option 1, as long as it’s one of the scopes defined in the .npmrc file, you should be able to directly use the `npm install <package name>` command. But for option 2, you’ll need to always supply the registry URL every time you want to install a new package. Yes, you could use the custom npm script, but that also requires you to remember the source, and most importantly, remember to use the custom script instead of the regular npm install each time you want to install something.
-- If the package-lock.json was deleted, running an npm install after that would not work in option 2 but in option 1, you’ll be fine.
+- When installing additional packages in the future using option 1, as long as it's one of the scopes defined in the .npmrc file, you should be able to directly use the `npm install <package name>` command. But for option 2, you'll need to always supply the registry URL every time you want to install a new package. Yes, you could use the custom npm script, but that also requires you to remember the source, and most importantly, remember to use the custom script instead of the regular npm install each time you want to install something.
+- If the package-lock.json was deleted, running an npm install after that would not work in option 2 but in option 1, you'll be fine.
 
-That’s it! Thanks for reading.
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [January 1, 2024](https://medium.com/p/bd69ce0c2052).
-
-[Canonical link](https://medium.com/@clydedz/installing-npm-packages-from-multiple-registries-bd69ce0c2052)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.
+That's it! Thanks for reading.
