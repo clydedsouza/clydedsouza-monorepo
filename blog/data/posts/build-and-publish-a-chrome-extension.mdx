@@ -3,10 +3,9 @@ title: 'Build and Publish a Chrome Extension'
 subtitle: 'Share your work with millions of users'
 date: '2022-10-23'
 lastmod: '2022-10-23'
-tags: ['one', 'two']
+tags: ['Chrome Extension', 'Chrome', 'Programming', 'Google Chrome Extensions', 'Web Development']
 readingList: ['Chrome Extensions']
 draft: false
-summary: 'Share your work with millions of users'
 images: ['/static/images/blog/chromepsy.png']
 ---
 
@@ -48,17 +47,17 @@ Like any other great product, Chrome, too, offers a set of APIs which allow an e
 A Chrome extension sits inside the boundaries of the Chrome browser. A Chrome extension supports a bunch of features that all sit inside its context, and from within the context of an extension, these features are able to interact with the Chrome browser using Chrome's APIs.
 
 - **Service worker:** This is an event listener that sits in the background within the context of an extension. As an extension developer, you can configure your extension to behave a certain way when certain events are triggered. For example, [Google Meet Exit Page](https://chrome.google.com/webstore/detail/google-meet-exit-page/bjfoplibeabdkfmbanlocafjlbbimgai) redirects you to another webpage after you've clicked the **Leave call** button.
-- **Content script:** You can provide a JavaScript file as part of your extension that will be injected into certain web pages and will allow you to change elements in the DOM (explain). For example, [Amazon to Goodreads Navigator](https://chrome.google.com/webstore/detail/amazon-to-goodreads-navig/lobdefpehipabbpcefccfknigdeolkbb) adds a 1-click ‘View in Goodreads' button on Amazon book pages to easily navigate from Amazon to the book's Goodreads page.
+- **Content script:** You can provide a JavaScript file as part of your extension that will be injected into certain web pages and will allow you to change elements in the DOM (explain). For example, [Amazon to Goodreads Navigator](https://chrome.google.com/webstore/detail/amazon-to-goodreads-navig/lobdefpehipabbpcefccfknigdeolkbb) adds a 1-click 'View in Goodreads' button on Amazon book pages to easily navigate from Amazon to the book's Goodreads page.
 - **Popup:** As an extension developer, you can choose to open a UI popup box when the extension's icon (also called an **Action**) is clicked from the toolbar. You could use the popup UI to provide all of your extension's functionality or use this space to allow users to configure certain settings. For example, [Retro Notes](https://chrome.google.com/webstore/detail/retro-notes/ofdbamhnppegjepbocckmnpcmfokhnnh) uses the popup UI to provide functionality for quickly taking retrospective notes.
 - **New tab/Bookmarks/History:** Chrome allows you as an extension developer to override the default Chrome pages for a new tab, the bookmarks page and the history page. An extension may only override one of the three, though. For example, [4–7–8 Breathing](https://chrome.google.com/webstore/detail/4-7-8-breathing/ihgllkloonfemjjcjcfbkmdlbdffkmnl) overrides Chrome's new tab to provide a clean interface that guides you through the 4–7–8 breathing exercise.
-- **Omnibox:** Chrome's address bar is also known as the Omnibox and you can configure your extension to listen for specific keywords typed into the Omnibox. Once you've detected that event, you could provide suggestions based on the value typed or perform an action on that value. For example, [DuckDuckGo Search](https://chrome.google.com/webstore/detail/duckduckgo-search-context/fepjgbgflmnaieiodmkkclhjfihdhoid) extends the Omnibox so that when a user types ‘DDG' followed by a space in the address bar and then types their search query and hit the enter key, a search is performed on DuckDuckGo with the search terms entered.
+- **Omnibox:** Chrome's address bar is also known as the Omnibox and you can configure your extension to listen for specific keywords typed into the Omnibox. Once you've detected that event, you could provide suggestions based on the value typed or perform an action on that value. For example, [DuckDuckGo Search](https://chrome.google.com/webstore/detail/duckduckgo-search-context/fepjgbgflmnaieiodmkkclhjfihdhoid) extends the Omnibox so that when a user types 'DDG' followed by a space in the address bar and then types their search query and hit the enter key, a search is performed on DuckDuckGo with the search terms entered.
 - **Options:** Chrome encourages extension developers to allow users to be able to customize the behaviour of an extension. One way of accessing the options page for an extension is to right-click the extension's icon from the toolbar and click on **Options**. This should either open up an options popup modal or redirect you to a full-page options interface, depending on what the extension developer has configured. For example, [Jira Status Colours](https://chrome.google.com/webstore/detail/jira-status-colours/nglechghbeioejgliejidjlhbfiiinne) provides an options page to customize the colours of your Jira status labels.
 
 ![Different features of a Chrome extension.](/static/posts/1_qRbHph364cgWK2DLh15hJQ.jpeg)
 
 ### In action: Overriding Chrome's new tab
 
-We've briefly looked at quite a few features above, but for the brevity of this article, we'll be taking a look at developing an extension with a single feature — overriding Chrome's new tab.
+We've briefly looked at quite a few features above, but for the brevity of this article, we'll be taking a look at developing an extension with a single feature — overriding Chrome's new tab.
 
 #### Manifest file
 
@@ -66,17 +65,38 @@ The manifest file is a JSON file that tells Chrome what features will be enabled
 
 A simple starter manifest JSON file might look something like the snippet below. We've specified some metadata and also included the path to our extensions icons. Needless to say, in the icons folder, you might want to place three PNG files that match the names given in the snippet below. [This is what my changes look like](https://github.com/ClydeDz/simple-chrome-extension-template/commit/b024088620d44aec2cd933af90abf7828b75a208) at this point.
 
+```json
+{
+  "manifest_version": 3,
+  "name": "Simple Chrome Extension Template",
+  "description": "A simple Chrome Extension created using a template",
+  "version": "0.0.1",
+  "author": "Clyde D'Souza",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
+```
+
 The complete reference to all properties in the manifest JSON file can be [found here](https://developer.chrome.com/docs/extensions/mv3/manifest/).
 
 #### Overriding Chrome's new tab
 
-Let's update our manifest file and register this feature. We'll add the following snippet to the manifest file. This assigns the `newtab.html` file as Chrome's new tab. Also, you don't have to name this file _newtab.&#x20;_&#x49;t could be named anything you like.
+Let's update our manifest file and register this feature. We'll add the following snippet to the manifest file. This assigns the `newtab.html` file as Chrome's new tab. Also, you don't have to name this file _newtab_. It could be named anything you like.
+
+```json
+"chrome_url_overrides" : {
+    "newtab": "newtab.html"
+}
+```
 
 #### Creating the HTML file
 
-In the root directory of your extension's code, create a simple HTML file `newtab.html`. You could perhaps print the traditional ‘Hello world' message on-screen if you like. You could also create a CSS file with basic styling like text or background colour and maybe even a JavaScript file that prints a message to the console. If you're including a CSS and JavaScript file, don't forget to reference these files in your HTML file. [This is what my changes look like](https://github.com/ClydeDz/simple-chrome-extension-template/commit/81b004a5790cbcb14648ee986a91f537e957e93c) at this stage if you want to follow along.
+In the root directory of your extension's code, create a simple HTML file `newtab.html`. You could perhaps print the traditional 'Hello world' message on-screen if you like. You could also create a CSS file with basic styling like text or background colour and maybe even a JavaScript file that prints a message to the console. If you're including a CSS and JavaScript file, don't forget to reference these files in your HTML file. [This is what my changes look like](https://github.com/ClydeDz/simple-chrome-extension-template/commit/81b004a5790cbcb14648ee986a91f537e957e93c) at this stage if you want to follow along.
 
-At this stage, there is nothing peculiar about these files. If you've developed a website, then it's business as usual. And that's the beauty of developing an extension — for the most part, it's just like web development, and only in certain cases, you'd need to write extension-specific code.
+At this stage, there is nothing peculiar about these files. If you've developed a website, then it's business as usual. And that's the beauty of developing an extension — for the most part, it's just like web development, and only in certain cases, you'd need to write extension-specific code.
 
 > To reiterate what was mentioned earlier in this article, think of this as just developing web applications and packaging them inside an extension.
 
@@ -112,7 +132,7 @@ While most of it is pretty self-explanatory, here are a few things to consider w
 
 Once you're happy with what you've filled up, click on the **Submit for review** button. Your extension will sit in review status for a few days before it gets published. You can then share your Chrome extension with your friends and family.
 
----
+<hr />
 
 ### A complex scenario
 
@@ -133,9 +153,27 @@ Conceptually, at the very least, you want your build process to create that ZIP 
 
 For deployments, you'll need to upload this ZIP file to the Chrome Web Store programmatically. The following code snippet is from the [GitHub workflow file](https://gist.github.com/ClydeDz/6c037efe69cfe2b825b84474766ca20a) that builds and deploys a Chrome extension. The code snippet below is the publish step that uses the [Klemensas GitHub action](https://github.com/marketplace/actions/extension-upload) to publish your ZIP file. All you need to do is supply the client ID, refresh token, client secret and Chrome app ID. [Here's an external document](https://github.com/ClydeDz/google-api-keys-docs/blob/main/How%20to%20generate%20Google%20API%20keys.md) on how to get these values.
 
+```yaml
+- name: Publish to Chrome store
+  uses: Klemensas/chrome-extension-upload-action@v1.3
+  with:
+    refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
+    client-id: ${{ secrets.CHROME_CLIENT_ID }}
+    client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+    file-name: './extension.zip'
+    app-id: ${{ secrets.CHROME_APP_ID }}
+    publish: true
+```
+
 #### Using Chrome APIs
 
 For a complex extension, you might want to use one or more of the [various Chrome APIs available](https://developer.chrome.com/docs/extensions/reference/). Let's say you wanted to get all the bookmarks, you could add the following code snippet to your JavaScript file and that would print all the bookmarks into the developer console. Obviously and more realistically, instead of printing it to the console, you could loop through them and perhaps display it on the UI.
+
+```js
+chrome.bookmarks.getTree(function (results) {
+  console.log(results)
+})
+```
 
 #### Requesting permissions
 
@@ -145,9 +183,15 @@ The reason for this is to use most Chrome APIs, you'd have to declare permission
 
 For our example, to use bookmarks, you'd have to add the following code snippet into the manifest file, reload the extension into the browser, and then when you try again now, it should work as expected.
 
+```json
+"permissions": [
+  "bookmarks"
+]
+```
+
 Based on what permissions you declare in this file, you'll need to also write up its intent in the Chrome Web Store Developer Dashboard.
 
----
+<hr />
 
 ### Wait, it's not only Chrome
 

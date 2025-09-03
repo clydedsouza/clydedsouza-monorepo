@@ -3,10 +3,9 @@ title: 'Smashing Out a Build and Deploy Pipeline Using TeamCity'
 subtitle: 'React JS + Azure Storage and CLI + Lots of TeamCity GUI'
 date: '2023-03-30'
 lastmod: '2023-03-30'
-tags: ['one', 'two']
+tags: ['TeamCity', 'Continuous Integration', 'Continuous Delivery', 'DevOps', 'CICD']
 readingList: ['TeamCity']
 draft: false
-summary: 'React JS + Azure Storage and CLI + Lots of TeamCity GUI'
 images: ['/static/images/blog/tcman.png']
 ---
 
@@ -25,7 +24,7 @@ images: ['/static/images/blog/tcman.png']
 
 Learning TeamCity can be challenging so I'd recommend learning the UI before moving into Kotlin, which is a programmatic way to create the TeamCity pipeline. This article demonstrates the use of the TeamCity user interface to create a build and deployment pipeline to build a React website and deploy it to an Azure blob storage account.
 
----
+<hr />
 
 ### Prerequisites
 
@@ -59,7 +58,7 @@ If you need the tenant name, you can get that straightaway from the URL. It'll b
 
 ![](/static/posts/1_DkmbiS3az1HDEavWfhb5PQ.png)
 
----
+<hr />
 
 ### TeamCity deep-dive
 
@@ -71,7 +70,7 @@ Head over to the **Projects** navigation tab in TeamCity and click on the **New 
 
 In the **Create Project** screen, enter the required details in the respective fields. Usually, you would create a project under the root project. However, if hierarchically organized, it makes sense to place this project under another existing project and select a different one from the **Parent project** dropdown. Here, the **Password/access token** is the personal access token you would've created earlier. If it's a public repository, you may not require a password/access token. Click on the **Proceed** button once everything has been entered.
 
-![Creating a new project in TeamCity — configuration required to be saved.](/static/posts/1_3P2CqRG0mTwRb0BpC45F0w.png)
+![Creating a new project in TeamCity — configuration required to be saved.](/static/posts/1_3P2CqRG0mTwRb0BpC45F0w.png)
 
 If the connection to GitHub was successful, you'll see a success message with a few other fields to configure the branch specifications. We'll leave this as the default for now and click on the **Proceed** button.
 
@@ -87,7 +86,7 @@ Click on the configure **build steps manually** link from the **Build Steps** pa
 
 #### Build step #1: Install packages
 
-We want to first install the required npm packages for the project, similar to what you'd do when you first clone a project on your machine. We've selected the **Runner type&#x20;**&#x74;o be **Command Line** so that we can write the commands ourselves.
+We want to first install the required npm packages for the project, similar to what you'd do when you first clone a project on your machine. We've selected the **Runner type** to be **Command Line** so that we can write the commands ourselves.
 
 In the **Custom script** section, we'll enter `npm ci`. Running this command should install the required npm packages. In the **Step name** field, you can provide a descriptive name for this step as this text is what will appear in the UI later. Finally, click on the **Save** button to save this step.
 
@@ -165,7 +164,7 @@ From the **Triggers** page, we'll delete the default **VCS Trigger** by clicking
 
 ![](/static/posts/1_2uN65RLRZT5ShIsszDO61A.png)
 
-While still on the **Triggers** page, we'll click on the **Add new trigger** button, and then from the **Finish Build Trigger&#x20;**&#x6D;odal, we'll ensure that the checkbox is checked to trigger the configuration after a successful build only and the dependent build configuration is selected as **Build**, which is what we configured and tested earlier in this article. We'll also leave the branch filters as-is to `main`. Click on the **Save** button to save these changes.
+While still on the **Triggers** page, we'll click on the **Add new trigger** button, and then from the **Finish Build Trigger** modal, we'll ensure that the checkbox is checked to trigger the configuration after a successful build only and the dependent build configuration is selected as **Build**, which is what we configured and tested earlier in this article. We'll also leave the branch filters as-is to `main`. Click on the **Save** button to save these changes.
 
 ![](/static/posts/1_5MW8j0sitZsN0iKSAvipkw.png)
 
@@ -173,7 +172,7 @@ From the **Dependencies** page, let's click on the **Add new snapshot dependency
 
 ![](/static/posts/1_3ZMWOPiFdw2KfS_1lzDvQw.png)
 
-Our deploy configuration is dependent on the **Build** configuration, so let's select that. The remaining settings should already be defaulted to what you see in the screenshot below. Click on the **Save&#x20;**&#x62;utton to save these changes.
+Our deploy configuration is dependent on the **Build** configuration, so let's select that. The remaining settings should already be defaulted to what you see in the screenshot below. Click on the **Save** button to save these changes.
 
 ![](/static/posts/1_jhjqLS7V5aSLSq2rSoAMBg.png)
 
@@ -183,7 +182,7 @@ While still on the **Dependencies** page, click on the **Add new artifact depend
 
 ![](/static/posts/1_DpJl5t1eHcYfVHevA-gRzg.png)
 
-From the **Add new artifact dependency** modal, we'll ensure that we depend on the **Build** configuration, and in the **Artifact rules&#x20;**&#x74;extbox, we'll enter `**/*.*=>target` which translates to copying the files found in the artifacts folder of the build configuration into the target folder in our current deploy configuration. Checking the **Clean destination paths before downloading artifacts** checkbox ensures that no old files exist on file. Click on the **Save&#x20;**&#x62;utton to save these changes.
+From the **Add new artifact dependency** modal, we'll ensure that we depend on the **Build** configuration, and in the **Artifact rules** textbox, we'll enter `**/*.*=>target` which translates to copying the files found in the artifacts folder of the build configuration into the target folder in our current deploy configuration. Checking the **Clean destination paths before downloading artifacts** checkbox ensures that no old files exist on file. Click on the **Save** button to save these changes.
 
 ![](/static/posts/1_xd9KpOnyXRYeka7pqBjYOw.png)
 
