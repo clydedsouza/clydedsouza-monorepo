@@ -1,3 +1,4 @@
+import siteMetadata from '@/data/siteMetadata'
 import {
   EmailIcon,
   EmailShareButton,
@@ -14,7 +15,7 @@ import {
   WhatsappIcon,
   WhatsappShareButton,
 } from 'next-share'
-import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export const SocialShare = ({
   title,
@@ -25,11 +26,8 @@ export const SocialShare = ({
   summary?: string
   alignCenter?: boolean
 }) => {
-  const [pageUrl, setPageUrl] = useState('')
-
-  useEffect(() => {
-    setPageUrl(window.location.href)
-  }, [window.location.href])
+  const path = usePathname()
+  const pageUrl = `${siteMetadata.siteUrl}${path}`
 
   return (
     <div className="my-2">
