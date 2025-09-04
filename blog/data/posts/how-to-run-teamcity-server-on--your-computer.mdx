@@ -3,10 +3,9 @@ title: 'How To Run TeamCity Server on Your Computer'
 subtitle: 'Docker to the rescue!'
 date: '2021-06-01'
 lastmod: '2021-06-01'
-tags: ['jekyll', 'wordpress']
+tags: ['Teamcity', 'Continuous Integration', 'Docker', 'DevOps', 'Pipeline']
 readingList: ['TeamCity']
 draft: false
-summary: 'Docker to the rescue!'
 images: ['/static/posts/teamcity.png']
 ---
 
@@ -22,19 +21,19 @@ images: ['/static/posts/teamcity.png']
 
 ### Introduction
 
-If you're learning [TeamCity](https://www.jetbrains.com/teamcity/) (like me), you might find the free trial period too short to experiment with to your heart's content. Luckily, the folks at JetBrains have a solution for you — host TeamCity yourself. Even better is the fact that the installation is not dreadful at all, as you might've imagined. I've recently set it up on my personal device and this article aims at walking you through this process.
+If you're learning [TeamCity](https://www.jetbrains.com/teamcity/) (like me), you might find the free trial period too short to experiment with to your heart's content. Luckily, the folks at JetBrains have a solution for you — host TeamCity yourself. Even better is the fact that the installation is not dreadful at all, as you might've imagined. I've recently set it up on my personal device and this article aims at walking you through this process.
 
 ### Setting up a TeamCity server
 
 We'll be setting up a TeamCity server locally using Docker. So, first, let's go ahead and [install Docker](https://docs.docker.com/get-docker/). Once it's installed, in a command prompt window type the following command to pull TeamCity's image from [Docker Hub](https://hub.docker.com/r/jetbrains/teamcity-server/).
 
-```
+```shell
 docker pull jetbrains/teamcity-server
 ```
 
 We'll then run the following command to run an instance of the downloaded TeamCity server image on a localhost port. Replace `<DATA_DIRECTORY_PATH>` with the path to a local folder where you can store the data files. Replace `<LOGS_DIRECTORY_PATH>` with a path to a local folder where you can store the log files. Finally, replace `<PORT>` with a local port that's currently available on your host machine.
 
-```
+```shell
 docker run -it --name teamcity-server-instance -v <DATA_DIRECTORY_PATH>:/data/teamcity_server/datadir  -v <LOGS_DIRECTORY_PATH>:/opt/teamcity/logs -p <PORT>:8111 jetbrains/teamcity-server
 ```
 
@@ -46,7 +45,7 @@ Once you hit enter, a whole bunch of configurations will begin and at the very e
 
 The command prompt will show you the internal port number for TeamCity. However, if you recall in the command above, you would've mapped an available port on your host machine with 8111. I installed TeamCity on port 1111, so I'll head over to http\://localhost:1111 to access TeamCity.
 
-The first screen will inform us of the location of the data directory. You don't need to do anything at this stage except click the **Proceed&#x20;**&#x62;utton to continue.
+The first screen will inform us of the location of the data directory. You don't need to do anything at this stage except click the **Proceed** button to continue.
 
 ![Screenshot showing TeamCity's start page.](/static/posts/1_skBRZXqJEqBr4G1K6_WubQ.png)
 
@@ -62,13 +61,13 @@ As the message states, if you're setting up TeamCity in a production environment
 
 ![Screenshot of TeamCity starting up.](/static/posts/1_QDAAjj8zllqH_rO0FuVvQA.png)
 
-You'll now see a ‘TeamCity is starting' message on your screen. This initial setup may take some time. Once that is done, you should see a license agreement appear on your screen.
+You'll now see a 'TeamCity is starting' message on your screen. This initial setup may take some time. Once that is done, you should see a license agreement appear on your screen.
 
 Review the agreement and check the **Accept license agreement** checkbox. Optionally, uncheck the **Send anonymous usage statistics…** checkbox. Click on the **Continue** button to proceed ahead.
 
 ![Partial screenshot of TeamCity's agreement.](/static/posts/1_Fm0R4ndotMudISmbGkN4aQ.png)
 
-Let's now create an administrator account — set a username and a strong password — then click on the **Create Account** button. Remember to save these credentials.
+Let's now create an administrator account — set a username and a strong password — then click on the **Create Account** button. Remember to save these credentials.
 
 ![Screenshot of TeamCity's create administrator account page.](/static/posts/1_v6Z346BE-iS5XGiAUfFHug.png)
 
@@ -78,7 +77,7 @@ Click on the **Let's go** button from the pop-up on your screen to enable the ex
 
 ![Screenshot showing how to enable experimental UI.](/static/posts/1_xGAcwCAXcENfW6zm4dLdCw.png)
 
----
+<hr />
 
 ### Setting up a TeamCity build agent
 
@@ -110,11 +109,11 @@ During the authorization process, you'll be asked to optionally add a comment, w
 
 ![Screenshot show the authorize build agent pop up.](/static/posts/1_IwiwT7OuJNrJf4ONV3r3lA.png)
 
-The build agent connection should turn green if everything has gone well. If it still shows as disconnected, try restarting the **TeamCity Build Agent&#x20;**&#x57;indows service. If that still doesn't work, try removing it from the UI by clicking the **Remove** button, restarting the **TeamCity Build Agent&#x20;**&#x57;indow Service, and finally refreshing the UI. The build agent should appear again in the TeamCity server UI and might need to be authorized once more.
+The build agent connection should turn green if everything has gone well. If it still shows as disconnected, try restarting the **TeamCity Build Agent** Windows service. If that still doesn't work, try removing it from the UI by clicking the **Remove** button, restarting the **TeamCity Build Agent** Windows Service, and finally refreshing the UI. The build agent should appear again in the TeamCity server UI and might need to be authorized once more.
 
 > **Note**: I tried configuring the build agent using a Docker image but I ran into issues. [It appears that](https://hub.docker.com/r/jetbrains/teamcity-agent/) when setting the server URL field as localhost:1111, the build agent refers to localhost inside it's own container rather than the localhost site on the host machine.
 
----
+<hr />
 
 ### GitHub repository and token
 
@@ -124,7 +123,7 @@ Head over to [GitHub token settings page](https://github.com/settings/tokens) an
 
 ![Screenshot showing how to generate a personal access token in GitHub.](/static/posts/1_iya55tvGkM83vAavfmYcXA.png)
 
----
+<hr />
 
 ### Creating a project in TeamCity
 
@@ -136,7 +135,7 @@ Keep the **From a repository URL** tab selected and fill up the required values 
 
 ![Screenshot showing how to create a project in TeamCity.](/static/posts/1_6cdu8DkV4_FS3YH8yu6uWQ.png)
 
-Click on the **Proceed** button. This will validate the connection and create a [VCS root ](https://www.jetbrains.com/help/teamcity/vcs-root.html)— a VCS root defines a connection to the version control system. TeamCity will show you the next screen to configure the details of the project. We'll keep the default values as-is for now and we can always come back and update these settings later if necessary. Click on the **Proceed** button to continue.
+Click on the **Proceed** button. This will validate the connection and create a [VCS root ](https://www.jetbrains.com/help/teamcity/vcs-root.html)— a VCS root defines a connection to the version control system. TeamCity will show you the next screen to configure the details of the project. We'll keep the default values as-is for now and we can always come back and update these settings later if necessary. Click on the **Proceed** button to continue.
 
 ![Screenshot showing how to create a project in TeamCity.](/static/posts/1_QAs6KfdIuIAMLGLC6SrhWQ.png)
 
@@ -144,11 +143,11 @@ TeamCity should create a project and a build configuration under the project nam
 
 ![Screenshot showing how to configure the build steps manually in TeamCity.](/static/posts/1_gN8rNeTn_Mfi7j7Pp2pVWw.png)
 
-From the **Runner type** dropdown, select **Command Line**. Give it a suitable **Step name**, and in the **Custom script** field, enter `echo ‘Hello world!'`. Click on the **Save** button to save this step.
+From the **Runner type** dropdown, select **Command Line**. Give it a suitable **Step name**, and in the **Custom script** field, enter `echo 'Hello world!'`. Click on the **Save** button to save this step.
 
 ![Screenshot showing how to add a command line hello world build step in TeamCity.](/static/posts/1_JBQgFY16or0AlH48MuLR2g.png)
 
-We're expecting the build to print a ‘Hello world!' message. Click on the **Run** button to trigger a build and test this theory.
+We're expecting the build to print a 'Hello world!' message. Click on the **Run** button to trigger a build and test this theory.
 
 ![Screenshot showing how to run your first build in TeamCity.](/static/posts/1_Q6fvgoxrN-qfzJJScIBs9Q.png)
 
@@ -156,13 +155,13 @@ A build would've been queued in the background which our local build agent will 
 
 ![Screenshot showing to access the build logs of a particular build in TeamCity.](/static/posts/1_H0IlZfgpoxKsuYOf9tJLAg.png)
 
-From the build details page, click the **Build Log** tab to see the details. If you scroll down and expand a few sections, you should see a ‘Hello world!' message printed out.
+From the build details page, click the **Build Log** tab to see the details. If you scroll down and expand a few sections, you should see a 'Hello world!' message printed out.
 
 ![Screenshot showing to access the build logs of a particular build in TeamCity.](/static/posts/1_j_cZOEpnIzsc3YYfSJ-EAg.png)
 
 For the brevity and scope of this article, we won't go into creating the full build pipeline right now. I might write another article explaining that process, but in the meantime, this [official blog article](https://blog.jetbrains.com/teamcity/2019/09/build-chains-teamcitys-blend-of-pipelines-part-1-getting-started/) might help you if you're looking for more details on how to create a pipeline itself. You can also create your build configuration from code using [Kotlin DSL](https://github.com/antonarhipov/todoapp-backend-teamcity-config/tree/master/.teamcity), so you might also want to check that out at some stage.
 
----
+<hr />
 
 ### Bonus: Create additional users
 
@@ -184,7 +183,7 @@ Voila! You should now have access to the TeamCity server using the newly created
 
 ![Screenshot of TeamCity's project page.](/static/posts/1_jHWrkFOXPDrpHATX9Hhmpg.png)
 
----
+<hr />
 
 ### Stop and restart
 
@@ -192,7 +191,7 @@ If you close the command prompt that you had opened up earlier, or if you end up
 
 ![Screenshot showing how to start a Docker container.](/static/posts/1_9CshpkBdMnYvUL762DO1BA.png)
 
----
+<hr />
 
 ### Clean up
 

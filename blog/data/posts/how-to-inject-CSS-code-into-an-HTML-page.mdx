@@ -3,10 +3,9 @@ title: 'How To Inject CSS Code Into an HTML Page?'
 subtitle: 'A step-by-step guide to solving a problem'
 date: '2021-05-19'
 lastmod: '2021-05-19'
-tags: ['css', 'html']
+tags: ['Web Development', 'Gulp', 'NPM', 'JavaScript', 'Technology']
 readingList: []
 draft: false
-summary: 'A step-by-step guide to solving a problem'
 images: ['/static/posts/injectcss.jpg']
 ---
 
@@ -22,19 +21,19 @@ images: ['/static/posts/injectcss.jpg']
 
 ### Introduction
 
-I originally came across [this StackOverflow question](https://stackoverflow.com/q/60914292/11480716) and it got me thinking — how would I automatically inject the CSS contents of a CSS file into an HTML page? After some research, I found a solution and this article aims at walking you through it.
+I originally came across [this StackOverflow question](https://stackoverflow.com/q/60914292/11480716) and it got me thinking — how would I automatically inject the CSS contents of a CSS file into an HTML page? After some research, I found a solution and this article aims at walking you through it.
 
 ### Problem
 
 Let's revisit the problem before we dive into the solution. We want to replace the link tag in the HTML file with the CSS contents of the file that the link tag refers to. So, for instance, if the HTML contained the following line of code:
 
-```
-<link rel="stylesheet" href="style.css">
+```html
+<link rel="stylesheet" href="style.css" />
 ```
 
 It should be replaced with this:
 
-```
+```html
 <style>
   <!-- minified contents of the style.css file here -->
 </style>
@@ -52,13 +51,13 @@ Okay, back to the problem statement. Why not take this a step further? Instead o
 
 Next, instead of manually adding link tags to reference the CSS file like this:
 
-```
-<link rel="stylesheet" href="style.css">
+```html
+<link rel="stylesheet" href="style.css" />
 ```
 
 Why not make it a bit more dynamic? How about we only add CSS placeholders, i.e., tell it _where_ to place the CSS contents but not _what_ to place in there. For instance, the placeholders could look something like this:
 
-```
+```html
 <!-- inject:css -->
 <!-- endinject -->
 ```
@@ -75,7 +74,7 @@ The `src` (source) folder has a simple ‘Hello World' `index.html` file. I'm us
 
 We'll be using an npm based solution, so let's install the following [npm](https://www.npmjs.com/) packages.
 
-```
+```shell
 npm i gulp gulp-sass gulp-inject gulp-replace --save-dev
 ```
 
@@ -100,6 +99,18 @@ To execute tasks using Gulp, you need to define them in a file named `gulpfile.j
 
 Now, to compile Sass files into CSS, let's add the following into the `gulpfile.js`.
 
+```js
+var gulp = require('gulp')
+var sass = require('gulp-sass')
+
+gulp.task('compile-sass', function () {
+  return gulp
+    .src('./src/sass/*.scss')
+    .pipe(sass({ outputStyle: 'compressed' }))
+    .pipe(gulp.dest('./src/css'))
+})
+```
+
 If you need to compare, the complete gulpfile.js can be [found here](https://github.com/ClydeDz/gulp-demo/blob/master/gulpfile.js).
 
 We've named this task compile-sass and given it the source folder where all Sass/SCSS files exist. We've then invoked the Sass function to compile the files in a compressed, i.e. minified format, and finally specified the destination folder where the CSS files will be dropped into. Run the command `gulp compile-sass` to execute this task.
@@ -112,7 +123,26 @@ Now, your solution should look something like this.
 
 To dynamically link the CSS file in the HTML file, we'll be using gulp-inject. First, we need to add placeholders into the HTML file.
 
+```html
+<head>
+  <title>Hello</title>
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+```
+
 Let's introduce gulp-inject into the `gulpfile.js` file. We'll add another require statement at the top, and a new task at the bottom.
+
+```js
+var gulp = require('gulp')
+var inject = require('gulp-inject')
+
+gulp.task('add-styles', function () {
+  var target = gulp.src('./src/index.html')
+  var sources = gulp.src(['./src/css/*.css'], {})
+  return target.pipe(inject(sources)).pipe(gulp.dest('./dist'))
+})
+```
 
 If you need to compare, the complete gulpfile.js can be [found here](https://github.com/ClydeDz/gulp-demo/blob/master/gulpfile.js).
 
@@ -124,11 +154,45 @@ Run the command `gulp add-styles` to see the magic happen. You would now see a d
 
 The `index.html` file might look something like this.
 
+```html
+<head>
+  <title>Hello</title>
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/src/css/main.css" />
+  <!-- endinject -->
+</head>
+```
+
 > **Note**: If there were two CSS files in the CSS folder, then you would have two link tags referencing two CSS files.
 
 #### Replacing the link tag with its CSS: gulp-replace
 
 Now that we have the link tags added, we can read the contents of this file and inject the contents into the HTML file replacing the link tag. Let's add the below snippet into the `gulpfile.js` file.
+
+```js
+var gulp = require('gulp')
+var replace = require('gulp-replace')
+var fs = require('fs')
+
+function getCSSFilename(linkTag) {
+  var hrefValue = /href\=\"([A-Za-z0-9/._]*)\"/g
+  var cssFilename = linkTag.match(hrefValue)
+  cssFilename = cssFilename[0].replace('href="', '').replace('"', '')
+  return cssFilename
+}
+
+gulp.task('inject-styles', function () {
+  return gulp
+    .src('./dist/index.html')
+    .pipe(
+      replace(/<link rel="stylesheet" href="[^"]*"*>/g, function (linkTag) {
+        var style = fs.readFileSync(`.${getCSSFilename(linkTag)}`, 'utf8')
+        return '<style>\n' + style + '\t</style>'
+      })
+    )
+    .pipe(gulp.dest('./dist'))
+})
+```
 
 If you need to compare, the complete gulpfile.js can be [found here](https://github.com/ClydeDz/gulp-demo/blob/master/gulpfile.js).
 
@@ -136,12 +200,31 @@ We're creating a third gulp task called inject-styles that takes the HTML file a
 
 Run the command `gulp inject-styles` and witness the action. The final HTML file in the dist folder would look something like this.
 
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello</title>
+    <!-- inject:css -->
+    <style>
+      body {
+        color: blue;
+      }
+    </style>
+    <!-- endinject -->
+  </head>
+  <body>
+    Hello World
+  </body>
+</html>
+```
+
 #### Optional: Running all tasks with a single command
 
 Instead of running three commands to execute three different gulp tasks, why not execute it sequentially using a single command? Append the following line into the `gulpfile.js` file.
 
-```
-gulp.task('build', gulp.series('compile-sass', 'add-styles', 'inject-styles'));
+```js
+gulp.task('build', gulp.series('compile-sass', 'add-styles', 'inject-styles'))
 ```
 
 You can then run a single command `gulp build` and it will execute all three tasks.

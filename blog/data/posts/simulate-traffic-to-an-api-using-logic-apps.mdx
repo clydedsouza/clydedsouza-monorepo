@@ -1,12 +1,11 @@
 ---
 title: 'Simulate Traffic to an API Using Logic Apps'
 subtitle: 'When your demo application has no real users'
-date: '2021-10-11'
-lastmod: '2021-10-11'
-tags: ['one', 'two']
+date: '2021-10-12'
+lastmod: '2021-10-12'
+tags: ['Logic Apps', 'Azure', 'Technology', 'Automation', 'Workflow']
 readingList: []
 draft: false
-summary: 'When your demo application has no real users'
 images: ['/static/posts/roads.jpg']
 ---
 
@@ -26,13 +25,22 @@ Recently, I was preparing for a presentation on the subject of Azure Application
 
 Now to demonstrate all of these features using a demo .NET API that no one is actually using is a bit ineffective as I run into the risk of not being able to demo anything as no logs would be generated. Therefore, I thought it would be a good idea to let the demo application run for weeks before the presentation so that enough logs are generated, simulating as if the application was live and being used.
 
-While in theory, this sounds great, I still have one problem — if no one is actually using this API, how will logs be generated? This article aims at exploring the solution to this question.
+While in theory, this sounds great, I still have one problem — if no one is actually using this API, how will logs be generated? This article aims at exploring the solution to this question.
 
 ### Solution
 
 I created multiple API endpoints in my demo API application, which was publicly accessible and hosted in Azure, so when a request was made to that endpoint, it would be able to send the relevant logs to Application Insights and thereby, contribute towards my demo.
 
-For example, I needed enough custom events logged so I created an API endpoint that will only send a specific event to Application Insights once it was triggered. It does nothing else, just that, and that's the whole point — since it was a demo application, I could modify it as I see fit.
+For example, I needed enough custom events logged so I created an API endpoint that will only send a specific event to Application Insights once it was triggered. It does nothing else, just that, and that's the whole point — since it was a demo application, I could modify it as I see fit.
+
+```cs:CustomEventController.cs
+[HttpGet("GetCustomEvent")]
+public void GetCustomEvent()
+{
+    _telemetry.TrackEvent("This is a custom event");
+    Console.WriteLine("Get custom event");
+}
+```
 
 I now needed to create sample traffic to each API endpoint in my demo .NET API, which would eventually create and send logs to Application Insights. While there are many network traffic generating tools out there, I needed to find the right balance of something that's not overly complex to upskill on and set up, is free to use, and can run automatically on a schedule. That's when I found an Azure-based solution called [Logic Apps](https://azure.microsoft.com/services/logic-apps).
 
@@ -43,7 +51,7 @@ Pardon the interruption. Before we jump into how Logic Apps was used to solve th
 - We'll be using [Mocki](https://mocki.io/fake-json-api), a fake API tool, in this example. I'd highly recommend using this tool if you're following along since the setup time is absolutely minimum. For the purpose of this article, I only intend to show the workings of a Logic App, so I don't really need the actual Application Insights instance and the demo .NET API. Having said that, if you already have a sample API created and hosted in a publicly accessible location, feel free to use a couple of API endpoints from that application.
 - Since we're using Azure Logic Apps, if you don't already have one, please create a [free Azure account](https://azure.microsoft.com/).
 
----
+<hr />
 
 ### Implementation steps
 
@@ -155,7 +163,7 @@ Click on the **Overview** menu item from the left panel and then click on **Runs
 
 Image courtesy of the author
 
----
+<hr />
 
 ### What will your team appreciate?
 
@@ -187,6 +195,35 @@ Image courtesy of the author
 
 In our example, we already added two API endpoints from the **Designer** and now let's say we want to add a few more, we could click on the **Code view** button and copy a block from the actions object and then simply copy-paste it multiple times. For each code block, update the key for the block, in this example, `API_endpoint_NEW` and the `URI` of the API endpoint. Even when in **Code view**, don't forget to save your changes.
 
+```json
+"actions": {
+    "API_endpoint_ABC": {
+        "inputs": {
+            "method": "GET",
+            "uri": "https://mocki.io/v1/a3996bc1-0f57-4548-8d37-f44e5414ea09"
+        },
+        "runAfter": {},
+        "type": "Http"
+    },
+    "API_endpoint_XYZ": {
+        "inputs": {
+            "method": "GET",
+            "uri": "https://mocki.io/v1/d4867d8b-b5d5-4a48-a4ab-79131b5809b8"
+        },
+        "runAfter": {},
+        "type": "Http"
+    },
+    "API_endpoint_NEW": {
+        "inputs": {
+            "method": "GET",
+            "uri": "https://mocki.io/v1/198de415-a8a0-48eb-8c69-64762ab0e59e"
+        },
+        "runAfter": {},
+        "type": "Http"
+    }
+},
+```
+
 #### Parameters
 
 If you think you're going to use the same values every time, consider using parameters. To add a parameter, click on **Parameters** from the header and then click on **Add Parameter**.
@@ -195,7 +232,7 @@ If you think you're going to use the same values every time, consider using para
 
 Image courtesy of the author
 
-Enter the name of the parameter and give it a default value — it's called default value because we can change the value for the parameter at runtime. In this example, however, we'll look at only using the default value of the parameter. You don't need to click on **Add Parameter** again as that's for adding another parameter.
+Enter the name of the parameter and give it a default value — it's called default value because we can change the value for the parameter at runtime. In this example, however, we'll look at only using the default value of the parameter. You don't need to click on **Add Parameter** again as that's for adding another parameter.
 
 ![Image showing how to configure a parameter in a Logic App.](/static/posts/1_ILkFuXymB4Y3PgoUNZRGeQ.png)
 
@@ -207,6 +244,25 @@ To use this parameter, click on the **HTTP** step. Now, let's replace the base U
 
 Image courtesy of the author
 
-Save and run the trigger to test — everything should run as-is. If you click on **Code view**, you should be able to see how the parameter is configured (lines 11–16 in the code snippet below) and how it is used (line 5).
+Save and run the trigger to test — everything should run as-is. If you click on **Code view**, you should be able to see how the parameter is configured (lines 11-16 in the code snippet below) and how it is used (line 5).
+
+```json {5,11-16} showLineNumbers
+"actions": {
+  "API_endpoint_ABC": {
+      "inputs": {
+          "method": "GET",
+          "uri": "@{parameters('API base URL')}a3996bc1-0f57-4548-8d37-f44e5414ea09"
+      },
+      "runAfter": {},
+      "type": "Http"
+  }
+},
+"parameters": {
+  "API base URL": {
+      "defaultValue": "https://mocki.io/v1/",
+      "type": "String"
+  }
+}
+```
 
 That's it. Thanks for reading!
