@@ -3,7 +3,7 @@ title: "Using GitHub's GeoJSON for Your Mapping Requirements"
 subtitle: 'How the Ministry of Health NZ displays covid locations of interest on their website'
 date: '2022-02-21'
 lastmod: '2022-02-21'
-tags: ['one', 'two']
+tags: ['Geojson', 'Maps', 'Mapping', 'Github', 'Open Source']
 readingList: []
 draft: false
 images: ['/static/posts/maps.jpg']
@@ -41,11 +41,55 @@ Clicking on the **Info** tab from the pop up will give you the area of the selec
 
 Plotting markers on the map is super easy. In the geometry block, just add the coordinates of where you'd want your marker to be. Coordinates are the latitude and longitude of the location.
 
+```geojson:mymap.geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.77809309959412,
+          -41.285264253328606
+        ]
+      }
+    }
+  ]
+}
+```
+
 The snippet above will produce a result like the following screenshot.
 
 ![An image of a marker on a GeoJSON rendered map.](/static/posts/1_SaoWrfwUsmhnIdwJ_8v_YA.png)
 
 You can use the properties block to specify some metadata for that marker. In the snippet below, the properties with the prefix `marker-` are Point specific. Depending on what type of feature you decide to plot on the map, you'll have access to different built-in properties.
+
+```geojson:mymap.geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "marker-color": "#ff0095",
+        "marker-size": "large",
+        "marker-symbol": "museum",
+        "Location": "Museum of Wellington",
+        "How to get there?": "15 mins bus from the city or 5 mins drive from city center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          174.77809309959412,
+          -41.285264253328606
+        ]
+      }
+    }
+  ]
+}
+```
 
 Adding the various properties for this point not only gives it a different style but also adds metadata that will be displayed when you click on the point.
 
@@ -55,6 +99,47 @@ Adding the various properties for this point not only gives it a different style
 
 If you'd like to display multiple points on a map, just duplicate the contents of the feature block and update the coordinates accordingly. The features block is an array of objects which means it can hold either a single feature or multiple features, in this case, either a single point or multiple points. The same logic applies to other features as well, which we'll revisit later in this article.
 
+```geojson:mymap.geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -92.27918276398681,
+          48.39592955328644
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          158.98942190304547,
+          -85.56932970610792
+        ]
+      },
+      "properties": {}
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -55.141767637538585,
+          51.59283957486469
+        ]
+      },
+      "properties": {}
+    }
+  ]
+}
+```
+
 The snippet above will produce the following result.
 
 ![An image of multiple points rendered on a GeoJSON rendered map.](/static/posts/1_EKhFsrUk_BzKF_teH1NteA.png)
@@ -62,6 +147,35 @@ The snippet above will produce the following result.
 #### Line
 
 For a line, you'll need to supply two sets of coordinates and GitHub will connect them both forming a line. The properties in the snippet below are line specific.
+
+```geojson:mymap.geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "stroke": "#555555",
+        "stroke-width": 4,
+        "stroke-opacity": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            174.781494140625,
+            -41.285030454601916
+          ],
+          [
+            174.03854370117188,
+            -41.39638489653628
+          ]
+        ]
+      }
+    }
+  ]
+}
+```
 
 The snippet above will produce the following output.
 
@@ -71,6 +185,45 @@ The snippet above will produce the following output.
 
 To plot a rectangle, you'll need to supply four sets of coordinates. Note, that the geometry type is still `Polygon` because a rectangle is just like any other area except it has four sets of coordinates at right angles with parallel sides.
 
+```geojson:mymap.geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              167.2503662109375,
+              -47.30530951077586
+            ],
+            [
+              168.310546875,
+              -47.30530951077586
+            ],
+            [
+              168.310546875,
+              -46.67394106549698
+            ],
+            [
+              167.2503662109375,
+              -46.67394106549698
+            ],
+            [
+              167.2503662109375,
+              -47.30530951077586
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
+```
+
 The above snippet produces the following result.
 
 ![An image of a rectangle rendered on a GeoJSON rendered map.](/static/posts/1_DJmxKBBKaG89KYfbaZ7Wpw.png)
@@ -78,6 +231,77 @@ The above snippet produces the following result.
 #### Polygon
 
 For a polygon, the code snippet looks very similar to that of a rectangle. The rendered output just doesn't have four sets of coordinates at right angles with parallel sides.
+
+```geojson:mymap.geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              172.35214233398438,
+              -42.24275208539065
+            ],
+            [
+              172.41806030273438,
+              -42.301690328244504
+            ],
+            [
+              172.53753662109375,
+              -42.25190128722989
+            ],
+            [
+              172.61444091796875,
+              -42.18579390537846
+            ],
+            [
+              172.63778686523438,
+              -42.11961732446699
+            ],
+            [
+              172.74215698242185,
+              -42.0441936181652
+            ],
+            [
+              172.847900390625,
+              -41.94825586972942
+            ],
+            [
+              172.85614013671875,
+              -41.87671893034394
+            ],
+            [
+              172.9412841796875,
+              -41.77028745790555
+            ],
+            [
+              172.77099609375,
+              -41.83171182161545
+            ],
+            [
+              172.55813598632812,
+              -41.981952616657146
+            ],
+            [
+              172.36175537109375,
+              -42.123691727324726
+            ],
+            [
+              172.35214233398438,
+              -42.24275208539065
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
+```
 
 The snippet above produces the following output.
 
@@ -87,6 +311,112 @@ The snippet above produces the following output.
 
 You are not limited to rendering only a single type of feature. You can have a single GeoJSON file that has a combination of multiple points, lines, polygons and rectangles. The following snippet is an example of rendering different features.
 
+```geojson:mymap.geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              167.2503662109375,
+              -47.30530951077586
+            ],
+            [
+              168.310546875,
+              -47.30530951077586
+            ],
+            [
+              168.310546875,
+              -46.67394106549698
+            ],
+            [
+              167.2503662109375,
+              -46.67394106549698
+            ],
+            [
+              167.2503662109375,
+              -47.30530951077586
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              170.452880859375,
+              -45.575600209478
+            ],
+            [
+              170.44189453125,
+              -45.614037411350914
+            ],
+            [
+              170.09033203125,
+              -45.729191061299915
+            ],
+            [
+              170.17822265625,
+              -46.01222384063236
+            ],
+            [
+              170.57373046875,
+              -46.08085173686784
+            ],
+            [
+              170.826416015625,
+              -45.84410779560203
+            ],
+            [
+              170.452880859375,
+              -45.575600209478
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            168.02490234375,
+            -46.07323062540835
+          ],
+          [
+            168.59619140624997,
+            -45.798169530172636
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          169.16748046875,
+          -46.377254205100265
+        ]
+      }
+    }
+  ]
+}
+```
+
 This snippet produces the following output.
 
 ![An image of all objects rendered on a GeoJSON rendered map.](/static/posts/1_lP0a1rbXFsNQacHB_lKv7A.png)
@@ -95,13 +425,13 @@ This snippet produces the following output.
 
 GitHub allows you to embed the map directly on your webpage. To do so, you'll need to copy the following snippet format into your website and replace the placeholders as required.
 
-```
+```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
 So, if my GeoJSON file's URL is `https://github.com/ClydeDz/geojson-demo/blob/main/allobjects-demo.geojson`, then the embedded script would be the following.
 
-```
+```html
 <script src="https://embed.github.com/view/geojson/ClydeDz/geojson-demo/main/allobjects-demo.geojson"></script>
 ```
 
