@@ -11,7 +11,7 @@ export const metadata = genPageMetadata({
 export default async function Page() {
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+  const sortedTags = tagKeys.sort()
 
   return (
     <SectionContainer>
