@@ -1,12 +1,11 @@
 ---
-title: 'Getting the best of static sites'
+title: 'Getting the Best of Static Sites'
 subtitle: 'Migrating to Jekyll, adding a CMS layer and other power-ups'
 date: '2020-02-01'
 lastmod: '2020-02-01'
-tags: ['jekyll', 'wordpress']
+tags: ['WordPress', 'Jekyll', 'Technology', 'Integration', 'CMS']
 readingList: []
 draft: false
-summary: 'Migrating to Jekyll, adding a CMS layer and other power-ups'
 images: ['/static/posts/wpjekyll.png']
 ---
 
@@ -23,7 +22,7 @@ images: ['/static/posts/wpjekyll.png']
 
 ### Introduction
 
-I was using a WordPress website for Light & Spark NPO's online presence. It was hosted on Azure and met our requirements well. However, certain factors forced me to reconsider this design and move to a static site. This article outlines the reasoning behind the move, working with a static site and other integrations.
+I was using a WordPress website for [Light & Spark NPO's](https://lightandsparknpo.github.io/) online presence. It was hosted on Azure and met our requirements well. However, certain factors forced me to reconsider this design and move to a static site. This article outlines the reasoning behind the move, working with a static site and other integrations.
 
 ### Pros and cons, shall we?
 
@@ -47,15 +46,15 @@ Let's first look at what worked well and what didn't with the WordPress setup.
 
 The goal was, therefore, to look at something lightweight and potentially free. With this in mind, I looked at static sites. Static sites serve pre-built files on each request as opposed to traditional dynamic sites like WordPress which generate files on each request.
 
-I had briefly worked with [Jekyll](https://jekyllrb.com/) in the past, so I ended up investigating further and found it a suitable candidate. After some searching and experimentation, I found [Beautiful Jekyll](https://deanattali.com/beautiful-jekyll/) — a simple Jekyll theme by Dean Attali — which I was able to modify to match Light & Spark NPO's branding. This theme has a lot of customization options and if you know what you're doing, you can tweak a bunch of things like editing and adding new templates, settings, etc.
+I had briefly worked with [Jekyll](https://jekyllrb.com/) in the past, so I ended up investigating further and found it a suitable candidate. After some searching and experimentation, I found [Beautiful Jekyll](https://deanattali.com/beautiful-jekyll/) — a simple Jekyll theme by Dean Attali — which I was able to modify to match Light & Spark NPO's branding. This theme has a lot of customization options and if you know what you're doing, you can tweak a bunch of things like editing and adding new templates, settings, etc.
 
-I also choose to host the website using GitHub pages, and get rid of the custom domain and stay content with the free domain offered by GitHub — [lightandsparknpo.github.io](https://lightandsparknpo.github.io/). All the code was source controlled on Light and Spark's [GitHub repository](https://github.com/lightandsparknpo/lightandsparknpo.github.io).
+I also choose to host the website using GitHub pages, and get rid of the custom domain and stay content with the free domain offered by GitHub — [lightandsparknpo.github.io](https://lightandsparknpo.github.io/). All the code was source controlled on Light and Spark's [GitHub repository](https://github.com/lightandsparknpo/lightandsparknpo.github.io).
 
-One of the things I added to the code base was a widget to show all team members on any page — this meant I stored a list of team members (somewhere), I designed how the widget must look like, in this case, a simple repeater that looped thru all the team members from the list, and then on any page I wanted, I was able to write a line of code to include this widget.
+One of the things I added to the code base was a widget to show all team members on any page — this meant I stored a list of team members (somewhere), I designed how the widget must look like, in this case, a simple repeater that looped thru all the team members from the list, and then on any page I wanted, I was able to write a line of code to include this widget.
 
 ![Image showing the Team widget in action](/static/posts/1_ch4qcDL5FmQpmzy72W9uBQ.png)
 
-Image showing the ‘Team' widget in action
+Image showing the 'Team' widget in action
 
 I did this by using [Jekyll Collections](https://jekyllrb.com/docs/collections/). I defined my collection in the [\_config.yml](https://github.com/lightandsparknpo/lightandsparknpo.github.io/blob/master/_config.yml#L8-L10) file. In a custom folder for this collection called \_[teams](https://github.com/lightandsparknpo/lightandsparknpo.github.io/tree/master/_teams), I created a [markdown file for each team member](https://github.com/lightandsparknpo/lightandsparknpo.github.io/blob/master/_teams/ClydeDSouza.md) which allowed me to store key information about my team members using [front matter](https://jekyllrb.com/docs/front-matter/). I then [created a partial view](https://github.com/lightandsparknpo/lightandsparknpo.github.io/blob/master/_includes/team.html) to control how this widget is displayed. Finally, all I needed to do was to [include this widget in my page layout](https://github.com/lightandsparknpo/lightandsparknpo.github.io/blob/master/_layouts/page.html#L11-L15) and boom, I had my widget rendered!
 
@@ -69,7 +68,7 @@ I also used `_posts` to store event information and loop thru all of them on the
 
 All of the content pages in this Jekyll site are Markdown-based content. This meant if anyone from my team wanted to edit anything, they'd have to edit the Markdown file (which means they need to know the syntax of Markdown) and then they'd have to commit their changes so that GitHub builds a new version of my website (which means they'd need to know a little about Git and GitHub).
 
-I wanted to make the editing experience a whole lot easier, and after some research, I stumbled upon [Forestry.io](https://forestry.io/) — it is a static CMS that hooks into your Git repository. That meant I could add/update content using Forestry's WYSIWYG editor and Forestry would commit my changes to the repository every time I saved it.
+I wanted to make the editing experience a whole lot easier, and after some research, I stumbled upon [Forestry.io](https://forestry.io/) — it is a static CMS that hooks into your Git repository. That meant I could add/update content using Forestry's WYSIWYG editor and Forestry would commit my changes to the repository every time I saved it.
 
 ![GIF showing different screens of Forestry's CMS portal](/static/posts/1_nO6z21kK1KNoO3tbgu07Dg.gif)
 
@@ -89,9 +88,9 @@ The purpose of this article is to only give you an insight of what is possible, 
 
 I still needed a contact us form for the website and since I was using a static site, I wondered how was I supposed to achieve this. Then I came across [Formspree](https://formspree.io/) from [Jekyll's official resources list](https://jekyllrb.com/resources/).
 
-It was super simple to set up. I included [some HTML](https://github.com/lightandsparknpo/lightandsparknpo.github.io/blob/master/_includes/formspree.html) in my website that built a contact us form (Formspree provides a basic example, don't worry). This HTML contained a form action to post the form data to a Formspree endpoint. Next, I configured the destination email address in Formspree to tell it where to email all the form submissions. And that's pretty much it — I had a working contact us form on my website, and each form submission would get emailed to the email address I configured.
+It was super simple to set up. I included [some HTML](https://github.com/lightandsparknpo/lightandsparknpo.github.io/blob/master/_includes/formspree.html) in my website that built a contact us form (Formspree provides a basic example, don't worry). This HTML contained a form action to post the form data to a Formspree endpoint. Next, I configured the destination email address in Formspree to tell it where to email all the form submissions. And that's pretty much it — I had a working contact us form on my website, and each form submission would get emailed to the email address I configured.
 
-In addition to the above, I would also recommend setting the ‘Restrict to Domain' option to your website URL (in my case: lightandsparknpo.github.io) and enabling reCAPTCHA too — both of which can be found from the settings tab in Formspree.
+In addition to the above, I would also recommend setting the ‘Restrict to Domain' option to your website URL (in my case: lightandsparknpo.github.io) and enabling reCAPTCHA too — both of which can be found from the settings tab in Formspree.
 
 #### Um, shared mailbox?
 
@@ -107,13 +106,13 @@ GIF showing what Freshdesk portal looks like when a ticket is viewed and when th
 
 #### May I help you?
 
-I was really fascinated with implementing a live chat system like [Intercom](https://www.intercom.com/). While configuring Freshdesk, I found out about another _Fresh&#x20;_&#x70;refixed product called [Freshchat](https://www.freshworks.com/live-chat-software/).
+I was really fascinated with implementing a live chat system like [Intercom](https://www.intercom.com/). While configuring Freshdesk, I found out about another _Fresh_; prefixed product called [Freshchat](https://www.freshworks.com/live-chat-software/).
 
 ![GIF showing different screens of Freshchat's portal](/static/posts/1_81rdkr-uKIDaYndTCnQcKw.gif)
 
 GIF showing the Freshchat dashboard with an active conversation and the profile settings page where you can customize how your avatar would like to the user chatting with you.
 
-Set up was pretty easy — complete your profile, add team members to the Freshchat portal, add Freshchat's script to your website (like I did [here](https://github.com/lightandsparknpo/lightandsparknpo.github.io/blob/master/_includes/freshdesk.html)) — and just like that you've added a live chat functionality to your site.
+Set up was pretty easy — complete your profile, add team members to the Freshchat portal, add Freshchat's script to your website (like I did [here](https://github.com/lightandsparknpo/lightandsparknpo.github.io/blob/master/_includes/freshdesk.html)) — and just like that you've added a live chat functionality to your site.
 
 ![GIF showing the live chat feature in action](/static/posts/1_MJG2CceXtQvCHyKV6P9RHA.gif)
 
@@ -126,16 +125,14 @@ If you want to go one step ahead, you can even [connect Freshdesk and Freshchat 
 Alright, time for a quick recap —
 
 1. I moved Light & Spark NPO's website from WordPress to Jekyll because it was just costing me too much.
-2. I used and customized the [Beautiful Jekyll](https://deanattali.com/beautiful-jekyll/) theme and added a ‘Team' widget to the website.
+2. I used and customized the [Beautiful Jekyll](https://deanattali.com/beautiful-jekyll/) theme and added a 'Team' widget to the website.
 3. Instead of making all the updates to the Jekyll website through GitHub, I used a Git-based CMS called Forestry.
 4. I added a contact us form to this static site using Formspree.
-5. Instead of using a shared mailbox to keep a track of all the inquiries received via the contact us page, I used Freshdesk — a ticket management tool. Formspree sends the form submission via email to Freshdesk where a new ticket is created.
+5. Instead of using a shared mailbox to keep a track of all the inquiries received via the contact us page, I used Freshdesk — a ticket management tool. Formspree sends the form submission via email to Freshdesk where a new ticket is created.
 6. And finally, I added a live chat system using Freshchat and wrote about how easy it was to integrate this functionality into a static site.
 
-That's it!
+That's it! Thanks for reading.
 
-Thanks for reading. Give it a clap 👏 and share it with your network 🙏
-
----
+<hr />
 
 **Light & Spark NPO** is a non-profit educational initiative. We executed a 2-day event in Mumbai where we taught web development to 36 computer science students and produced a website that we gifted to a local non-profit organization. Read more about the event [here](https://lightandsparknpo.github.io/2019-11-20-ruia-mumbai-2018/).

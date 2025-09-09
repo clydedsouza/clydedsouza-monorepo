@@ -3,10 +3,9 @@ title: 'Reducing a Visual Studio Extension (VSIX) File Size'
 subtitle: 'And resolving a malformed Azure DevOps Extension package error'
 date: '2021-01-04'
 lastmod: '2021-01-04'
-tags: ['VSIX', 'Visual Studio Extension']
+tags: ['VSIX', 'Visual Studio Extension', 'Azure Devops', 'Technology', 'NPM', 'Nodejs']
 readingList: []
 draft: false
-summary: 'And resolving a malformed Azure DevOps Extension package error'
 images: ['/static/posts/vsix.png']
 ---
 
@@ -27,7 +26,7 @@ I was recently updating my Azure DevOps Extension that I had published in the Vi
 
 ### Problem
 
-I made my changes, all the unit tests passed and even the build pipeline generated a VSIX package — so far so good. However, when the release pipeline kicked in, it failed with the following error while trying to deploy the VSIX package to the Visual Studio Marketplace.
+I made my changes, all the unit tests passed and even the build pipeline generated a VSIX package — so far so good. However, when the release pipeline kicked in, it failed with the following error while trying to deploy the VSIX package to the Visual Studio Marketplace.
 
 ![Image showing the error message when trying to publish a large VSIX package.](/static/posts/1_PlQ3v4NYeYq9ua3BCzOXjg.png)
 
@@ -80,11 +79,11 @@ I then ran the [command](https://github.com/ClydeDz/meta-tag-analyzer/blob/maste
 
 Finally, to check what would be the file size of the VSIX package, I ran the following command on my development machine. Check out the full documentation for tfs-cli [here](https://github.com/microsoft/tfs-cli/blob/master/docs/extensions.md).
 
-```
+```shell
 tfx extension create --manifest-globs .\vss-extension.json
 ```
 
-The resultant VSIX package size was already a great improvement — down to 19.8MB from 26.6MB.
+The resultant VSIX package size was already a great improvement — down to 19.8MB from 26.6MB.
 
 ![Image showing the file size of the VSIX package after the modclean process.](/static/posts/1_paEBn_EYabTvP4orgvOOPQ.png)
 
@@ -104,11 +103,11 @@ After this exercise, the size of the unzipped `buildAndReleaseTask` folder was r
 
 #### Step 4: Testing this in Azure DevOps
 
-It's time to now test these steps in the Azure DevOps build pipeline which generates the VSIX package for me. Right after the unit test results are published to the pipeline and just before the VSIX is packed, I've added three command-line tasks — to install the npm package modclean globally, to execute the modclean command, and lastly, the commands to delete development files.
+It's time to now test these steps in the Azure DevOps build pipeline which generates the VSIX package for me. Right after the unit test results are published to the pipeline and just before the VSIX is packed, I've added three command-line tasks — to install the npm package modclean globally, to execute the modclean command, and lastly, the commands to delete development files.
 
 ![Images show three command-line tasks to perform modclean and development files cleanup.](/static/posts/1_Y7qeRvbQdyL36boOTAepiw.png)
 
-For the ‘delete development files' step, I've combined all four commands into a single line by separating each command with an ampersand `&` operator.
+For the 'delete development files' step, I've combined all four commands into a single line by separating each command with an ampersand `&` operator.
 
 I run the pipeline after saving my changes and compare the results. The VSIX packages' file size has been reduced by 8MB to just under 20MB. That's great!
 
@@ -130,4 +129,6 @@ In the end, I ran the build pipeline on the main branch which built the package 
 
 If you'd like to check out the Azure DevOps extension, [here is a link](https://marketplace.visualstudio.com/items?itemName=clydedsouza.meta-tag-analyzer) to Meta Tag Analyzer in the Visual Studio Marketplace. The source code for this extension is on [GitHub](https://github.com/ClydeDz/meta-tag-analyzer).
 
-Hope you've enjoyed the read. If you've gone through a similar journey, please let me know in the comments below. That's it. Thanks for reading!
+Hope you've enjoyed the read. If you've gone through a similar journey, please let me know in the comments below.
+
+That's it. Thanks for reading!

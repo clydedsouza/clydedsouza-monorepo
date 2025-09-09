@@ -3,10 +3,9 @@ title: 'Takeaways From Updating My Website'
 subtitle: 'Includes generating an API from Markdown files and a lot more'
 date: '2020-12-06'
 lastmod: '2020-12-06'
-tags: ['jekyll', 'wordpress']
+tags: ['Website Development', 'UX Design', 'API', 'DevOps', 'Technology']
 readingList: []
 draft: false
-summary: 'Includes generating an API from Markdown files and a lot more'
 images: ['/static/posts/updatewebsite.png']
 ---
 
@@ -32,19 +31,19 @@ High-level architecture diagram of the website
 
 #### User experience
 
-One of the drawbacks of my old website's design was that all my work needed to fit under a single Projects tab. With the list of projects increasing year-on-year, this screen grew very large needing to scroll a lot to get to the bottom of the list. The screen also didn't have any filters or a search box to get a refined view of the list. To fix this, the new website design includes navigation tabs on top of the screen which allows me to broadly classify my portfolio into four categories — projects, speaking, teaching and books. Each of these screens also includes a search box to quickly refine the list of projects and a toggle to show inactive projects — these include projects that are not maintained and might not function 100% as a result of various factors.
+One of the drawbacks of my old website's design was that all my work needed to fit under a single Projects tab. With the list of projects increasing year-on-year, this screen grew very large needing to scroll a lot to get to the bottom of the list. The screen also didn't have any filters or a search box to get a refined view of the list. To fix this, the new website design includes navigation tabs on top of the screen which allows me to broadly classify my portfolio into four categories — projects, speaking, teaching and books. Each of these screens also includes a search box to quickly refine the list of projects and a toggle to show inactive projects — these include projects that are not maintained and might not function 100% as a result of various factors.
 
 ![Image showing the difference between old and new website navigation.](/static/posts/1_ro7N61plBlqnsWIIXf5jAg.gif)
 
-New — categorized navigation and searchable results. Old — simple navigation without a search box.
+New — categorized navigation and searchable results. Old — simple navigation without a search box.
 
 I've also included a Highlights section in the home screen which allows me to feature certain projects. I tried to do that in the old website using a card but that just felt limiting.
 
-![GIF showing the comparision for the highlights section in the old website versus the new website.](/static/posts/1_wM43xkQpPhOko1xwZILszg.gif)
+![GIF showing the comparison for the highlights section in the old website versus the new website.](/static/posts/1_wM43xkQpPhOko1xwZILszg.gif)
 
-New — a highlights section on the homepage allowing me to pin selected projects. Old — a single card in the home screen highlighting a specific project.
+New — a highlights section on the homepage allowing me to pin selected projects. Old — a single card in the home screen highlighting a specific project.
 
-I've also added a call to action in the sidebar for subtly drawing user's attention — like in-app advertisements but not in-your-face. On a mobile screen, this section is moved to the footer of the website with a slightly different background colour than the rest of the website.
+I've also added a call to action in the sidebar for subtly drawing user's attention — like in-app advertisements but not in-your-face. On a mobile screen, this section is moved to the footer of the website with a slightly different background colour than the rest of the website.
 
 ![GIF showing the call to action section in desktop and mobile devices.](/static/posts/1_ytaeG3dQ25M3bAOV-l7ypQ.gif)
 
@@ -54,7 +53,7 @@ The old website included a Facebook Messenger button in the bottom-right corner 
 
 ![Image show the difference between two real-time messaging icons in the website.](/static/posts/1_CiM3u-jbaMcxd1yPgYw8cw.gif)
 
-New — a Tawk.to chat icon in the bottom-right of the screen. Old — a Facebook Messenger icon in the bottom-right of the screen.
+New — a Tawk.to chat icon in the bottom-right of the screen. Old — a Facebook Messenger icon in the bottom-right of the screen.
 
 I've also moved away from [Material Design](https://material.io/design) as it was time for a visual refresh and have also moved away from [Material design icons](https://materialdesignicons.com/) since they [stopped providing brand icons](http://dev.materialdesignicons.com/roadmap/brand-icons). The design of the website is inspired by [Gitfolio](https://imfunniee.github.io/gitfolio/) and for the icons used on the website, I've gone with [Font Awesome](https://fontawesome.com/). The colour scheme, however, remains the same as I wanted to retain brand familiarity for returning visitors.
 
@@ -64,7 +63,7 @@ GIF showing the new website design versus the old website design.
 
 #### Technical details
 
-I was using [Angular](https://angularjs.org/) 1.x along with [Angular Material](https://material.angular.io/). Angular 1.x became obsolete a long time ago and the current version at the time of writing this is 11.0.0. So, for version 2.0 of my website, I've removed the Angular dependency totally and have kept the tech super simple — HTML, CSS and JavaScript.
+I was using [Angular](https://angularjs.org/) 1.x along with [Angular Material](https://material.angular.io/). Angular 1.x became obsolete a long time ago and the current version at the time of writing this is 11.0.0. So, for version 2.0 of my website, I've removed the Angular dependency totally and have kept the tech super simple — HTML, CSS and JavaScript.
 
 I'm using a templating library called [Mustache.js](https://mustache.github.io/) which makes it easier to display repeating items like the list of projects. Combined with [jQuery](https://jquery.com/), I've also made the website feel like using a Single Page Application (SPA). This is done by making most of the content it's own partial view and then [loading it in and out](https://github.com/clydedsouza/clydedsouza.github.io/blob/v2.0.0/js/custom/templateEngine.js) depending on what navigation item is clicked or what URL is visited.
 
@@ -80,7 +79,7 @@ I'm continuing to use Google Analytics for general analytics around the usage on
 
 In version 1.0 of my website, I was using a single JSON file to store information about my projects. Initially, this worked fine but as the list of my projects grew, this JSON file became difficult to maintain.
 
-So for version 2.0, I moved my project information into its own [GitHub repository](https://github.com/clydedsouza/clydedsouza-web-api/settings) and I started using Markdown files to store information about my projects. The idea was to have one Markdown file for each project — the meta-information will be stored as [Front Matter](https://jekyllrb.com/docs/front-matter/) and below that, I have the opportunity to add more details around each project which I can then show on a project details page — the latter part isn't live yet but is on the roadmap.
+So for version 2.0, I moved my project information into its own [GitHub repository](https://github.com/clydedsouza/clydedsouza-web-api/settings) and I started using Markdown files to store information about my projects. The idea was to have one Markdown file for each project — the meta-information will be stored as [Front Matter](https://jekyllrb.com/docs/front-matter/) and below that, I have the opportunity to add more details around each project which I can then show on a project details page — the latter part isn't live yet but is on the roadmap.
 
 ![High-level diagram outlining the process of adding a portfolio item to consuming that data via the API](/static/posts/1_RudtGed0a6byblO9MVm6VA.jpeg)
 
@@ -88,11 +87,11 @@ High-level diagram outlining the process of adding a portfolio item to consuming
 
 Then, in my Azure DevOps build pipeline, I'm using an npm package called [processmd](https://www.npmjs.com/package/processmd) to convert these Markdown files into a single JSON file. Yes, the website does end up using a JSON file but importantly, I don't have to edit a JSON file.
 
-I've organised these Markdown files into sub-folders allowing me to broadly categorize my projects into — projects, teaching, speaking and books — all of which are pretty self-explanatory, I think. Within each category, I've organised the files into folders by the year they were made.
+I've organised these Markdown files into sub-folders allowing me to broadly categorize my projects into — projects, teaching, speaking and books — all of which are pretty self-explanatory, I think. Within each category, I've organised the files into folders by the year they were made.
 
 On the home page of my website, I'm showing a section called Highlights— which are some projects that I've pinned to the home page. To mark a project as a highlight, I've to change the file extension of the Markdown file from `filename.md` to `filename.pin.md`.
 
-I'm using a [PowerShell script](https://github.com/clydedsouza/clydedsouza-web-api/blob/v1.0.2/Run-Portfolio-API.ps1) that runs processmd on my project folder to generate different JSON files — one JSON file for each category, one JSON file for each year and one JSON file for all highlighted projects — without repeating the original content. This is the advantage of decoupling the content from the actual format it's delivered in.
+I'm using a [PowerShell script](https://github.com/clydedsouza/clydedsouza-web-api/blob/v1.0.2/Run-Portfolio-API.ps1) that runs `processmd` on my project folder to generate different JSON files — one JSON file for each category, one JSON file for each year and one JSON file for all highlighted projects — without repeating the original content. This is the advantage of decoupling the content from the actual format it's delivered in.
 
 The PowerShell script linked above uses a couple of helper scripts. These helpers are unit tested using [Pester](https://github.com/pester/Pester) and the results of the tests are published to the Azure DevOps build pipeline.
 
@@ -141,7 +140,7 @@ To automate the operational status change of your components in Instatus, you wo
 
 #### Why did I choose Instatus instead of Freshstatus?
 
-Instead of integrating Freshping with Instatus, you could also use [Freshstatus](https://www.freshworks.com/status-page/) — which is another service that offers a status page. I did not select Freshstatus because their [free plan](https://www.freshworks.com/status-page/pricing/) offered only up to 250 subscribers and although their free plan offered the ability to set a custom domain, they didn't offer SSL which means that the page will be served via HTTP instead of HTTPS which isn't ideal.
+Instead of integrating Freshping with Instatus, you could also use [Freshstatus](https://www.freshworks.com/status-page/) — which is another service that offers a status page. I did not select Freshstatus because their [free plan](https://www.freshworks.com/status-page/pricing/) offered only up to 250 subscribers and although their free plan offered the ability to set a custom domain, they didn't offer SSL which means that the page will be served via HTTP instead of HTTPS which isn't ideal.
 
 ### Other changes
 
@@ -151,6 +150,6 @@ Instead of integrating Freshping with Instatus, you could also use [Freshstatus]
 
 ### Conclusion
 
-Wow, that was a lot of information and I'm glad you stuck around till the end. I also hope you enjoyed this journey. If you've been on a similar journey, I'd like to know — let me know in the comments below.
+Wow, that was a lot of information and I'm glad you stuck around till the end. I also hope you enjoyed this journey. If you've been on a similar journey, I'd like to know — let me know in the comments below.
 
 That's it! Thanks for reading.

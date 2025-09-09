@@ -1,12 +1,11 @@
 ---
-title: 'AppDynamics: 13 concepts that caught my attention'
+title: 'AppDynamics: 13 Concepts That Caught My Attention'
 subtitle: 'A post AppDynamics Implementer Foundations Workshop reflection'
 date: '2020-03-17'
 lastmod: '2020-03-17'
-tags: ['appdynamics', 'apm']
+tags: ['Appdynamics', 'APM', 'Training', 'Cisco', 'Monitoring']
 readingList: []
 draft: false
-summary: 'A post AppDynamics Implementer Foundations Workshop reflection'
 images: ['/static/posts/appdynamics.gif']
 ---
 
@@ -73,7 +72,7 @@ Events Service is the data storage facility for the high-volume, performance-int
 
 EUM collects data from web browsers, mobile apps, and IoT devices, thus allowing you to get insights from the actual user experience. In an on-premise set up, you would need to install the EUM server and Events Service in addition to the Controller and EUM agents, to process and store the data being collected.
 
----
+<hr />
 
 ### What caught my attention?
 
@@ -92,16 +91,16 @@ At the beginning of this article, I mentioned that this workshop was about an on
 
 #### 2) Common settings across Agent installation
 
-Over the 5 days, we ended up installing different types of Agents (among other things, of course) — Java Agent, .NET Agent, Machine Agent with Analytics plugin, and the Database Monitoring Agent. I noted that there were a few settings that had the exact same values across all Agents — and this made sense since all the Agents need to communicate with the Controller to post data to it and get the latest configuration. The settings were:
+Over the 5 days, we ended up installing different types of Agents (among other things, of course) — Java Agent, .NET Agent, Machine Agent with Analytics plugin, and the Database Monitoring Agent. I noted that there were a few settings that had the exact same values across all Agents — and this made sense since all the Agents need to communicate with the Controller to post data to it and get the latest configuration. The settings were:
 
-- **Account name**: Since this is a single tenant set up in a demo environment, we set this to ‘customer1' but in a real-world scenario, you'd name this after your client.
-- **Access key**: This can be obtained from the License page. You would want to restrict how you distribute the access key — more about this in the ‘License rules' section below.
+- **Account name**: Since this is a single tenant set up in a demo environment, we set this to 'customer1' but in a real-world scenario, you'd name this after your client.
+- **Access key**: This can be obtained from the License page. You would want to restrict how you distribute the access key — more about this in the 'License rules' section below.
 - **Controller host**: Since we had a load balancer in front of our controllers (similar to the diagram above), we needed to enter the load balancer's internal fully qualified domain name (FQDN).
 - **Controller port**: The default port number for a Controller is 8090. A full list of port settings can be found [here](https://docs.appdynamics.com/latest/appdynamics-application-performance-monitoring-platform/planning-your-deployment/port-settings).
 
 #### 3) Difference between Java and .NET Agent
 
-- Let's start with the obvious one — the .NET Agent is used to monitor .NET applications while the Java Agent is used to monitor a Java application.
+- Let's start with the obvious one — the .NET Agent is used to monitor .NET applications while the Java Agent is used to monitor a Java application.
 - You only require one .NET agent per Windows Server even if you want to monitor multiple applications, whereas, you require one Java Agent per Java Virtual Machine (JVM).
 - The .NET Agent comes with a .NET machine agent (which is different from a standalone Machine Agent), while the Java Agent doesn't come packaged with anything else.
 - The .NET Agent requires Windows Coordinator Service while a Java Agent doesn't depend on any additional service.
@@ -141,13 +140,13 @@ Note: HA is only available if you're Controller's are set up on Linux machines. 
 
 #### 7) Enterprise Console and Controller downtime
 
-If the Enterprise Console experiences a downtime, the Controller will not be impacted. However, if the primary Controller (in a high availability scenario) and Enterprise Console is down at the same time, it wouldn't auto failover to the secondary Controller because, by default, in the 4.5.x release the ‘Enable auto failover' is auto enabled (as pictured below) in the Enterprise Console — which means it is the Enterprise Console's responsibility to monitor the Controller's and initiate an auto failover when necessary.
+If the Enterprise Console experiences a downtime, the Controller will not be impacted. However, if the primary Controller (in a high availability scenario) and Enterprise Console is down at the same time, it wouldn't auto failover to the secondary Controller because, by default, in the 4.5.x release the 'Enable auto failover' is auto enabled (as pictured below) in the Enterprise Console — which means it is the Enterprise Console's responsibility to monitor the Controller's and initiate an auto failover when necessary.
 
 ![By default, in the 4.5.x release the Enable auto failover is auto enabled](/static/posts/1_C4QaKvklwNZFE3FSsN3UEw.png)
 
 By default, in the 4.5.x release the Enable auto failover is auto enabled
 
-The solution to that is the new HA Module that installs the Controller watchdog on the Controller hosts making the Controller hosts now responsible for performing a failover. The HA module is packaged with the Enterprise Console but just isn't enabled by default — although it can be activated anytime as per [this article](https://docs.appdynamics.com/display/PRO45/Migrate+to+the+New+HA+Module+Using+Enterprise+Console#MigratetotheNewHAModuleUsingEnterpriseConsole-Two). The HA Module activation will be automated in future Enterprise Console releases.
+The solution to that is the new HA Module that installs the Controller watchdog on the Controller hosts making the Controller hosts now responsible for performing a failover. The HA module is packaged with the Enterprise Console but just isn't enabled by default — although it can be activated anytime as per [this article](https://docs.appdynamics.com/display/PRO45/Migrate+to+the+New+HA+Module+Using+Enterprise+Console#MigratetotheNewHAModuleUsingEnterpriseConsole-Two). The HA Module activation will be automated in future Enterprise Console releases.
 
 While we're on the topic, it is also worth noting how the Agent behaves when a Controller is down. If the Controller is unreachable for one minute, the Agents goes on standby during which it doesn't detect any transactions. All metrics not posted to the Controller is stored in the memory. It keeps retrying every minute and resumes function once reconnected.
 
@@ -155,13 +154,13 @@ If this persists for more than three minutes and after three retries, the Agent 
 
 #### 8) Authentication provider fallback to local login
 
-By default, AppDynamics is the authentication provider — which means local users and groups that you'd need to configure. You can also configure an LDAP or SAML provider to handle your authentication needs so AppDynamics can only manage the authorization aspect. In case the LDAP or SAML authentication provider is down, AppDynamics will automatically switch to local user logins for authentication seamlessly. As part of the implementation, it is therefore advised to create few local users with the appropriate roles even though you're configuring LDAP/SAML— just as a contingency plan.
+By default, AppDynamics is the authentication provider — which means local users and groups that you'd need to configure. You can also configure an LDAP or SAML provider to handle your authentication needs so AppDynamics can only manage the authorization aspect. In case the LDAP or SAML authentication provider is down, AppDynamics will automatically switch to local user logins for authentication seamlessly. As part of the implementation, it is therefore advised to create few local users with the appropriate roles even though you're configuring LDAP/SAML— just as a contingency plan.
 
 #### 9) AppDynamics Query Language (ADQL)
 
 AppDynamics provides their query language to be able to query data available in Application Analytics. For example, I've written a simple ADQL query below:
 
-```
+```sql
 SELECT transactionName, userExperience, responseTime FROM transactions WHERE responseTime > 200
 ```
 
@@ -185,13 +184,13 @@ Further details on how the JavaScript Agent works and detailed can be found [her
 
 #### 11) Upgrading the platform components
 
-On day 4, we upgraded all the components that we had installed. The high-level steps was to: 1) back up everything— common convention is to back up all the components before backing up the Controller and finally the Enterprise Console, and 2) upgrade the components — order is Enterprise Console, Events Service, EUM Server, and finally the Controller.
+On day 4, we upgraded all the components that we had installed. The high-level steps was to: 1) back up everything— common convention is to back up all the components before backing up the Controller and finally the Enterprise Console, and 2) upgrade the components — order is Enterprise Console, Events Service, EUM Server, and finally the Controller.
 
-We also upgraded all the Agents we had installed — Java Agent, .NET Agent, Machine Agent with Analytics plugin, and Database Monitoring Agent. Note: Upgrading an Agent may require an outage as we need to restart the application. Overall, I found that the process would require a lot of planning (in a real-life scenario) even before you can get to actually upgrading. Depending on what components you're upgrading, this may involve quite a bit of manual effort.
+We also upgraded all the Agents we had installed — Java Agent, .NET Agent, Machine Agent with Analytics plugin, and Database Monitoring Agent. Note: Upgrading an Agent may require an outage as we need to restart the application. Overall, I found that the process would require a lot of planning (in a real-life scenario) even before you can get to actually upgrading. Depending on what components you're upgrading, this may involve quite a bit of manual effort.
 
 #### 12) Email templates
 
-Email notifications can make use of email templates should a health rule get violated. Email templates can be customized using variables — [predefined](https://docs.appdynamics.com/display/PRO45/Predefined+Templating+Variables) and custom — so the same email template with different values can be sent to the recipients based on the trigger. Templates use [Velocity](https://velocity.apache.org/engine/1.5/user-guide.html) to process these variables and add the correct value in the right places. Sample email template below:
+Email notifications can make use of email templates should a health rule get violated. Email templates can be customized using variables — [predefined](https://docs.appdynamics.com/display/PRO45/Predefined+Templating+Variables) and custom — so the same email template with different values can be sent to the recipients based on the trigger. Templates use [Velocity](https://velocity.apache.org/engine/1.5/user-guide.html) to process these variables and add the correct value in the right places. Sample email template below:
 
 ```
 ...
@@ -224,7 +223,7 @@ Extensions, as the name suggests, extend the functionality of AppDynamics so it 
 - If you have any questions along the way, feel free to post a question on their [community-driven site](https://community.appdynamics.com/).
 - If you're interested in attending the Implementer Foundations Workshop, [check out this page](https://learn.appdynamics.com/workshops/imp860-implementer-foundations-workshop-ws) to know when you may be able to attend next.
 
----
+<hr />
 
 ### Summary
 
@@ -235,4 +234,4 @@ Alright, time for a quick recap —
 3. To some degree of detail, we then looked at 13 concepts that caught my attention.
 4. Finally, we noted what the next steps would be like if you'd like to get started with AppDynamics.
 
-That's it!
+That's it! Thanks for reading.

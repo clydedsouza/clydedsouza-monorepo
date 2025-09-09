@@ -3,10 +3,9 @@ title: 'Installing WordPress on an Azure App Service'
 subtitle: 'Spin up a WordPress website within minutes'
 date: '2020-12-16'
 lastmod: '2020-12-16'
-tags: ['Azure', 'wordpress', 'Azure App Service']
+tags: ['Azure', 'Azure App Service', 'WordPress', 'Technology', 'How To', 'Website Design']
 readingList: []
 draft: false
-summary: 'Spin up a WordPress website within minutes'
 images: ['/static/posts/wordpressazure.png']
 ---
 
@@ -37,7 +36,7 @@ The big question for everyone starting out with WordPress.
 
 [WordPress.org](https://wordpress.org/) is the open-source software that provides you with the CMS functionality. It's the underlying engine that you can install on a supported [hosting platform](https://wordpress.org/hosting/).
 
-[WordPres.com](https://wordpress.com/), on the other hand, is a blogging website that's built on top of the WordPress engine. It's a [Software as a Service (SaaS)](https://en.wikipedia.org/wiki/Software_as_a_service) — which means that for a monthly cost, they take care of installing WordPress, hosting your website, ensuring that your website is always up and running and taking regular backups— all you need to do is just click a few buttons to sign up and off you go!
+[WordPres.com](https://wordpress.com/), on the other hand, is a blogging website that's built on top of the WordPress engine. It's a [Software as a Service (SaaS)](https://en.wikipedia.org/wiki/Software_as_a_service) — which means that for a monthly cost, they take care of installing WordPress, hosting your website, ensuring that your website is always up and running and taking regular backups— all you need to do is just click a few buttons to sign up and off you go!
 
 ### Let's begin
 
@@ -47,11 +46,11 @@ Let's start by searching for WordPress in Azure's global search located at the t
 
 Click on the **Create** button to proceed to the next screen where you'll enter all the details.
 
-We'll give it a suitable **App name**. This app name will also become our website URL, so choose wisely! Next, select the Azure **Subscription** you want this resource to be charged to. Immediately after that, we'll select the **Resource Group** — this allows us to logically organise our resources.
+We'll give it a suitable **App name**. This app name will also become our website URL, so choose wisely! Next, select the Azure **Subscription** you want this resource to be charged to. Immediately after that, we'll select the **Resource Group** — this allows us to logically organise our resources.
 
 ![Configuring an App Service in Azure](/static/posts/1_QFFcs72I5JCbTjWYiXKpnw.png)
 
-From the **Database Provider** dropdown, we'll select **MySQL In App**. There are a few other options in there — all of which are just different ways you can create the database for this WordPress site.
+From the **Database Provider** dropdown, we'll select **MySQL In App**. There are a few other options in there — all of which are just different ways you can create the database for this WordPress site.
 
 ![Selecting MySQL In App from the list of database providers in Azure](/static/posts/1_kjHAGU5xuf84zNCi7kKoCw.png)
 
@@ -65,7 +64,7 @@ After entering all the details, click on **Create**. This will spin up your reso
 
 > Fun fact: In the background, Azure pulls all the required WordPress files from [this GitHub repository](https://github.com/azureappserviceoss/wordpress-azure).
 
-Now, head over to the App Service you just created and click on **Browse&#x20;**&#x73;o you can head over to the website in a different browser tab. Note the URL — it contains your App Service name.
+Now, head over to the App Service you just created and click on **Browse** so you can head over to the website in a different browser tab. Note the URL — it contains your App Service name.
 
 The first thing you would see is the WordPress installation page. Let's start by selecting the language and then click on **Continue**.
 
@@ -89,7 +88,7 @@ Enter your username and password and then click on **Log In** to head over to yo
 
 ### Accessing MySQL via phpMyAdmin
 
-For those who have used MySQL in the past, you would be hoping to see the phpMyAdmin portal to manage your database. In this scenario, search for and select **MySQL In App&#x20;**&#x6F;ption from the left menu list and then select **Manage** from the screen that opens.
+For those who have used MySQL in the past, you would be hoping to see the phpMyAdmin portal to manage your database. In this scenario, search for and select **MySQL In App** option from the left menu list and then select **Manage** from the screen that opens.
 
 ![Image showing how to access phpMyAdmin portal](/static/posts/1_WBrHf8anBei-aYHhJbh2QA.png)
 

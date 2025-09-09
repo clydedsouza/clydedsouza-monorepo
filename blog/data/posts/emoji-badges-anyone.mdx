@@ -1,12 +1,11 @@
 ---
-title: 'Emoji Badges, anyone?'
+title: 'Emoji Badges, Anyone?'
 subtitle: 'Developing your own VS Code Snippet Extension'
 date: '2020-02-17'
 lastmod: '2020-02-17'
-tags: ['vscode', 'emojis']
+tags: ['Visual Studio Code', 'Json', 'VS Code Extension', 'NPM', 'Tech']
 readingList: []
 draft: false
-summary: 'Developing your own VS Code Snippet Extension'
 images: ['/static/posts/emojisanyone.png']
 ---
 
@@ -37,7 +36,7 @@ While many services provide you with an option to generate a badge (like the exa
 
 ### Welcome, Emoji Badges
 
-I thought — wouldn't it be a good idea to create a Visual Studio Code extension that allows you to add emoji badges to your markdown file? Here's a GIF to show this in working:
+I thought — wouldn't it be a good idea to create a Visual Studio Code extension that allows you to add emoji badges to your markdown file? Here's a GIF to show this in working:
 
 ![GIF showing Emoji Badges in working](/static/posts/1_8iqosa4EWCxRGIGDvNb-7Q.gif)
 
@@ -50,9 +49,9 @@ Now, how do you go about making this? Let's take a look.
 ### Prerequisites
 
 - Download [Visual Studio Code](https://code.visualstudio.com/download).
-- Install [Node.js](https://nodejs.org/en/download/) and NPM package manager. The Node.js installer will also install NPM. Verify installation: type `node –v` in the command prompt and you should get the Node.js version. Similarly, test the NPM installation using the command `npm –v`.
+- Install [Node.js](https://nodejs.org/en/download/) and NPM package manager. The Node.js installer will also install NPM. Verify installation: type `node -v` in the command prompt and you should get the Node.js version. Similarly, test the NPM installation using the command `npm -v`.
 - Install vsce (short for Visual Studio Code Extensions) via NPM. vsce is a command-line tool for packaging, publishing and managing VS Code extensions. Use the command `npm install -g vsce`. Verify by running the command `vsce -V`.
-- Create a Visual Studio Marketplace publisher profile — steps outlined in the next section.
+- Create a Visual Studio Marketplace publisher profile — steps outlined in the next section.
 
 #### Creating a publisher profile
 
@@ -60,23 +59,15 @@ If you don't already have a Visual Studio Marketplace publisher profile, head ov
 
 ![Image showing VS Marketplace sign up steps.](/static/posts/1_S-WkZjBKG8AbMWIjY8wsKg.png)
 
-Complete the details in the Create Publisher screen and you've successfully created your publisher profile. Make a note of the unique publisher ID — we'd require that later.
+Complete the details in the Create Publisher screen and you've successfully created your publisher profile. Make a note of the unique publisher ID — we'd require that later.
 
 ![Image showing the create publisher page while signing up for VS Marketplace.](/static/posts/1_glMJA9u_eP8ixsg2iDbg-g.png)
 
-> **Note:** The details you enter in the above screen will show up on your publisher profile page. Click the link below to see what my Visual Studio Marketplace publisher profile looks like.
-
-[**Publisher Clyde D'Souza — Visual Studio Marketplace**\
-_Publisher clydedsouza, Clyde D'Souza — Visual Studio Marketplace. Currently working as a software developer at Datacom…_&#x6D;arketplace.visualstudio.com](https://marketplace.visualstudio.com/publishers/clydedsouza 'https://marketplace.visualstudio.com/publishers/clydedsouza')[](https://marketplace.visualstudio.com/publishers/clydedsouza)
+> **Note:** The details you enter in the above screen will show up on your publisher profile page. [Click this link](https://marketplace.visualstudio.com/publishers/clydedsouza) to see what my Visual Studio Marketplace publisher profile looks like.
 
 ### Source code and extension
 
-Before we dive into the implementation steps, let me leave you with a link to my Code extension that you can use as a reference while you're learning. Feel free to fork the repository and work from there, if that's easier.
-
-[**ClydeDz/emoji-badges-vscode**\
-_Snippets to insert emoji badges to your markdown file. These are shields.io badges boosted with emojis 😎 Here are some…_&#x67;ithub.com](https://github.com/ClydeDz/emoji-badges-vscode 'https://github.com/ClydeDz/emoji-badges-vscode')[](https://github.com/ClydeDz/emoji-badges-vscode)
-
-Click [here](http://bit.ly/emoji-badges) to view (and maybe also install?) my VS Code extension — Emoji Badges — on the Visual Studio Marketplace.
+Before we dive into the implementation steps, let me leave you [with a link to my Code extension](https://github.com/ClydeDz/emoji-badges-vscode) that you can use as a reference while you're learning. Feel free to fork the repository and work from there, if that's easier. Click [here](http://bit.ly/emoji-badges) to view (and maybe also install?) my VS Code extension — Emoji Badges — on the Visual Studio Marketplace.
 
 ### Structuring your code
 
@@ -84,15 +75,15 @@ Let's add these files and folder to your directory.
 
 ![Basic directory structure of a VS Code extension.](/static/posts/1_o64axOxfosshKW9XGXz2Wg.png)
 
-Basic directory structure of a VS Code extension. I've blurred out the files and folders that's not required for a simple extension — I've used them for custom requirements.
+Basic directory structure of a VS Code extension. I've blurred out the files and folders that's not required for a simple extension — I've used them for custom requirements.
 
-- **LICENSE** — Depending on how you choose to license your extension, add the appropriate license file to your repository. Visit [this website](https://choosealicense.com/) to choose between various license types.
-- **README.md&#x200A;**— Description of what your Code extension does. Generally, a README file might only contain what the repository is for, but in this case, the contents of the README file will appear on the Code extension page.
-- **.vscodeignore&#x200A;**— When packaging our Code extension, we might not want to include all the files from our repository. This file tells the ‘_packager_' what files to exclude during this process.
-- **package.json** — If you've used an NPM package before, you would be familiar with this file. In this case, this file contains some additional meta data about the extension — also called the ‘extension manifest'. More about this later in this article.
-- **markdown.json in the snippets folder** — This file is a collection of snippets that follow the same pattern. More about this later in this article.
-- **Icon.png** — An icon for this extension in PNG format. The official guide says the icon must be a minimum of 128x128 pixels (or 256x256 for Retina screens) but I've seen many extensions with a larger icon size as well. The icon size I've used for my Code extenion is 1024x1024 pixels. 😅
-- **Other files&#x200A;**— I've also added a `.gitignore` file that tells GitHub what files to exclude from check-in. I have a `list-of-badges.md` file with a full list of available badges. A `demos` folder for capturing various demo snippets in action. An `images` folder to store the demo GIF's captured. A `tests` folder to write some basic unit tests. And finally, a `util` folder that has some JavaScript code to automatically update the `list-of-badges.md` file.
+- **LICENSE** — Depending on how you choose to license your extension, add the appropriate license file to your repository. Visit [this website](https://choosealicense.com/) to choose between various license types.
+- **README.md**— Description of what your Code extension does. Generally, a README file might only contain what the repository is for, but in this case, the contents of the README file will appear on the Code extension page.
+- **.vscodeignore**— When packaging our Code extension, we might not want to include all the files from our repository. This file tells the '_packager_' what files to exclude during this process.
+- **package.json** — If you've used an NPM package before, you would be familiar with this file. In this case, this file contains some additional meta data about the extension — also called the ‘extension manifest'. More about this later in this article.
+- **markdown.json in the snippets folder** — This file is a collection of snippets that follow the same pattern. More about this later in this article.
+- **Icon.png** — An icon for this extension in PNG format. The official guide says the icon must be a minimum of 128x128 pixels (or 256x256 for Retina screens) but I've seen many extensions with a larger icon size as well. The icon size I've used for my Code extenion is 1024x1024 pixels. 😅
+- **Other files**— I've also added a `.gitignore` file that tells GitHub what files to exclude from check-in. I have a `list-of-badges.md` file with a full list of available badges. A `demos` folder for capturing various demo snippets in action. An `images` folder to store the demo GIF's captured. A `tests` folder to write some basic unit tests. And finally, a `util` folder that has some JavaScript code to automatically update the `list-of-badges.md` file.
 
 Let's elaborate on a few files.
 
@@ -100,7 +91,7 @@ Let's elaborate on a few files.
 
 A VS Code extension needs to have a `package.json` file present in the root directory of the extension's directory structure. This file contains fields that give the marketplace more information about the VS Code extension. For example, setting the title, description and icon path in the `package.json` file will help the marketplace display the correct title, description and extension icon on the extensions page.
 
-The `package.json` file contains quite a few fields — some self-explanatory and some not so much — and I'm not intending to cover all of them in this article. So, I'll explain a few _not-so-self-explanatory_ ones (or some that require a special mention) here and for the rest, I trust you will [read the fabulous Code docs](https://code.visualstudio.com/api/references/extension-manifest). You can also check out my version of the `package.json` file [here](https://github.com/ClydeDz/emoji-badges-vscode/blob/master/package.json) to see what I've used and how its reflected on my [extension's marketplace page](http://bit.ly/emoji-badges).
+The `package.json` file contains quite a few fields — some self-explanatory and some not so much — and I'm not intending to cover all of them in this article. So, I'll explain a few _not-so-self-explanatory_ ones (or some that require a special mention) here and for the rest, I trust you will [read the fabulous Code docs](https://code.visualstudio.com/api/references/extension-manifest). You can also check out my version of the `package.json` file [here](https://github.com/ClydeDz/emoji-badges-vscode/blob/master/package.json) to see what I've used and how its reflected on my [extension's marketplace page](http://bit.ly/emoji-badges).
 
 #### Publisher
 
@@ -112,17 +103,46 @@ You can also navigate to the [manage publisher page](https://marketplace.visuals
 
 #### Contributes
 
-The contributes field describes the functionality that this extension provides — basically what type of extension you're developing. It could be snippets, themes, menus, commands or anything from [this list](https://code.visualstudio.com/api/references/contribution-points).
+The contributes field describes the functionality that this extension provides — basically what type of extension you're developing. It could be snippets, themes, menus, commands or anything from [this list](https://code.visualstudio.com/api/references/contribution-points).
 
-In this case, we're creating an extension to add _snippets&#x20;_&#x77;hich will be available for _markdown&#x20;_&#x66;iles only. The relative file _path_ to the JSON file that contains a list of snippets is mentioned right below the supported language. The snippet file is named `markdown.json` since that is the language identifier. A list of available language identifiers can be found [here](https://code.visualstudio.com/docs/languages/identifiers) and you can only add snippets for languages that's in this list.
+```json
+"contributes": {
+		"snippets": [
+			{
+				"language": "markdown",
+				"path": "./snippets/markdown.json"
+			}
+		]
+},
+```
+
+In this case, we're creating an extension to add _snippets_ which will be available for _markdown_ files only. The relative file _path_ to the JSON file that contains a list of snippets is mentioned right below the supported language. The snippet file is named `markdown.json` since that is the language identifier. A list of available language identifiers can be found [here](https://code.visualstudio.com/docs/languages/identifiers) and you can only add snippets for languages that's in this list.
 
 #### Engines
 
 This value indicates the VS Code version this extension is compatible with. A prefix of `^` indicates that this extension is compatible with the version specified and all higher versions of VS Code.
 
+```json
+{
+  "engines": {
+    "vscode": "^1.28.0"
+  }
+}
+```
+
 ### markdown.json
 
 As you might have observed, [this file](https://github.com/ClydeDz/emoji-badges-vscode/blob/master/snippets/markdown.json) is a collection of snippets that follow the same pattern. For example:
+
+```json
+"amazon-follow": {
+	"prefix": "amazon-follow",
+	"body": [
+		"[![Follow author profile on Amazon](https://img.shields.io/static/v1.svg?label=Follow%20me%20on%20Amazon&message=📖&color=FF9900&logo=amazon&logoColor=white)](https://www.amazon.com/Michelle-Obama/e/B07B436TLF) "
+	],
+	"description": "Follow author profile on Amazon 📖"
+},
+```
 
 Now, very quickly —
 
@@ -133,7 +153,7 @@ Now, very quickly —
 
 ![Image showing how to read a snippet's IntelliSense suggestion by VS Code.](/static/posts/1_AQpIonhTmIob61qaTNfsMg.png)
 
-Get creative — create as many snippets in this file as you like.
+Get creative — create as many snippets in this file as you like.
 
 ### Testing the extension
 
@@ -191,7 +211,7 @@ We'll now use the `vsce` CLI to package our code into a VS extension, i.e., a `.
 
 To create your VS Code extension, we'll run the following command at the source code's root directory, i.e., where the `package.json` file exists. Replace `<Extension-Name>` with the name of your extension.
 
-```
+```shell
 vsce package --out <Extension-Name>.vsix
 ```
 
@@ -201,7 +221,7 @@ You'll immediately notice a `.vsix` file created in the directory.
 
 We're going to continue using the `vsce` CLI to deploy our VS Code extension to the Visual Studio Marketplace. We'll run the command highlighted below and replace `<PAT>` with the personal access token generated from the step above and `<Extension-Name>` with the name of your extension.
 
-```
+```shell
 vsce publish -p <PAT> --packagePath <Extension-Name>.vsix
 ```
 
@@ -213,7 +233,7 @@ Head over to the [manage publishers page](https://marketplace.visualstudio.com/m
 
 ![Picture showing the context menu besides the Emoji Badges VS Code extension in the Marketplace manage publishers page.](/static/posts/1_v1uFX_OHvTBHzfyhRysapQ.png)
 
-Click [here](http://bit.ly/emoji-badges) to view my VS Code extension — Emoji Badges — on the Visual Studio Marketplace.
+Click [here](http://bit.ly/emoji-badges) to view my VS Code extension — Emoji Badges — on the Visual Studio Marketplace.
 
 ### Summary
 

@@ -3,10 +3,9 @@ title: 'How To Use a Test Reporter With Create React App'
 subtitle: 'Publishing tests results so you can examine them in your CI tool of choice'
 date: '2021-03-20'
 lastmod: '2021-03-20'
-tags: ['react', 'Jest']
+tags: ['Create React App', 'React', 'Jest', 'Web Development', 'Unit Test Tools']
 readingList: []
 draft: false
-summary: 'Publishing tests results so you can examine them in your CI tool of choice'
 images: ['/static/posts/crareactjest.png']
 ---
 
@@ -25,17 +24,26 @@ The [Create React App](https://create-react-app.dev/) template comes with a lot 
 
 If you open up the package.json file, you'll see a few scripts you can run.
 
+```json
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+}
+```
+
 Create React App uses [Jest](https://jestjs.io/) as its test runner. Executing `npm run test` will run the unit tests that come pre-built with the app. I've added a few more tests to my demo app, so here's my output after running the tests.
 
 ![Screenshot of all unit tests passing](/static/posts/1_ZAB8IxqcPFRvV1Ag5XBgIw.png)
 
 ### How to use this in your build pipeline?
 
-This is great — all the tests run and you also see the output in the console. However, when you run these tests in a continuous integration (CI) pipeline, you'd want a way to publish these test results so they can be visualized and analyzed easily. Every DevOps tool comes with its own UI baked into the product to visualize your test results and generate a report and for it to do so, it would expect to read the test results from an XML file produced by a test reporter. At the moment, we only print our test results to the console, but no such XML file is produced. Then how do we accomplish this task?
+This is great — all the tests run and you also see the output in the console. However, when you run these tests in a continuous integration (CI) pipeline, you'd want a way to publish these test results so they can be visualized and analyzed easily. Every DevOps tool comes with its own UI baked into the product to visualize your test results and generate a report and for it to do so, it would expect to read the test results from an XML file produced by a test reporter. At the moment, we only print our test results to the console, but no such XML file is produced. Then how do we accomplish this task?
 
 First, let's install the npm package [jest-junit](https://www.npmjs.com/package/jest-junit). This is a test reporter for jest tests and is capable of producing an XML file that would contain the test results. We'll then add a new script to your package.json file like the snippet below.
 
-```
+```json
 "test:ci": "npm run test -- --testResultsProcessor=\"jest-junit\""
 ```
 
@@ -49,7 +57,7 @@ You don't need to commit this file to your code repository. The build pipeline w
 
 If you'd also like to produce a code coverage result, simply supply the additional arguments `--coverage --ci` and see the magic happen.
 
-```
+```json
 "test:ci": "npm run test -- --coverage --ci --testResultsProcessor=\"jest-junit\" --watchAll=false"
 ```
 

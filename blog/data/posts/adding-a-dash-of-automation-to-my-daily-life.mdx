@@ -3,10 +3,17 @@ title: 'Adding a Dash of Automation to my Daily Life'
 subtitle: 'Never miss an invoice or an important email with Microsoft Power Automate'
 date: '2020-11-14'
 lastmod: '2020-11-14'
-tags: ['Microsoft Power Automate', 'Automation']
+tags:
+  [
+    'Microsoft Power Automate',
+    'Automation',
+    'Productivity',
+    'Technology',
+    'No Code Development',
+    'RPA Tools',
+  ]
 readingList: []
 draft: false
-summary: 'Never miss an invoice or an important email with Microsoft Power Automate'
 images: ['/static/posts/powerautomate.jpg']
 ---
 
@@ -50,17 +57,17 @@ The first step is to check whether I've received an invoice from the energy comp
 
 ![GIF showing how to add a step in Microsoft Power Automate](/static/posts/1__Ep2VVSp2oLbMafuhcGh4A.gif)
 
-When you click on **Choose a value**, you'll get a popup with some dynamic content available. This content is available to use courtesy of the previous action — in our case, the trigger when a new email arrives.
+When you click on **Choose a value**, you'll get a popup with some dynamic content available. This content is available to use courtesy of the previous action — in our case, the trigger when a new email arrives.
 
 ![Image showing how to configure Dynamic content in Automate](/static/posts/1_WIDSoG1j_1RFyQnOnMgPzQ.png)
 
 We want to check if the email is from a particular email address. So let's add the dynamic content **From** into the value field. We're going to validate the from address against a fixed email address that we already know, so we'll select the **is equal to** condition and then add the email address of the energy company on the other side of the condition.
 
-![Image showing how to add receipients email address into the step condition](/static/posts/1_pfaCUVt83XnxFLO_25pOvw.png)
+![Image showing how to add recipients email address into the step condition](/static/posts/1_pfaCUVt83XnxFLO_25pOvw.png)
 
 > Tip: Click on the three horizontal dots to rename a step into something more meaningful.
 
-A condition can have two outcomes — either it satisfies the condition or it doesn't. If it doesn't satisfy the condition, we'll take no action, and the control will flow ahead. If it does satisfy the condition, we'll do the following:
+A condition can have two outcomes — either it satisfies the condition or it doesn't. If it doesn't satisfy the condition, we'll take no action, and the control will flow ahead. If it does satisfy the condition, we'll do the following:
 
 #### Convert HTML email to plain text
 
@@ -74,9 +81,9 @@ In the **Content** field, we'll again make use of dynamic content and this time 
 
 #### Create a Google Calendar event
 
-I want to set myself a reminder after about ten days to pay this bill. I've not randomly come up with this number — there's a calculation behind this. My energy company sends me this email 14 days before the bill is due. So, I've set a reminder to pay this bill 10 days from the date I've received it, allowing some buffer time for payments to go through if required.
+I want to set myself a reminder after about ten days to pay this bill. I've not randomly come up with this number — there's a calculation behind this. My energy company sends me this email 14 days before the bill is due. So, I've set a reminder to pay this bill 10 days from the date I've received it, allowing some buffer time for payments to go through if required.
 
-Let's add a new action **Google Calendar** and select **Create an event** action from the list of available actions. You may be asked to authenticate using your Google account and provide the required permissions. The **Calendar ID** should then show your Gmail address. The start time and end time is when the event starts and ends — more about it right after this picture. For the **Title** field, I'm going to concatenate some text entered manually, plus the subject of the actual email. For the **Description&#x20;**&#x66;ield, I'm going to concatenate some text plus the body of the actual email in plain text that we retrieve from our previous HTML-to-Text conversion.
+Let's add a new action **Google Calendar** and select **Create an event** action from the list of available actions. You may be asked to authenticate using your Google account and provide the required permissions. The **Calendar ID** should then show your Gmail address. The start time and end time is when the event starts and ends — more about it right after this picture. For the **Title** field, I'm going to concatenate some text entered manually, plus the subject of the actual email. For the **Description** field, I'm going to concatenate some text plus the body of the actual email in plain text that we retrieve from our previous HTML-to-Text conversion.
 
 ![Image showing how to configure Google Calendar event action in Automate](/static/posts/1_hCzxS5r80TOLiaTRahaMlw.png)
 
@@ -92,7 +99,7 @@ Back in Automate, let's add a new action called **Trello** with a sub action cal
 
 ![Image showing how to configure the create Trello card action](/static/posts/1_CZ5UnWHFCCXoA3YXSz1iaQ.png)
 
-Optional: If you'd like your Trello cards to have labels then you're required to either enter the label ID in this field or — from the dropdown — select the color of the label.
+Optional: If you'd like your Trello cards to have labels then you're required to either enter the label ID in this field or — from the dropdown — select the color of the label.
 
 To enter **Label Ids**, I would need to extract the ID of the label from Trello. To do so, append the word _.json_ to the Trello board URL. For instance, if `https://trello.com/b/SHORTID/apartments` is the URL, then `https://trello.com/b/SHORTID/apartments.json` returns a JSON result of the board. At the very end, you should see all the labels you've created along with its IDs. Copy the required label IDs and paste it in here.
 
@@ -100,7 +107,7 @@ To enter **Label Ids**, I would need to extract the ID of the label from Trello.
 
 Next up, I want a similar set up for all emails received from the real estate agency. Let's click on the **New step** button to add a new step and continue the workflow.
 
-Mostly, I'll be repeating the same process with the following minor changes. I'll need to update the **From** email address to match the real estate agency's email address. While creating a Google Calendar event, I'll use this **Expression&#x20;**`addDays(utcNow(), 1)` instead. This creates the event one day from the day I received the email as occasionally I might need to respond to them at the earliest opportunity. While storing a copy of the email in Trello, I've created a new list so it doesn't clutter up the energy bill list.
+Mostly, I'll be repeating the same process with the following minor changes. I'll need to update the **From** email address to match the real estate agency's email address. While creating a Google Calendar event, I'll use this **Expression** `addDays(utcNow(), 1)` instead. This creates the event one day from the day I received the email as occasionally I might need to respond to them at the earliest opportunity. While storing a copy of the email in Trello, I've created a new list so it doesn't clutter up the energy bill list.
 
 ### Step 3: Saving a copy of a successful payment towards my internet bill
 

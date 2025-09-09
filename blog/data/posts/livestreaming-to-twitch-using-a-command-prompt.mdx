@@ -3,10 +3,9 @@ title: 'Livestreaming to Twitch Using a Command Prompt'
 subtitle: 'Fancy something different today?'
 date: '2020-10-13'
 lastmod: '2020-10-13'
-tags: ['Livestreaming', 'Twitch']
+tags: ['Livestreaming', 'Twitch', 'Gaming', 'Technology', 'Digital Life', 'Command Line']
 readingList: []
 draft: false
-summary: 'Fancy something different today?'
 images: ['/static/posts/twitch.png']
 ---
 
@@ -58,23 +57,23 @@ This should redirect you to a page with your stream key at the very top of the p
 
 ### Step 3: Installing FFmpeg
 
-Head over to [FFmpeg's website](https://ffmpeg.org/download.html) — there's a couple of options on that page. We want to download an executable file and not the source code itself. So, depending on your operating system, click on either the Linux, Windows or macOS icon. I'm using a Windows PC, so if you're using any other operating system, the steps for installation might differ slightly.
+Head over to [FFmpeg's website](https://ffmpeg.org/download.html) — there's a couple of options on that page. We want to download an executable file and not the source code itself. So, depending on your operating system, click on either the Linux, Windows or macOS icon. I'm using a Windows PC, so if you're using any other operating system, the steps for installation might differ slightly.
 
 For Windows users, the website has a link to https://www.gyan.dev/ffmpeg/builds/. Scroll down on this page to the release section and download the essentials ZIP file.
 
 ![Downloading the essentials FFmpeg build.](/static/posts/1_xqt-D6LNVngX_R5POg8PVQ.png)
 
-Unzip the file and click to check its contents. The folder should contain a bin folder and inside that, there should be an application file called FFmpeg. Copy this folder path — we'll need it for our next step.
+Unzip the file and click to check its contents. The folder should contain a bin folder and inside that, there should be an application file called FFmpeg. Copy this folder path — we'll need it for our next step.
 
 ![Validating that FFmpeg exists in the bin folder.](/static/posts/1_5O5hYrjaUK7-R6YalTOOPg.png)
 
-Alright — great work so far, a few more steps to go.
+Alright — great work so far, a few more steps to go.
 
-Next, we want to make this FFmpeg application available across our PC. To do so, click on Windows and search for _environment variables_. You should see something like **Edit the system environment variables** — click on that.
+Next, we want to make this FFmpeg application available across our PC. To do so, click on Windows and search for _environment variables_. You should see something like **Edit the system environment variables** — click on that.
 
 ![Editing system environment variables.](/static/posts/1_xhLRrq5l5Y8RZuKpidvO9w.png)
 
-Then, from the **System Properties&#x20;**&#x77;indow, click on the **Environment Variables…** button at the bottom.
+Then, from the **System Properties** window, click on the **Environment Variables…** button at the bottom.
 
 ![Clicking on environment variables button from System Properties.](/static/posts/1_0LVDA4SBqDMO-uMdqyUOVw.png)
 
@@ -90,13 +89,13 @@ To test everything has been set up correctly, open up command prompt and type in
 
 ![Testing FFmpeg command.](/static/posts/1_r1JilO0wSvB0aEYP5I6OrA.png)
 
-If you see an error message like `‘ffmpeg' is not recognized as an internal or external command, operable program or batch file` as the output of the command, then you've not set up the environment variables correctly. If that's the case, please revisit the section above.
+If you see an error message like `'ffmpeg' is not recognized as an internal or external command, operable program or batch file` as the output of the command, then you've not set up the environment variables correctly. If that's the case, please revisit the section above.
 
 ### Step 4: Constructing the command
 
 This is the command that we'll make use of to upload our video to Twitch:
 
-```
+```shell
 ffmpeg -re -i VideoToUpload.mp4 -c copy -f flv rtmp://live-fra.twitch.tv/app/{key_here}
 ```
 
@@ -108,7 +107,7 @@ Basically, the `live-fra` in the URL above stands for the Twitch server in Frank
 
 After applying their recommendation, my command now looks like this:
 
-```
+```shell
 ffmpeg -re -i VideoToUpload.mp4 -c copy -f flv rtmp://live-syd.twitch.tv/app/{stream_key}
 ```
 
@@ -135,6 +134,6 @@ Hit enter and you should see some progress. And in just a few moments, the live 
 
 That's it. Hope you had fun and learnt something new today. Thanks for reading!
 
----
+<hr />
 
 Disclaimer: The joining link to Restream and Canva are referral links. Using this link to sign up will give you and me some credits.

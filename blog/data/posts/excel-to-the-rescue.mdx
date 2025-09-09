@@ -1,18 +1,17 @@
 ---
-title: 'Excel to the rescue'
+title: 'Excel to the Rescue'
 subtitle: 'Creating SQL statements using Excel formulas'
 date: '2020-05-14'
 lastmod: '2020-05-14'
-tags: ['excel']
+tags: ['Excel', 'SQL', 'Microsoft', 'Data', 'Productivity']
 readingList: []
 draft: false
-summary: 'Creating SQL statements using Excel formulas'
 images: ['/static/posts/excel.png']
 ---
 
 <InlineImage
   src="/static/posts/excel.png"
-  alt="Person, city background and fireworks — all from Unsplash. Excel logo on the t-shirt."
+  alt="Person, city background and fireworks — all from Unsplash. Excel logo on the t-shirt."
   caption={
     <>
       Image source: <a href="https://unsplash.com/photos/E50s0boOGkA">Person</a>,{' '}
@@ -24,7 +23,7 @@ images: ['/static/posts/excel.png']
 
 ### Introduction
 
-I've been in this situation too many times where I've had to go creative with using Excel to make my work with SQL easier. You might be wondering how? Well, then you're in the right place — read on to find out how. For those of you who know what I'm talking about, feel free to give it a clap if this resonates with what you've experienced.
+I've been in this situation too many times where I've had to go creative with using Excel to make my work with SQL easier. You might be wondering how? Well, then you're in the right place — read on to find out how. For those of you who know what I'm talking about, feel free to give it a clap if this resonates with what you've experienced.
 
 ### Problem
 
@@ -34,7 +33,7 @@ Imagine you have been given a huge list of data in Excel that needs to be entere
 
 You would think, if it was a single record, you could have written a SQL statement like this:
 
-```
+```sql
 INSERT INTO Users
 (FirstName, LastName, Age)
 VALUES
@@ -43,7 +42,7 @@ VALUES
 
 And for a handful of records, we could write multiple rows using a single `INSERT` statement like this:
 
-```
+```sql
 INSERT INTO Users
 (FirstName, LastName, Age)
 VALUES
@@ -69,7 +68,7 @@ With all the values in column D selected, copy them. Open up your SQL client and
 
 > Tip: I'm using the portable SQL client [HeidiSQL](https://www.heidisql.com/) for this demo. Instead of connecting to the traditional database, I'm using a local copy of SQLite. If you haven't tried HeidiSQL yet, go ahead and check it out [here](https://www.heidisql.com/).
 
-The last line will have a comma (,) appended — remove the comma. Finally, run the query.
+The last line will have a comma (,) appended — remove the comma. Finally, run the query.
 
 ![Image of the SQL statement in HeidiSQL with steps annotated](/static/posts/1_7ASFX-ymrxMgfQJokIytvw.png)
 
@@ -93,6 +92,4 @@ A one-off script to update table X using the ID's listed in the Excel file. Upda
 
 **Potential solution:** In a new Excel column, use a simple IF condition to decide the final value based on the condition specified scenario. Then, in another column besides that, use an Excel formula to create the SQL statements to update column Y of table X but use the newly created column we just created to determine the final value.
 
-That's it!
-
-Thanks for reading. Share it with your network 🙏
+That's it! Thanks for reading.

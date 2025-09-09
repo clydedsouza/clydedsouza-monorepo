@@ -3,10 +3,9 @@ title: 'What Really Gets Packaged?'
 subtitle: 'Including and excluding files in your npm package'
 date: '2021-01-26'
 lastmod: '2021-01-26'
-tags: ['npm', 'library development']
+tags: ['Technology', 'NPM', 'Nodejs', 'Package Management', 'JavaScript']
 readingList: ['NPM Library']
 draft: false
-summary: 'Including and excluding files in your npm package'
 images: ['/static/posts/catnpm.png']
 ---
 
@@ -34,7 +33,13 @@ We'll continue to use [this demo npm package](http://npmjs.com/package/add-demo-
 
 To explicitly specify which files you'd like to be included in the npm package, you can use the files field in the `package.json` file. You can directly specify the file or folder name or make use of a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29). The code snippet below packages the dist folder and all the files inside the dist folder, the `LICENSE` file and the `README.md` file.
 
-In fact, the `LICENSE` file, `package.json` file and `README.md` files (among a few other files) are included by default — so you can choose to not include that in the files field if you want, too. You can run the command `npm publish --dry-run` to confirm what files will be packaged.
+```json
+{
+  "files": ["dist", "LICENSE", "README.md"]
+}
+```
+
+In fact, the `LICENSE` file, `package.json` file and `README.md` files (among a few other files) are included by default — so you can choose to not include that in the files field if you want, too. You can run the command `npm publish --dry-run` to confirm what files will be packaged.
 
 ![Image showing what files are packaged using scenario 1.](/static/posts/1_YaFPrEbiPyJNdVpWy5aJ9Q.png)
 
@@ -56,6 +61,16 @@ We definitely don't want every other file and folder to be included in the npm p
 - We don't want development files to be distributed.
 
 To mitigate this, we can create a new file called `.npmignore` and list the files and folders we don't want to be packaged. An example might look something like the code snippet below.
+
+```.npmignore
+.*
+.*.json
+tsconfig.json
+tests
+demo
+coverage
+src
+```
 
 Now, if we run the command `npm publish --dry-run` again, we'll find that our output looks similar to when we used the files field in the `package.json` file.
 
@@ -96,7 +111,7 @@ Conversely, some files are always ignored:
 
 In summary —
 
-- I'd recommend using the files section in the `package.json` file over adding a `.npmignore` file. It's better to explicitly mention what you _want_ instead of listing everything you _don't want_ to be included — it's more effort and there are chances that you might forget to add a new file to the exclusion list.
+- I'd recommend using the files section in the `package.json` file over adding a `.npmignore` file. It's better to explicitly mention what you _want_ instead of listing everything you _don't want_ to be included — it's more effort and there are chances that you might forget to add a new file to the exclusion list.
 - The files included in the files field of the `package.json` file cannot be excluded through `.npmignore` or `.gitignore`. In fact, the `.npmignore` file and the `.gitignore` file are ignored.
 - Certain files are always included while on the other hand, certain files are always ignored regardless of the approach you take.
 

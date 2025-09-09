@@ -1,12 +1,18 @@
 ---
-title: 'Build a mobile app in under 2 hours'
+title: 'Build a Mobile App in under 2 Hours'
 subtitle: 'Rapid application development using OutSystems'
 date: '2020-05-27'
 lastmod: '2020-05-27'
-tags: ['outsystems', 'mobile', 'mobile app', 'app development']
+tags:
+  [
+    'Outsystems',
+    'Low Code',
+    'Mobile App Development',
+    'Software Development',
+    'Outsystems Development',
+  ]
 readingList: []
 draft: false
-summary: 'Rapid application development using OutSystems'
 images: ['/static/posts/outsystems.png']
 ---
 
@@ -25,7 +31,7 @@ images: ['/static/posts/outsystems.png']
 
 ### Introduction
 
-Let's say product X costs $3.99 for 295g and product Y costs $8.99 for 591g, do you know which one is actually cheaper? Now, if I tell you that 100g of product X costs $1.35 and 100g of product Y costs $1.52, wouldn't that make it much easier to decide which one is cheaper?
+Let's say product X costs &dollar;3.99 for 295g and product Y costs &dollar;8.99 for 591g, do you know which one is actually cheaper? Now, if I tell you that 100g of product X costs &dollar;1.35 and 100g of product Y costs &dollar;1.52, wouldn't that make it much easier to decide which one is cheaper?
 
 To calculate the price per 100g, you would require this formula `(100 / Quantity) * Price`. The problem is, every time you are in a supermarket, you can't be recalling the formula and calculating the price of products in your head (unless you're super fast in Math). Hence, I wanted to build an app that makes this easier.
 
@@ -43,13 +49,13 @@ Wait, what now? Low-code?
 
 [OutSystems](https://www.outsystems.com/) claims to be “the most complete low-code platform for building enterprise solutions that drive real business value.” But first, let's understand what is a low-code platform.
 
-1. **Visual development (drag-and-drop) approach to application development&#x200A;**— One of the key features of a low-code platform is the fact that it enables you to drag and drop components onto your screen, configure a few things, and just like that you have fully functional components in your app without writing any code. To provide you with this visual development, most platforms either require you to download an IDE or use a cloud-based software.
-2. **Easy to learn** — Most low-code platforms aim to make their graphical user interface intuitive and easy for developers to learn. Low-code platforms also tend to invest in a lot of training videos explaining how to use the software they've built. And if you're one of they're paid subscribers, they might also offer technical support.
-3. **Accelerates development time** — Because developers aren't hand-writing a lot of code and because the IDE they're now using is easy to learn and use, a lot of the traditional delivery timeline can be reduced. If the low-code platform also produces cross-platform apps, then imagine how much time you're saving by not having to develop apps for all these different platforms or learn a new cross-platform coding language.
-4. **Wide range of contributors** — Since there's not much code involved, a low-code platform encourages even non-developers to contribute to the application development. This removes the constraint of having to rely on highly skilled developers to do their job alone.
-5. **Less training and deployment** **time**— OK, I'm sure you've figured this point out by now — I trust you. I'll cover the deployment part for you: Low-code platforms focus on making the deployment process hassle free and as intuitive as possible.
+1. **Visual development (drag-and-drop) approach to application development** — One of the key features of a low-code platform is the fact that it enables you to drag and drop components onto your screen, configure a few things, and just like that you have fully functional components in your app without writing any code. To provide you with this visual development, most platforms either require you to download an IDE or use a cloud-based software.
+2. **Easy to learn** — Most low-code platforms aim to make their graphical user interface intuitive and easy for developers to learn. Low-code platforms also tend to invest in a lot of training videos explaining how to use the software they've built. And if you're one of they're paid subscribers, they might also offer technical support.
+3. **Accelerates development time** — Because developers aren't hand-writing a lot of code and because the IDE they're now using is easy to learn and use, a lot of the traditional delivery timeline can be reduced. If the low-code platform also produces cross-platform apps, then imagine how much time you're saving by not having to develop apps for all these different platforms or learn a new cross-platform coding language.
+4. **Wide range of contributors** — Since there's not much code involved, a low-code platform encourages even non-developers to contribute to the application development. This removes the constraint of having to rely on highly skilled developers to do their job alone.
+5. **Less training and deployment** **time**— OK, I'm sure you've figured this point out by now — I trust you. I'll cover the deployment part for you: Low-code platforms focus on making the deployment process hassle free and as intuitive as possible.
 
----
+<hr />
 
 ### Building the app
 
@@ -63,7 +69,7 @@ Once you proceed ahead, you will see a link to download the IDE which you defini
 
 #### Creating an app
 
-Open up the IDE, sign-in to your cloud environment and you should immediately see the **New Application** button. Clicking on that opens a popup where you choose the type of app you're going to build. We'll select **Phone App** and hit next. In the next screen, we'll give the app a suitable name, optionally a description, the color scheme and the app's icon — these details can be edited anytime in the future, so don't stress about it too much!
+Open up the IDE, sign-in to your cloud environment and you should immediately see the **New Application** button. Clicking on that opens a popup where you choose the type of app you're going to build. We'll select **Phone App** and hit next. In the next screen, we'll give the app a suitable name, optionally a description, the color scheme and the app's icon — these details can be edited anytime in the future, so don't stress about it too much!
 
 ![GIF showing the New Application screens presented to the user in OutSystems.](/static/posts/1_dG4fA4HO_hOLvmx1JTIF4A.gif)
 
@@ -108,7 +114,7 @@ The **Expression** field needs to be associated with a value. Let's create a new
 
 ![GIF showing how to resolve errors in OutSystems.](/static/posts/1_d67w1pAxYLkxO8fN-0bINQ.gif)
 
-Now for the button — let's first click the text and rename it to “Calculate”. Now click the button itself, and from the bottom right properties, scroll down to the **On Click** event. You'll notice a red border indicating an error.
+Now for the button — let's first click the text and rename it to “Calculate”. Now click the button itself, and from the bottom right properties, scroll down to the **On Click** event. You'll notice a red border indicating an error.
 
 Let's click the dropdown and add a **New Client Action**. This will be our calculate method.
 
@@ -123,7 +129,7 @@ Let's click the dropdown and add a **New Client Action**. This will be our calcu
 
 ![GIF showing the use of a formula in a client action in OutSystems.](/static/posts/1_TxP_WMHIH-yoyxQZIOslrQ.gif)
 
----
+<hr />
 
 ### Publishing the app
 
@@ -145,7 +151,7 @@ Let's head back to the OutSystems Service Studio. Click the **Calculator** scree
 
 ![Image showing how to make your app anonymous in OutSystems.](/static/posts/1_34y9qJ97EjTayWkVhr47yQ.png)
 
-Now when you view the app in the browser, you'll see a loading screen and then dive straight into your app. Enter the quantity, price and hit the **Calculate** button — the price per 100 g is shown besides the button.
+Now when you view the app in the browser, you'll see a loading screen and then dive straight into your app. Enter the quantity, price and hit the **Calculate** button — the price per 100 g is shown besides the button.
 
 ![GIF showing the demo app built using OutSystems in action.](/static/posts/1_O9eQ4kS8efWfxUTPSdxtRQ.gif)
 
@@ -170,9 +176,9 @@ I've downloaded the `.apk` file and have installed it on my mobile. Here's a qui
 Since I'm on the free version of OutSystems, my development environment goes to [sleep every few days](https://www.outsystems.com/forums/discussion/22976/why-does-my-personal-environment-keep-going-to-sleep/) and therefore, I cannot share the OutSystems download page as that wouldn't work. However, I have uploaded the apps to GitHub and have linked them below. Note, both Android apps have been exported using a debug build.
 
 - [Demo Calculator app](https://github.com/ClydeDz/outsystems-apps/raw/master/DemoCalculator.apk) demonstrated in this article
-- [Fred ](https://github.com/ClydeDz/outsystems-apps/raw/master/Fred.apk)— The original app developed using OutSystems
+- [Fred ](https://github.com/ClydeDz/outsystems-apps/raw/master/Fred.apk)— The original app developed using OutSystems
 
----
+<hr />
 
 ### Bonus section
 
@@ -189,13 +195,13 @@ Good news! There's a solution to that. Let's take a look.
 
 ![GIF showing how to fix the precision point error in OutSystems.](/static/posts/1_a59-kPZyjAfv5wmTXFg56g.gif)
 
-`FormatCurrency` is a built-in function offered by OutSystems. It builds a text output from the parameters provided. In this example, it will prefix the output text that it gets from the **Total** variable with a “$” symbol. It displays a decimal point using a period (.) and thousands, if any, will be separated by a comma (,). The third parameter (in this case: 2) specifies the number of decimal digit after the decimal point. The output of `FormatCurrency` is concatenated with a “ /100g” to give the final result. More such functions can be found on their [technical documentation page](https://success.outsystems.com/Documentation/11/Reference/OutSystems_Language/Logic/Built-in_Functions/Format#FormatCurrency).
+`FormatCurrency` is a built-in function offered by OutSystems. It builds a text output from the parameters provided. In this example, it will prefix the output text that it gets from the **Total** variable with a “&dollar;” symbol. It displays a decimal point using a period (.) and thousands, if any, will be separated by a comma (,). The third parameter (in this case: 2) specifies the number of decimal digit after the decimal point. The output of `FormatCurrency` is concatenated with a “ /100g” to give the final result. More such functions can be found on their [technical documentation page](https://success.outsystems.com/Documentation/11/Reference/OutSystems_Language/Logic/Built-in_Functions/Format#FormatCurrency).
 
 After republishing the app, we now have our desired result.
 
 ![GIF showing what the app looks like after handling precision points in inputs.](/static/posts/1_INUHb2ua6tS77ifdlmxwqA.gif)
 
----
+<hr />
 
 ### Summary
 
@@ -208,10 +214,8 @@ Alright, time for a quick recap —
 5. We also created a **Client Action** that handles the **On Click** event, i.e., we defined something to do when a user clicks the button. The formula we added in the **Expression Editor** calculates the price of the product per 100 g.
 6. Now that we've built our app, we want to publish it. To do so, we used the **1-Click Publish** button. However, on publishing the app, we were greeted with a login screen instead of heading straight into our app.
 7. Since we want the application to be used anonymously, we looked at how to enable this setting in the OutSystems Service Studio and then republished the app for this change to take effect.
-8. The application is published and accessible from the browser. But what if we wanted it to be used on a mobile device as a native app? Well, there's a solution to that too. We looked at exporting our application as a native Android app, and how you would go about downloading the app. You can also export it as an iOS app, but we didn't look at that in this article — go give that a try and let me know your experience in the comments below.
+8. The application is published and accessible from the browser. But what if we wanted it to be used on a mobile device as a native app? Well, there's a solution to that too. We looked at exporting our application as a native Android app, and how you would go about downloading the app. You can also export it as an iOS app, but we didn't look at that in this article — go give that a try and let me know your experience in the comments below.
 9. In the downloads section, I posted a link to this demo app and a link to the full version of the app that I had originally made.
-10. Bonus section: here we looked at how you would format the output value to add a prefix of “$” and handle floating point precision.
+10. Bonus section: here we looked at how you would format the output value to add a prefix of “&dollar;” and handle floating point precision.
 
-That's it!
-
-Thanks for reading.
+That's it! Thanks for reading.

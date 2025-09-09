@@ -13,12 +13,12 @@ const CUSTOM_ADS: ICustomAd = {
   MAMABOOKKINDLE: {
     image: '/static/images/mtmas-kindle.jpg',
     url: 'https://mamatellmeastory.clydedsouza.net/',
-    alt: 'Mama, tell me a story',
+    alt: 'Mama, Tell Me a Story',
   },
   MAMABOOKPAPERBACK: {
     image: 'https://files.clydedsouza.net/portfolio/dotnetconf.png',
     url: 'https://mamatellmeastory.clydedsouza.net/',
-    alt: 'Mama, tell me a story',
+    alt: 'Mama, Tell Me a Story',
   },
 }
 

@@ -1,12 +1,11 @@
 ---
-title: 'All about humans. Humans.txt, actually'
+title: 'All about Humans. Humans.txt, Actually'
 subtitle: 'Appreciating the people who help build your website.'
 date: '2020-03-04'
 lastmod: '2020-03-04'
-tags: ['web development']
+tags: ['Humans', 'Web Development', 'Web Design', 'Technology', 'Best Practices']
 readingList: []
 draft: false
-summary: 'Appreciating the people who help build your website.'
 images: ['/static/posts/humanstxt.png']
 ---
 
@@ -28,7 +27,7 @@ You may have heard about robots.txt but have you heard about humans.txt? As the 
 
 It's a simple `.txt` file that usually contains a list of all the people who've contributed towards the website. The file is named humans.txt and is placed in the root directory of the website. So, if your website is www\.example.com, you'd be able to locate the humans.txt file at www\.example.com/humans.txt.
 
-Before we dive into the guidelines for this file and details on implementation, let's take a look at some examples on the internet — clap if you recognise at least one brand. 😄
+Before we dive into the guidelines for this file and details on implementation, let's take a look at some examples on the internet — clap if you recognise at least one brand. 😄
 
 ### Examples
 
@@ -42,7 +41,7 @@ The streaming giant has created, in what appears to be, a large screen with a ge
 
 #### Trello
 
-This collaboration tool uses their [humans.txt](https://trello.com/humans.txt) file the most standard way — crediting their team and also a mention to their alumni.
+This collaboration tool uses their [humans.txt](https://trello.com/humans.txt) file the most standard way — crediting their team and also a mention to their alumni.
 
 #### Google
 
@@ -58,6 +57,17 @@ While Humans TXT encourages you to use their [humans.txt file](http://humanstxt.
 
 A super simple version of this file could look something like this —
 
+```txt
+/* TEAM */
+Developer: John Smith
+Contact: john.smith [at] example.com
+Twitter: @johnsmith
+
+Design: Jane Doe
+Contact: jane.doe [at] example.com
+Twitter: @janedoe
+```
+
 ### Implementation
 
 After you've drafted your humans.txt file, it's time to place it in the root directory of your website, as pictured below.
@@ -66,7 +76,7 @@ After you've drafted your humans.txt file, it's time to place it in the root dir
 
 Next, place the below `<link>` tag into the `<head>` section of your website to reference the humans.txt file you've just added.
 
-```
+```html
 <link type="text/plain" rel="author" href="humans.txt" />
 ```
 
@@ -77,8 +87,8 @@ After publishing your website, let's say www\.example.com, if you head to www\.e
 Alright, time for a quick recap —
 
 1. We started with an introduction and then dived into what a humans.txt file actually is.
-2. We then looked at some examples from the internet — some that stand out and some that follow the standard.
+2. We then looked at some examples from the internet — some that stand out and some that follow the standard.
 3. Next, we looked at what a super simple humans.txt file can contain.
 4. And finally, we looked at where we would place this file and what code is required to reference this file.
 
-That's it!
+That's it! Thanks for reading.

@@ -1,12 +1,11 @@
 ---
-title: 'Can you colour this table?'
+title: 'Can You Colour This Table?'
 subtitle: 'A problem-solving approach to re-skinning a table using CSS'
 date: '2020-06-12'
 lastmod: '2020-06-12'
-tags: ['html', 'css', 'table']
+tags: ['CSS', 'HTML', 'Web Development', 'Web Design', 'CSS Selectors']
 readingList: []
 draft: false
-summary: 'A problem-solving approach to re-skinning a table using CSS'
 images: ['/static/posts/tablecss.png']
 ---
 
@@ -27,7 +26,7 @@ I recently came across a unique problem whose solution relied solely on CSS. I t
 
 ### Problem
 
-I'm going to recreate the scenario — I need to re-skin the tables on a website and the given requirements tell me that the background colour of the table header must be yellow, and the table rows will be the alternating background colour of wheat and plum. Below is a picture of what the table can look like.
+I'm going to recreate the scenario — I need to re-skin the tables on a website and the given requirements tell me that the background colour of the table header must be yellow, and the table rows will be the alternating background colour of wheat and plum. Below is a picture of what the table can look like.
 
 ![Image showing the accepted outputs for the tables](/static/posts/1_Y38uXZt5W0qMVULd3PJORg.png)
 
@@ -35,11 +34,67 @@ Accepted outputs for the tables
 
 I have two tables on the website, however, the HTML structure of both the tables is different. One makes use of a `<thead>` and `<tbody>` element to distinguish the table's header from the body. The HTML looks something like the snippet below.
 
-Table with a \<thead> and a `<tbody>`
+```html
+<table border="1">
+  <thead>
+    <tr>
+      <th>Heading 1</th>
+      <th>Heading 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lorem ipsum 1</td>
+      <td>Lorem ipsum 2</td>
+    </tr>
+    <tr>
+      <td>Lorem ipsum 3</td>
+      <td>Lorem ipsum 4</td>
+    </tr>
+    <tr>
+      <td>Lorem ipsum 5</td>
+      <td>Lorem ipsum 6</td>
+    </tr>
+    <tr>
+      <td>Lorem ipsum 7</td>
+      <td>Lorem ipsum 8</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+Table with a `<thead>` and a `<tbody>`
 
 While the other table only uses a`<tbody>` element like the snippet below.
 
-Table with only a \<tbody>
+```html
+<table border="1">
+  <tbody>
+    <tr>
+      <th>Heading 1</th>
+      <th>Heading 2</th>
+    </tr>
+    <tr>
+      <td>Lorem ipsum 1</td>
+      <td>Lorem ipsum 2</td>
+    </tr>
+    <tr>
+      <td>Lorem ipsum 3</td>
+      <td>Lorem ipsum 4</td>
+    </tr>
+    <tr>
+      <td>Lorem ipsum 5</td>
+      <td>Lorem ipsum 6</td>
+    </tr>
+    <tr>
+      <td>Lorem ipsum 7</td>
+      <td>Lorem ipsum 8</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+Table with only a `<tbody>`
 
 The challenge is:
 
@@ -62,13 +117,13 @@ Alright, let's solve this problem one step at a time.
 
 First, we need alternating background colours for our table rows, so let's go ahead and add the following CSS rules. This will give a background colour of wheat to all even rows and background colour of plum to all odd rows.
 
-```
+```css
 tr:nth-child(even) {
   background: wheat;
 }
 ```
 
-```
+```css
 tr:nth-child(odd) {
   background: plum;
 }
@@ -88,7 +143,7 @@ Cool. Now that we've got our alternate colours sorted, we need to make the table
 
 Since we need the first row in both tables to be yellow, let's add this CSS rule to our CSS file.
 
-```
+```css
 tbody tr:first-of-type,
 thead tr:first-of-type {
   background-color: yellow;
@@ -115,7 +170,7 @@ Okay, let's try that.
 
 You're thinking that we should just add the below CSS rule at the end of the CSS file so that this takes precedence over the code we've written above. This will change the background colour of the first `<tr>` that's nested only inside `<tbody>` to plum.
 
-```
+```css
 tbody tr:first-of-type {
   background-color: plum;
 }
@@ -133,7 +188,7 @@ We've managed to fix the left table, but disturbed the output of the right table
 
 Let's prepend the `thead +` to the above CSS selector. It should now look something like this.
 
-```
+```css
 thead + tbody tr:first-of-type {
   background-color: plum;
 }
@@ -155,9 +210,3 @@ If you'd like to see the final results for both variations of the tables and may
 - [JSFiddle link](https://jsfiddle.net/0nL12u9k/) for the table with only a `<tbody>` element.
 
 That's it! Thanks for reading.
-
-By [Clyde D'Souza](https://medium.com/@clydedz) on [June 12, 2020](https://medium.com/p/6e3a7393c9c8).
-
-[Canonical link](https://medium.com/@clydedz/can-you-colour-this-table-6e3a7393c9c8)
-
-Exported from [Medium](https://medium.com) on August 22, 2025.
