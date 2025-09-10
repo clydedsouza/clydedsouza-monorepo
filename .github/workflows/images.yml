@@ -7,17 +7,21 @@ on:
     paths-ignore:
       - "web/**"
       - "api/**"
+      - "blog/**"
   pull_request:
     branches:
       - main
     paths-ignore:
       - "web/**"
       - "api/**"
+      - "blog/**"
 
 jobs:
   build_images:
     name: Build images
     runs-on: ubuntu-latest
+    environment:
+      name: images
     defaults:
       run:
         shell: bash
@@ -59,6 +63,8 @@ jobs:
   deploy_images:
     name: Deploy images
     runs-on: ubuntu-latest
+    environment:
+      name: images
     needs: build_images
     if: |
       success() &&

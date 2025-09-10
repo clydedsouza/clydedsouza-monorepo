@@ -8,6 +8,7 @@ if (!fs.existsSync(IMAGES_DIR)) {
   fs.mkdirSync(IMAGES_DIR, { recursive: true })
 }
 
+// Resolutions available: 1200/800/400
 const IMAGE_URL_REGEX = /https:\/\/cdn-images-1\.medium\.com\/max\/400\/([^\s'")\]\}]+)/g
 
 function sleep(ms) {

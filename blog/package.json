@@ -9,7 +9,7 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky",
+    "prepare": "cd.. && husky .\\blog\\.husky",
     "optimize:post-images": "imagemin public/static/posts --out-dir=public/static/posts --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4",
     "optimize:site-images": "imagemin public/static/images --out-dir=public/static/images --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4"
   },
@@ -36,6 +36,7 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-icons": "^5.5.0",
+    "react-tweet": "^3.2.2",
     "reading-time": "1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-citation": "^2.3.0",

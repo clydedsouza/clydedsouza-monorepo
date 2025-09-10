@@ -7,6 +7,7 @@ import Image from './CustomImage/Image'
 import CustomLink from './CustomLink/Link'
 import { InlineImage } from './InlineImage/InlineImage'
 import TableWrapper from './TableWrapper/TableWrapper'
+import Twitter from './Twittter/Twitter'
 import YouTube from './YouTube/YouTube'
 
 export const components: MDXComponents = {
@@ -18,5 +19,6 @@ export const components: MDXComponents = {
   table: TableWrapper,
   BlogNewsletterForm,
   YouTube,
+  Twitter,
   CustomAd,
 }
