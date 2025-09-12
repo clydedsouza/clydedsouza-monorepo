@@ -60,8 +60,17 @@ jobs:
       - name: Run lint
         run: npm run lint
 
+      - name: Run lint frontmatter
+        run: npm run lint:frontmatter
+
+      - name: Compress images
+        uses: ClydeDz/compress-images@v1
+        with:
+          input-directory: blog/public/static/posts
+          output-directory: blog/public/static/posts
+
       - name: Build the Next.js blog
-        run: npm run build
+        run: npm run build:production
         env:
           # Below stored as environment secrets
           NEXT_PUBLIC_GISCUS_REPO: ${{ secrets.NEXT_PUBLIC_GISCUS_REPO }}
