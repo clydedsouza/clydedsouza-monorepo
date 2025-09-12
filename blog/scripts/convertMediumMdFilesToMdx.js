@@ -1,3 +1,8 @@
+/**
+ * This script was used to convert the Medium exported HTML files into MDX
+ * This also adds the frontmatter and other required values
+ */
+
 const fs = require('fs')
 const path = require('path')
 

@@ -1,3 +1,7 @@
+/**
+ * This script downloads images from the Medium CDN endpoint from each blog post
+ */
+
 const fs = require('fs')
 const path = require('path')
 const { https } = require('follow-redirects') // Use follow-redirects for 301/302
