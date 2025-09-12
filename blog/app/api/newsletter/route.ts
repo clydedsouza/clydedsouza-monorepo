@@ -1,6 +1,6 @@
 import { INewsletterPayload } from 'lib/api/newsletter'
 
-export const dynamic = 'force-dynamic' //was force-static
+export const dynamic = 'force-static' //'force-dynamic'
 
 const formId = process.env.CONVERTKIT_FORM_ID
 const apiKey = process.env.CONVERTKIT_API_KEY

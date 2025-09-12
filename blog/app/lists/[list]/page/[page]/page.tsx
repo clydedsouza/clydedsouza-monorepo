@@ -36,7 +36,7 @@ export const generateStaticParams = async () => {
     const postCount = tagCounts[tag]
     const totalPages = Math.max(1, Math.ceil(postCount / POSTS_PER_PAGE))
     return Array.from({ length: totalPages }, (_, i) => ({
-      tag: encodeURI(tag),
+      list: encodeURI(tag),
       page: (i + 1).toString(),
     }))
   })
