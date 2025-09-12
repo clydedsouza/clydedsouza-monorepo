@@ -86,6 +86,10 @@ module.exports = () => {
           protocol: 'https',
           hostname: 'files.clydedsouza.net',
         },
+        {
+          protocol: 'https',
+          hostname: 'storage.ko-fi.com',
+        },
       ],
       unoptimized,
     },

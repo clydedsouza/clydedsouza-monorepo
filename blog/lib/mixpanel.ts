@@ -1,4 +1,5 @@
-import mixpanel from 'mixpanel-browser/dist/mixpanel.cjs'
+// @ts-expect-error types error
+import mixpanel from 'mixpanel-browser'
 
 const MIXPANEL_TOKEN = process.env.NEXT_PUBLIC_MIXPANEL_TOKEN
 

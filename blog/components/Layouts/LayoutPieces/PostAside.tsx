@@ -57,8 +57,9 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
                   <li key={'kofiauthor'}>
                     <dt className="sr-only">Kofi support button</dt>
                     <a href={author.kofi} target="_blank">
-                      <img
+                      <Image
                         height="36"
+                        width="100"
                         style={{ border: '0px', height: '36px' }}
                         src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
                         alt="Buy Me a Coffee at ko-fi.com"

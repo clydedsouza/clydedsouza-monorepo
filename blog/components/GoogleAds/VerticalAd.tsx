@@ -9,7 +9,6 @@ interface AdComponentProps {
 }
 
 const VerticalAd = ({ adSlot, adFormat = 'auto', adLayout = '' }: AdComponentProps) => {
-  console.log(adSlot)
   const adRef = useRef(null)
 
   useEffect(() => {
@@ -23,13 +22,14 @@ const VerticalAd = ({ adSlot, adFormat = 'auto', adLayout = '' }: AdComponentPro
       script.crossOrigin = 'anonymous'
       document.head.appendChild(script)
     }
-    // Push ad
     try {
-      if (window && (window as any).adsbygoogle && adRef.current) {
-        ;(window as any).adsbygoogle.push({})
+      // @ts-ignore test
+      if (window && window.adsbygoogle && adRef.current) {
+        // @ts-ignore test
+        window.adsbygoogle.push({})
       }
     } catch (e) {
-      // ignore duplicate push errors
+      console.log(e)
     }
   }, [])
 

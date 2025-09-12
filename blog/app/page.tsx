@@ -9,7 +9,6 @@ import { allCoreContent, CoreContent, sortPosts } from 'pliny/utils/contentlayer
 export default async function Page() {
   const sortedPostsInDescOrder: Blog[] = sortPosts(allBlogs)
   const posts: CoreContent<Blog>[] = allCoreContent(sortedPostsInDescOrder)
-  console.log(posts)
 
   return (
     <>

@@ -61,11 +61,11 @@ const computedFields: ComputedFields = {
 /**
  * Count the occurrences of all tags across blog posts and write to json file
  */
-async function createTagCount(allBlogs) {
+async function createTagCount(allBlogs: any[]) {
   const tagCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
-      file.tags.forEach((tag) => {
+      file.tags.forEach((tag: string) => {
         const formattedTag = tag
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
@@ -83,11 +83,11 @@ async function createTagCount(allBlogs) {
  * Count the occurrences of all tags that contain "reading list:" across blog posts and write to json file
  * Excludes draft posts in production and general tags
  */
-async function createReadingListCount(allBlogs) {
+async function createReadingListCount(allBlogs: any[]) {
   const readingListCount: Record<string, number> = {}
   allBlogs.forEach((file) => {
     if (file.readingList && (!isProduction || file.draft !== true)) {
-      file.readingList.forEach((readingListItem) => {
+      file.readingList.forEach((readingListItem: string) => {
         if (readingListItem in readingListCount) {
           readingListCount[readingListItem] += 1
         } else {
@@ -102,7 +102,7 @@ async function createReadingListCount(allBlogs) {
   writeFileSync('./app/data/static/readingList.json', formatted)
 }
 
-function createSearchIndex(allBlogs) {
+function createSearchIndex(allBlogs: any[]) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
     siteMetadata.search.kbarConfig.searchDocumentsPath

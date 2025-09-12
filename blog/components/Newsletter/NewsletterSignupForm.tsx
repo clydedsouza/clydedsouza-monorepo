@@ -20,15 +20,16 @@ export const NewsletterSignupForm = ({ isFullWidth = false }: { isFullWidth?: bo
 
   const handleSubmit = async () => {
     const response = await addSubscriber({ firstName, email })
-    response.ok ? setIsSignedUp(true) : setIsSignedUp(false)
+    setIsSignedUp(response.ok)
   }
 
   useEffect(() => {
-    validateEmail(email) ? setIsEmailValid(true) : setIsEmailValid(false)
+    setIsEmailValid(!!validateEmail(email))
   }, [email])
 
   useEffect(() => {
-    firstName && firstName.length > 3 ? setIsFirstNameValid(true) : setIsFirstNameValid(false)
+    const isFirstNameValid = firstName && firstName.length > 3
+    setIsFirstNameValid(!!isFirstNameValid)
   }, [firstName])
 
   if (isSignedUp) {
@@ -80,7 +81,6 @@ export const NewsletterSignupForm = ({ isFullWidth = false }: { isFullWidth?: bo
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             placeholder="Enter your first name"
-            autoComplete="First name"
             aria-invalid={!isFirstNameValid}
             className="w-full rounded-full border-white/50 bg-white/9 px-3.5 py-2 text-white placeholder:text-white focus:outline-2 focus:outline-white aria-invalid:outline-red-500 sm:text-sm/6 md:text-base lg:text-base"
           />
