@@ -1,5 +1,5 @@
 /**
- * This script will format the frontmatter using a library called gray-matter
+ * This script will lint and fix the frontmatter using a library called gray-matter
  */
 
 const fs = require('fs')
