@@ -1,6 +1,7 @@
 name: Build and deploy blog
 
 on:
+  push:
   #   push:
   #     branches:
   #       - main
