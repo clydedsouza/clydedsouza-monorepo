@@ -4,7 +4,7 @@ import { LayoutProps } from '../types/types'
 
 export const PostBody = ({ content, authorDetails, next, prev, children }: LayoutProps) => {
   const { slug } = content
-  const isCommentsEnabled = process.env.IS_COMMENTS_ENABLED ?? false
+  const isCommentsEnabled = process.env.IS_COMMENTS_ENABLED === 'true'
 
   return (
     <div className="pt-2 xl:col-span-3 xl:row-span-2 xl:pb-0">

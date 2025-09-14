@@ -84,6 +84,8 @@ jobs:
           # Below stored as variables and are not secrets
           IS_SCROLLTOP_AND_COMMENTS_ENABLED: ${{ vars.IS_SCROLLTOP_AND_COMMENTS_ENABLED }}
           IS_COMMENTS_ENABLED: ${{ vars.IS_COMMENTS_ENABLED }}
+          IS_GOOGLE_ADS_ENABLED: ${{ vars.IS_GOOGLE_ADS_ENABLED }}
+          IS_NEWSLETTER_SIGNUP_ENABLED: ${{ vars.IS_NEWSLETTER_SIGNUP_ENABLED }}
 
       - name: Upload blog files
         uses: actions/upload-artifact@v4

@@ -13,12 +13,27 @@ const CUSTOM_ADS: ICustomAd = {
   MAMABOOKKINDLE: {
     image: '/static/ads/mtmas-kindle.jpg',
     url: 'https://mamatellmeastory.clydedsouza.net/',
-    alt: 'Mama, Tell Me a Story',
+    alt: 'Image showing the book Mama, Tell Me a Story',
   },
   MAMABOOKPAPERBACK: {
-    image: 'https://files.clydedsouza.net/portfolio/dotnetconf.png',
+    image: '/static/ads/mtmas-paperback.jpg',
     url: 'https://mamatellmeastory.clydedsouza.net/',
-    alt: 'Mama, Tell Me a Story',
+    alt: 'Image showing a person holding the paperback book Mama, Tell Me a Story',
+  },
+  YOUTUBE: {
+    image: '/static/ads/youtube.png',
+    url: 'https://www.youtube.com/@clydedz',
+    alt: 'Image showing the authors photo beside the YouTube logo and a call to action subscribe button',
+  },
+  GLIDE: {
+    image: '/static/ads/glideapp.png',
+    url: 'https://join.glideapps.com/templates-by-clyde',
+    alt: 'Image showing a mobile phone and text to persuade the reader to purchase mobile app templates from Glide',
+  },
+  AITELLMEASTORY: {
+    image: '/static/ads/aitellmeastory.png',
+    url: 'https://aitellmeastory.clydedsouza.net/',
+    alt: 'Image showing the book AI, Tell Me a Story',
   },
 }
 

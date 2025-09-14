@@ -12,6 +12,8 @@ import { LayoutProps } from '../types/types'
 
 export const PostAside = ({ content, authorDetails, next, prev, children }: LayoutProps) => {
   const { tags, readingList, title, subtitle } = content
+  const isGoogleAdsEnabled = process.env.IS_GOOGLE_ADS_ENABLED === 'true'
+  const isNewsletterSignupEnabled = process.env.IS_NEWSLETTER_SIGNUP_ENABLED === 'true'
 
   return (
     <aside>
@@ -72,16 +74,18 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
             </ul>
           </dd>
         </dl>
-        <NewsletterSignupForm />
+        {isNewsletterSignupEnabled && <NewsletterSignupForm />}
       </div>
 
       <div className="mt-6 hidden xl:block">
         <SocialShare title={title} summary={subtitle} />
       </div>
 
-      <div className="grid grid-cols-1 items-start">
-        <VerticalAd adSlot="xyz" />
-      </div>
+      {isGoogleAdsEnabled && (
+        <div className="grid grid-cols-1 items-start">
+          <VerticalAd adSlot="xyz" />
+        </div>
+      )}
 
       <div className="my-6 grid grid-cols-2 items-start gap-x-8 xl:grid-cols-1 xl:gap-y-4">
         <div className="text-sm font-medium">
@@ -114,7 +118,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
         </div>
       </div>
 
-      <CustomAd isRandom={false} adKey="MAMABOOKPAPERBACK" />
+      <CustomAd isRandom={true} />
 
       <div>
         {(next || prev) && (

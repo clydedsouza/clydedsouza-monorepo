@@ -9,6 +9,7 @@ import { allCoreContent, CoreContent, sortPosts } from 'pliny/utils/contentlayer
 export default async function Page() {
   const sortedPostsInDescOrder: Blog[] = sortPosts(allBlogs)
   const posts: CoreContent<Blog>[] = allCoreContent(sortedPostsInDescOrder)
+  const isNewsletterSignupEnabled = process.env.IS_NEWSLETTER_SIGNUP_ENABLED === 'true'
 
   return (
     <>
@@ -32,7 +33,7 @@ export default async function Page() {
         </div>
         <PostItems posts={posts.slice(1, 5)} />
       </SectionContainer>
-      <NewsletterSignupForm isFullWidth />
+      {isNewsletterSignupEnabled && <NewsletterSignupForm isFullWidth />}
     </>
   )
 }
