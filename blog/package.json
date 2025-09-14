@@ -9,6 +9,8 @@
     "lint:frontmatter": "node ./scripts/lintFrontmatter.js",
     "optimize:post-images": "imagemin public/static/posts --out-dir=public/static/posts --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4",
     "optimize:site-images": "imagemin public/static/images --out-dir=public/static/images --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4",
+    "optimize:site-favicons": "imagemin public/static/favicons --out-dir=public/static/favicons --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4",
+    "optimize:site-ads": "imagemin public/static/ads --out-dir=public/static/ads --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4",
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {

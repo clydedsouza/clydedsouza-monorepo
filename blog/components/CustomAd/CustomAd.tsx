@@ -11,7 +11,7 @@ type ICustomAd = Record<string, ICustomAdData>
 
 const CUSTOM_ADS: ICustomAd = {
   MAMABOOKKINDLE: {
-    image: '/static/images/mtmas-kindle.jpg',
+    image: '/static/ads/mtmas-kindle.jpg',
     url: 'https://mamatellmeastory.clydedsouza.net/',
     alt: 'Mama, Tell Me a Story',
   },

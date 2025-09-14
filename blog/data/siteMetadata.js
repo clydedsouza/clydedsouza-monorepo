@@ -11,7 +11,7 @@ const siteMetadata = {
   siteUrl: 'http://localhost:3000',
   siteRepo: 'https://github.com/clydedsouza/clydedsouza-monorepo',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`, //TODO update this
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/teaser.png`,
   email: 'clyde@clydedsouza.net',
   github: 'https://github.com/ClydeDz',
   x: 'https://twitter.com/clydedz',
