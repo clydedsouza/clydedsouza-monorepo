@@ -10,7 +10,7 @@ You can add/update blog post files located in the `data\posts` folder.
 
 ### Frontmatter
 
-Ensure that the frontmatter content structure is the same as other blog posts. We can add a new frontmatter key but for that we have to update the `contentlayer.config.ts` file and other places to use this new key. For existing keys, it should just work across files. You can lint the frontmatter content locally using `npm run lint`.
+Ensure that the frontmatter content structure is the same as other blog posts. We can add a new frontmatter key but for that we have to update the `contentlayer.config.ts` file and other places to use this new key. For existing keys, it should just work across files. You can lint the frontmatter content locally using `npm run lint:frontmatter`.
 
 ### MDX
 

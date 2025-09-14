@@ -7,7 +7,7 @@ export const initAnalyticsWithSuperProperties = () => {
     process.env.NEXT_PUBLIC_MIXPANEL_TOKEN ?? MIXPANEL_DEV_PROJECT_ID;
   try {
     mixpanel.init(mixpanelProjectId, {
-      debug: true,
+      debug: false,
       track_pageview: true,
       ignore_dnt: true,
       persistence: "localStorage",

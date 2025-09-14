@@ -10,9 +10,18 @@ export const initMixpanel = () => {
   }
 
   mixpanel.init(MIXPANEL_TOKEN, {
+    autocapture: {
+      pageview: 'url-with-path-and-query-string',
+      click: true,
+      input: true,
+      rage_click: true,
+      scroll: true,
+      submit: true,
+      capture_text_content: false,
+    },
     debug: true,
-    track_pageview: true,
+    track_pageview: 'url-with-path-and-query-string',
     ignore_dnt: true,
-    autocapture: true,
+    persistence: 'localStorage',
   })
 }
