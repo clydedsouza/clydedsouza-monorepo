@@ -1,25 +1,24 @@
 import Link from '@/components/CustomLink/Link'
+import SectionContainer from '@/components/Layouts/SectionContainer'
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-start justify-start md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6">
-      <div className="space-x-2 pt-6 pb-8 md:space-y-5">
-        <h1 className="text-6xl leading-9 font-extrabold tracking-tight text-gray-900 md:border-r-2 md:px-6 md:text-8xl md:leading-14 dark:text-gray-100">
-          404
-        </h1>
+    <SectionContainer>
+      <h1 className="py-6 text-5xl font-extrabold tracking-tight text-gray-900 sm:text-5xl sm:leading-10 md:text-5xl md:leading-14 dark:text-gray-100">
+        Sorry, this page doesn't exist.
+      </h1>
+
+      <div className="flex w-full flex-wrap">
+        Try heading to the homepage for a fresh start or using the search above to look for content.
       </div>
-      <div className="max-w-md">
-        <p className="mb-4 text-xl leading-normal font-bold md:text-2xl">
-          Sorry we couldn't find this page.
-        </p>
-        <p className="mb-8">But dont worry, you can find plenty of other things on our homepage.</p>
+      <div className="my-6 flex w-full flex-wrap">
         <Link
           href="/"
-          className="focus:shadow-outline-blue inline rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-sm leading-5 font-medium text-white shadow-xs transition-colors duration-150 hover:bg-blue-700 focus:outline-hidden dark:hover:bg-blue-500"
+          className="bg-primary-500 flex items-center justify-center gap-4 rounded-full px-4 py-2 text-white transition-colors duration-200 hover:bg-slate-800 focus:bg-slate-800 sm:px-8 sm:py-2"
         >
           Back to homepage
         </Link>
       </div>
-    </div>
+    </SectionContainer>
   )
 }

@@ -38,6 +38,7 @@ async function createSubscriber({ email, firstName }: INewsletterPayload) {
     const subscriberId = data.subscriber.id
 
     const addSubscriberToFormResponse = await addSubscriberToForm(subscriberId)
+
     if (!addSubscriberToFormResponse.ok) return false
 
     return true

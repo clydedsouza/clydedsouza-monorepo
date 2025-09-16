@@ -28,7 +28,7 @@ export const NewsletterSignupForm = ({ isFullWidth = false }: { isFullWidth?: bo
   }, [email])
 
   useEffect(() => {
-    const isFirstNameValid = firstName && firstName.length > 3
+    const isFirstNameValid = firstName && firstName.length > 2
     setIsFirstNameValid(!!isFirstNameValid)
   }, [firstName])
 

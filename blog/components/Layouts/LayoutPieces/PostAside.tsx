@@ -58,13 +58,28 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
                   </li>
                   <li key={'kofiauthor'}>
                     <dt className="sr-only">Kofi support button</dt>
-                    <a href={author.kofi} target="_blank">
+                    <a href={author.kofi} target="_blank" className="mr-2 inline-block">
                       <Image
                         height="32"
-                        width="128"
+                        width="127"
                         style={{ border: '0px', height: '32px' }}
                         src="https://storage.ko-fi.com/cdn/kofi6.png?v=6"
                         alt="Buy Me a Coffee at ko-fi.com"
+                        className="rounded-full"
+                      />
+                    </a>
+                    <dt className="sr-only">Sponsor me button</dt>
+                    <a
+                      href="https://sponsor.clydedsouza.net/"
+                      target="_blank"
+                      className="inline-block"
+                    >
+                      <Image
+                        height="32"
+                        width="127"
+                        style={{ border: '0px', height: '32px' }}
+                        src="/static/images/sponsorme.png"
+                        alt="Sponsor me button"
                         className="rounded-full"
                       />
                     </a>
