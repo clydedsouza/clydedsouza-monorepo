@@ -28,7 +28,7 @@ Image compress also happens in CICD in the `blog.yml` file.
 
 Secret environment variables should be in the `.env` file. Use the `.env.example` file to recreate the `.env` file if downloading the repo for the first time. These env variables are also applied in CICD, more about it below.
 
-I've also added some feature flags like `IS_COMMENTS_ENABLED` that control the features across the website. E.g. if the comments don't work as expected, I can update the flag value to false and re-run CICD which should build the site with the false value and hide the feature.
+I've also added some feature flags like `NEXT_PUBLIC_IS_COMMENTS_ENABLED` that control the features across the website. E.g. if the comments don't work as expected, I can update the flag value to false and re-run CICD which should build the site with the false value and hide the feature.
 
 ### Build
 

@@ -6,7 +6,8 @@ import { PostHeader } from './LayoutPieces/PostHeader'
 import { LayoutProps } from './types/types'
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const isScrollTopAndCommentEnabled = process.env.IS_SCROLLTOP_AND_COMMENTS_ENABLED === 'true'
+  const isScrollTopAndCommentEnabled =
+    process.env.NEXT_PUBLIC_IS_SCROLLTOP_AND_COMMENTS_ENABLED === 'true'
   return (
     <SectionContainer>
       {isScrollTopAndCommentEnabled && <ScrollTopAndComment />}

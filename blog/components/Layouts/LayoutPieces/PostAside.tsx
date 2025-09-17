@@ -12,8 +12,8 @@ import { LayoutProps } from '../types/types'
 
 export const PostAside = ({ content, authorDetails, next, prev, children }: LayoutProps) => {
   const { tags, readingList, title, subtitle } = content
-  const isGoogleAdsEnabled = process.env.IS_GOOGLE_ADS_ENABLED === 'true'
-  const isNewsletterSignupEnabled = process.env.IS_NEWSLETTER_SIGNUP_ENABLED === 'true'
+  const isGoogleAdsEnabled = process.env.NEXT_PUBLIC_IS_GOOGLE_ADS_ENABLED === 'true'
+  const isNewsletterSignupEnabled = process.env.NEXT_PUBLIC_IS_NEWSLETTER_SIGNUP_ENABLED === 'true'
 
   return (
     <aside>
