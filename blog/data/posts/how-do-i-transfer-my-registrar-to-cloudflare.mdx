@@ -1,0 +1,122 @@
+---
+title: How Do I Transfer My Registrar to Cloudflare?
+subtitle: A step-by-step guide to saving some bucks
+date: '2022-03-31'
+lastmod: '2022-03-31'
+tags:
+  - Cloudflare
+  - DNS
+  - Registrar
+  - Domain Management
+  - Domains
+readingList:
+  - Cloudflare
+draft: false
+images:
+  - /static/posts/cloudflaredomain.png
+---
+
+<InlineImage
+  src="/static/posts/cloudflaredomain.png"
+  alt="Article cover image featuring multiple domains in a Cloudflare dropdown"
+  caption={
+    <>
+      Image source: <a href="https://unsplash.com/photos/RAZU_R66vUc">Unsplash</a> and{' '}
+      <a href="https://www.cloudflare.com/static/c7f372339db84ee824d7239ab5976683/registar-hero-illustration.svg">
+        Cloudflare illustration
+      </a>
+    </>
+  }
+/>
+
+### Introduction
+
+Cloudflare has introduced a registrar service that aims at bringing domain purchases, renewals and transfers at no-markup pricing. All the prices for domains are provided at wholesale prices and include features like WHOIS management, registrar locking, native DNS, CDN, SSL services and a lot more.
+
+To transfer your domain to Cloudflare, they've put together [this useful documentation page](https://developers.cloudflare.com/registrar/get-started/transfer-domain-to-cloudflare). This article covers the steps of transferring the domain specifically from [Register4Less](https://register4less.com/) to Cloudflare.
+
+### Prerequisite
+
+Before getting started with this article, first, [create an account in Cloudflare](https://support.cloudflare.com/hc/en-us/articles/201720164). Next, you'd have to create a site in Cloudflare and [change your DNS servers](https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/) to Cloudflare from your current registrar. For most instances, a free account would be perfectly fine.
+
+I had already completed this step years ago as I was using Cloudflare for my authoritative DNS nameservers and Cloudflare provided SSL so I didn't need to do this step now.
+
+### DNSSEC
+
+DNSSEC is a security protocol that adds a layer of trust on top of DNS protecting it against cyberattacks. The first step is to either cancel or disable the existing DNSSEC setup. Log in to the Cloudflare dashboard and select the account and domain you want to configure. Next, navigate to **DNS**. Then scroll down to **DNSSEC** and click the **Cancel Setup** button.
+
+![Image of DNSSEC module in Cloudflare](/static/posts/1_FbGMwYF5EqiuzSq9bf2Ohw.png)
+
+### Unlock your domain
+
+Next, you'd need to unlock your domain from your current registrar. A domain is locked to prevent unauthorized transfers.
+
+From the Register4Less dashboard, click on **Profile** from the menu and then select **Registrar locking**. From this page, click on the **Unlock All** button and confirm your action.
+
+![Image of the registrar locking screen in Register4Less](/static/posts/1_d9IYce0ObAVUqZ8uRSGAVw.png)
+
+### Disable Whois privacy
+
+As per Cloudflare's documentation, it is advised to disable the Whois privacy service for your domain. Note, during this interim period, if you try a Whois lookup on your domain, your details _will_ be visible.
+
+From the Register4Less dashboard, click on **Profile** and then click on **Privacy**. From this page, click on **Disable All**.
+
+![Image of the Whois privacy screen in Register4Less](/static/posts/1_08Pt32wUew9p9BR3BPspHA.png)
+
+### Authorization code
+
+An authorization code is a code created by a registrar to help identify the domain name holder of a domain. For a transfer to work, you'd need to get the auth code value from your current registrar.
+
+From the Register4Less dashboard, click on **Profile** and then click on **Domain details**. This page should show you the current auth code for your domain. Copy this value and store it securely because we'll need this soon.
+
+![Image of the domain details screen in Register4Less](/static/posts/1_LoybaF9hI5eO6f5ApPpM6g.png)
+
+### Initiate the transfer
+
+Step 1 is to initiate the transfer process. Head over to Cloudflare and click on **Buy Domains** from the left sidebar. Then click on **Transfer**. You should see your domain listed in the table pre-selected. Then click on the **Confirm domain** button.
+
+![Image of the initiate transfer screen in Cloudflare](/static/posts/1_k_MdbXJudy1tZ3yqLDEqiA.png)
+
+> Sidenote: I needed to add a payment method to Cloudflare before proceeding ahead. If you haven't added a payment method, Cloudflare will let you know on this page and once you click on that link, you should be able to enter your card details.
+
+### Authorization code (again)
+
+Step 2 is to enter the authorization code that you copied earlier. After entering it in the text box, you should see a green tick. Now, click on the **Confirm and Proceed** button.
+
+![Image of the authorization code screen in Cloudflare](/static/posts/1_P4yh95XmOWz5t29wpMVJbQ.png)
+
+### Contact information
+
+Step 3 is to confirm your contact information — simply add your personal information and address. Don't worry, this information won't be displayed when you perform a Whois lookup.
+
+![Image of the final confirmation screen in Cloudflare](/static/posts/1_GfyVNrkmZ0NHv6R5GjrhyQ.png)
+
+Finally, click on the **Confirm and finalize transfer** button and if everything has gone well, you should see a message notifying you that the transfer is underway.
+
+![Image of the domain transferred successfully screen in Cloudflare](/static/posts/1_ofTlMDacujjlEb_t9oPDKw.png)
+
+At this stage, your current registrar will receive a request and should have a workflow in place to process the transfer. You might also get an email to approve or cancel this transfer, depending on what your current registrar has in place. Either way, it's usually time to wait for the process to kick in.
+
+### Post-wait
+
+After about an hour I got an email from Register4Less with a link to cancel the transfer otherwise by default the transfer will get completed automatically. Depending on your current registrar, the processing time might vary and the process might vary, too.
+
+I then logged into Cloudflare and clicked on domains. I can now see my domain on the screen with the status as Active.
+
+![An image of the list of domains in Cloudflare](/static/posts/1_RuXAOHKe4xsM_Kab4oGUcg.png)
+
+If I click on the **Manage** link, I'm directed to a page that provides more details about my domain. Feel free to click on the **Configuration** tab and toggle DNSSEC back on.
+
+![Image of the domain details in Cloudflare](/static/posts/1_ZmGvnO5iRpfjsaxu38bgRg.png)
+
+This process might take a while, but once it's enabled, you should see a success message.
+
+![Image of the DNSSEC module in Cloudflare](/static/posts/1_ms5-jhgV_scTgBExGXVkZQ.png)
+
+### How to validate this process?
+
+To confirm if the domain has been transferred to the new registrar correctly visit [this lookup utility by ICANN](https://lookup.icann.org/lookup). After you enter your domain and perform a search, scroll down that page to a section called **Registrar Information**. This should tell you the current registrar's name, which, in this case, should be Cloudflare Inc.
+
+![Image of the ICANN lookup tool](/static/posts/1_6Z2wOx0F6saS4_IjsEZ0xA.png)
+
+That's it. Thanks for reading.

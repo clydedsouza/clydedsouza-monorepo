@@ -139,7 +139,7 @@ describe("Analytics", () => {
           initAnalyticsWithSuperProperties();
 
           expect(mixpanelInitMock).toHaveBeenCalledWith(projectId, {
-            debug: true,
+            debug: false,
             ignore_dnt: true,
             persistence: "localStorage",
             track_pageview: true,

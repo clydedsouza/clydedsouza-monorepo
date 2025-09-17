@@ -1,0 +1,183 @@
+---
+title: Splitting Your GitHub Actions Into Smaller Pieces
+subtitle: Fundamentals of Composite GitHub Actions
+date: '2023-08-01'
+lastmod: '2023-08-01'
+tags:
+  - Github
+  - GitHub Actions
+  - CICD
+  - DevOps
+  - Programming
+readingList:
+  - GitHub Actions
+draft: false
+images:
+  - /static/posts/puzzle.jpg
+---
+
+<InlineImage
+  src="/static/posts/puzzle.jpg"
+  alt="Image of a person trying to put together two pieces of a jigsaw puzzle."
+  caption={
+    <>
+      Image source: <a href="https://unsplash.com/photos/DnXqvmS0eXM">Unsplash</a>
+    </>
+  }
+/>
+
+### Introduction
+
+GitHub Actions is more than just DevOps. It enables the automation of your build, test, and deployment pipeline, serving as a platform for continuous integration and continuous delivery (CI/CD), and also lets you run workflows when various other events happen in your repository.
+
+A workflow file is a collection of one or more jobs which in turn is a collection of one or more steps that get executed. Each step is called an action. These workflows are defined using a YAML file and reside within your GitHub repository.
+
+#### Visualization
+
+If you have written out multiple jobs in a single workflow file and they have a dependency between them, GitHub Actions will be able to automagically show you a visualization of the jobs and as it runs, this visualization gets live-updated with green checks or red crosses signifying the status of each job.
+
+![](/static/posts/1_W13AUBejH2vNPI60OujsZw.png)
+
+Image courtesy of the author
+
+However, if you have split your pipeline (or build chain) into multiple workflow files, then you don't see the same visualization even though they're dependent.
+
+This leads to the temptation of writing all your code in a single workflow file and that leads to another problem.
+
+#### Large files
+
+Since you could now have _n_ number of steps in each job, there is a very high likelihood of your workflow file becoming very lengthy. This is also true if your pipeline has multiple stages which will correspond to multiple jobs. As you would've guessed, writing multiple lines of code in a single file makes it harder to read and maintain, so it's best to avoid this practice.
+
+What can we do then? That's where composite actions come to the rescue.
+
+### Composite actions
+
+A composite action is like a regular workflow file except that it allows you to bundle multiple steps into one action which enables you to then execute all of these bundled steps from your workflow file as a single action.
+
+This is such great functionality because this allows us to be smart about writing our workflow code and potentially even reuse blocks of code if a bunch of steps is repeated in various places.
+
+Even if there isn't scope for reusing, you could also use composite actions to split your workflow file into smaller bits which allows you to keep your main workflow file compact and clean.
+
+What does this look like in practice? Let's dive in with a basic example.
+
+### Implementing composite actions
+
+Let's say we start off with a single workflow file that prints three echo statements on the console, like the code snippet below.
+
+```yml
+name: Composite actions poc
+on: [workflow_dispatch]
+jobs:
+  go_run:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo We warm up
+        shell: bash
+
+      - run: echo We jog
+        shell: bash
+
+      - run: echo We run
+        shell: bash
+```
+
+At this point, there's only a single workflow yaml file in the `.github/workflows` folder in our repository. In practice, this workflow might be more complex and might contain a lot more steps, but for brevity, let's keep the example super simple.
+
+![](/static/posts/1_BHPOM_Tij5Z8-4Sxt-wcRQ.png)
+
+Image courtesy of the author
+
+As you can see, the echo statements print their output in the console, which is what we'd expect.
+
+#### Creating composite actions
+
+Now, let's create two composite actions in the same repository. We'll do that by adding a file called `action.yml` in the `.github/actions/jog` folder. Here, the folder named jog is what I've decided to call out composite action, but you can rename this to whatever suits your needs. They do have to reside in the `.github/actions/` folder though.
+
+```yml
+name: Jog
+
+runs:
+  using: 'composite'
+  steps:
+    - run: echo We jog from composite action
+      shell: bash
+```
+
+As you might observe in the code snippet above, the actual step to print the message follows the same syntax as the previous code snippet. The difference is the `using` keyword where we explicitly mention that this is a composite action, and the `runs` keyword that holds all of the steps within itself instead of using `jobs`.
+
+In a similar fashion, we'll repeat the process and create another composite action file called `action.yml` in the `.github/actions/run` folder. Once again, the folder named run is what I've decided to call it.
+
+```yml
+name: Run
+
+runs:
+  using: 'composite'
+  steps:
+    - run: echo We run from composite action
+      shell: bash
+```
+
+I'll skip explaining because it's the same as above except we're printing a different message.
+
+#### Consuming composite actions
+
+Let's now make use of these composite actions in our workflow file. We don't need to publish our composite actions to be able to use them. We can use it internally within the repository, too. To do so, we'll just add the following code line.
+
+```yml
+name: Composite actions poc
+on: [workflow_dispatch]
+
+jobs:
+  go_run:
+    name: Go run
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - run: echo We warm up
+
+      - uses: ClydeDz/github-composite-actions-poc/.github/actions/jog@main
+
+      - uses: ClydeDz/github-composite-actions-poc/.github/actions/run@main
+```
+
+As you might've noted, it's in the format `(Repository owner)/(Repository name)(Path to the composite action folder in the repository)@(Branch name)`. This allows us to refer to a composite action within the same repository without even needing to checkout the repository in the pipeline.
+
+Running this workflow file now prints all the output as we expected.
+
+![](/static/posts/1_N0KpyUCe5MFY3LKzeYtx4Q.png)
+
+Image courtesy of the author
+
+#### Bonus
+
+If you do end up publishing your composite action to the GitHub marketplace for you and others to use you could still very easily consume it. As an example, the following code snippet shows how to add [Compress Images action](https://github.com/marketplace/actions/compress-images) to your workflow file, which is a composite action created and published to the marketplace.
+
+```yml
+name: Composite actions poc
+on: [workflow_dispatch]
+jobs:
+  go_run:
+    name: Go run
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: ClydeDz/custom-githubaction-poc@main
+        with:
+          inputDirectory: 'public/*'
+          outputDirectory: 'dist'
+          jpgCompressionQuality: 50
+```
+
+As you may note, the format to use a composite action is consistent with the format of using an action from the GitHub marketplace.
+
+### Conclusion
+
+Composite actions expand the possibilities of what we can do with GitHub actions and is definitely worth putting in the investment to dive a bit deeper into it. If you're using composite actions, do let me know in the comments below what you think about it.
+
+The code snippets shown in this article can be found in [this GitHub repository](https://github.com/ClydeDz/github-composite-actions-poc). I've also written about how to create a standalone composite GitHub action and publish it to the GitHub marketplace [here](https://medium.com/gitconnected/lights-camera-github-action-264ace247f83).
+
+That's it! Thanks for reading.

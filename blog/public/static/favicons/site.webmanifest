@@ -1,0 +1,14 @@
+{
+  "name": "blog.clydedsouza.net",
+  "short_name": "Clyde's Blog",
+  "icons": [
+    {
+      "src": "/apple-touch-icon-120x120.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#10984d",
+  "background_color": "#10984d",
+  "display": "standalone"
+}

@@ -1,0 +1,123 @@
+---
+title: Publishing Public User-Scoped Packages to NPM
+subtitle: We'll look at three options of which two works
+date: '2024-02-19'
+lastmod: '2024-02-19'
+tags:
+  - NPM
+  - Npm Package
+  - Npm Registry
+  - Node
+  - Private Npm Packages
+readingList:
+  - NPM Library
+draft: false
+images:
+  - /static/posts/telescope.jpg
+---
+
+<InlineImage
+  src="/static/posts/telescope.jpg"
+  alt="Silhouette of a lady looking into a telescope"
+  caption={
+    <>
+      Image source:{' '}
+      <a href="https://unsplash.com/photos/woman-near-tower-viewer-ovz3FAcxL7g">Unsplash</a>
+    </>
+  }
+/>
+
+### Introduction
+
+By default, user-scoped packages are private, and if you aren't on a paid account with npm, it poses a constraint because we cannot publish private packages from a free npm account. But what if we wanted to make a user-scoped package public and still publish it on the npm registry? In this article, we'll take a look at publishing a public user-scoped package to the npm registry.
+
+### Prerequisites
+
+We'll be looking at publishing a user-scoped package to the npm registry. When you sign up for an npm user account, your username is the scope that's granted to you. Similar applies when you create an organization. For instance, my [npm username is clydedsouza](https://www.npmjs.com/~clydedsouza) which is also the user-scope I can publish packages to. So, I can either publish a public unscoped package like [ui-avatars](https://www.npmjs.com/package/ui-avatars) or I can publish a user-scoped package like [@clydedsouza/horoscope](https://www.npmjs.com/package/@clydedsouza/horoscope).
+
+For brevity, I'll omit the steps of creating a package, but if you'd like to follow along you could clone [this GitHub repository](https://github.com/ClydeDz/create-chrome-extension-npm) which we'll also use throughout this article. We're not too concerned about the functionality of the package, just the publishing steps of it, so you can also create a very basic one if you'd rather do that. The full package.json file can be [found here](https://github.com/ClydeDz/create-chrome-extension-npm/blob/main/package.json), but the important bits to get started are shown in the code snippet below.
+
+```json
+{
+  "name": "@clydedsouza/create-chrome-extension",
+  "version": "0.0.1"
+}
+```
+
+### Let's begin
+
+In the integrated terminal of VS Code, we'll type in `npm login` to first log in to the npm js registry. We'll be redirected to the browser window where we'll complete the login and once we're back to the terminal, we should be sweet.
+
+![](/static/posts/1_u47cyr50agRczK_Py0Z69A.png)
+
+Image courtesy of the author
+
+We'll then run `npm publish --dry-run` to simulate the actual publish command and see what files will be packaged up. This is a good time to review the output and make changes where necessary. It has warned me about the incorrect entries for the `bin` and `repository.url` fields, both of which are easy fixes — I have to rename the `bin` field value to remove the scope from the name of the command and have to update the repository URL to prefix `git+` to the GitHub URL and suffix it with `.git`.
+
+![](/static/posts/1_SeKNGK0FZlanu8H7QZzoQA.png)
+
+Image courtesy of the author
+
+As we can see in the screenshot below, the files from the .github folder are being included which is unnecessary.
+
+![](/static/posts/1_OGXxS8FNN_p5bVN-WFPy3A.png)
+
+Image courtesy of the author
+
+This can be fixed by adding a line in the .npmignore file as shown below.
+
+```
+.github/
+```
+
+We're now ready to publish the package and we'll use the command `npm publish` to do so. The output in the command line will contain the files that are being packaged and some metadata of the package that's published. Unfortunately, we're receiving an error message instead of a success. As captured in the screenshot below, the error message states “402 Payment Required” and that “you must sign up for private packages.”
+
+![](/static/posts/1_zb80MW1poPsFb5cpF7gGQg.png)
+
+Image courtesy of the author
+
+Since my npm package name consists of the scope @clydedsouza, it has defaulted to private visibility. This [npm js docs page](https://docs.npmjs.com/about-scopes#scopes-and-package-visibility) also confirms this fact. This in itself is no issue, but since I'm not on a paid plan, I cannot publish private packages, hence this error.
+
+To resolve this, let's try explicitly setting the `private` flag to false to let npm js know that this is intended to be a public package even though it is scoped. As per the [docs page](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#private), npm js seems to support this flag, although it's not very clear if it'll resolve the error we're getting.
+
+```json
+{
+  "name": "@clydedsouza/create-chrome-extension",
+  "version": "0.0.1",
+  "private": false
+}
+```
+
+Unfortunately, when we try to publish after this update, we still see the same error. So clearly setting the private value didn't do the trick. Let's remove that from our package.json file and try something else.
+
+![](/static/posts/1_yhgZemCog9lCkIPCvhD-lw.png)
+
+Image courtesy of the author
+
+In the same [docs page](https://docs.npmjs.com/cli/v10/configuring-npm/package-json#publishconfig), npm js mentions the `publishConfig` object that is used during publish-time. It does talk about access, although it talks about making a scoped module private, which isn't what we really want. Anyway, let's make use of the `publishConfig` object and set the `access` value to `public`.
+
+```json
+{
+  "name": "@clydedsouza/create-chrome-extension",
+  "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  }
+}
+```
+
+Now when we try to publish the package, it works correctly. Since we've supplied the access value in the `publishConfig` object, it also prints “with public access” in the command line info message output, as seen in the screenshot below.
+
+![](/static/posts/1_KxHYC8vNiwC5F0EnB0PgQQ.png)
+
+Image courtesy of the author
+
+If we don't want to supply the `publishConfig` object in the package.json file, we can simply set the access level as an argument to the npm publish command instead, as shown in the snippet below.
+
+```shell
+npm publish --access public
+```
+
+The source code for the npm package used in this article can be found [here on GitHub](https://github.com/ClydeDz/create-chrome-extension-npm). If you have any questions, please feel free to comment down below.
+
+That's it! Thanks for reading.

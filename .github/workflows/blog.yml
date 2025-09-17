@@ -1,0 +1,126 @@
+name: Build and deploy blog
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "api/**"
+      - "images/**"
+      - "website/**"
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "api/**"
+      - "images/**"
+      - "website/**"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build_blog:
+    name: Build blog
+    runs-on: ubuntu-latest
+    environment:
+      name: blog
+    defaults:
+      run:
+        shell: bash
+        working-directory: blog
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run lint frontmatter
+        run: npm run lint:frontmatter
+
+      - name: Compress images
+        uses: ClydeDz/compress-images@v1
+        with:
+          input-directory: blog/public/static/posts
+          output-directory: blog/public/static/posts
+
+      - name: Build the Next.js blog
+        run: npm run build:production
+        env:
+          # Below stored as environment secrets
+          NEXT_PUBLIC_GISCUS_REPO: ${{ secrets.NEXT_PUBLIC_GISCUS_REPO }}
+          NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
+          NEXT_PUBLIC_GISCUS_CATEGORY: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY }}
+          NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
+          NEXT_PUBLIC_MIXPANEL_TOKEN: ${{ secrets.NEXT_PUBLIC_MIXPANEL_TOKEN }}
+          CONVERTKIT_API_KEY: ${{ secrets.CONVERTKIT_API_KEY }}
+          CONVERTKIT_FORM_ID: ${{ secrets.CONVERTKIT_FORM_ID }}
+          # Below stored as variables and are not secrets
+          NEXT_PUBLIC_IS_SCROLLTOP_AND_COMMENTS_ENABLED: ${{ vars.NEXT_PUBLIC_IS_SCROLLTOP_AND_COMMENTS_ENABLED }}
+          NEXT_PUBLIC_IS_COMMENTS_ENABLED: ${{ vars.NEXT_PUBLIC_IS_COMMENTS_ENABLED }}
+          NEXT_PUBLIC_IS_GOOGLE_ADS_ENABLED: ${{ vars.NEXT_PUBLIC_IS_GOOGLE_ADS_ENABLED }}
+          NEXT_PUBLIC_IS_NEWSLETTER_SIGNUP_ENABLED: ${{ vars.NEXT_PUBLIC_IS_NEWSLETTER_SIGNUP_ENABLED }}
+
+      - name: Upload blog files
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./blog/out # Local dist folder
+          include-hidden-files: true
+
+  deploy_blog:
+    name: Deploy blog
+    environment:
+      name: blog
+      url: "https://blog.clydedsouza.net"
+    runs-on: ubuntu-latest
+    needs: build_blog
+    if: |
+      success() &&
+      github.ref == 'refs/heads/main'
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact
+          path: artifact
+
+      - name: Deploy artifacts to the blog repo
+        uses: tagus/git-deploy@v0.4.1
+        with:
+          changes: artifact
+          repository: git@github.com:clydedsouza/clydedsouza-web-blog.git
+          ssh_key: ${{ secrets.BLOG_REPO_DEPLOY_KEY }}
+          name: clydedsouza
+          email: 16275549+clydedsouza@users.noreply.github.com
+          clean_repo: true
+          branch: main
+          message: "Commit from the monorepo blog deploy job"
