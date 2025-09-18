@@ -1,6 +1,7 @@
-import { MetadataRoute } from 'next'
-import { allBlogs } from 'contentlayer/generated'
+import headerNavLinks from '@/components/Header/headerNavLinks'
 import siteMetadata from '@/data/siteMetadata'
+import { allBlogs } from 'contentlayer/generated'
+import { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
 
@@ -14,7 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: post.lastmod || post.date,
     }))
 
-  const routes = ['', 'blog', 'projects', 'tags'].map((route) => ({
+  const navigationLinks = headerNavLinks.map((links) => links.href.replace('/', ''))
+
+  const routes = navigationLinks.map((route) => ({
     url: `${siteUrl}/${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }))
