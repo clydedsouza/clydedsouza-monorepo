@@ -6,6 +6,7 @@
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "build:production": "cross-env EXPORT=1 UNOPTIMIZED=1 INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "lint": "next lint --fix",
+    "serve": "npm run build:production && npx serve out",
     "lint:frontmatter": "node ./scripts/lintFrontmatter.js",
     "optimize:post-images": "imagemin public/static/posts --out-dir=public/static/posts --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4",
     "optimize:site-images": "imagemin public/static/images --out-dir=public/static/images --plugin.mozjpeg.quality=40 --plugin.gifsicle.optimizationLevel=2 --plugin.pngquant.quality=0.4 --plugin.pngquant.quality=0.4",
