@@ -18,7 +18,7 @@ export const initMixpanel = () => {
       submit: true,
       capture_text_content: false,
     },
-    debug: true,
+    debug: false,
     track_pageview: 'url-with-path-and-query-string',
     ignore_dnt: true,
     persistence: 'localStorage',
