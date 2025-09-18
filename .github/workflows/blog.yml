@@ -89,7 +89,7 @@ jobs:
       - name: Upload blog files
         uses: actions/upload-artifact@v4
         with:
-          path: ./blog/out # Local dist folder
+          path: ./blog/out
           include-hidden-files: true
 
   deploy_blog:

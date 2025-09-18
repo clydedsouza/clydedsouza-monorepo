@@ -6,6 +6,8 @@ Install the packages using npm. Then run `npm run dev` to start the project loca
 
 This website is a Next.js Tailwind CSS static blog created using [this template](https://github.com/timlrx/tailwind-nextjs-starter-blog). It supports writing blog posts as MDX files, then it will compiles the site and the blog posts into a static website, and then deploy them to GitHub Pages. All features in the website like blog search, tags, reading lists are all statically generated.
 
+### Adding/updating a blog posts
+
 You can add/update blog post files located in the `data\posts` folder.
 
 ### Frontmatter
