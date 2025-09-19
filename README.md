@@ -21,6 +21,7 @@ Additionally, the following services are used and configured:
 - Freshping for uptime monitor
 - Mixpanel for web analytics
 - Netlify for site previews, useful when previewing PR changes
+- ConvertKit for newsletters
 
 Addition websites not in this repo:
 
