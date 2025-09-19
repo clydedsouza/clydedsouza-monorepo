@@ -7,7 +7,7 @@ const siteMetadata = {
   description: 'Read the latest articles by Clyde, a software engineer and digital content creator.',
   language: 'en-us',
   locale: 'en-US',
-  theme: 'system',
+  theme: 'light', 
   siteUrl: `${process.env.NODE_ENV === 'production' ? 'https://blog.clydedsouza.net' : 'http://localhost:3000'}`,
   siteRepo: 'https://github.com/clydedsouza/clydedsouza-monorepo',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,

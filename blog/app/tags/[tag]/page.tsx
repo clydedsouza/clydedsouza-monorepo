@@ -1,6 +1,6 @@
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/data/static/tags.json'
+import staticTagData from 'app/data/static/tags.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import { getPaginationVariables } from 'lib/pagination'
@@ -14,11 +14,11 @@ export async function generateMetadata(props: {
   params: Promise<{ tag: string }>
 }): Promise<Metadata> {
   const params = await props.params
-  const tagInSlugFormat = decodeURI(params.tag)
-  const tag = getTagNameFromSlug(tagInSlugFormat)
+  const tagInSlugFormat = slug(params.tag)
+  const tagName = getTagNameFromSlug(tagInSlugFormat)
   return genPageMetadata({
-    title: `${tag} | Tags`,
-    description: `Articles tagged ${tag} in ${siteMetadata.title}`,
+    title: `${tagName} | Tags`,
+    description: `Articles tagged ${tagName} in ${siteMetadata.title}`,
     alternates: {
       canonical: './',
       types: {
@@ -29,16 +29,15 @@ export async function generateMetadata(props: {
 }
 
 export const generateStaticParams = async () => {
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  return tagKeys.map((tag) => ({
-    tag: encodeURI(tag),
+  const allTagsWithCount = staticTagData as Record<string, number>
+  return Object.keys(allTagsWithCount).map((tag) => ({
+    tag: slug(tag),
   }))
 }
 
 export default async function TagPage(props: { params: Promise<{ tag: string }> }) {
   const params = await props.params
-  const tagInSlugFormat = decodeURI(params.tag)
+  const tagInSlugFormat = slug(params.tag)
   const postsWithTag = allCoreContent(
     sortPosts(
       allBlogs.filter(

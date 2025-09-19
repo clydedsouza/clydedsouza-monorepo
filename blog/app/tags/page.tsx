@@ -1,6 +1,6 @@
 import Capsule from '@/components/Capsule/Capsule'
 import SectionContainer from '@/components/Layouts/SectionContainer'
-import tagData from 'app/data/static/tags.json'
+import staticTagData from 'app/data/static/tags.json'
 import { genPageMetadata } from 'lib/seo'
 
 export const metadata = genPageMetadata({
@@ -9,9 +9,8 @@ export const metadata = genPageMetadata({
 })
 
 export default async function Page() {
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort()
+  const allTagsWithCount = staticTagData as Record<string, number>
+  const sortedTags = Object.keys(allTagsWithCount).sort()
 
   return (
     <SectionContainer>
@@ -25,7 +24,7 @@ export default async function Page() {
           : sortedTags.map((tag) => {
               return (
                 <div key={tag} className="mt-2 mr-2 mb-2">
-                  <Capsule text={tag} count={tagCounts[tag]} urlPrefix="/tags/" />
+                  <Capsule text={tag} count={allTagsWithCount[tag]} urlPrefix="/tags/" />
                 </div>
               )
             })}

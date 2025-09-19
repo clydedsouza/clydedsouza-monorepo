@@ -1,6 +1,6 @@
 import Capsule from '@/components/Capsule/Capsule'
 import SectionContainer from '@/components/Layouts/SectionContainer'
-import readingListData from 'app/data/static/readingList.json'
+import staticReadingListData from 'app/data/static/readingList.json'
 import { genPageMetadata } from 'lib/seo'
 
 export const metadata = genPageMetadata({
@@ -9,10 +9,9 @@ export const metadata = genPageMetadata({
 })
 
 export default async function Page() {
-  const readingListCounts = readingListData as Record<string, number>
-  const readingListKeys = Object.keys(readingListCounts)
-  const sortedReadingList = readingListKeys.sort(
-    (a, b) => readingListCounts[b] - readingListCounts[a]
+  const allReadingListsWithCount = staticReadingListData as Record<string, number>
+  const sortedReadingLists = Object.keys(allReadingListsWithCount).sort(
+    (a, b) => allReadingListsWithCount[b] - allReadingListsWithCount[a]
   )
 
   return (
@@ -22,14 +21,14 @@ export default async function Page() {
       </h1>
 
       <div className="flex w-full flex-wrap">
-        {sortedReadingList.length === 0
-          ? 'No lists curated just yet.'
-          : sortedReadingList.map((listName) => {
+        {sortedReadingLists.length === 0
+          ? 'No reading lists curated just yet.'
+          : sortedReadingLists.map((readingList) => {
               return (
-                <div key={listName} className="mt-2 mr-2 mb-2">
+                <div key={readingList} className="mt-2 mr-2 mb-2">
                   <Capsule
-                    text={listName}
-                    count={readingListCounts[listName]}
+                    text={readingList}
+                    count={allReadingListsWithCount[readingList]}
                     urlPrefix="/lists/"
                   />
                 </div>
