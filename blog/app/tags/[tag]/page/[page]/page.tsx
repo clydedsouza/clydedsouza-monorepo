@@ -1,6 +1,6 @@
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/data/static/tags.json'
+import staticTagData from 'app/data/static/tags.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import { POSTS_PER_PAGE } from 'lib/constants'
@@ -16,11 +16,11 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const params = await props.params
   const page = params.page
-  const tagInSlugFormat = decodeURI(params.tag)
-  const tag = getTagNameFromSlug(tagInSlugFormat)
+  const tagInSlugFormat = slug(params.tag)
+  const tagName = getTagNameFromSlug(tagInSlugFormat)
   return genPageMetadata({
-    title: `${tag} | Page ${page} | Tags`,
-    description: `Articles tagged ${tag} in ${siteMetadata.title}`,
+    title: `${tagName} | Page ${page} | Tags`,
+    description: `Articles tagged ${tagName} in ${siteMetadata.title}`,
     alternates: {
       canonical: './',
       types: {
@@ -31,12 +31,12 @@ export async function generateMetadata(props: {
 }
 
 export const generateStaticParams = async () => {
-  const tagCounts = tagData as Record<string, number>
-  return Object.keys(tagCounts).flatMap((tag) => {
-    const postCount = tagCounts[tag]
-    const totalPages = Math.max(1, Math.ceil(postCount / POSTS_PER_PAGE))
+  const allTagsWithCount = staticTagData as Record<string, number>
+  return Object.keys(allTagsWithCount).flatMap((tag) => {
+    const tagCount = allTagsWithCount[tag]
+    const totalPages = Math.max(1, Math.ceil(tagCount / POSTS_PER_PAGE))
     return Array.from({ length: totalPages }, (_, i) => ({
-      tag: encodeURI(tag),
+      tag: slug(tag),
       page: (i + 1).toString(),
     }))
   })
@@ -44,8 +44,8 @@ export const generateStaticParams = async () => {
 
 export default async function TagPage(props: { params: Promise<{ tag: string; page: string }> }) {
   const params = await props.params
-  const tagInSlugFormat = decodeURI(params.tag)
   const pageNumber = parseInt(params.page)
+  const tagInSlugFormat = slug(params.tag)
   const postsWithTag = allCoreContent(
     sortPosts(
       allBlogs.filter(

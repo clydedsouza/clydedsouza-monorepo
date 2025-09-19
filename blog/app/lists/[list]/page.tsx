@@ -1,6 +1,6 @@
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/data/static/tags.json'
+import staticReadingListData from 'app/data/static/readingList.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import { getPaginationVariables } from 'lib/pagination'
@@ -14,45 +14,44 @@ export async function generateMetadata(props: {
   params: Promise<{ list: string }>
 }): Promise<Metadata> {
   const params = await props.params
-  const listNameInSlugFormat = decodeURI(params.list)
-  const listName = getListNameFromSlug(listNameInSlugFormat)
+  const readingListInSlugFormat = slug(params.list)
+  const readingListName = getListNameFromSlug(readingListInSlugFormat)
   return genPageMetadata({
-    title: `${listName} | Reading List`,
-    description: `Article in reading list ${listName} in ${siteMetadata.title}`,
+    title: `${readingListName} | Reading List`,
+    description: `Article in reading list ${readingListName} in ${siteMetadata.title}`,
     alternates: {
       canonical: './',
       types: {
-        'application/rss+xml': `${siteMetadata.siteUrl}/tags/${listNameInSlugFormat}/feed.xml`,
+        'application/rss+xml': `${siteMetadata.siteUrl}/tags/${readingListInSlugFormat}/feed.xml`,
       },
     },
   })
 }
 
 export const generateStaticParams = async () => {
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  return tagKeys.map((tag) => ({
-    list: encodeURI(tag),
+  const allReadingListsWithCount = staticReadingListData as Record<string, number>
+  return Object.keys(allReadingListsWithCount).map((readingList) => ({
+    list: slug(readingList),
   }))
 }
 
 export default async function ReadingListPage(props: { params: Promise<{ list: string }> }) {
   const params = await props.params
-  const listNameInSlugFormat = decodeURI(params.list)
+  const readingListInSlugFormat = slug(params.list)
   const postsInReadingList = allCoreContent(
     sortPosts(
       allBlogs.filter(
         (post) =>
-          post.readingList && post.readingList.map((t) => slug(t)).includes(listNameInSlugFormat)
+          post.readingList && post.readingList.map((t) => slug(t)).includes(readingListInSlugFormat)
       )
     )
   )
 
-  if (!listNameInSlugFormat || !postsInReadingList || postsInReadingList.length < 1) {
+  if (!readingListInSlugFormat || !postsInReadingList || postsInReadingList.length < 1) {
     return notFound()
   }
 
-  const listName = getListNameFromSlug(listNameInSlugFormat)
+  const readingListName = getListNameFromSlug(readingListInSlugFormat)
 
   const { initialDisplayPosts, pagination } = getPaginationVariables(postsInReadingList, 1)
 
@@ -61,7 +60,7 @@ export default async function ReadingListPage(props: { params: Promise<{ list: s
       posts={postsInReadingList}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title={listName}
+      title={readingListName}
       sidebarType="LISTS"
     />
   )

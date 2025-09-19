@@ -1,6 +1,6 @@
 import ListLayout from '@/components/Layouts/ListLayoutWithTags'
 import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/data/static/tags.json'
+import staticReadingListData from 'app/data/static/readingList.json'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import { POSTS_PER_PAGE } from 'lib/constants'
@@ -16,27 +16,27 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const params = await props.params
   const page = params.page
-  const listNameInSlugFormat = decodeURI(params.list)
-  const listName = getListNameFromSlug(listNameInSlugFormat)
+  const readingListInSlugFormat = slug(params.list)
+  const readingListName = getListNameFromSlug(readingListInSlugFormat)
   return genPageMetadata({
-    title: `${listName} | Page ${page} | Reading List`,
-    description: `${listName} reading list in ${siteMetadata.title}`,
+    title: `${readingListName} | Page ${page} | Reading List`,
+    description: `${readingListName} reading list in ${siteMetadata.title}`,
     alternates: {
       canonical: './',
       types: {
-        'application/rss+xml': `${siteMetadata.siteUrl}/lists/${listNameInSlugFormat}/feed.xml`,
+        'application/rss+xml': `${siteMetadata.siteUrl}/lists/${readingListInSlugFormat}/feed.xml`,
       },
     },
   })
 }
 
 export const generateStaticParams = async () => {
-  const tagCounts = tagData as Record<string, number>
-  return Object.keys(tagCounts).flatMap((tag) => {
-    const postCount = tagCounts[tag]
-    const totalPages = Math.max(1, Math.ceil(postCount / POSTS_PER_PAGE))
+  const allReadingListsWithCount = staticReadingListData as Record<string, number>
+  return Object.keys(allReadingListsWithCount).flatMap((readingList) => {
+    const readingListCount = allReadingListsWithCount[readingList]
+    const totalPages = Math.max(1, Math.ceil(readingListCount / POSTS_PER_PAGE))
     return Array.from({ length: totalPages }, (_, i) => ({
-      list: encodeURI(tag),
+      list: slug(readingList),
       page: (i + 1).toString(),
     }))
   })
@@ -44,19 +44,19 @@ export const generateStaticParams = async () => {
 
 export default async function ListPage(props: { params: Promise<{ list: string; page: string }> }) {
   const params = await props.params
-  const listNameInSlugFormat = decodeURI(params.list)
   const pageNumber = parseInt(params.page)
-  const postsWithTag = allCoreContent(
+  const readingListInSlugFormat = slug(params.list)
+  const postsInReadingList = allCoreContent(
     sortPosts(
       allBlogs.filter(
         (post) =>
-          post.readingList && post.readingList.map((t) => slug(t)).includes(listNameInSlugFormat)
+          post.readingList && post.readingList.map((t) => slug(t)).includes(readingListInSlugFormat)
       )
     )
   )
 
   const { initialDisplayPosts, pagination, totalPages } = getPaginationVariables(
-    postsWithTag,
+    postsInReadingList,
     pageNumber
   )
 
@@ -64,20 +64,20 @@ export default async function ListPage(props: { params: Promise<{ list: string; 
     pageNumber <= 0 ||
     pageNumber > totalPages ||
     isNaN(pageNumber) ||
-    !postsWithTag ||
-    postsWithTag.length < 1
+    !postsInReadingList ||
+    postsInReadingList.length < 1
   ) {
     return notFound()
   }
 
-  const listName = getListNameFromSlug(listNameInSlugFormat)
+  const readingListName = getListNameFromSlug(readingListInSlugFormat)
 
   return (
     <ListLayout
-      posts={postsWithTag}
+      posts={postsInReadingList}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title={listName}
+      title={readingListName}
       sidebarType="LISTS"
     />
   )
