@@ -1,6 +1,6 @@
 # clydedsouza-monorepo
 
-![All websites monitoring status by Instatus - Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fclydedsouza.instatus.com%2Fsummary.json&query=%24.page.status&label=All%20websites%20monitoring%20status%20-%20Instatus&color=009688)
+[![All websites monitoring status by Instatus - Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fclydedsouza.instatus.com%2Fsummary.json&query=%24.page.status&label=All%20websites%20monitoring%20status%20-%20Instatus&color=009688)](https://clydedsouza.instatus.com/)
 
 This monorepo contains source code for the following websites:
 
