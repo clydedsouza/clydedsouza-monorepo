@@ -22,7 +22,7 @@ on:
 jobs:
   build_deploy_newsletter_worker_pull_request:
     name: Build and deploy newsletter worker (PR only)
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     environment:
       name: newsletter
     if: |
@@ -39,12 +39,18 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: "serverless/newsletter"
           command: deploy --dry-run
+          secrets: |
+            CONVERTKIT_API_KEY
+            CONVERTKIT_FORM_ID
+        env:
+          CONVERTKIT_API_KEY: ${{ secrets.CONVERTKIT_API_KEY }}
+          CONVERTKIT_FORM_ID: ${{ secrets.CONVERTKIT_FORM_ID }}
 
   build_deploy_newsletter_worker:
     name: Build and deploy newsletter worker
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     environment:
-      name: newsletter 
+      name: newsletter
     if: |
       success() &&
       github.ref == 'refs/heads/main'
@@ -58,5 +64,9 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: "serverless/newsletter"
-
-          
+          secrets: |
+            CONVERTKIT_API_KEY
+            CONVERTKIT_FORM_ID
+        env:
+          CONVERTKIT_API_KEY: ${{ secrets.CONVERTKIT_API_KEY }}
+          CONVERTKIT_FORM_ID: ${{ secrets.CONVERTKIT_FORM_ID }}
