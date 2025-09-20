@@ -8,13 +8,15 @@ on:
       - "web/**"
       - "api/**"
       - "blog/**"
+      - "serverless/**"
   pull_request:
     branches:
       - main
     paths-ignore:
-      - "web/**"
+      - "website/**"
       - "api/**"
       - "blog/**"
+      - "serverless/**"
 
 jobs:
   build_images:

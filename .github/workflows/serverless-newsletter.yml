@@ -1,0 +1,62 @@
+name: Build & deploy newsletter worker
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "website/**"
+      - "api/**"
+      - "blog/**"
+      - "images/**"
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "website/**"
+      - "api/**"
+      - "blog/**"
+      - "images/**"
+  workflow_dispatch:
+
+jobs:
+  build_deploy_newsletter_worker_pull_request:
+    name: Build and deploy newsletter worker (PR only)
+    runs-on: ubuntu-latest 
+    environment:
+      name: newsletter
+    if: |
+      success() &&
+      github.event_name == 'pull_request'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build & deploy newsletter worker (dry run)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: "serverless/newsletter"
+          command: deploy --dry-run
+
+  build_deploy_newsletter_worker:
+    name: Build and deploy newsletter worker
+    runs-on: ubuntu-latest 
+    environment:
+      name: newsletter 
+    if: |
+      success() &&
+      github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build & deploy newsletter worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: "serverless/newsletter"
+
+          
