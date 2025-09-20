@@ -35,6 +35,7 @@ jobs:
       - name: Build & deploy newsletter worker (dry run)
         uses: cloudflare/wrangler-action@v3.14.1
         with:
+          wranglerVersion: "4.38.0"
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: "serverless/newsletter"
@@ -61,6 +62,7 @@ jobs:
       - name: Build & deploy newsletter worker
         uses: cloudflare/wrangler-action@v3.14.1
         with:
+          wranglerVersion: "4.38.0"
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: "serverless/newsletter"
