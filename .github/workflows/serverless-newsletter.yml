@@ -4,19 +4,13 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - "website/**"
-      - "api/**"
-      - "blog/**"
-      - "images/**"
+    paths:
+      - "serverless/**"
   pull_request:
     branches:
       - main
-    paths-ignore:
-      - "website/**"
-      - "api/**"
-      - "blog/**"
-      - "images/**"
+    paths:
+      - "serverless/**"
   workflow_dispatch:
 
 jobs:
