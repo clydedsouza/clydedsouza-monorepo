@@ -3,10 +3,10 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"deploy": "wrangler deploy",
+		"deploy": "wrangler deploy --name=newsletter-dev",
 		"dev": "wrangler dev",
-		"start": "wrangler dev", 
-		"cf-typegen": "wrangler types"
+		"start": "npm run generate-types && wrangler dev",
+		"generate-types": "wrangler types"
 	},
 	"devDependencies": {
 		"typescript": "^5.5.2",

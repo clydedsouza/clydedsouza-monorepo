@@ -13,7 +13,7 @@ Each folder has a README that has documentation on how to set up and run the fol
 
 Additionally, the following services are used and configured:
 
-- Cloudflare for domain, SSL and DNS
+- Cloudflare for domain, SSL, DNS, and serverless computing i.e. Workers
 - GitHub for git and GitHub Pages for website hosting
 - ZOHO for emails
 - Tawk.to for chatbot
