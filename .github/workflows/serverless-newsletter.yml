@@ -43,9 +43,11 @@ jobs:
           secrets: |
             CONVERTKIT_API_KEY
             CONVERTKIT_FORM_ID
+            CORS_ALLOW_ORIGINS
         env:
           CONVERTKIT_API_KEY: ${{ secrets.CONVERTKIT_API_KEY }}
           CONVERTKIT_FORM_ID: ${{ secrets.CONVERTKIT_FORM_ID }}
+          CORS_ALLOW_ORIGINS: ${{ secrets.CORS_ALLOW_ORIGINS }}
 
   build_deploy_newsletter_worker:
     name: Build and deploy newsletter worker
@@ -69,6 +71,8 @@ jobs:
           secrets: |
             CONVERTKIT_API_KEY
             CONVERTKIT_FORM_ID
+            CORS_ALLOW_ORIGINS
         env:
           CONVERTKIT_API_KEY: ${{ secrets.CONVERTKIT_API_KEY }}
           CONVERTKIT_FORM_ID: ${{ secrets.CONVERTKIT_FORM_ID }}
+          CORS_ALLOW_ORIGINS: ${{ secrets.CORS_ALLOW_ORIGINS }}
