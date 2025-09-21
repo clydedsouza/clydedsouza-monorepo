@@ -40,10 +40,6 @@
         width: 28px;
       }
 
-      &.medium-svg {
-        width: 30px;
-      }
-
       @include for-tablets-down {
         margin: 0 3vw;
       }

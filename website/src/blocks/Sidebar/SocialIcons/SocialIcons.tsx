@@ -5,7 +5,6 @@ import { AnalyticsLinkType } from "@/api/IAnalytics";
 import Envelope from "../../Icons/Envelope";
 import GitHub from "../../Icons/GitHub";
 import LinkedIn from "../../Icons/LinkedIn";
-import Medium from "../../Icons/Medium";
 import Twitter from "../../Icons/Twitter";
 import YouTube from "../../Icons/YouTube";
 import "./SocialIcons.scss";
@@ -14,7 +13,6 @@ const LINKEDIN_PROFILE = "https://linkedin.com/in/clydedz/";
 const TWITTER_PROFILE = "https://twitter.com/clydedz";
 const YOUTUBE_PROFILE = "https://www.youtube.com/@clydedz";
 const GITHUB_PROFILE = "https://github.com/ClydeDz/";
-const MEDIUM_PROFILE = "https://medium.com/@clydedz";
 const EMAIL_ADDRESS = "mailto:clyde@clydedsouza.net";
 
 function SocialIcons() {
@@ -78,21 +76,6 @@ function SocialIcons() {
           }
         >
           <GitHub />
-        </a>
-      </span>
-      <span>
-        <a
-          href={MEDIUM_PROFILE}
-          target="_blank"
-          rel="noreferrer"
-          onClick={() =>
-            sendLinkClickedEvent({
-              link: MEDIUM_PROFILE,
-              type: AnalyticsLinkType.SocialIcons,
-            })
-          }
-        >
-          <Medium />
         </a>
       </span>
       <span>

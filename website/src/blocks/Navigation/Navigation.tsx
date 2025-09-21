@@ -51,6 +51,13 @@ function Navigation() {
         >
           {PageTypes.Platforms}
         </Link>
+        <Link
+          href={"https://blog.clydedsouza.net"}
+          target="_blank"
+          onClick={() => sendNavigationClickedEvent(PageTypes.Blog)}
+        >
+          {PageTypes.Blog}
+        </Link>
       </nav>
     </>
   );

@@ -21,6 +21,12 @@ exports[`Navigation should render navigation 1`] = `
     >
       Platforms
     </a>
+    <a
+      href="https://blog.clydedsouza.net"
+      target="_blank"
+    >
+      Blog
+    </a>
   </nav>
 </div>
 `;

@@ -110,23 +110,6 @@ exports[`Layout should layout page 1`] = `
           </span>
           <span>
             <a
-              href="https://medium.com/@clydedz"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <svg
-                class="medium-svg"
-                viewBox="0 0 640 512"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M180.5,74.262C80.813,74.262,0,155.633,0,256S80.819,437.738,180.5,437.738,361,356.373,361,256,280.191,74.262,180.5,74.262Zm288.25,10.646c-49.845,0-90.245,76.619-90.245,171.095s40.406,171.1,90.251,171.1,90.251-76.619,90.251-171.1H559C559,161.5,518.6,84.908,468.752,84.908Zm139.506,17.821c-17.526,0-31.735,68.628-31.735,153.274s14.2,153.274,31.735,153.274S640,340.631,640,256C640,171.351,625.785,102.729,608.258,102.729Z"
-                />
-              </svg>
-            </a>
-          </span>
-          <span>
-            <a
               href="mailto:clyde@clydedsouza.net?Subject=Hi%20Clyde%21&Body=Hi%20Clyde,%20%0D%0DI%20wanted%20to%20get%20in%20touch%20with%20you.%0D%0DThanks,%20%0D%0DSent%20from%20https%3A%2F%2Fclydedsouza.net"
               rel="noreferrer"
               target="_blank"
@@ -176,6 +159,12 @@ exports[`Layout should layout page 1`] = `
           >
             Platforms
           </a>
+          <a
+            href="https://blog.clydedsouza.net"
+            target="_blank"
+          >
+            Blog
+          </a>
         </nav>
         Body of the website
         <footer>
@@ -204,7 +193,7 @@ exports[`Layout should layout page 1`] = `
       <script
         type="application/ld+json"
       >
-        {"@context":"http://schema.org","@type":"Person","givenName":"Clyde D'Souza","gender":"Male","email":"clyde@clydedsouza.net","image":"https://files.clydedsouza.net/site/clydedsouza.jpg","alumniOf":"AUT University","worksFor":"Xero","jobTitle":"Software Engineer","birthPlace":"Mumbai, India","contactPoint":{"@type":"PostalAddress","name":"Clyde D'Souza","email":"clyde@clydedsouza.net","url":"https://clydedsouza.net"},"name":"Clyde D'Souza","url":"https://clydedsouza.net","sameAs":["https://linkedin.com/in/clydedz/","https://twitter.com/clydedz","https://github.com/ClydeDz/","https://www.youtube.com/@clydedz","https://medium.com/@clydedz","https://www.skillshare.com/r/user/clydedsouza","https://stackoverflow.com/users/11480716/clyde-dsouza","https://www.goodreads.com/clydedz","https://ko-fi.com/clydedsouza","https://www.twitch.tv/clydedsouzatv","https://www.facebook.com/ClydeDz/"],"address":{"@type":"PostalAddress","addressLocality":"Auckland CBD","addressRegion":"Auckland","addressCountry":"New Zealand"},"subjectOf":[{"@type":"CreativeWork","about":"Mama, Tell Me a Story: A Collection of Short Bedtime Stories","thumbnailUrl":"https://files.clydedsouza.net/portfolio/mama-tell-me-a-story.png","sameAs":["https://www.amazon.com/dp/B0819H55PD/ref=cm_sw_su_dp","https://play.google.com/store/books/details?id=M229DwAAQBAJ","https://magicblox.com/books/2699-mama-tell-me-a-story-a-collection-of-short-bedtime-stories#.X46IEtAzbtR","https://www.kobo.com/us/en/ebook/mama-tell-me-a-story","https://leanpub.com/mama-tell-me-a-story","https://www.barnesandnoble.com/w/mama-tell-me-a-story-clyde-dsouza/1135265538?ean=2940163107247","https://gumroad.com/l/mtmas","https://www.goodreads.com/book/show/48756914-mama-tell-me-a-story","https://www.instagram.com/mamatellmeastorybook/"]},{"@type":"CreativeWork","about":"AI, Tell Me a Story: A Collection of Short Bedtime Stories","thumbnailUrl":"https://files.clydedsouza.net/portfolio/aitellmeastory.png","sameAs":["https://www.amazon.com/AI-Tell-Me-Story-Collection-ebook/dp/B0C3CYTWCG/","https://www.goodreads.com/book/show/139478926-ai-tell-me-a-story","https://www.instagram.com/aitellmeastory/"]}]}
+        {"@context":"http://schema.org","@type":"Person","givenName":"Clyde D'Souza","gender":"Male","email":"clyde@clydedsouza.net","image":"https://files.clydedsouza.net/site/clydedsouza.jpg","alumniOf":"AUT University","worksFor":"Xero","jobTitle":"Software Engineer","birthPlace":"Mumbai, India","contactPoint":{"@type":"PostalAddress","name":"Clyde D'Souza","email":"clyde@clydedsouza.net","url":"https://clydedsouza.net"},"name":"Clyde D'Souza","url":"https://clydedsouza.net","sameAs":["https://linkedin.com/in/clydedz/","https://twitter.com/clydedz","https://github.com/ClydeDz/","https://www.youtube.com/@clydedz","https://www.skillshare.com/r/user/clydedsouza","https://stackoverflow.com/users/11480716/clyde-dsouza","https://www.goodreads.com/clydedz","https://ko-fi.com/clydedsouza","https://www.twitch.tv/clydedsouzatv","https://www.facebook.com/ClydeDz/","https://blog.clydedsouza.net"],"address":{"@type":"PostalAddress","addressLocality":"Auckland CBD","addressRegion":"Auckland","addressCountry":"New Zealand"},"subjectOf":[{"@type":"CreativeWork","about":"Mama, Tell Me a Story: A Collection of Short Bedtime Stories","thumbnailUrl":"https://files.clydedsouza.net/portfolio/mama-tell-me-a-story.png","sameAs":["https://www.amazon.com/dp/B0819H55PD/ref=cm_sw_su_dp","https://play.google.com/store/books/details?id=M229DwAAQBAJ","https://magicblox.com/books/2699-mama-tell-me-a-story-a-collection-of-short-bedtime-stories#.X46IEtAzbtR","https://www.kobo.com/us/en/ebook/mama-tell-me-a-story","https://leanpub.com/mama-tell-me-a-story","https://www.barnesandnoble.com/w/mama-tell-me-a-story-clyde-dsouza/1135265538?ean=2940163107247","https://gumroad.com/l/mtmas","https://www.goodreads.com/book/show/48756914-mama-tell-me-a-story","https://www.instagram.com/mamatellmeastorybook/"]},{"@type":"CreativeWork","about":"AI, Tell Me a Story: A Collection of Short Bedtime Stories","thumbnailUrl":"https://files.clydedsouza.net/portfolio/aitellmeastory.png","sameAs":["https://www.amazon.com/AI-Tell-Me-Story-Collection-ebook/dp/B0C3CYTWCG/","https://www.goodreads.com/book/show/139478926-ai-tell-me-a-story","https://www.instagram.com/aitellmeastory/"]}]}
       </script>
     </body>
   </html>
