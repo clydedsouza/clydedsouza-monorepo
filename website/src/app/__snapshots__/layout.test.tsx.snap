@@ -12,16 +12,6 @@ exports[`Layout should layout page 1`] = `
         title="Sitemap"
         type="application/xml"
       />
-      <script
-        charset="UTF-8"
-        crossorigin="*"
-        src="https://embed.tawk.to/5f8abef7f91e4b431ec53ec7/default"
-      />
-      <script
-        async=""
-        crossorigin="anonymous"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666761687967451"
-      />
     </head>
     <body>
       <div
@@ -195,6 +185,11 @@ exports[`Layout should layout page 1`] = `
           </p>
         </footer>
       </main>
+      <script
+        charset="UTF-8"
+        crossorigin="*"
+        src="https://embed.tawk.to/5f8abef7f91e4b431ec53ec7/default"
+      />
       <script
         type="application/ld+json"
       >
