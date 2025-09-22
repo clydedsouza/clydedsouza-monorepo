@@ -26,6 +26,11 @@ export default function RootLayout({
           title="Sitemap"
           href="https://clydedsouza.net/sitemap.xml"
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666761687967451"
+          crossOrigin="anonymous"
+        ></script>
       </head>
       <body suppressHydrationWarning={true}>
         <RegisterAnalytics />
