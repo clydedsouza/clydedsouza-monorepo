@@ -108,12 +108,12 @@ function Bio() {
       <p>
         In my spare time, I like to explore other interests like{" "}
         <a
-          href="https://medium.com/@clydedz"
+          href="https://blog.clydedsouza.net"
           rel="noreferrer"
           target="_blank"
           onClick={() =>
             sendLinkClickedEvent({
-              link: "https://medium.com/@clydedz",
+              link: "https://blog.clydedsouza.net",
               type: AnalyticsLinkType.GeneralWebsite,
             })
           }

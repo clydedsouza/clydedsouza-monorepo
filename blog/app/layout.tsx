@@ -11,6 +11,7 @@ import { Inter } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchConfig, SearchProvider } from 'pliny/search'
 import { ThemeProviders } from '../lib/theme-providers'
+import { GoogleAdSense } from 'next-google-adsense'
 
 const interGoogleFont = Inter({
   subsets: ['latin'],
@@ -96,11 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#10984d" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666761687967451"
-          crossOrigin="anonymous"
-        ></script>
+        <GoogleAdSense publisherId="pub-4666761687967451" />
         <RegisterAnalytics />
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
