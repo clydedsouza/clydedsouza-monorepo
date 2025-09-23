@@ -183,6 +183,29 @@ exports[`Layout should layout page 1`] = `
           <p>
             Website crafted by Clyde DSouza
           </p>
+          <div
+            class="google-advt"
+          >
+            <div
+              class="advt-border"
+            >
+              <div>
+                <ins
+                  class="adsbygoogle"
+                  data-ad-client="ca-pub-4666761687967451"
+                  data-ad-format="auto"
+                  data-ad-slot="9934890562"
+                  data-full-width-responsive="true"
+                  style="display: block;"
+                />
+              </div>
+            </div>
+            <div
+              class="subtle-text"
+            >
+              Google ad
+            </div>
+          </div>
         </footer>
       </main>
       <script
@@ -197,5 +220,12 @@ exports[`Layout should layout page 1`] = `
       </script>
     </body>
   </html>
+  <script
+    async="true"
+    crossorigin="anonymous"
+    data-nscript="afterInteractive"
+    id="next-google-adsense"
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4666761687967451"
+  />
 </body>
 `;

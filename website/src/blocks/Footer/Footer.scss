@@ -5,6 +5,21 @@ footer {
   padding: 9px 0 18px 0;
   text-align: center;
 
+  .google-advt {
+    height: inherit;
+    max-height: 200px !important;
+  }
+
+  .advt-border {
+    border: 1px solid purple;
+  }
+
+  .subtle-text {
+    font-size: x-small;
+    color: gray;
+    text-align: right;
+  }
+
   a {
     color: $text-color !important;
     text-decoration: none;

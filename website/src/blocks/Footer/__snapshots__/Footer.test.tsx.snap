@@ -18,6 +18,18 @@ exports[`Footer should render footer 1`] = `
     <p>
       Website crafted by Clyde DSouza
     </p>
+    <div
+      class="google-advt"
+    >
+      <div
+        class="advt-border"
+      />
+      <div
+        class="subtle-text"
+      >
+        Google ad
+      </div>
+    </div>
   </footer>
 </div>
 `;

@@ -7,6 +7,7 @@ import { Viewport } from "next";
 import { Chatbot } from "../blocks/Chatbot/Chatbot";
 import "./globals.scss";
 import "./layout.scss";
+import { GoogleAdSense } from "next-google-adsense";
 
 export const viewport: Viewport = {
   themeColor: "#009688",
@@ -28,6 +29,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning={true}>
+        <GoogleAdSense publisherId="pub-4666761687967451" />
         <RegisterAnalytics />
         <Sidebar />
         <main>
