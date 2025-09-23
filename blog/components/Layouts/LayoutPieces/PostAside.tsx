@@ -102,10 +102,10 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
         </div>
       )}
 
-      <div className="my-6 grid grid-cols-2 items-start gap-x-8 xl:grid-cols-1 xl:gap-y-4">
+      <div className="my-2 grid grid-cols-2 items-start gap-x-8 xl:grid-cols-1 xl:gap-y-4">
         <div className="text-sm font-medium">
           {tags && tags.length > 0 && (
-            <div>
+            <>
               <h2 className="text-xs font-bold tracking-wide text-gray-800 uppercase dark:text-gray-400">
                 Tags
               </h2>
@@ -114,12 +114,12 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
                   <Capsule key={tag} text={tag} urlPrefix="/tags/" />
                 ))}
               </div>
-            </div>
+            </>
           )}
         </div>
-        <div className="text-sm font-medium">
+        <div className="my-2 text-sm font-medium">
           {readingList && readingList.length > 0 && (
-            <div>
+            <>
               <h2 className="text-xs font-bold tracking-wide text-gray-800 uppercase dark:text-gray-400">
                 Reading list
               </h2>
@@ -128,7 +128,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
                   <Capsule key={listItem} text={listItem} urlPrefix="/lists/" />
                 ))}
               </div>
-            </div>
+            </>
           )}
         </div>
       </div>
