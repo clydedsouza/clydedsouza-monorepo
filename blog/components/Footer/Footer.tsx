@@ -1,10 +1,14 @@
 import SocialIcon from '@/components/social-icons'
 import siteMetadata from '@/data/siteMetadata'
 import Link from '../CustomLink/Link'
+import { GoogleAds } from '../GoogleAds/GoogleAds'
 
 export default function Footer() {
   return (
     <footer>
+      <div className="mx-6 my-2">
+        <GoogleAds adLayout="Responsive" />
+      </div>
       <div className="mt-6 flex flex-col items-center">
         <div className="mb-3 flex space-x-4">
           <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />

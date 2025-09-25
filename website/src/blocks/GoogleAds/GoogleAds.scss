@@ -1,0 +1,15 @@
+.google-ads {
+  height: inherit;
+  max-height: 200px !important;
+
+  & > .google-ads-container-dev {
+    border: 1px solid purple;
+  }
+
+  & > .text-faint {
+    font-size: smaller;
+    color: gray;
+    text-align: left;
+    margin-top: 6px;
+  }
+}

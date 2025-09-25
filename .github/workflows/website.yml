@@ -59,6 +59,7 @@ jobs:
         env:
           NEXT_PUBLIC_MIXPANEL_TOKEN: ${{ secrets.NEXT_PUBLIC_MIXPANEL_TOKEN }}
           NEXT_PUBLIC_TAWKTO_CHATBOT_PROPERTY_ID: ${{ secrets.NEXT_PUBLIC_TAWKTO_CHATBOT_PROPERTY_ID }}
+          NEXT_PUBLIC_ADSENSE_PUBLISHER_ID: ${{ secrets.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID }}
 
       - name: Generate sitemap file
         run: npm run sitemap

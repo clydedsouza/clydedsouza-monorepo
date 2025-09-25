@@ -4,32 +4,20 @@ exports[`Footer should render footer 1`] = `
 <div>
   <footer>
     <div
-      class="cta"
-      data-location="footer"
-    >
-      <a
-        href="https://aitellmeastory.clydedsouza.net"
-        rel="noreferrer"
-        target="_blank"
-      >
-        Purchase my book AI, Tell Me a Story from these platforms.
-      </a>
-    </div>
-    <p>
-      Website crafted by Clyde DSouza
-    </p>
-    <div
-      class="google-advt"
+      class="google-ads"
     >
       <div
-        class="advt-border"
+        class="google-ads-container-dev"
       />
       <div
-        class="subtle-text"
+        class="text-faint"
       >
         Google ad
       </div>
     </div>
+    <p>
+      Website crafted by Clyde D'Souza
+    </p>
   </footer>
 </div>
 `;

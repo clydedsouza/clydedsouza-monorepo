@@ -1,10 +1,6 @@
 import * as apiCacheModule from "@/api/Cache";
 import { emptyProject } from "@/test-util/emptyProject";
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Footer from "./Footer";
 
 jest.mock("../../api/Cache");
@@ -32,7 +28,6 @@ describe("Footer", () => {
 
   it("should render footer", async () => {
     const { container } = render(<Footer />);
-    await waitForElementToBeRemoved(() => screen.queryByRole("progressbar"));
     expect(container).toMatchSnapshot();
   });
 });
