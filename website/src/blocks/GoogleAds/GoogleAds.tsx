@@ -1,15 +1,20 @@
+"use client";
+
 import { AdUnit } from "next-google-adsense";
-import "./GoogleAds.scss";
 import { usePathname } from "next/navigation";
+import "./GoogleAds.scss";
 
 export const GoogleAds = () => {
-  const path = usePathname();
   const isProduction = process.env.NODE_ENV === "production";
   const optionalAttributes = isProduction
     ? {}
     : { className: "google-ads-container-dev" };
+
+  const path = usePathname();
+  const keyAttributes = isProduction ? { key: path.toString() } : {};
+
   return (
-    <div className="google-ads" key={path.toString()}>
+    <div className="google-ads" {...keyAttributes}>
       <div {...optionalAttributes}>
         <AdUnit slotId="7735157113" layout="in-article" />
       </div>
