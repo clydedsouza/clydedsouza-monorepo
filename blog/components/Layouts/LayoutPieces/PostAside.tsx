@@ -2,13 +2,13 @@
 import Capsule from '@/components/Capsule/Capsule'
 import { CustomAd } from '@/components/CustomAd/CustomAd'
 import Image from '@/components/CustomImage/Image'
-import VerticalAd from '@/components/GoogleAds/VerticalAd'
 import { NewsletterSignupForm } from '@/components/Newsletter/NewsletterSignupForm'
 
 import { RecommendedPost } from '@/components/PostItems/RecommendedPost'
 import { SocialShare } from '@/components/SocialShare/SocialShare'
 import Link from 'next/link'
 import { LayoutProps } from '../types/types'
+import { GoogleAds } from '@/components/GoogleAds/GoogleAds'
 
 export const PostAside = ({ content, authorDetails, next, prev, children }: LayoutProps) => {
   const { tags, readingList, title, subtitle } = content
@@ -98,7 +98,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
 
       {isGoogleAdsEnabled && (
         <div className="grid grid-cols-1 items-start">
-          <VerticalAd adSlot="xyz" />
+          <GoogleAds />
         </div>
       )}
 

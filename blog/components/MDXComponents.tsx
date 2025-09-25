@@ -9,8 +9,7 @@ import { InlineImage } from './InlineImage/InlineImage'
 import TableWrapper from './TableWrapper/TableWrapper'
 import Twitter from './Twittter/Twitter'
 import YouTube from './YouTube/YouTube'
-import InArticleAd from './GoogleAds/InArticleAd'
-import VerticalAd from './GoogleAds/VerticalAd'
+import { GoogleAds } from './GoogleAds/GoogleAds'
 
 export const components: MDXComponents = {
   Image,
@@ -23,6 +22,5 @@ export const components: MDXComponents = {
   YouTube,
   Twitter,
   CustomAd,
-  InArticleAd,
-  VerticalAd,
+  GoogleAds,
 }
