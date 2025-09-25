@@ -7,7 +7,7 @@ function Footer() {
     <>
       <footer>
         <GoogleAds />
-        <p>Website crafted by Clyde D'Souza</p>
+        <p>Website crafted by Clyde D&#39;Souza</p>
       </footer>
     </>
   );
