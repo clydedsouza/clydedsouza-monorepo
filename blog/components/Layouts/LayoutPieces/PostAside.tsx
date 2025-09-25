@@ -160,7 +160,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
         )}
       </div>
 
-      <div className="hidden xl:block">
+      <div className="mt-2 hidden xl:block">
         <CustomAd isRandom={true} />
       </div>
 
