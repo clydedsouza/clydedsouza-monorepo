@@ -159,6 +159,20 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
           </>
         )}
       </div>
+
+      <div className="mt-2 hidden xl:block">
+        <CustomAd isRandom={true} />
+      </div>
+
+      {isGoogleAdsEnabled && (
+        <div className="grid hidden grid-cols-1 items-start xl:block">
+          <GoogleAds />
+        </div>
+      )}
+
+      <div className="hidden xl:block">
+        <CustomAd isRandom={true} />
+      </div>
     </aside>
   )
 }

@@ -100,7 +100,9 @@ For the publish to GitHub step, we'll need to supply it with `${{ secrets.GITHUB
 
 ### Running the GitHub Action
 
-Now that we're done writing the GitHub Action workflow file, it's time to run it and see the magic happen. You can do this simply by pushing a new change to your GitHub repository, something small like even bumping the version in the package.json file, and this will trigger the GitHub Action.
+Now that we're done writing the GitHub Action workflow file, it's time to run it and see the magic happen. You can do this simply by pushing a new change to your GitHub repository, something small like even bumping the version in the `package.json` file, and this will trigger the GitHub Action.
+
+<GoogleAds adLayout="Responsive" />
 
 But wait, if we take a look at the logs, we see that while the publishing to npm step has succeeded, the publish to GitHub step has failed. Why is that?
 

@@ -8,9 +8,11 @@ interface IGoogleAds {
 }
 
 export const GoogleAds = ({ adLayout = 'Square' }: IGoogleAds) => {
-  const path = usePathname()
   const isProduction = process.env.NODE_ENV === 'production'
   const optionalAttributes = isProduction ? {} : { className: 'border-2 border-indigo-500' }
+
+  const path = usePathname()
+  const keyAttributes = isProduction ? { key: path.toString() } : {}
 
   const containerWidth = adLayout === 'Square' ? 'w-[302px]' : 'w-full'
 
@@ -22,7 +24,7 @@ export const GoogleAds = ({ adLayout = 'Square' }: IGoogleAds) => {
     )
 
   return (
-    <div className="flex justify-center" key={path.toString()}>
+    <div className="flex justify-center" {...keyAttributes}>
       <div className={`my-4 ${containerWidth}`}>
         <div {...optionalAttributes}>{advt}</div>
         <div className="mx-auto px-0 py-1 text-right text-xs font-medium text-black/50 no-underline">
