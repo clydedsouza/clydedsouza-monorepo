@@ -169,43 +169,31 @@ exports[`Layout should layout page 1`] = `
         Body of the website
         <footer>
           <div
-            class="cta"
-            data-location="footer"
-          >
-            <a
-              href="https://test.com"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Amazing alloy
-            </a>
-          </div>
-          <p>
-            Website crafted by Clyde DSouza
-          </p>
-          <div
-            class="google-advt"
+            class="google-ads"
           >
             <div
-              class="advt-border"
+              class="google-ads-container-dev"
             >
               <div>
                 <ins
                   class="adsbygoogle"
                   data-ad-client="ca-pub-4666761687967451"
-                  data-ad-format="auto"
-                  data-ad-slot="9934890562"
-                  data-full-width-responsive="true"
-                  style="display: block;"
+                  data-ad-format="fluid"
+                  data-ad-layout="in-article"
+                  data-ad-slot="7735157113"
+                  style="display: block; text-align: center;"
                 />
               </div>
             </div>
             <div
-              class="subtle-text"
+              class="text-faint"
             >
               Google ad
             </div>
           </div>
+          <p>
+            Website crafted by Clyde D'Souza
+          </p>
         </footer>
       </main>
       <script

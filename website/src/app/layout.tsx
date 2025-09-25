@@ -29,7 +29,7 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning={true}>
-        <GoogleAdSense publisherId="pub-4666761687967451" />
+        <GoogleAdSense />
         <RegisterAnalytics />
         <Sidebar />
         <main>
