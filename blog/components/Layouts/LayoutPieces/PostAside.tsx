@@ -98,7 +98,7 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
 
       {isGoogleAdsEnabled && (
         <div className="grid grid-cols-1 items-start">
-          <GoogleAds />
+          <GoogleAds key={'alwaysDisplayedAd'} />
         </div>
       )}
 
@@ -164,11 +164,11 @@ export const PostAside = ({ content, authorDetails, next, prev, children }: Layo
         <CustomAd isRandom={true} />
       </div>
 
-      {/* {isGoogleAdsEnabled && (
+      {isGoogleAdsEnabled && (
         <div className="grid hidden w-[302px] grid-cols-1 items-start xl:block">
-          <GoogleAds key={'optionalAd'} />
+          <GoogleAds key={'desktopOnlyAd'} />
         </div>
-      )} */}
+      )}
 
       <div className="hidden xl:block">
         <CustomAd isRandom={true} />
