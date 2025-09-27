@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { formatDate } from 'pliny/utils/formatDate'
+
 export const FeaturedPost = ({ posts }: { posts: CoreContent<Blog>[] }) => {
   const post = posts[0]
 
@@ -18,7 +19,7 @@ export const FeaturedPost = ({ posts }: { posts: CoreContent<Blog>[] }) => {
         <div className="flex flex-col lg:flex-row">
           <div className="w-full md:w-full lg:w-1/2">
             <div className="relative aspect-[16/9] w-full">
-              <Image fill alt={''} src={post.images[0]} priority={true} />
+              <Image alt={''} src={post.images[0]} priority={true} objectFit="cover" fill />
             </div>
           </div>
           <div className="my-4 w-full md:w-full lg:m-4 lg:w-1/2">
