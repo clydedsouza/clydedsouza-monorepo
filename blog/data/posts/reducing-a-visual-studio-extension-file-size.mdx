@@ -95,6 +95,8 @@ The resultant VSIX package size was already a great improvement — down to 19.8
 
 ![Image showing the file size of the VSIX package after the modclean process.](/static/posts/1_paEBn_EYabTvP4orgvOOPQ.png)
 
+<GoogleAds adLayout="Responsive" />
+
 #### Step 3: Removing development files
 
 When the task runs in the Azure Pipeline, it executes the `run()` method in the `index.js` file. The [execution code block](https://github.com/ClydeDz/meta-tag-analyzer/blob/master/Src/buildAndReleaseTask/task.json#L34-L38) in the task.json file tells the pipeline to do so. This means, that we don't really require the TypeScript files in the final package.

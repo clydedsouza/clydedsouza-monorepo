@@ -62,6 +62,8 @@ I can also rule out building a Docker container action because I don't need to b
 
 Therefore, this leaves me with creating a composite action. It's just like a normal workflow file with a bunch of steps and one of those steps will need to execute the CLI. So, let's go with that.
 
+<GoogleAds adLayout="Responsive" />
+
 ### Creating a repository
 
 An action that is intended to be published to the GitHub marketplace must be in a public repository. Think twice about what you'd like to name this repository because that's how your action will be consumed. For instance, when using the action to checkout a repository, we'd write something like `uses: actions/checkout@v3` in our workflow file to consume this action. Here, `actions` is the organization (or username, if you're creating it in your personal account) and `checkout` is the name of the repository.
@@ -161,6 +163,8 @@ In composite actions, we always need to specify the type of shell we'd like to u
 For our scenario, our script is pretty agnostic so writing bash as the value for the shell keyword will work. However, in certain cases, you might want to be careful about the syntax of the script as that might change depending on the shell. For instance, `echo $PATH` will work in `bash` but in `pwsh` (or PowerShell Core), you'd have to type `write-output ${env:PATH}`.
 
 The second step in the YAML file above is a script to install the required image compression CLI npm package and the required image compression plugins globally.
+
+<GoogleAds adLayout="Responsive" />
 
 The third and final step is to execute the CLI tool. As per [their documentation](https://github.com/imagemin/imagemin-cli#usage), we need to call the globally available `imagemin` command and then supply the input image directory. The rest of the CLI parameters are optional but since this is a reusable Action, we have to write it out and parameterize the values. We parameterize the values using the syntax `${{ inputs.png-compression-quality }}`.
 
