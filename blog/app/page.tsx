@@ -27,7 +27,8 @@ export default async function Page() {
               className="bg-primary-500 flex items-center justify-center gap-4 rounded-full px-4 py-2 text-white transition-colors duration-200 hover:bg-slate-800 focus:bg-slate-800 sm:px-8 sm:py-2"
               aria-label="View all posts"
             >
-              View all posts
+              <span className="hidden md:block">View all posts</span>
+              <span className="block md:hidden">View all</span>
             </Link>
           </div>
         </div>
