@@ -103,6 +103,8 @@ This is better — we no longer are tightly coupling the storage functionality i
 
 Additionally, if I run the application as a standalone website, outside of Chrome's extension context, it still doesn't work because we're using the Chrome storage API directly. So, we haven't really improved the development experience just yet.
 
+<GoogleAds adLayout="Responsive" />
+
 #### Step 2: Decoupling the storage method
 
 To resolve this, let's create another file called `DevelopmentStorage.ts` that inherits the same `IStorageApi` interface, but in the implementation of the method, instead of using Chrome's storage API, we'll store the data in a local object. Since we should be able to implement different implementations of the storage interface, naming the interface to something generic like `IStorageApi` makes more sense. The full code snippet is below.

@@ -112,6 +112,8 @@ Over the 5 days, we ended up installing different types of Agents (among other t
 - The .NET Agent requires Windows Coordinator Service while a Java Agent doesn't depend on any additional service.
 - The .NET Agent is GUI based (for IIS applications) while the Java Agent is command line based.
 
+<GoogleAds adLayout="Responsive" />
+
 #### 4) License rules
 
 While working with multiple teams to implement AppDynamics, you might find yourself giving out the same access key to many. All the teams may not require to consume all types of license units. For example, the server team would only need to install a Machine Agent but may not require to consume a language specific Agent.
@@ -157,6 +159,8 @@ The solution to that is the new HA Module that installs the Controller watchdog 
 While we're on the topic, it is also worth noting how the Agent behaves when a Controller is down. If the Controller is unreachable for one minute, the Agents goes on standby during which it doesn't detect any transactions. All metrics not posted to the Controller is stored in the memory. It keeps retrying every minute and resumes function once reconnected.
 
 If this persists for more than three minutes and after three retries, the Agent is muted, all business transactions are disabled, and all metrics prior to three minutes are deleted. And after five minutes, the license is freed for another Agent to use.
+
+<GoogleAds adLayout="Responsive" />
 
 #### 8) Authentication provider fallback to local login
 

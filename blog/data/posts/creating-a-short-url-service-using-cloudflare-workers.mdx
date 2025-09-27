@@ -99,6 +99,8 @@ async function handleRequest(request) {
 }
 ```
 
+<GoogleAds adLayout="Responsive" />
+
 ### Step #5 Map the path with a static set
 
 The next step is to make it slightly more dynamic and in line with how the final storage would look like. We've added the `getRedirectURL()` method that simply gets the redirect URL based on the key supplied. In the `handleRequest()` method, we've modified a line to use the `getRedirectURL()` method.
@@ -169,6 +171,8 @@ If you try to run the application now, the Worker will work but heading over to 
 ```shell
 wrangler kv:key put --binding=SHORTURLS “twitter” “https://twitter.com/clydedz" --preview.
 ```
+
+<GoogleAds adLayout="Responsive" />
 
 ### Step #9: Retrieve values from KV storage
 
