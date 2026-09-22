@@ -136,12 +136,12 @@ function Bio() {
         </a>
         ,{" "}
         <a
-          href="https://www.skillshare.com/r/user/clydedsouza"
+          href="https://www.udemy.com/course/demystifying-markdown/?referralCode=094FC640B252651808D0"
           rel="noreferrer"
           target="_blank"
           onClick={() =>
             sendLinkClickedEvent({
-              link: "https://www.skillshare.com/r/user/clydedsouza",
+              link: "https://www.udemy.com/course/demystifying-markdown/?referralCode=094FC640B252651808D0",
               type: AnalyticsLinkType.GeneralWebsite,
             })
           }

@@ -9,8 +9,8 @@ export interface ISeo {
 export const WEBSITE_BASE_URL = "https://clydedsouza.net/";
 
 export const generateMetadata = (props: ISeo): Metadata => {
-  const titlePrefix = props.title ? `${props.title} — ` : "";
-  const title = `${titlePrefix}Clyde D'Souza — Software Engineer — Digital Content Creator`;
+  const titlePrefix = props.title ? `${props.title} – ` : "";
+  const title = `${titlePrefix}Clyde D'Souza – Software Engineer – Digital Content Creator`;
 
   const defaultDescription =
     "Clyde D'Souza is software engineer and digital content creator based in Auckland, New Zealand. Feel free to send him a tweet @ClydeDz";

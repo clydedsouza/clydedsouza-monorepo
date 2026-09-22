@@ -19,7 +19,7 @@ const highlightsDataMockResponse = [
   },
   {
     ...emptyProject,
-    id: "highlights\\20190307-developing-nuget-skillshare.pin",
+    id: "highlights\\20190307-developing-nuget-udemy.pin",
     title: "Project - Developing and distributing NuGet packages",
     date: "07 Mar 2019",
   },
@@ -52,7 +52,7 @@ describe("Highlights", () => {
           Promise.resolve({
             app: {},
             data: [highlightsDataMockResponse[0]],
-          })
+          }),
         );
     });
 
@@ -69,7 +69,7 @@ describe("Highlights", () => {
 
       expect(apiCacheModule.getCachedProjectData).toHaveBeenCalledTimes(1);
       expect(apiCacheModule.getCachedProjectData).toHaveBeenCalledWith(
-        PageTypes.Highlights
+        PageTypes.Highlights,
       );
     });
   });
@@ -82,7 +82,7 @@ describe("Highlights", () => {
           Promise.resolve({
             app: {},
             data: [...highlightsDataMockResponse],
-          })
+          }),
         );
     });
 
@@ -100,13 +100,13 @@ describe("Highlights", () => {
       const headings = screen.getAllByRole("heading", { name: /Project -/ });
 
       expect(headings[0]).toHaveTextContent(
-        highlightsDataMockResponse[4].title
+        highlightsDataMockResponse[4].title,
       );
       expect(headings[1]).toHaveTextContent(
-        highlightsDataMockResponse[3].title
+        highlightsDataMockResponse[3].title,
       );
       expect(headings[2]).toHaveTextContent(
-        highlightsDataMockResponse[2].title
+        highlightsDataMockResponse[2].title,
       );
     });
 
@@ -126,7 +126,7 @@ describe("Highlights", () => {
           Promise.resolve({
             app: {},
             data: [],
-          })
+          }),
         );
     });
 

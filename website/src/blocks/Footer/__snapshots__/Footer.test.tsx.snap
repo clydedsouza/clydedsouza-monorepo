@@ -3,18 +3,6 @@
 exports[`Footer should render footer 1`] = `
 <div>
   <footer>
-    <div
-      class="google-ads"
-    >
-      <div
-        class="google-ads-container-dev"
-      />
-      <div
-        class="text-faint"
-      >
-        Google ad
-      </div>
-    </div>
     <p>
       Website crafted by Clyde D'Souza
     </p>
