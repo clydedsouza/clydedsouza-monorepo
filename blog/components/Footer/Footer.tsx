@@ -1,6 +1,7 @@
 import SocialIcon from '@/components/social-icons'
 import siteMetadata from '@/data/siteMetadata'
 import Link from '../CustomLink/Link'
+import CurrentYear from './CurrentYear'
 import { GoogleAds } from '../GoogleAds/GoogleAds'
 
 export default function Footer() {
@@ -33,7 +34,7 @@ export default function Footer() {
             >
               {siteMetadata.author}
             </Link>{' '}
-            {new Date().getFullYear()}.
+            <CurrentYear />.
           </div>
           <div>All rights reserved.</div>
         </div>
