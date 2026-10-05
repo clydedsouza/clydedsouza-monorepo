@@ -1,3 +1,5 @@
+'use client'
+
 import { Tweet } from 'react-tweet'
 
 export default function Twitter({ tweetId }: { tweetId: string }) {
