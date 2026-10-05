@@ -32,11 +32,19 @@ Go to Fork -> Click on Configure ssh keys -> Click on Generate new SSH keys -> G
 
 ##### Public key
 
-Copy the public key from Fork to the Deploy keys page in the destination repo, i.e. the api repo https://github.com/clydedsouza/clydedsouza-web-api. Once you add the deploy keys, the GitHub UI should show the same SHA value that should match with what's in Fork.
+Copy the public key from Fork to the Deploy keys page in the destination repo, i.e. the api repo https://github.com/clydedsouza/clydedsouza-web-api.
+
+Name it `API_REPO_DEPLOY_KEY`
+
+Click on the "Allow write access" checkbox.
+
+Once you add the deploy keys, the GitHub UI should show the same SHA value that should match with what's in Fork.
 
 ##### Private key
 
-Fork should also show the location where the private key file is placed, which should on the local machine. This file begins with `-----BEGIN OPENSSH PRIVATE KEY-----` and ends with `-----END OPENSSH PRIVATE KEY-----`. Copy the contents of this file to the source repo, i.e. the monorepo https://github.com/clydedsouza/clydedsouza-monorepo. In this case, we'll add it as an Environment secret variable called `API_REPO_DEPLOY_KEY`.
+Fork should also show the location where the private key file is placed, which should on the local machine. This file begins with `-----BEGIN OPENSSH PRIVATE KEY-----` and ends with `-----END OPENSSH PRIVATE KEY-----`. Copy the contents of this file to the source repo, i.e. the monorepo https://github.com/clydedsouza/clydedsouza-monorepo.
+
+In this case, we'll add it as an Environment secret variable called `API_REPO_DEPLOY_KEY`.
 
 ##### GHA
 
